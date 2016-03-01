@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"fold_lines:ETI"RDiscount#fold_lines;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"CRedCloth compatible line folding -- not used for Markdown but ;TI" included for compatibility.;T:
+@fileI"lib/rdiscount.rb;T:0@omit_headings_from_table_of_contents_below0F@I"RDiscount;TcRDoc::NormalClass0

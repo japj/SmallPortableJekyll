@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"no_pseudo_protocols:ETI""RDiscount#no_pseudo_protocols;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I">Do not process pseudo-protocols like <tt>[](id:name)</tt>;T:
+@fileI"lib/rdiscount.rb;T:0@omit_headings_from_table_of_contents_below0F@I"RDiscount;TcRDoc::NormalClass0

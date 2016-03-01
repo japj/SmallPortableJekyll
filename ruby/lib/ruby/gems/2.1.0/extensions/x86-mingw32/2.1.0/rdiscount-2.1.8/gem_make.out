@@ -1,0 +1,650 @@
+D:/GitHub/SmallPortableJekyll/ruby/bin/ruby.exe extconf.rb
+checking for random()... no
+checking for srandom()... no
+checking for rand()... yes
+checking for srand()... yes
+checking size of unsigned long... 4
+checking size of unsigned int... 4
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+generating rdiscount-i386-mingw32.def
+compiling amalloc.c
+compiling basename.c
+compiling Csio.c
+Csio.c: In function 'Csputc':
+Csio.c:14:5: warning: operation on 'iot->size' may be undefined [-Wsequence-point]
+compiling css.c
+css.c: In function 'mkd_css':
+css.c:57:6: warning: operation on 'f.size' may be undefined [-Wsequence-point]
+compiling docheader.c
+compiling dumptree.c
+dumptree.c: In function 'Pptype':
+dumptree.c:23:22: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+dumptree.c:24:22: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+dumptree.c:25:22: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+dumptree.c:26:22: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+dumptree.c:27:22: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+dumptree.c:28:22: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+dumptree.c:29:22: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+dumptree.c:30:22: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+dumptree.c:31:22: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+dumptree.c:32:22: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+dumptree.c:33:22: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+dumptree.c:34:22: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+dumptree.c:35:22: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+dumptree.c:36:22: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+dumptree.c:37:22: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+dumptree.c: In function 'pushpfx':
+dumptree.c:44:24: warning: operation on 'sp->size' may be undefined [-Wsequence-point]
+dumptree.c: In function 'dumptree':
+dumptree.c:104:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+dumptree.c:104:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+compiling emmatch.c
+emmatch.c: In function 'emfill':
+emmatch.c:79:4: warning: operation on 'p->b_text.size' may be undefined [-Wsequence-point]
+compiling flags.c
+flags.c:10:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:11:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:12:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:13:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:14:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:15:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:16:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:17:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:18:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:19:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:20:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:21:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:22:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:23:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:24:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:25:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:26:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:27:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:28:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:29:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:30:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:31:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c:32:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+flags.c: In function 'mkd_flags_are':
+flags.c:46:17: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+compiling generate.c
+generate.c: In function 'push':
+generate.c:37:2: warning: operation on 'f->in.size' may be undefined [-Wsequence-point]
+generate.c: In function 'pushc':
+generate.c:47:5: warning: operation on 'f->in.size' may be undefined [-Wsequence-point]
+generate.c: In function 'Qchar':
+generate.c:134:9: warning: operation on 'f->Q.size' may be undefined [-Wsequence-point]
+generate.c:141:5: warning: operation on 'cur->b_text.size' may be undefined [-Wsequence-point]
+generate.c: In function 'Qem':
+generate.c:186:17: warning: operation on 'f->Q.size' may be undefined [-Wsequence-point]
+generate.c:193:13: warning: operation on 'f->Q.size' may be undefined [-Wsequence-point]
+generate.c: In function 'puturl':
+generate.c:268:6: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:270:6: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:272:6: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:276:6: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:278:6: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: At top level:
+generate.c:498:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:499:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:500:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:501:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c: In function 'isautoprefix':
+generate.c:513:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+generate.c: At top level:
+generate.c:537:1: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:537:1: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:538:9: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:538:9: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:539:1: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:539:1: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:540:30: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:540:30: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:550:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:550:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:550:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:550:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:550:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:551:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:552:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:552:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:552:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:552:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:552:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:553:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:553:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:553:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:553:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:553:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:554:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:554:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:554:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:554:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:554:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c: In function 'pseudo':
+generate.c:567:30: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+generate.c: In function 'p_or_nothing':
+generate.c:615:5: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+generate.c: In function 'extra_linky':
+generate.c:634:3: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: In function 'linkyformat':
+generate.c:673:6: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:674:6: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:678:6: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: In function 'cputc':
+generate.c:773:5: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:774:5: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:775:5: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: In function 'mangle':
+generate.c:791:2: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:792:2: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: In function 'code':
+generate.c:856:6: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: In function 'delspan':
+generate.c:869:5: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:871:5: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: In function 'codespan':
+generate.c:886:5: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:888:5: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: In function 'process_possible_link':
+generate.c:965:2: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:968:6: warning: passing argument 1 of 'mangle' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:785:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:971:2: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:973:2: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:980:2: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: In function 'smartyquote':
+generate.c:1088:6: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1094:2: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: At top level:
+generate.c:1136:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1136:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1137:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1137:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1138:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1138:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1139:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1139:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1140:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1140:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1141:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1141:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1142:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1142:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1143:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1143:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1144:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1144:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1145:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1145:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1146:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1146:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1147:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1147:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1148:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1148:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1149:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1149:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1150:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1150:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1151:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1151:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1152:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1152:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1153:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1153:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1154:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1154:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1155:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c: In function 'smartypants':
+generate.c:1170:18: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+generate.c:1173:3: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1195:8: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1197:8: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: In function 'text':
+generate.c:1263:7: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1267:4: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1273:4: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1281:8: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1318:4: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1319:4: warning: passing argument 5 of '___mkd_reparse' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:200:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1320:4: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1357:7: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1361:9: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1402:4: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1410:4: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: In function 'printheader':
+generate.c:1441:2: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1445:2: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1447:5: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1451:5: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: At top level:
+generate.c:1457:1: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1457:1: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1458:7: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1459:7: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c: In function 'splat':
+generate.c:1475:5: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1489:6: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1490:2: warning: passing argument 5 of '___mkd_reparse' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:200:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1491:2: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1497:6: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1500:5: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: In function 'printtable':
+generate.c:1548:2: warning: operation on 'align.size' may be undefined [-Wsequence-point]
+generate.c:1552:5: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1553:5: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1554:5: warning: passing argument 2 of 'splat' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1464:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1555:5: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1561:6: warning: operation on 'align.size' may be undefined [-Wsequence-point]
+generate.c:1563:5: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1565:2: warning: passing argument 2 of 'splat' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1464:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1566:5: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1567:5: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: In function 'printblock':
+generate.c:1578:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1578:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1578:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1579:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1579:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1579:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+generate.c: In function 'printcode':
+generate.c:1611:5: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1613:7: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1615:7: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1617:5: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1629:5: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: In function 'htmlify':
+generate.c:1656:2: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1661:2: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1665:3: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: In function 'definitionlist':
+generate.c:1676:2: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1680:3: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1682:3: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1685:6: warning: passing argument 2 of 'htmlify' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1652:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1689:2: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: In function 'listdisplay':
+generate.c:1698:2: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1700:6: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1701:2: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1704:6: warning: passing argument 2 of 'htmlify' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1652:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1708:2: warning: passing argument 2 of 'Qprintf' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:169:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: In function 'display':
+generate.c:1734:2: warning: passing argument 2 of 'htmlify' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:1652:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1748:2: warning: passing argument 1 of 'Qstring' discards 'const' qualifier from pointer target type [enabled by default]
+generate.c:149:1: note: expected 'char *' but argument is of type 'const char *'
+generate.c: In function 'mkd_extra_footnotes':
+generate.c:1782:5: warning: passing argument 2 of 'Csprintf' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from generate.c:16:0:
+cstring.h:73:12: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1789:8: warning: passing argument 2 of 'Csprintf' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from generate.c:16:0:
+cstring.h:73:12: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1792:8: warning: passing argument 2 of 'Csprintf' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from generate.c:16:0:
+cstring.h:73:12: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1793:3: warning: passing argument 2 of 'Csprintf' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from generate.c:16:0:
+cstring.h:73:12: note: expected 'char *' but argument is of type 'const char *'
+generate.c:1797:5: warning: passing argument 2 of 'Csprintf' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from generate.c:16:0:
+cstring.h:73:12: note: expected 'char *' but argument is of type 'const char *'
+generate.c: In function 'mkd_document':
+generate.c:1820:6: warning: operation on 'p->ctx->out.size' may be undefined [-Wsequence-point]
+compiling github_flavoured.c
+github_flavoured.c: In function 'gfm_populate':
+github_flavoured.c:47:3: warning: operation on 'line.size' may be undefined [-Wsequence-point]
+github_flavoured.c:48:3: warning: operation on 'line.size' may be undefined [-Wsequence-point]
+github_flavoured.c:54:6: warning: operation on 'line.size' may be undefined [-Wsequence-point]
+compiling html5.c
+html5.c: In function 'mkd_with_html5_tags':
+html5.c:13:5: warning: passing argument 1 of 'mkd_define_tag' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from html5.c:3:0:
+tags.h:17:6: note: expected 'char *' but argument is of type 'const char *'
+html5.c:14:5: warning: passing argument 1 of 'mkd_define_tag' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from html5.c:3:0:
+tags.h:17:6: note: expected 'char *' but argument is of type 'const char *'
+html5.c:15:5: warning: passing argument 1 of 'mkd_define_tag' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from html5.c:3:0:
+tags.h:17:6: note: expected 'char *' but argument is of type 'const char *'
+html5.c:16:5: warning: passing argument 1 of 'mkd_define_tag' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from html5.c:3:0:
+tags.h:17:6: note: expected 'char *' but argument is of type 'const char *'
+html5.c:17:5: warning: passing argument 1 of 'mkd_define_tag' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from html5.c:3:0:
+tags.h:17:6: note: expected 'char *' but argument is of type 'const char *'
+html5.c:18:5: warning: passing argument 1 of 'mkd_define_tag' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from html5.c:3:0:
+tags.h:17:6: note: expected 'char *' but argument is of type 'const char *'
+html5.c:19:5: warning: passing argument 1 of 'mkd_define_tag' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from html5.c:3:0:
+tags.h:17:6: note: expected 'char *' but argument is of type 'const char *'
+compiling markdown.c
+markdown.c:107:15: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+markdown.c: In function 'quoteblock':
+markdown.c:813:17: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+markdown.c:821:12: warning: assignment discards 'const' qualifier from pointer target type [enabled by default]
+markdown.c: In function 'addfootnote':
+markdown.c:1011:23: warning: operation on 'f->footnotes->note.size' may be undefined [-Wsequence-point]
+markdown.c:1019:2: warning: operation on 'foot->tag.size' may be undefined [-Wsequence-point]
+markdown.c:1021:5: warning: operation on 'foot->tag.size' may be undefined [-Wsequence-point]
+markdown.c:1028:6: warning: operation on 'foot->title.size' may be undefined [-Wsequence-point]
+markdown.c:1033:2: warning: operation on 'foot->link.size' may be undefined [-Wsequence-point]
+markdown.c:1034:5: warning: operation on 'foot->link.size' may be undefined [-Wsequence-point]
+markdown.c:1061:6: warning: operation on 'foot->title.size' may be undefined [-Wsequence-point]
+markdown.c:1067:2: warning: operation on 'foot->title.size' may be undefined [-Wsequence-point]
+compiling mkdio.c
+mkdio.c: In function '__mkd_enqueue':
+mkdio.c:60:3: warning: operation on 'p->text.size' may be undefined [-Wsequence-point]
+mkdio.c:66:6: warning: operation on 'p->text.size' may be undefined [-Wsequence-point]
+mkdio.c:70:5: warning: operation on 'p->text.size' may be undefined [-Wsequence-point]
+mkdio.c: In function 'populate':
+mkdio.c:116:6: warning: operation on 'line.size' may be undefined [-Wsequence-point]
+mkdio.c: In function 'mkd_line':
+mkdio.c:285:2: warning: operation on 'f.out.size' may be undefined [-Wsequence-point]
+compiling mktags.c
+mktags.c: In function 'define_one_tag':
+mktags.c:17:21: warning: operation on 'blocktags.size' may be undefined [-Wsequence-point]
+mktags.c: At top level:
+mktags.c:44:1: warning: return type defaults to 'int' [-Wreturn-type]
+mktags.c: In function 'main':
+mktags.c:51:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:52:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:53:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:54:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:55:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:56:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:57:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:58:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:59:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:60:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:61:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:62:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:63:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:64:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:65:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:66:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:67:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:68:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:69:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:70:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:71:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:72:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:73:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:74:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:75:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:76:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:77:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:78:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+mktags.c:79:5: warning: passing argument 1 of 'define_one_tag' discards 'const' qualifier from pointer target type [enabled by default]
+mktags.c:15:1: note: expected 'char *' but argument is of type 'const char *'
+compiling pgm_options.c
+pgm_options.c:32:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:32:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:33:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:33:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:34:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:34:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:35:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:35:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:36:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:36:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:37:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:37:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:38:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:38:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:39:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:39:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:40:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:40:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:41:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:41:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:42:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:42:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:43:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:43:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:44:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:44:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:45:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:45:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:46:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:46:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:47:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:47:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:48:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:48:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:49:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:49:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:50:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:50:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:51:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:51:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:52:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:52:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:53:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:53:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:54:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:54:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:55:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:55:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:56:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:56:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:57:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c:57:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+pgm_options.c: In function 'show_flags':
+pgm_options.c:86:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+pgm_options.c:93:14: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+pgm_options.c: In function 'set_flag':
+pgm_options.c:121:15: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+pgm_options.c:125:9: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+compiling rdiscount.c
+rdiscount.c:22:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+rdiscount.c:23:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+rdiscount.c:24:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+rdiscount.c:25:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+rdiscount.c:26:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+rdiscount.c:27:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+rdiscount.c:28:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+rdiscount.c:29:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+rdiscount.c:30:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+rdiscount.c:31:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+rdiscount.c:32:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+rdiscount.c:33:5: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+rdiscount.c: In function 'rb_rdiscount_to_html':
+rdiscount.c:50:5: warning: implicit declaration of function 'rb_rdiscount__get_flags' [-Wimplicit-function-declaration]
+rdiscount.c:50:5: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+rdiscount.c:63:5: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+rdiscount.c: In function 'rb_rdiscount_toc_content':
+rdiscount.c:100:5: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]
+compiling resource.c
+compiling setup.c
+compiling tags.c
+In file included from tags.c:15:0:
+blocktags:2:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:3:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:4:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:5:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:6:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:7:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:8:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:9:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:10:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:11:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:12:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:13:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:14:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:15:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:16:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:17:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:18:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:19:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:20:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:21:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:22:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:23:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:24:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:25:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:26:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:27:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:28:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:29:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+blocktags:30:4: warning: initialization discards 'const' qualifier from pointer target type [enabled by default]
+tags.c: In function 'mkd_define_tag':
+tags.c:32:7: warning: operation on 'extratags.size' may be undefined [-Wsequence-point]
+compiling toc.c
+toc.c: In function 'mkd_toc':
+toc.c:45:5: warning: passing argument 2 of 'Csprintf' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from toc.c:14:0:
+cstring.h:73:12: note: expected 'char *' but argument is of type 'const char *'
+toc.c:47:6: warning: passing argument 2 of 'Csprintf' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from toc.c:14:0:
+cstring.h:73:12: note: expected 'char *' but argument is of type 'const char *'
+toc.c:52:4: warning: passing argument 2 of 'Csprintf' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from toc.c:14:0:
+cstring.h:73:12: note: expected 'char *' but argument is of type 'const char *'
+toc.c:54:4: warning: passing argument 2 of 'Csprintf' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from toc.c:14:0:
+cstring.h:73:12: note: expected 'char *' but argument is of type 'const char *'
+toc.c:57:4: warning: passing argument 2 of 'Csprintf' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from toc.c:14:0:
+cstring.h:73:12: note: expected 'char *' but argument is of type 'const char *'
+toc.c:59:8: warning: passing argument 2 of 'Csprintf' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from toc.c:14:0:
+cstring.h:73:12: note: expected 'char *' but argument is of type 'const char *'
+toc.c:62:7: warning: passing argument 2 of 'Csprintf' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from toc.c:14:0:
+cstring.h:73:12: note: expected 'char *' but argument is of type 'const char *'
+toc.c:66:7: warning: passing argument 2 of 'Csprintf' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from toc.c:14:0:
+cstring.h:73:12: note: expected 'char *' but argument is of type 'const char *'
+toc.c:70:7: warning: passing argument 2 of 'Csprintf' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from toc.c:14:0:
+cstring.h:73:12: note: expected 'char *' but argument is of type 'const char *'
+toc.c:81:4: warning: passing argument 2 of 'Csprintf' discards 'const' qualifier from pointer target type [enabled by default]
+In file included from toc.c:14:0:
+cstring.h:73:12: note: expected 'char *' but argument is of type 'const char *'
+toc.c:85:2: warning: operation on 'res.size' may be undefined [-Wsequence-point]
+compiling version.c
+compiling xml.c
+xml.c: In function 'mkd_xmlchar':
+xml.c:26:17: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+xml.c:27:17: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+xml.c:28:17: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+xml.c:29:17: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+xml.c:30:17: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+xml.c:33:3: warning: return discards 'const' qualifier from pointer target type [enabled by default]
+compiling xmlpage.c
+linking shared-object rdiscount.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 rdiscount.so ./.gem.20160301-10064-1kbg29k
+installing default rdiscount libraries
