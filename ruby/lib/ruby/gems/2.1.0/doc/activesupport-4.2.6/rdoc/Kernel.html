@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Kernel - activesupport-4.2.6 Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-breakpoint">#breakpoint</a>
+    
+    <li ><a href="#method-i-capture">#capture</a>
+    
+    <li ><a href="#method-i-class_eval">#class_eval</a>
+    
+    <li ><a href="#method-i-concern">#concern</a>
+    
+    <li ><a href="#method-i-debugger">#debugger</a>
+    
+    <li ><a href="#method-i-enable_warnings">#enable_warnings</a>
+    
+    <li ><a href="#method-i-quietly">#quietly</a>
+    
+    <li ><a href="#method-i-silence">#silence</a>
+    
+    <li ><a href="#method-i-silence_stream">#silence_stream</a>
+    
+    <li ><a href="#method-i-silence_warnings">#silence_warnings</a>
+    
+    <li ><a href="#method-i-suppress">#suppress</a>
+    
+    <li ><a href="#method-i-with_warnings">#with_warnings</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Kernel">
+  <h1 id="module-Kernel" class="module">
+    module Kernel
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-breakpoint" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">breakpoint</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Kernel.html#method-i-debugger">debugger</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-capture" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">capture</span><span
+            class="method-args">(stream) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Captures the given stream and returns it:</p>
+
+<pre class="ruby"><span class="ruby-identifier">stream</span> = <span class="ruby-identifier">capture</span>(:<span class="ruby-identifier">stdout</span>) { <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;notice&#39;</span> }
+<span class="ruby-identifier">stream</span> <span class="ruby-comment"># =&gt; &quot;notice\n&quot;</span>
+
+<span class="ruby-identifier">stream</span> = <span class="ruby-identifier">capture</span>(:<span class="ruby-identifier">stderr</span>) { <span class="ruby-identifier">warn</span> <span class="ruby-string">&#39;error&#39;</span> }
+<span class="ruby-identifier">stream</span> <span class="ruby-comment"># =&gt; &quot;error\n&quot;</span>
+</pre>
+
+<p>even for subprocesses:</p>
+
+<pre class="ruby"><span class="ruby-identifier">stream</span> = <span class="ruby-identifier">capture</span>(:<span class="ruby-identifier">stdout</span>) { <span class="ruby-identifier">system</span>(<span class="ruby-string">&#39;echo notice&#39;</span>) }
+<span class="ruby-identifier">stream</span> <span class="ruby-comment"># =&gt; &quot;notice\n&quot;</span>
+
+<span class="ruby-identifier">stream</span> = <span class="ruby-identifier">capture</span>(:<span class="ruby-identifier">stderr</span>) { <span class="ruby-identifier">system</span>(<span class="ruby-string">&#39;echo error 1&gt;&amp;2&#39;</span>) }
+<span class="ruby-identifier">stream</span> <span class="ruby-comment"># =&gt; &quot;error\n&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="capture-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/kernel/reporting.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">capture</span>(<span class="ruby-identifier">stream</span>)
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Deprecation</span>.<span class="ruby-identifier">warn</span>(
+    <span class="ruby-node">&quot;`#capture(stream)` is deprecated and will be removed in the next release.&quot;</span>
+  ) <span class="ruby-comment">#not thread-safe</span>
+  <span class="ruby-identifier">stream</span> = <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">captured_stream</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">stream</span>)
+  <span class="ruby-identifier">stream_io</span> = <span class="ruby-identifier">eval</span>(<span class="ruby-node">&quot;$#{stream}&quot;</span>)
+  <span class="ruby-identifier">origin_stream</span> = <span class="ruby-identifier">stream_io</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">stream_io</span>.<span class="ruby-identifier">reopen</span>(<span class="ruby-identifier">captured_stream</span>)
+
+  <span class="ruby-keyword">yield</span>
+
+  <span class="ruby-identifier">stream_io</span>.<span class="ruby-identifier">rewind</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">captured_stream</span>.<span class="ruby-identifier">read</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">captured_stream</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-identifier">captured_stream</span>.<span class="ruby-identifier">unlink</span>
+  <span class="ruby-identifier">stream_io</span>.<span class="ruby-identifier">reopen</span>(<span class="ruby-identifier">origin_stream</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Kernel.html#method-i-silence">silence</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-class_eval" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">class_eval</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Kernel.html#method-i-class_eval">#class_eval</a> on an object acts
+like singleton_class.class_eval.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="class_eval-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/kernel/singleton_class.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">class_eval</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">singleton_class</span>.<span class="ruby-identifier">class_eval</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-concern" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">concern</span><span
+            class="method-args">(topic, &module_definition)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A shortcut to define a toplevel concern, not within a module.</p>
+
+<p>See <a href="Module/Concerning.html">Module::Concerning</a> for more.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="concern-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/kernel/concern.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">concern</span>(<span class="ruby-identifier">topic</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">module_definition</span>)
+  <span class="ruby-constant">Object</span>.<span class="ruby-identifier">concern</span> <span class="ruby-identifier">topic</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">module_definition</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-debugger" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">debugger</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Starts a debugging session if the <code>debugger</code> gem has been loaded
+(call rails server –debugger to do load it).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="debugger-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/kernel/debugger.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">debugger</span>
+  <span class="ruby-identifier">message</span> = <span class="ruby-string">&quot;\n***** Debugger requested, but was not available (ensure the debugger gem is listed in Gemfile/installed as gem): Start server with --debugger to enable *****\n&quot;</span>
+  <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-identifier">message</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-identifier">message</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Kernel.html#method-i-breakpoint">breakpoint</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-enable_warnings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">enable_warnings</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets $VERBOSE to <code>true</code> for the duration of the block and back
+to its original value afterwards.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enable_warnings-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/kernel/reporting.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">enable_warnings</span>
+  <span class="ruby-identifier">with_warnings</span>(<span class="ruby-keyword">true</span>) { <span class="ruby-keyword">yield</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-quietly" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">quietly</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Silences both STDOUT and STDERR, even for subprocesses.</p>
+
+<pre>quietly { system &#39;bundle install&#39; }</pre>
+
+<p>This method is not thread-safe.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="quietly-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/kernel/reporting.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">quietly</span>
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Deprecation</span>.<span class="ruby-identifier">warn</span>(
+    <span class="ruby-node">&quot;`#quietly` is deprecated and will be removed in the next release.&quot;</span>
+  ) <span class="ruby-comment">#not thread-safe</span>
+  <span class="ruby-identifier">silence_stream</span>(<span class="ruby-constant">STDOUT</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">silence_stream</span>(<span class="ruby-constant">STDERR</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-keyword">yield</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-silence" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">silence</span><span
+            class="method-args">(stream)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Kernel.html#method-i-capture">capture</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-silence_stream" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">silence_stream</span><span
+            class="method-args">(stream) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Deprecated : this method is not thread safe Silences any stream for the
+duration of the block.</p>
+
+<pre>silence_stream(STDOUT) do
+  puts &#39;This will never be seen&#39;
+end
+
+puts &#39;But this will&#39;</pre>
+
+<p>This method is not thread-safe.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="silence_stream-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/kernel/reporting.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">silence_stream</span>(<span class="ruby-identifier">stream</span>)
+  <span class="ruby-identifier">old_stream</span> = <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">reopen</span>(<span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-string">&#39;host_os&#39;</span>] <span class="ruby-operator">=~</span> <span class="ruby-regexp">/mswin|mingw/</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;NUL:&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;/dev/null&#39;</span>)
+  <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">sync</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">reopen</span>(<span class="ruby-identifier">old_stream</span>)
+  <span class="ruby-identifier">old_stream</span>.<span class="ruby-identifier">close</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-silence_warnings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">silence_warnings</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets $VERBOSE to nil for the duration of the block and back to its original
+value afterwards.</p>
+
+<pre>silence_warnings do
+  value = noisy_call # no warning voiced
+end
+
+noisy_call # warning voiced</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="silence_warnings-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/kernel/reporting.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">silence_warnings</span>
+  <span class="ruby-identifier">with_warnings</span>(<span class="ruby-keyword">nil</span>) { <span class="ruby-keyword">yield</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-suppress" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">suppress</span><span
+            class="method-args">(*exception_classes) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Blocks and ignores any exception passed as argument if raised within the
+block.</p>
+
+<pre>suppress(ZeroDivisionError) do
+  1/0
+  puts &#39;This code is NOT reached&#39;
+end
+
+puts &#39;This code gets executed and nothing related to ZeroDivisionError was seen&#39;</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="suppress-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/kernel/reporting.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">suppress</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">exception_classes</span>)
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-operator">*</span><span class="ruby-identifier">exception_classes</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_warnings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_warnings</span><span
+            class="method-args">(flag) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets $VERBOSE for the duration of the block and back to its original value
+afterwards.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="with_warnings-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/kernel/reporting.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_warnings</span>(<span class="ruby-identifier">flag</span>)
+  <span class="ruby-identifier">old_verbose</span>, <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-identifier">$VERBOSE</span>, <span class="ruby-identifier">flag</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-identifier">old_verbose</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

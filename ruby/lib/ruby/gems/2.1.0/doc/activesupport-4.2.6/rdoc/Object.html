@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Object - activesupport-4.2.6 Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">BasicObject
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">Java</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-acts_like-3F">#acts_like?</a>
+    
+    <li ><a href="#method-i-blank-3F">#blank?</a>
+    
+    <li ><a href="#method-i-deep_dup">#deep_dup</a>
+    
+    <li ><a href="#method-i-duplicable-3F">#duplicable?</a>
+    
+    <li ><a href="#method-i-html_safe-3F">#html_safe?</a>
+    
+    <li ><a href="#method-i-in-3F">#in?</a>
+    
+    <li ><a href="#method-i-instance_values">#instance_values</a>
+    
+    <li ><a href="#method-i-instance_variable_names">#instance_variable_names</a>
+    
+    <li ><a href="#method-i-itself">#itself</a>
+    
+    <li ><a href="#method-i-presence">#presence</a>
+    
+    <li ><a href="#method-i-presence_in">#presence_in</a>
+    
+    <li ><a href="#method-i-present-3F">#present?</a>
+    
+    <li ><a href="#method-i-to_param">#to_param</a>
+    
+    <li ><a href="#method-i-to_query">#to_query</a>
+    
+    <li ><a href="#method-i-try">#try</a>
+    
+    <li ><a href="#method-i-try-21">#try!</a>
+    
+    <li ><a href="#method-i-unescape">#unescape</a>
+    
+    <li ><a href="#method-i-with_options">#with_options</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Object">
+  <h1 id="class-Object" class="class">
+    class Object
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="HashWithIndifferentAccess">HashWithIndifferentAccess
+        
+        <dd><p>Implements a hash where keys <code>:foo</code> and
+<code>&quot;foo&quot;</code> are considered to be the same.</p>
+
+<pre class="ruby"><span class="ruby-identifier">rgb</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">HashWithIndifferentAccess</span>.<span class="ruby-identifier">new</span>
+
+<span class="ruby-identifier">rgb</span>[:<span class="ruby-identifier">black</span>] = <span class="ruby-string">&#39;#000000&#39;</span>
+<span class="ruby-identifier">rgb</span>[:<span class="ruby-identifier">black</span>]  <span class="ruby-comment"># =&gt; &#39;#000000&#39;</span>
+<span class="ruby-identifier">rgb</span>[<span class="ruby-string">&#39;black&#39;</span>] <span class="ruby-comment"># =&gt; &#39;#000000&#39;</span>
+
+<span class="ruby-identifier">rgb</span>[<span class="ruby-string">&#39;white&#39;</span>] = <span class="ruby-string">&#39;#FFFFFF&#39;</span>
+<span class="ruby-identifier">rgb</span>[:<span class="ruby-identifier">white</span>]  <span class="ruby-comment"># =&gt; &#39;#FFFFFF&#39;</span>
+<span class="ruby-identifier">rgb</span>[<span class="ruby-string">&#39;white&#39;</span>] <span class="ruby-comment"># =&gt; &#39;#FFFFFF&#39;</span>
+</pre>
+
+<p>Internally symbols are mapped to strings when used as keys in the entire
+writing interface (calling <code>[]=</code>, <code>merge</code>, etc). This
+mapping belongs to the public interface. For example, given:</p>
+
+<pre>hash = ActiveSupport::HashWithIndifferentAccess.new(a: 1)</pre>
+
+<p>You are guaranteed that the key is returned as a string:</p>
+
+<pre class="ruby"><span class="ruby-identifier">hash</span>.<span class="ruby-identifier">keys</span> <span class="ruby-comment"># =&gt; [&quot;a&quot;]</span>
+</pre>
+
+<p>Technically other types of keys are accepted:</p>
+
+<pre class="ruby"><span class="ruby-identifier">hash</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">HashWithIndifferentAccess</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">a</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>)
+<span class="ruby-identifier">hash</span>[<span class="ruby-value">0</span>] = <span class="ruby-value">0</span>
+<span class="ruby-identifier">hash</span> <span class="ruby-comment"># =&gt; {&quot;a&quot;=&gt;1, 0=&gt;0}</span>
+</pre>
+
+<p>but this class is intended for use cases where strings or symbols are the
+expected keys and it is convenient to understand both as the same. For
+example the <code>params</code> hash in Ruby on Rails.</p>
+
+<p>Note that core extensions define <code>Hash#with_indifferent_access</code>:</p>
+
+<pre>rgb = { black: &#39;#000000&#39;, white: &#39;#FFFFFF&#39; }.with_indifferent_access</pre>
+
+<p>which may be handy.</p>
+        
+      
+        <dt id="MissingSourceFile">MissingSourceFile
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-acts_like-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">acts_like?</span><span
+            class="method-args">(duck)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A duck-type assistant method. For example, Active Support extends <a
+href="Date.html">Date</a> to define an <code>acts_like_date?</code> method,
+and extends Time to define <code>acts_like_time?</code>. As a result, we
+can do <code>x.acts_like?(:time)</code> and
+<code>x.acts_like?(:date)</code> to do duck-type-safe comparisons, since
+classes that we want to act like Time simply need to define an
+<code>acts_like_time?</code> method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="acts_like-3F-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/object/acts_like.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">acts_like?</span>(<span class="ruby-identifier">duck</span>)
+  <span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:&quot;acts_like_#{duck}?&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blank-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blank?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>An object is blank if it&#39;s false, empty, or a whitespace string. For
+example, <code>false</code>, &#39;&#39;, &#39;   &#39;, <code>nil</code>,
+[], and {} are all blank.</p>
+
+<p>This simplifies</p>
+
+<pre>!address || address.empty?</pre>
+
+<p>to</p>
+
+<pre>address.blank?</pre>
+
+<p>@return [true, false]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blank-3F-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/object/blank.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blank?</span>
+  <span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:empty?</span>) <span class="ruby-operator">?</span> <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-identifier">empty?</span> <span class="ruby-operator">:</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-deep_dup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deep_dup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a deep copy of object if it&#39;s duplicable. If it&#39;s not
+duplicable, returns <code>self</code>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">object</span> = <span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">dup</span>    = <span class="ruby-identifier">object</span>.<span class="ruby-identifier">deep_dup</span>
+<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">instance_variable_set</span>(:<span class="ruby-ivar">@a</span>, <span class="ruby-value">1</span>)
+
+<span class="ruby-identifier">object</span>.<span class="ruby-identifier">instance_variable_defined?</span>(:<span class="ruby-ivar">@a</span>) <span class="ruby-comment"># =&gt; false</span>
+<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">instance_variable_defined?</span>(:<span class="ruby-ivar">@a</span>)    <span class="ruby-comment"># =&gt; true</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="deep_dup-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/object/deep_dup.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deep_dup</span>
+  <span class="ruby-identifier">duplicable?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">dup</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-duplicable-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">duplicable?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Can you safely dup this object?</p>
+
+<p>False for <code>nil</code>, <code>false</code>, <code>true</code>, symbol,
+number and BigDecimal(in 1.9.x) objects; true otherwise.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="duplicable-3F-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/object/duplicable.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">duplicable?</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-html_safe-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">html_safe?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="html_safe-3F-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/string/output_safety.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">html_safe?</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-in-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">in?</span><span
+            class="method-args">(another_object)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if this object is included in the argument. Argument must be
+any object which responds to <code>#include?</code>. Usage:</p>
+
+<pre class="ruby"><span class="ruby-identifier">characters</span> = [<span class="ruby-string">&quot;Konata&quot;</span>, <span class="ruby-string">&quot;Kagami&quot;</span>, <span class="ruby-string">&quot;Tsukasa&quot;</span>]
+<span class="ruby-string">&quot;Konata&quot;</span>.<span class="ruby-identifier">in?</span>(<span class="ruby-identifier">characters</span>) <span class="ruby-comment"># =&gt; true</span>
+</pre>
+
+<p>This will throw an ArgumentError if the argument doesn&#39;t respond to
+<code>#include?</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="in-3F-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/object/inclusion.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">in?</span>(<span class="ruby-identifier">another_object</span>)
+  <span class="ruby-identifier">another_object</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">NoMethodError</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;The parameter passed to #in? must respond to #include?&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-instance_values" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">instance_values</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a hash with string keys that maps instance variable names without
+“@” to their corresponding values.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">C</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+    <span class="ruby-ivar">@x</span>, <span class="ruby-ivar">@y</span> = <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">C</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">instance_values</span> <span class="ruby-comment"># =&gt; {&quot;x&quot; =&gt; 0, &quot;y&quot; =&gt; 1}</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="instance_values-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/object/instance_variables.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">instance_values</span>
+  <span class="ruby-constant">Hash</span>[<span class="ruby-identifier">instance_variables</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">name</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>], <span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">name</span>)] }]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-instance_variable_names" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">instance_variable_names</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of instance variable names as strings including “@”.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">C</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+    <span class="ruby-ivar">@x</span>, <span class="ruby-ivar">@y</span> = <span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">C</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>, <span class="ruby-value">1</span>).<span class="ruby-identifier">instance_variable_names</span> <span class="ruby-comment"># =&gt; [&quot;@y&quot;, &quot;@x&quot;]</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="instance_variable_names-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/object/instance_variables.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">instance_variable_names</span>
+  <span class="ruby-identifier">instance_variables</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">var</span><span class="ruby-operator">|</span> <span class="ruby-identifier">var</span>.<span class="ruby-identifier">to_s</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-itself" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">itself</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the object itself.</p>
+
+<p>Useful for chaining methods, such as Active Record scopes:</p>
+
+<pre>Event.public_send(state.presence_in([ :trashed, :drafted ]) || :itself).order(:created_at)</pre>
+
+<p>@return <a href="Object.html">Object</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="itself-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/object/itself.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">itself</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-presence" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">presence</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the receiver if it&#39;s present otherwise returns
+<code>nil</code>. <code>object.presence</code> is equivalent to</p>
+
+<pre>object.present? ? object : nil</pre>
+
+<p>For example, something like</p>
+
+<pre>state   = params[:state]   if params[:state].present?
+country = params[:country] if params[:country].present?
+region  = state || country || &#39;US&#39;</pre>
+
+<p>becomes</p>
+
+<pre>region = params[:state].presence || params[:country].presence || &#39;US&#39;</pre>
+
+<p>@return [Object]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="presence-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/object/blank.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">presence</span>
+  <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">present?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-presence_in" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">presence_in</span><span
+            class="method-args">(another_object)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the receiver if it&#39;s included in the argument otherwise returns
+<code>nil</code>. Argument must be any object which responds to
+<code>#include?</code>. Usage:</p>
+
+<pre>params[:bucket_type].presence_in %w( project calendar )</pre>
+
+<p>This will throw an ArgumentError if the argument doesn&#39;t respond to
+<code>#include?</code>.</p>
+
+<p>@return [Object]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="presence_in-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/object/inclusion.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">presence_in</span>(<span class="ruby-identifier">another_object</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">in?</span>(<span class="ruby-identifier">another_object</span>) <span class="ruby-operator">?</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-present-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">present?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>An object is present if it&#39;s not blank.</p>
+
+<p>@return [true, false]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="present-3F-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/object/blank.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">present?</span>
+  <span class="ruby-operator">!</span><span class="ruby-identifier">blank?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_param" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_param</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Alias of <code>to_s</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_param-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/object/to_query.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_param</span>
+  <span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_query" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_query</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Converts an object into a string suitable for use as a URL query string,
+using the given <code>key</code> as the param name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_query-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/object/to_query.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_query</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-node">&quot;#{CGI.escape(key.to_param)}=#{CGI.escape(to_param.to_s)}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-try" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">try</span><span
+            class="method-args">(*a, &b)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Invokes the public method whose name goes as first argument just like
+<code>public_send</code> does, except that if the receiver does not respond
+to it the call returns <code>nil</code> rather than raising an exception.</p>
+
+<p>This method is defined to be able to write</p>
+
+<pre>@person.try(:name)</pre>
+
+<p>instead of</p>
+
+<pre>@person.name if @person</pre>
+
+<p><code>try</code> calls can be chained:</p>
+
+<pre>@person.try(:spouse).try(:name)</pre>
+
+<p>instead of</p>
+
+<pre>@person.spouse.name if @person &amp;&amp; @person.spouse</pre>
+
+<p><code>try</code> will also return <code>nil</code> if the receiver does not
+respond to the method:</p>
+
+<pre class="ruby"><span class="ruby-ivar">@person</span>.<span class="ruby-identifier">try</span>(:<span class="ruby-identifier">non_existing_method</span>) <span class="ruby-comment">#=&gt; nil</span>
+</pre>
+
+<p>instead of</p>
+
+<pre class="ruby"><span class="ruby-ivar">@person</span>.<span class="ruby-identifier">non_existing_method</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@person</span>.<span class="ruby-identifier">respond_to?</span>(:<span class="ruby-identifier">non_existing_method</span>) <span class="ruby-comment">#=&gt; nil</span>
+</pre>
+
+<p><code>try</code> returns <code>nil</code> when called on <code>nil</code>
+regardless of whether it responds to the method:</p>
+
+<pre class="ruby"><span class="ruby-keyword">nil</span>.<span class="ruby-identifier">try</span>(:<span class="ruby-identifier">to_i</span>) <span class="ruby-comment"># =&gt; nil, rather than 0</span>
+</pre>
+
+<p>Arguments and blocks are forwarded to the method if invoked:</p>
+
+<pre class="ruby"><span class="ruby-ivar">@posts</span>.<span class="ruby-identifier">try</span>(:<span class="ruby-identifier">each_slice</span>, <span class="ruby-value">2</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
+  <span class="ruby-operator">...</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The number of arguments in the signature must match. If the object responds
+to the method the call is attempted and <code>ArgumentError</code> is still
+raised in case of argument mismatch.</p>
+
+<p>If <code>try</code> is called without arguments it yields the receiver to a
+given block unless it is <code>nil</code>:</p>
+
+<pre class="ruby"><span class="ruby-ivar">@person</span>.<span class="ruby-identifier">try</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+  <span class="ruby-operator">...</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>You can also call try with a block without accepting an argument, and the
+block will be instance_eval&#39;ed instead:</p>
+
+<pre>@person.try { upcase.truncate(50) }</pre>
+
+<p>Please also note that <code>try</code> is defined on <code>Object</code>.
+Therefore, it won&#39;t work with instances of classes that do not have
+<code>Object</code> among their ancestors, like direct subclasses of
+<code>BasicObject</code>. For example, using <code>try</code> with
+<code>SimpleDelegator</code> will delegate <code>try</code> to the target
+instead of calling it on the delegator itself.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="try-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/object/try.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">try</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">a</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span>)
+  <span class="ruby-identifier">try!</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">a</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">a</span>.<span class="ruby-identifier">first</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-try-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">try!</span><span
+            class="method-args">(*a) { |self| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Same as <a href="Object.html#method-i-try">try</a>, but will raise a
+NoMethodError exception if the receiver is not <code>nil</code> and does
+not implement the tried method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="try-21-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/object/try.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">try!</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">a</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">arity</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">public_send</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">a</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unescape" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unescape</span><span
+            class="method-args">(str, escaped = /%[a-fA-F\d]{2}/)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unescape-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/uri.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unescape</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">escaped</span> = <span class="ruby-regexp">/%[a-fA-F\d]{2}/</span>)
+  <span class="ruby-comment"># TODO: Are we actually sure that ASCII == UTF-8?</span>
+  <span class="ruby-comment"># YK: My initial experiments say yes, but let&#39;s be sure please</span>
+  <span class="ruby-identifier">enc</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">encoding</span>
+  <span class="ruby-identifier">enc</span> = <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">enc</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">US_ASCII</span>
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">escaped</span>) { [<span class="ruby-node">$&amp;</span>[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>].<span class="ruby-identifier">hex</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;C&#39;</span>) }.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-identifier">enc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_options</span><span
+            class="method-args">(options, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>An elegant way to factor duplication out of options passed to a series of
+method calls. Each method called in the block, with the block variable as
+the receiver, will have its options merged with the default
+<code>options</code> hash provided. Each method called on the block
+variable must take an options hash as its final argument.</p>
+
+<p>Without <code>with_options&gt;</code>, this code contains duplication:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Account</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">has_many</span> :<span class="ruby-identifier">customers</span>, <span class="ruby-identifier">dependent</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">destroy</span>
+  <span class="ruby-identifier">has_many</span> :<span class="ruby-identifier">products</span>,  <span class="ruby-identifier">dependent</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">destroy</span>
+  <span class="ruby-identifier">has_many</span> :<span class="ruby-identifier">invoices</span>,  <span class="ruby-identifier">dependent</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">destroy</span>
+  <span class="ruby-identifier">has_many</span> :<span class="ruby-identifier">expenses</span>,  <span class="ruby-identifier">dependent</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">destroy</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Using <code>with_options</code>, we can remove the duplication:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Account</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">with_options</span> <span class="ruby-identifier">dependent</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">destroy</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">assoc</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">assoc</span>.<span class="ruby-identifier">has_many</span> :<span class="ruby-identifier">customers</span>
+    <span class="ruby-identifier">assoc</span>.<span class="ruby-identifier">has_many</span> :<span class="ruby-identifier">products</span>
+    <span class="ruby-identifier">assoc</span>.<span class="ruby-identifier">has_many</span> :<span class="ruby-identifier">invoices</span>
+    <span class="ruby-identifier">assoc</span>.<span class="ruby-identifier">has_many</span> :<span class="ruby-identifier">expenses</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>It can also be used with an explicit receiver:</p>
+
+<pre class="ruby"><span class="ruby-constant">I18n</span>.<span class="ruby-identifier">with_options</span> <span class="ruby-identifier">locale</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">scope</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;newsletter&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i18n</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">subject</span> <span class="ruby-identifier">i18n</span>.<span class="ruby-identifier">t</span> :<span class="ruby-identifier">subject</span>
+  <span class="ruby-identifier">body</span>    <span class="ruby-identifier">i18n</span>.<span class="ruby-identifier">t</span> :<span class="ruby-identifier">body</span>, <span class="ruby-identifier">user_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>When you don&#39;t pass an explicit receiver, it executes the whole block
+in merging options context:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Account</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">with_options</span> <span class="ruby-identifier">dependent</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">destroy</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">has_many</span> :<span class="ruby-identifier">customers</span>
+    <span class="ruby-identifier">has_many</span> :<span class="ruby-identifier">products</span>
+    <span class="ruby-identifier">has_many</span> :<span class="ruby-identifier">invoices</span>
+    <span class="ruby-identifier">has_many</span> :<span class="ruby-identifier">expenses</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p><code>with_options</code> can also be nested since the call is forwarded to
+its receiver.</p>
+
+<p>NOTE: Each nesting level will merge inherited defaults in addition to their
+own.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Post</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">with_options</span> <span class="ruby-keyword">if</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">persisted?</span>, <span class="ruby-identifier">length</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">minimum</span><span class="ruby-operator">:</span> <span class="ruby-value">50</span> } <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">validates</span> :<span class="ruby-identifier">content</span>, <span class="ruby-identifier">if</span><span class="ruby-operator">:</span> <span class="ruby-operator">-</span><span class="ruby-operator">&gt;</span> { <span class="ruby-identifier">content</span>.<span class="ruby-identifier">present?</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The code is equivalent to:</p>
+
+<pre>validates :content, length: { minimum: 50 }, if: -&gt; { content.present? }</pre>
+
+<p>Hence the inherited default for `if` key is ignored.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="with_options-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/object/with_options.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_options</span>(<span class="ruby-identifier">options</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">option_merger</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">OptionMerger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">block</span>.<span class="ruby-identifier">arity</span>.<span class="ruby-identifier">zero?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">option_merger</span>.<span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">option_merger</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

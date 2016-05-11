@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Octokit::Client::Hooks - octokit-4.3.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-available_hooks">#available_hooks</a>
+    
+    <li ><a href="#method-i-create_hook">#create_hook</a>
+    
+    <li ><a href="#method-i-create_org_hook">#create_org_hook</a>
+    
+    <li ><a href="#method-i-edit_hook">#edit_hook</a>
+    
+    <li ><a href="#method-i-edit_org_hook">#edit_org_hook</a>
+    
+    <li ><a href="#method-i-hook">#hook</a>
+    
+    <li ><a href="#method-i-hooks">#hooks</a>
+    
+    <li ><a href="#method-i-list_org_hooks">#list_org_hooks</a>
+    
+    <li ><a href="#method-i-org_hook">#org_hook</a>
+    
+    <li ><a href="#method-i-org_hooks">#org_hooks</a>
+    
+    <li ><a href="#method-i-parse_payload">#parse_payload</a>
+    
+    <li ><a href="#method-i-ping_hook">#ping_hook</a>
+    
+    <li ><a href="#method-i-ping_org_hook">#ping_org_hook</a>
+    
+    <li ><a href="#method-i-remove_hook">#remove_hook</a>
+    
+    <li ><a href="#method-i-remove_org_hook">#remove_org_hook</a>
+    
+    <li ><a href="#method-i-test_hook">#test_hook</a>
+    
+    <li ><a href="#method-i-update_org_hook">#update_org_hook</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Octokit::Client::Hooks">
+  <h1 id="module-Octokit::Client::Hooks" class="module">
+    module Octokit::Client::Hooks
+  </h1>
+
+  <section class="description">
+    
+<p>Methods for the <a href="Hooks.html">Hooks</a> API</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-available_hooks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_hooks</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List all Service <a href="Hooks.html">Hooks</a> supported by GitHub</p>
+
+<p>@return [Sawyer::Resource] A list of all hooks on GitHub @see <a
+href="https://developer.github.com/v3/repos/hooks/#services">developer.github.com/v3/repos/hooks/#services</a>
+@example List all hooks</p>
+
+<pre>Octokit.available_hooks</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="available_hooks-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/hooks.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">available_hooks</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span> <span class="ruby-string">&quot;hooks&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_hook" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_hook</span><span
+            class="method-args">(repo, name, config, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a hook</p>
+
+<p>Requires authenticated client.</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository. @param
+name [String] The name of the service that is being called. See</p>
+
+<pre>{https://api.github.com/hooks Hooks} for the possible names.</pre>
+
+<p>@param config [Hash] A Hash containing key/value pairs to provide</p>
+
+<pre>settings for this hook. These settings vary between the services and
+are defined in the {https://github.com/github/github-services github-services} repo.</pre>
+
+<p>@option options [Array&lt;String&gt;] :events (&#39;[“push”]&#39;)
+Determines what</p>
+
+<pre>events the hook is triggered for.</pre>
+
+<p>@option options [Boolean] :active Determines whether the hook is</p>
+
+<pre>actually triggered on pushes.</pre>
+
+<p>@return [Sawyer::Resource] Hook info for the new hook @see <a
+href="https://api.github.com/hooks">api.github.com/hooks</a> @see <a
+href="https://github.com/github/github-services">github.com/github/github-services</a>
+@see <a
+href="https://developer.github.com/v3/repos/hooks/#create-a-hook">developer.github.com/v3/repos/hooks/#create-a-hook</a>
+@example</p>
+
+<pre class="ruby"><span class="ruby-ivar">@client</span>.<span class="ruby-identifier">create_hook</span>(
+  <span class="ruby-string">&#39;octokit/octokit.rb&#39;</span>,
+  <span class="ruby-string">&#39;web&#39;</span>,
+  {
+    :<span class="ruby-identifier">url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;http://something.com/webhook&#39;</span>,
+    :<span class="ruby-identifier">content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;json&#39;</span>
+  },
+  {
+    :<span class="ruby-identifier">events</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">&#39;push&#39;</span>, <span class="ruby-string">&#39;pull_request&#39;</span>],
+    :<span class="ruby-identifier">active</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  }
+)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="create_hook-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/hooks.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_hook</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">config</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span> = {<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>, <span class="ruby-value">:config</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">config</span>, <span class="ruby-value">:events</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">&quot;push&quot;</span>], <span class="ruby-value">:active</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">post</span> <span class="ruby-node">&quot;#{Repository.path repo}/hooks&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_org_hook" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_org_hook</span><span
+            class="method-args">(org, config, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create an org hook</p>
+
+<p>Requires client authenticated as admin for the org.</p>
+
+<p>@param org [String, Integer] <a
+href="../Organization.html">Organization</a> GitHub login or id. @param
+config [Hash] A Hash containing key/value pairs to provide</p>
+
+<pre>settings for this hook.</pre>
+
+<p>@option options [Array&lt;String&gt;] :events (&#39;[“push”]&#39;)
+Determines what</p>
+
+<pre>events the hook is triggered for.</pre>
+
+<p>@option options [Boolean] :active Determines whether the hook is</p>
+
+<pre>actually triggered on pushes.</pre>
+
+<p>@return [Sawyer::Resource] Hook info for the new hook @see <a
+href="https://api.github.com/hooks">api.github.com/hooks</a> @see <a
+href="https://developer.github.com/v3/orgs/hooks/#create-a-hook">developer.github.com/v3/orgs/hooks/#create-a-hook</a>
+@example</p>
+
+<pre class="ruby"><span class="ruby-ivar">@client</span>.<span class="ruby-identifier">create_org_hook</span>(
+  <span class="ruby-string">&#39;octokit&#39;</span>,
+  {
+    :<span class="ruby-identifier">url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;http://something.com/webhook&#39;</span>,
+    :<span class="ruby-identifier">content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;json&#39;</span>
+  },
+  {
+    :<span class="ruby-identifier">events</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">&#39;push&#39;</span>, <span class="ruby-string">&#39;pull_request&#39;</span>],
+    :<span class="ruby-identifier">active</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  }
+)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="create_org_hook-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/hooks.rb, line 219</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_org_hook</span>(<span class="ruby-identifier">org</span>, <span class="ruby-identifier">config</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span> = { <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;web&quot;</span>, <span class="ruby-value">:config</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">config</span> }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">post</span> <span class="ruby-node">&quot;#{Organization.path org}/hooks&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-edit_hook" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit_hook</span><span
+            class="method-args">(repo, id, name, config, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Edit a hook</p>
+
+<p>Requires authenticated client.</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository. @param
+id [Integer] Id of the hook being updated. @param name [String] The name of
+the service that is being called. See</p>
+
+<pre>{https://api.github.com/hooks Hooks} for the possible names.</pre>
+
+<p>@param config [Hash] A Hash containing key/value pairs to provide</p>
+
+<pre>settings for this hook. These settings vary between the services and
+are defined in the {https://github.com/github/github-services github-services} repo.</pre>
+
+<p>@option options [Array&lt;String&gt;] :events (&#39;[“push”]&#39;)
+Determines what</p>
+
+<pre>events the hook is triggered for.</pre>
+
+<p>@option options [Array&lt;String&gt;] :add_events Determines a list of
+events</p>
+
+<pre>to be added to the list of events that the Hook triggers for.</pre>
+
+<p>@option options [Array&lt;String&gt;] :remove_events Determines a list of
+events</p>
+
+<pre>to be removed from the list of events that the Hook triggers for.</pre>
+
+<p>@option options [Boolean] :active Determines whether the hook is</p>
+
+<pre>actually triggered on pushes.</pre>
+
+<p>@return [Sawyer::Resource] Hook info for the updated hook @see <a
+href="https://api.github.com/hooks">api.github.com/hooks</a> @see <a
+href="https://github.com/github/github-services">github.com/github/github-services</a>
+@see <a
+href="https://developer.github.com/v3/repos/hooks/#edit-a-hook">developer.github.com/v3/repos/hooks/#edit-a-hook</a>
+@example</p>
+
+<pre class="ruby"><span class="ruby-ivar">@client</span>.<span class="ruby-identifier">edit_hook</span>(
+  <span class="ruby-string">&#39;octokit/octokit.rb&#39;</span>,
+  <span class="ruby-value">100000</span>,
+  <span class="ruby-string">&#39;web&#39;</span>,
+  {
+    :<span class="ruby-identifier">url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;http://something.com/webhook&#39;</span>,
+    :<span class="ruby-identifier">content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;json&#39;</span>
+  },
+  {
+    :<span class="ruby-identifier">add_events</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">&#39;status&#39;</span>],
+    :<span class="ruby-identifier">remove_events</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">&#39;pull_request&#39;</span>],
+    :<span class="ruby-identifier">active</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  }
+)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="edit_hook-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/hooks.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit_hook</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">config</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span> = {<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>, <span class="ruby-value">:config</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">config</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">patch</span> <span class="ruby-node">&quot;#{Repository.path repo}/hooks/#{id}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-edit_org_hook" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit_org_hook</span><span
+            class="method-args">(org, id, config, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update an org hook</p>
+
+<p>Requires client authenticated as admin for the org.</p>
+
+<p>@param org [String, Integer] <a
+href="../Organization.html">Organization</a> GitHub login or id. @param id
+[Integer] Id of the hook to update. @param config [Hash] A Hash containing
+key/value pairs to provide</p>
+
+<pre>settings for this hook.</pre>
+
+<p>@option options [Array&lt;String&gt;] :events (&#39;[“push”]&#39;)
+Determines what</p>
+
+<pre>events the hook is triggered for.</pre>
+
+<p>@option options [Boolean] :active Determines whether the hook is</p>
+
+<pre>actually triggered on pushes.</pre>
+
+<p>@return [Sawyer::Resource] Hook info for the new hook @see <a
+href="https://api.github.com/hooks">api.github.com/hooks</a> @see <a
+href="https://developer.github.com/v3/orgs/hooks/#edit-a-hook">developer.github.com/v3/orgs/hooks/#edit-a-hook</a>
+@example</p>
+
+<pre class="ruby"><span class="ruby-ivar">@client</span>.<span class="ruby-identifier">edit_org_hook</span>(
+  <span class="ruby-string">&#39;octokit&#39;</span>,
+  <span class="ruby-value">123</span>,
+  {
+    :<span class="ruby-identifier">url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;http://something.com/webhook&#39;</span>,
+    :<span class="ruby-identifier">content_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;json&#39;</span>
+  },
+  {
+    :<span class="ruby-identifier">events</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">&#39;push&#39;</span>, <span class="ruby-string">&#39;pull_request&#39;</span>],
+    :<span class="ruby-identifier">active</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  }
+)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="edit_org_hook-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/hooks.rb, line 252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit_org_hook</span>(<span class="ruby-identifier">org</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">config</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span> = { <span class="ruby-value">:config</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">config</span> }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">patch</span> <span class="ruby-node">&quot;#{Organization.path org}/hooks/#{id}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Hooks.html#method-i-update_org_hook">update_org_hook</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-hook" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hook</span><span
+            class="method-args">(repo, id, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get single hook</p>
+
+<p>Requires authenticated client.</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository. @param
+id [Integer] Id of the hook to get. @return [Sawyer::Resource] Hash
+representing hook. @see <a
+href="https://developer.github.com/v3/repos/hooks/#get-single-hook">developer.github.com/v3/repos/hooks/#get-single-hook</a>
+@example</p>
+
+<pre>@client.hook(&#39;octokit/octokit.rb&#39;, 100000)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="hook-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/hooks.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hook</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span> <span class="ruby-node">&quot;#{Repository.path repo}/hooks/#{id}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-hooks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hooks</span><span
+            class="method-args">(repo, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List repo hooks</p>
+
+<p>Requires authenticated client.</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository.
+@return [Array&lt;Sawyer::Resource&gt;] Array of hashes representing hooks.
+@see <a
+href="https://developer.github.com/v3/repos/hooks/#list-hooks">developer.github.com/v3/repos/hooks/#list-hooks</a>
+@example</p>
+
+<pre>@client.hooks(&#39;octokit/octokit.rb&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="hooks-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/hooks.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hooks</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">paginate</span> <span class="ruby-node">&quot;#{Repository.path repo}/hooks&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-list_org_hooks" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">list_org_hooks</span><span
+            class="method-args">(org, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Hooks.html#method-i-org_hooks">org_hooks</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-org_hook" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">org_hook</span><span
+            class="method-args">(org, id, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get an org hook</p>
+
+<p>Requires client authenticated as admin for the org.</p>
+
+<p>@param org [String, Integer] <a
+href="../Organization.html">Organization</a> GitHub login or id. @param id
+[Integer] Id of the hook to get. @return [Sawyer::Resource] Hash
+representing hook. @see <a
+href="https://developer.github.com/v3/orgs/hooks/#get-single-hook">developer.github.com/v3/orgs/hooks/#get-single-hook</a>
+@example</p>
+
+<pre>@client.org_hook(&#39;octokit&#39;, 123)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="org_hook-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/hooks.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">org_hook</span>(<span class="ruby-identifier">org</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span> <span class="ruby-node">&quot;#{Organization.path org}/hooks/#{id}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-org_hooks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">org_hooks</span><span
+            class="method-args">(org, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List org hooks</p>
+
+<p>Requires client authenticated as admin for the org.</p>
+
+<p>@param org [String, Integer] <a
+href="../Organization.html">Organization</a> GitHub login or id. @return
+[Array&lt;Sawyer::Resource&gt;] Array of hashes representing hooks. @see <a
+href="https://developer.github.com/v3/orgs/hooks/#list-hooks">developer.github.com/v3/orgs/hooks/#list-hooks</a>
+@example</p>
+
+<pre>@client.org_hooks(&#39;octokit&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="org_hooks-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/hooks.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">org_hooks</span>(<span class="ruby-identifier">org</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">paginate</span> <span class="ruby-node">&quot;#{Organization.path org}/hooks&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Hooks.html#method-i-list_org_hooks">list_org_hooks</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse_payload" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_payload</span><span
+            class="method-args">(payload_string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Parse payload string</p>
+
+<p>@param payload_string [String] The payload @return [Sawyer::Resource] The
+payload object @see <a
+href="https://developer.github.com/v3/activity/events/types">developer.github.com/v3/activity/events/types</a>/</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse_payload-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/hooks.rb, line 291</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_payload</span>(<span class="ruby-identifier">payload_string</span>)
+  <span class="ruby-identifier">payload_hash</span> = <span class="ruby-identifier">agent</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">decode</span> <span class="ruby-identifier">payload_string</span>
+  <span class="ruby-constant">Sawyer</span><span class="ruby-operator">::</span><span class="ruby-constant">Resource</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">agent</span>, <span class="ruby-identifier">payload_hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ping_hook" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ping_hook</span><span
+            class="method-args">(repo, id, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Ping hook</p>
+
+<p>Requires authenticated client.</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository. @param
+id [Integer] Id of the hook to send a ping. @return [Boolean] Ping
+requested? @see <a
+href="https://developer.github.com/v3/repos/hooks/#ping-a-hook">developer.github.com/v3/repos/hooks/#ping-a-hook</a>
+@example</p>
+
+<pre>@client.ping_hook(&#39;octokit/octokit.rb&#39;, 1000000)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="ping_hook-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/hooks.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ping_hook</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:post</span>, <span class="ruby-node">&quot;#{Repository.path repo}/hooks/#{id}/pings&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ping_org_hook" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ping_org_hook</span><span
+            class="method-args">(org, id, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Ping org hook</p>
+
+<p>Requires client authenticated as admin for the org.</p>
+
+<p>@param org [String, Integer] <a
+href="../Organization.html">Organization</a> GitHub login or id. @param id
+[Integer] Id of the hook to update. @return [Boolean] Success @see <a
+href="https://developer.github.com/v3/orgs/hooks/#ping-a-hook">developer.github.com/v3/orgs/hooks/#ping-a-hook</a>
+@example</p>
+
+<pre>@client.ping_org_hook(&#39;octokit&#39;, 1000000)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="ping_org_hook-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/hooks.rb, line 268</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ping_org_hook</span>(<span class="ruby-identifier">org</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:post</span>, <span class="ruby-node">&quot;#{Organization.path org}/hooks/#{id}/pings&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_hook" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_hook</span><span
+            class="method-args">(repo, id, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete hook</p>
+
+<p>Requires authenticated client.</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository. @param
+id [Integer] Id of the hook to remove. @return [Boolean] True if hook
+removed, false otherwise. @see <a
+href="https://developer.github.com/v3/repos/hooks/#delete-a-hook">developer.github.com/v3/repos/hooks/#delete-a-hook</a>
+@example</p>
+
+<pre>@client.remove_hook(&#39;octokit/octokit.rb&#39;, 1000000)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="remove_hook-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/hooks.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_hook</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:delete</span>, <span class="ruby-node">&quot;#{Repository.path repo}/hooks/#{id}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_org_hook" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_org_hook</span><span
+            class="method-args">(org, id, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove org hook</p>
+
+<p>Requires client authenticated as admin for the org.</p>
+
+<p>@param org [String, Integer] <a
+href="../Organization.html">Organization</a> GitHub login or id. @param id
+[Integer] Id of the hook to update. @return [Boolean] True if hook removed,
+false otherwise. @see <a
+href="https://developer.github.com/v3/orgs/hooks/#delete-a-hook">developer.github.com/v3/orgs/hooks/#delete-a-hook</a>
+@example</p>
+
+<pre>@client.remove_org_hook(&#39;octokit&#39;, 1000000)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="remove_org_hook-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/hooks.rb, line 282</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_org_hook</span>(<span class="ruby-identifier">org</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:delete</span>, <span class="ruby-node">&quot;#{Organization.path org}/hooks/#{id}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hook" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hook</span><span
+            class="method-args">(repo, id, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Test hook</p>
+
+<p>Requires authenticated client.</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository. @param
+id [Integer] Id of the hook to test. @return [Boolean] Success @see <a
+href="https://developer.github.com/v3/repos/hooks/#test-a-push-hook">developer.github.com/v3/repos/hooks/#test-a-push-hook</a>
+@example</p>
+
+<pre>@client.test_hook(&#39;octokit/octokit.rb&#39;, 1000000)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="test_hook-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/hooks.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hook</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:post</span>, <span class="ruby-node">&quot;#{Repository.path repo}/hooks/#{id}/tests&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_org_hook" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">update_org_hook</span><span
+            class="method-args">(org, id, config, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Hooks.html#method-i-edit_org_hook">edit_org_hook</a>
+        </div>
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

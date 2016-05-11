@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class GitHubPages::HealthCheck::Printer - github-pages-health-check-1.1.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-ljust">#ljust</a>
+    
+    <li ><a href="#method-i-new_line">#new_line</a>
+    
+    <li ><a href="#method-i-pretty_print">#pretty_print</a>
+    
+    <li ><a href="#method-i-simple_string">#simple_string</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-GitHubPages::HealthCheck::Printer">
+  <h1 id="class-GitHubPages::HealthCheck::Printer" class="class">
+    class GitHubPages::HealthCheck::Printer
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="PRETTY_JOINER">PRETTY_JOINER
+        
+        <dd>
+        
+      
+        <dt id="PRETTY_LEFT_WIDTH">PRETTY_LEFT_WIDTH
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-health_check" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">health_check</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(health_check)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/github-pages-health-check/printer.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">health_check</span>)
+  <span class="ruby-ivar">@health_check</span> = <span class="ruby-identifier">health_check</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-ljust" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ljust</span><span
+            class="method-args">(line)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ljust-source">
+            <pre><span class="ruby-comment"># File lib/github-pages-health-check/printer.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ljust</span>(<span class="ruby-identifier">line</span>)
+  <span class="ruby-identifier">line</span>.<span class="ruby-identifier">ljust</span>(<span class="ruby-constant">PRETTY_LEFT_WIDTH</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-new_line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new_line</span><span
+            class="method-args">(left = nil, right = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new_line-source">
+            <pre><span class="ruby-comment"># File lib/github-pages-health-check/printer.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new_line</span>(<span class="ruby-identifier">left</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">right</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">left</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">right</span>
+    <span class="ruby-identifier">ljust</span>(<span class="ruby-identifier">left</span>) <span class="ruby-operator">+</span> <span class="ruby-constant">PRETTY_JOINER</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">right</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">left</span>
+    <span class="ruby-identifier">ljust</span>(<span class="ruby-identifier">left</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">right</span>
+    <span class="ruby-string">&quot; &quot;</span> <span class="ruby-operator">*</span> (<span class="ruby-constant">PRETTY_LEFT_WIDTH</span> <span class="ruby-operator">+</span> <span class="ruby-constant">PRETTY_JOINER</span>.<span class="ruby-identifier">size</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">right</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pretty_print" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pretty_print</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pretty_print-source">
+            <pre><span class="ruby-comment"># File lib/github-pages-health-check/printer.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pretty_print</span>
+  <span class="ruby-identifier">values</span> = <span class="ruby-identifier">health_check</span>.<span class="ruby-identifier">to_hash</span>
+  <span class="ruby-identifier">output</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-comment"># Header</span>
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">new_line</span> <span class="ruby-string">&quot;Domain&quot;</span>, <span class="ruby-node">&quot;#{values[:uri]}&quot;</span>
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> (<span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">*</span> (<span class="ruby-constant">PRETTY_LEFT_WIDTH</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;|&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">*</span> <span class="ruby-value">50</span>
+
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">new_line</span> <span class="ruby-string">&quot;DNS&quot;</span>, <span class="ruby-string">&quot;does not resolve&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">values</span>[<span class="ruby-value">:dns_resolves?</span>]
+
+  <span class="ruby-comment"># Valid?</span>
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">new_line</span> <span class="ruby-string">&quot;State&quot;</span>, <span class="ruby-node">&quot;#{values[:valid?] ? &quot;valid&quot; : &quot;invalid&quot;}&quot;</span>
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot; - is #{&quot;NOT &quot; if not values[:served_by_pages?]}served by Pages&quot;</span>
+
+  <span class="ruby-comment"># What&#39;s wrong?</span>
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">new_line</span> <span class="ruby-string">&quot;Reason&quot;</span>, <span class="ruby-node">&quot;#{values[:reason]}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">values</span>[<span class="ruby-value">:valid?</span>]
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">new_line</span> <span class="ruby-keyword">nil</span>, <span class="ruby-string">&quot;pointed to user domain&quot;</span>  <span class="ruby-keyword">if</span> <span class="ruby-identifier">values</span>[<span class="ruby-value">:pointed_to_github_user_domain?</span>]
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">new_line</span> <span class="ruby-keyword">nil</span>, <span class="ruby-string">&quot;pointed to pages IP&quot;</span>     <span class="ruby-keyword">if</span> <span class="ruby-identifier">values</span>[<span class="ruby-value">:pointed_to_github_pages_ip?</span>]
+
+  <span class="ruby-comment"># DNS Record info</span>
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">new_line</span> <span class="ruby-string">&quot;Record Type&quot;</span>, <span class="ruby-node">&quot;#{values[:a_record?] ? &quot;A&quot; : values[:cname_record?] ? &quot;CNAME&quot; : &quot;other&quot;}&quot;</span>
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">values</span>[<span class="ruby-value">:should_be_a_record?</span>] <span class="ruby-operator">?</span> <span class="ruby-string">&quot;, should be A record&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;, should be CNAME&quot;</span>
+
+  <span class="ruby-identifier">ip_problems</span> = []
+  <span class="ruby-identifier">ip_problems</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;not apex domain&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">values</span>[<span class="ruby-value">:apex_domain?</span>]
+  <span class="ruby-identifier">ip_problems</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;invalid domain&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">values</span>[<span class="ruby-value">:valid_domain?</span>]
+  <span class="ruby-identifier">ip_problems</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;old ip address used&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">values</span>[<span class="ruby-value">:old_ip_address?</span>]
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">new_line</span> <span class="ruby-string">&quot;IP Problems&quot;</span>, <span class="ruby-node">&quot;#{ip_problems.size &gt; 0 ? ip_problems.join(&quot;, &quot;) : &quot;none&quot;} &quot;</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">values</span>[<span class="ruby-value">:proxied?</span>]
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">new_line</span> <span class="ruby-string">&quot;Proxied&quot;</span>, <span class="ruby-node">&quot;yes, through #{values[:cloudflare_ip?] ? &quot;CloudFlare&quot; : &quot;unknown&quot;}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">new_line</span> <span class="ruby-string">&quot;Domain&quot;</span>, <span class="ruby-string">&quot;*.github.com/io domain&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">values</span>[<span class="ruby-value">:pages_domain?</span>]
+
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-simple_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">simple_string</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="simple_string-source">
+            <pre><span class="ruby-comment"># File lib/github-pages-health-check/printer.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">simple_string</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;yaml&#39;</span>
+  <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">health_check</span>.<span class="ruby-identifier">to_hash</span>
+  <span class="ruby-identifier">hash</span>[<span class="ruby-value">:reason</span>] = <span class="ruby-identifier">hash</span>[<span class="ruby-value">:reason</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value">:reason</span>]
+  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">to_yaml</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/\A---\n/</span>, <span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/^:/</span>, <span class="ruby-string">&quot;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

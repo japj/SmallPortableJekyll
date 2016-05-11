@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Jekyll::GitHubMetadata::Pages - jekyll-github-metadata-1.11.1 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-api_url">#api_url</a>
+    
+    <li ><a href="#method-i-custom_domains_enabled-3F">#custom_domains_enabled?</a>
+    
+    <li ><a href="#method-i-dotcom-3F">#dotcom?</a>
+    
+    <li ><a href="#method-i-enterprise-3F">#enterprise?</a>
+    
+    <li ><a href="#method-i-env">#env</a>
+    
+    <li ><a href="#method-i-env_var">#env_var</a>
+    
+    <li ><a href="#method-i-github_hostname">#github_hostname</a>
+    
+    <li ><a href="#method-i-github_url">#github_url</a>
+    
+    <li ><a href="#method-i-help_url">#help_url</a>
+    
+    <li ><a href="#method-i-pages_hostname">#pages_hostname</a>
+    
+    <li ><a href="#method-i-scheme">#scheme</a>
+    
+    <li ><a href="#method-i-ssl-3F">#ssl?</a>
+    
+    <li ><a href="#method-i-subdomain_isolation-3F">#subdomain_isolation?</a>
+    
+    <li ><a href="#method-i-test-3F">#test?</a>
+    
+    <li ><a href="#method-i-trim_last_slash">#trim_last_slash</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Jekyll::GitHubMetadata::Pages">
+  <h1 id="class-Jekyll::GitHubMetadata::Pages" class="class">
+    class Jekyll::GitHubMetadata::Pages
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DEFAULTS">DEFAULTS
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-api_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">api_url</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="api_url-source">
+            <pre><span class="ruby-comment"># File lib/jekyll-github-metadata/pages.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">api_url</span>
+  <span class="ruby-identifier">trim_last_slash</span> <span class="ruby-identifier">env_var</span>(<span class="ruby-string">&#39;PAGES_API_URL&#39;</span>, <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;API_URL&#39;</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-custom_domains_enabled-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">custom_domains_enabled?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="custom_domains_enabled-3F-source">
+            <pre><span class="ruby-comment"># File lib/jekyll-github-metadata/pages.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">custom_domains_enabled?</span>
+  <span class="ruby-identifier">dotcom?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">test?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dotcom-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dotcom?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dotcom-3F-source">
+            <pre><span class="ruby-comment"># File lib/jekyll-github-metadata/pages.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dotcom?</span>;     <span class="ruby-identifier">env</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;dotcom&#39;</span> <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-enterprise-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">enterprise?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="enterprise-3F-source">
+            <pre><span class="ruby-comment"># File lib/jekyll-github-metadata/pages.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">enterprise?</span>; <span class="ruby-identifier">env</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;enterprise&#39;</span> <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-env" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">env</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="env-source">
+            <pre><span class="ruby-comment"># File lib/jekyll-github-metadata/pages.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">env</span>
+  <span class="ruby-identifier">env_var</span> <span class="ruby-string">&#39;PAGES_ENV&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-github_hostname" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">github_hostname</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="github_hostname-source">
+            <pre><span class="ruby-comment"># File lib/jekyll-github-metadata/pages.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">github_hostname</span>
+  <span class="ruby-identifier">trim_last_slash</span> <span class="ruby-identifier">env_var</span>(<span class="ruby-string">&#39;PAGES_GITHUB_HOSTNAME&#39;</span>, <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;GITHUB_HOSTNAME&#39;</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-github_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">github_url</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="github_url-source">
+            <pre><span class="ruby-comment"># File lib/jekyll-github-metadata/pages.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">github_url</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">dotcom?</span>
+    <span class="ruby-string">&quot;https://github.com&quot;</span>.<span class="ruby-identifier">freeze</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-node">&quot;#{scheme}://#{github_hostname}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-help_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">help_url</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="help_url-source">
+            <pre><span class="ruby-comment"># File lib/jekyll-github-metadata/pages.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">help_url</span>
+  <span class="ruby-identifier">trim_last_slash</span> <span class="ruby-identifier">env_var</span>(<span class="ruby-string">&#39;PAGES_HELP_URL&#39;</span>, <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;HELP_URL&#39;</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pages_hostname" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pages_hostname</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pages_hostname-source">
+            <pre><span class="ruby-comment"># File lib/jekyll-github-metadata/pages.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pages_hostname</span>
+  <span class="ruby-identifier">trim_last_slash</span> <span class="ruby-identifier">env_var</span>(<span class="ruby-string">&#39;PAGES_PAGES_HOSTNAME&#39;</span>, <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;PAGES_HOSTNAME&#39;</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-scheme" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scheme</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="scheme-source">
+            <pre><span class="ruby-comment"># File lib/jekyll-github-metadata/pages.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scheme</span>
+  <span class="ruby-identifier">ssl?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;https&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;http&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ssl-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ssl?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Whether the GitHub instance supports HTTPS Note: this will be the same as
+how sites are served in Enterprise, but may be different from how sites are
+served on GitHub.com. See <a
+href="Repository.html#method-i-url_scheme">Jekyll::GitHubMetadata::Repository#url_scheme</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="ssl-3F-source">
+            <pre><span class="ruby-comment"># File lib/jekyll-github-metadata/pages.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ssl?</span>
+  <span class="ruby-identifier">env_var</span>(<span class="ruby-string">&#39;SSL&#39;</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&#39;true&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">test?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-subdomain_isolation-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">subdomain_isolation?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="subdomain_isolation-3F-source">
+            <pre><span class="ruby-comment"># File lib/jekyll-github-metadata/pages.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">subdomain_isolation?</span>
+  <span class="ruby-identifier">env_var</span>(<span class="ruby-string">&#39;SUBDOMAIN_ISOLATION&#39;</span>).<span class="ruby-identifier">eql?</span> <span class="ruby-string">&#39;true&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test-3F-source">
+            <pre><span class="ruby-comment"># File lib/jekyll-github-metadata/pages.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test?</span>;       <span class="ruby-identifier">env</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;test&#39;</span> <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-env_var" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">env_var</span><span
+            class="method-args">(key, intermediate_default = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="env_var-source">
+            <pre><span class="ruby-comment"># File lib/jekyll-github-metadata/pages.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">env_var</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">intermediate_default</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-operator">!</span><span class="ruby-constant">ENV</span>[<span class="ruby-identifier">key</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-constant">ENV</span>[<span class="ruby-identifier">key</span>] <span class="ruby-operator">:</span> (<span class="ruby-identifier">intermediate_default</span> <span class="ruby-operator">||</span> <span class="ruby-constant">DEFAULTS</span>[<span class="ruby-identifier">key</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-trim_last_slash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">trim_last_slash</span><span
+            class="method-args">(url)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="trim_last_slash-source">
+            <pre><span class="ruby-comment"># File lib/jekyll-github-metadata/pages.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">trim_last_slash</span>(<span class="ruby-identifier">url</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">url</span>[<span class="ruby-value">-1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;/&quot;</span>
+    <span class="ruby-identifier">url</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">url</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

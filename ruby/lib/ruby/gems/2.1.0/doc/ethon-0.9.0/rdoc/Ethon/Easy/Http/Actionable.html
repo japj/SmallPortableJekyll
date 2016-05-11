@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Ethon::Easy::Http::Actionable - ethon-0.9.0 Documentation</title>
+
+<link href="../../../fonts.css" rel="stylesheet">
+<link href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/navigation.js"></script>
+<script src="../../../js/search_index.js"></script>
+<script src="../../../js/search.js"></script>
+<script src="../../../js/searcher.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-form">#form</a>
+    
+    <li ><a href="#method-i-options">#options</a>
+    
+    <li ><a href="#method-i-params">#params</a>
+    
+    <li ><a href="#method-i-params_encoding">#params_encoding</a>
+    
+    <li ><a href="#method-i-parse_options">#parse_options</a>
+    
+    <li ><a href="#method-i-query_options">#query_options</a>
+    
+    <li ><a href="#method-i-set_form">#set_form</a>
+    
+    <li ><a href="#method-i-set_params">#set_params</a>
+    
+    <li ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-url">#url</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Ethon::Easy::Http::Actionable">
+  <h1 id="module-Ethon::Easy::Http::Actionable" class="module">
+    module Ethon::Easy::Http::Actionable
+  </h1>
+
+  <section class="description">
+    
+<p>This module represents a <a href="../Http.html">Http</a> Action and is a
+factory for more real actions like GET, HEAD, POST and PUT.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="QUERY_OPTIONS">QUERY_OPTIONS
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(url, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new action.</p>
+
+<p>@example Create a new action.</p>
+
+<pre>Action.new(&quot;www.example.com&quot;, {})</pre>
+
+<p>@param [ String ] url The url. @param [ Hash ] options The options.</p>
+
+<p>@return [ Action ] A new action.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/ethon/easy/http/actionable.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-ivar">@url</span> = <span class="ruby-identifier">url</span>
+  <span class="ruby-ivar">@options</span>, <span class="ruby-ivar">@query_options</span> = <span class="ruby-identifier">parse_options</span>(<span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-form" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">form</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return the form.</p>
+
+<p>@example Return form.</p>
+
+<pre>action.form</pre>
+
+<p>@return [ <a href="../Form.html">Form</a> ] The form.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="form-source">
+            <pre><span class="ruby-comment"># File lib/ethon/easy/http/actionable.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">form</span>
+  <span class="ruby-ivar">@form</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Form</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@easy</span>, <span class="ruby-identifier">query_options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:body</span>, <span class="ruby-keyword">nil</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return the options hash.</p>
+
+<p>@example Return options.</p>
+
+<pre>action.options</pre>
+
+<p>@return [ Hash ] The options.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="options-source">
+            <pre><span class="ruby-comment"># File lib/ethon/easy/http/actionable.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-ivar">@options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-params" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">params</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return the params.</p>
+
+<p>@example Return params.</p>
+
+<pre>action.params</pre>
+
+<p>@return [ <a href="../Params.html">Params</a> ] The params.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="params-source">
+            <pre><span class="ruby-comment"># File lib/ethon/easy/http/actionable.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">params</span>
+  <span class="ruby-ivar">@params</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Params</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@easy</span>, <span class="ruby-identifier">query_options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:params</span>, <span class="ruby-keyword">nil</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-params_encoding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">params_encoding</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Get.html">Get</a> the requested array encoding. By default
+it&#39;s :typhoeus, but it can also be set to :rack.</p>
+
+<p>@example <a href="Get.html">Get</a> encoding from options</p>
+
+<pre>action.params_encoding</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="params_encoding-source">
+            <pre><span class="ruby-comment"># File lib/ethon/easy/http/actionable.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">params_encoding</span>
+  <span class="ruby-ivar">@params_encoding</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">query_options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:params_encoding</span>, <span class="ruby-value">:typhoeus</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-query_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">query_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the query options hash.</p>
+
+<p>@example Return query options.</p>
+
+<pre>action.query_options</pre>
+
+<p>@return [ Hash ] The query options.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="query_options-source">
+            <pre><span class="ruby-comment"># File lib/ethon/easy/http/actionable.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">query_options</span>
+  <span class="ruby-ivar">@query_options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_form" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_form</span><span
+            class="method-args">(easy)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Setup request with form.</p>
+
+<p>@example Setup nothing.</p>
+
+<pre>action.set_form(easy)</pre>
+
+<p>@param [ <a href="../../Easy.html">Easy</a> ] easy The easy to setup.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_form-source">
+            <pre><span class="ruby-comment"># File lib/ethon/easy/http/actionable.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_form</span>(<span class="ruby-identifier">easy</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_params" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_params</span><span
+            class="method-args">(easy)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Setup request with params.</p>
+
+<p>@example Setup nothing.</p>
+
+<pre>action.set_params(easy)</pre>
+
+<p>@param [ <a href="../../Easy.html">Easy</a> ] easy The easy to setup.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_params-source">
+            <pre><span class="ruby-comment"># File lib/ethon/easy/http/actionable.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_params</span>(<span class="ruby-identifier">easy</span>)
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">escape</span> = <span class="ruby-identifier">easy</span>.<span class="ruby-identifier">escape?</span>
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">params_encoding</span> = <span class="ruby-identifier">params_encoding</span>
+
+  <span class="ruby-identifier">base_url</span>, <span class="ruby-identifier">base_params</span> = <span class="ruby-identifier">url</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;?&#39;</span>)
+  <span class="ruby-identifier">base_url</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;?&#39;</span>
+  <span class="ruby-identifier">base_url</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">base_params</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">base_url</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;&amp;&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">base_params</span>
+  <span class="ruby-identifier">base_url</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">to_s</span>
+
+  <span class="ruby-identifier">easy</span>.<span class="ruby-identifier">url</span> = <span class="ruby-identifier">base_url</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">(easy)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Setup everything necessary for a proper request.</p>
+
+<p>@example setup.</p>
+
+<pre>action.setup(easy)</pre>
+
+<p>@param [ easy ] easy the easy to setup.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File lib/ethon/easy/http/actionable.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>(<span class="ruby-identifier">easy</span>)
+  <span class="ruby-ivar">@easy</span> = <span class="ruby-identifier">easy</span>
+
+  <span class="ruby-comment"># Order is important, @easy will be used to provide access to options</span>
+  <span class="ruby-comment"># relevant to the following operations (like whether or not to escape</span>
+  <span class="ruby-comment"># values).</span>
+  <span class="ruby-identifier">easy</span>.<span class="ruby-identifier">set_attributes</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-identifier">set_form</span>(<span class="ruby-identifier">easy</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">form</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">easy</span>.<span class="ruby-identifier">url</span> = <span class="ruby-identifier">url</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">set_params</span>(<span class="ruby-identifier">easy</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">url</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return the url.</p>
+
+<p>@example Return url.</p>
+
+<pre>action.url</pre>
+
+<p>@return [ String ] The url.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="url-source">
+            <pre><span class="ruby-comment"># File lib/ethon/easy/http/actionable.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">url</span>
+  <span class="ruby-ivar">@url</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-parse_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_options</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_options-source">
+            <pre><span class="ruby-comment"># File lib/ethon/easy/http/actionable.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_options</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">query_options</span> = {}
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span>
+
+  <span class="ruby-constant">QUERY_OPTIONS</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">query_option</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">query_option</span>)
+      <span class="ruby-identifier">query_options</span>[<span class="ruby-identifier">query_option</span>] = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">query_option</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">options</span>, <span class="ruby-identifier">query_options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Ethon::Easy::Form - ethon-0.9.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Util.html">Ethon::Easy::Util</a>
+  
+  
+  
+    <li><a class="include" href="Queryable.html">Ethon::Easy::Queryable</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-first">#first</a>
+    
+    <li ><a href="#method-i-form_add">#form_add</a>
+    
+    <li ><a href="#method-i-last">#last</a>
+    
+    <li ><a href="#method-i-materialize">#materialize</a>
+    
+    <li ><a href="#method-i-multipart-3F">#multipart?</a>
+    
+    <li ><a href="#method-i-setup_garbage_collection">#setup_garbage_collection</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Ethon::Easy::Form">
+  <h1 id="class-Ethon::Easy::Form" class="class">
+    class Ethon::Easy::Form
+  </h1>
+
+  <section class="description">
+    
+<p>This class represents a form and is used to send a payload in the request
+body via POST/PUT. It handles multipart forms, too.</p>
+
+<p>@api private</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(easy, params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a new <a href="Form.html">Form</a>.</p>
+
+<p>@example Return a new <a href="Form.html">Form</a>.</p>
+
+<pre>Form.new({})</pre>
+
+<p>@param [ Hash ] params The parameter with which to initialize the form.</p>
+
+<p>@return [ <a href="Form.html">Form</a> ] A new <a
+href="Form.html">Form</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/ethon/easy/form.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">easy</span>, <span class="ruby-identifier">params</span>)
+  <span class="ruby-ivar">@easy</span> = <span class="ruby-identifier">easy</span>
+  <span class="ruby-ivar">@params</span> = <span class="ruby-identifier">params</span> <span class="ruby-operator">||</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-first" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">first</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a pointer to the first form element in libcurl.</p>
+
+<p>@example Return the first form element.</p>
+
+<pre>form.first</pre>
+
+<p>@return [ FFI::Pointer ] The first element.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="first-source">
+            <pre><span class="ruby-comment"># File lib/ethon/easy/form.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">first</span>
+  <span class="ruby-ivar">@first</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">FFI</span><span class="ruby-operator">::</span><span class="ruby-constant">MemoryPointer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:pointer</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-last" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">last</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a pointer to the last form element in libcurl.</p>
+
+<p>@example Return the last form element.</p>
+
+<pre>form.last</pre>
+
+<p>@return [ FFI::Pointer ] The last element.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="last-source">
+            <pre><span class="ruby-comment"># File lib/ethon/easy/form.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">last</span>
+  <span class="ruby-ivar">@last</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">FFI</span><span class="ruby-operator">::</span><span class="ruby-constant">MemoryPointer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:pointer</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-materialize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">materialize</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add form elements to libcurl.</p>
+
+<p>@example Add form to libcurl.</p>
+
+<pre>form.materialize</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="materialize-source">
+            <pre><span class="ruby-comment"># File lib/ethon/easy/form.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">materialize</span>
+  <span class="ruby-identifier">query_pairs</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">pair</span><span class="ruby-operator">|</span> <span class="ruby-identifier">form_add</span>(<span class="ruby-identifier">pair</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">pair</span>.<span class="ruby-identifier">last</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-multipart-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">multipart?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return if form is multipart. The form is multipart when it contains a file.</p>
+
+<p>@example Return if form is multipart.</p>
+
+<pre>form.multipart?</pre>
+
+<p>@return [ Boolean ] True if form is multipart, else false.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="multipart-3F-source">
+            <pre><span class="ruby-comment"># File lib/ethon/easy/form.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">multipart?</span>
+  <span class="ruby-identifier">query_pairs</span>.<span class="ruby-identifier">any?</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">pair</span><span class="ruby-operator">|</span> <span class="ruby-identifier">pair</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:last</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">pair</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-form_add" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">form_add</span><span
+            class="method-args">(name, content)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="form_add-source">
+            <pre><span class="ruby-comment"># File lib/ethon/easy/form.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">form_add</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">content</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">content</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>
+    <span class="ruby-constant">Curl</span>.<span class="ruby-identifier">formadd</span>(<span class="ruby-identifier">first</span>, <span class="ruby-identifier">last</span>,
+                 <span class="ruby-value">:form_option</span>, <span class="ruby-value">:copyname</span>, <span class="ruby-value">:pointer</span>, <span class="ruby-identifier">name</span>,
+                 <span class="ruby-value">:form_option</span>, <span class="ruby-value">:namelength</span>, <span class="ruby-value">:long</span>, <span class="ruby-identifier">name</span>.<span class="ruby-identifier">bytesize</span>,
+                 <span class="ruby-value">:form_option</span>, <span class="ruby-value">:file</span>, <span class="ruby-value">:string</span>, <span class="ruby-identifier">content</span>[<span class="ruby-value">2</span>],
+                 <span class="ruby-value">:form_option</span>, <span class="ruby-value">:filename</span>, <span class="ruby-value">:string</span>, <span class="ruby-identifier">content</span>[<span class="ruby-value">0</span>],
+                 <span class="ruby-value">:form_option</span>, <span class="ruby-value">:contenttype</span>, <span class="ruby-value">:string</span>, <span class="ruby-identifier">content</span>[<span class="ruby-value">1</span>],
+                 <span class="ruby-value">:form_option</span>, <span class="ruby-value">:end</span>
+                )
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Curl</span>.<span class="ruby-identifier">formadd</span>(<span class="ruby-identifier">first</span>, <span class="ruby-identifier">last</span>,
+                 <span class="ruby-value">:form_option</span>, <span class="ruby-value">:copyname</span>, <span class="ruby-value">:pointer</span>, <span class="ruby-identifier">name</span>,
+                 <span class="ruby-value">:form_option</span>, <span class="ruby-value">:namelength</span>, <span class="ruby-value">:long</span>, <span class="ruby-identifier">name</span>.<span class="ruby-identifier">bytesize</span>,
+                 <span class="ruby-value">:form_option</span>, <span class="ruby-value">:copycontents</span>, <span class="ruby-value">:pointer</span>, <span class="ruby-identifier">content</span>,
+                 <span class="ruby-value">:form_option</span>, <span class="ruby-value">:contentslength</span>, <span class="ruby-value">:long</span>, <span class="ruby-identifier">content</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">content</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span>,
+                 <span class="ruby-value">:form_option</span>, <span class="ruby-value">:end</span>
+                )
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">setup_garbage_collection</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_garbage_collection" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_garbage_collection</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_garbage_collection-source">
+            <pre><span class="ruby-comment"># File lib/ethon/easy/form.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_garbage_collection</span>
+  <span class="ruby-comment"># first is a pointer to a pointer. Since it&#39;s a MemoryPointer it will</span>
+  <span class="ruby-comment"># auto clean itself up, but we need to clean up the object it points</span>
+  <span class="ruby-comment"># to. So this results in (pseudo-c):</span>
+  <span class="ruby-comment">#   form_data_cleanup_handler = *first</span>
+  <span class="ruby-comment">#   curl_form_free(form_data_cleanup_handler)</span>
+  <span class="ruby-ivar">@form_data_cleanup_handler</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">FFI</span><span class="ruby-operator">::</span><span class="ruby-constant">AutoPointer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@first</span>.<span class="ruby-identifier">get_pointer</span>(<span class="ruby-value">0</span>), <span class="ruby-constant">Curl</span>.<span class="ruby-identifier">method</span>(<span class="ruby-value">:formfree</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

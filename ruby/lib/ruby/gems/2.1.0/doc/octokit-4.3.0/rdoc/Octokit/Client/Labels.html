@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Octokit::Client::Labels - octokit-4.3.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-add_label">#add_label</a>
+    
+    <li ><a href="#method-i-add_labels_to_an_issue">#add_labels_to_an_issue</a>
+    
+    <li ><a href="#method-i-delete_label-21">#delete_label!</a>
+    
+    <li ><a href="#method-i-label">#label</a>
+    
+    <li ><a href="#method-i-labels">#labels</a>
+    
+    <li ><a href="#method-i-labels_for_issue">#labels_for_issue</a>
+    
+    <li ><a href="#method-i-labels_for_milestone">#labels_for_milestone</a>
+    
+    <li ><a href="#method-i-remove_all_labels">#remove_all_labels</a>
+    
+    <li ><a href="#method-i-remove_label">#remove_label</a>
+    
+    <li ><a href="#method-i-replace_all_labels">#replace_all_labels</a>
+    
+    <li ><a href="#method-i-update_label">#update_label</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Octokit::Client::Labels">
+  <h1 id="module-Octokit::Client::Labels" class="module">
+    module Octokit::Client::Labels
+  </h1>
+
+  <section class="description">
+    
+<p>Methods for the Issue <a href="Labels.html">Labels</a> API</p>
+
+<p>@see <a
+href="https://developer.github.com/v3/issues/labels">developer.github.com/v3/issues/labels</a>/</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_label" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_label</span><span
+            class="method-args">(repo, label, color="ffffff", options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add a label to a repository</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param label [String] A new label @param color
+[String] A color, in hex, without the leading # @return [Sawyer::Resource]
+The new label @see <a
+href="https://developer.github.com/v3/issues/labels/#create-a-label">developer.github.com/v3/issues/labels/#create-a-label</a>
+@example Add a new label “Version 1.0” with color “#cccccc”</p>
+
+<pre>Octokit.add_label(&quot;octokit/octokit.rb&quot;, &quot;Version 1.0&quot;, &quot;cccccc&quot;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="add_label-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/labels.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_label</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">label</span>, <span class="ruby-identifier">color</span>=<span class="ruby-string">&quot;ffffff&quot;</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">post</span> <span class="ruby-node">&quot;#{Repository.path repo}/labels&quot;</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">label</span>, <span class="ruby-value">:color</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">color</span>})
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_labels_to_an_issue" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_labels_to_an_issue</span><span
+            class="method-args">(repo, number, labels)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add label(s) to an Issue</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A Github repository @param number [Fixnum] Number ID of the issue
+@param labels [Array] An array of labels to apply to this Issue @return
+[Array&lt;Sawyer::Resource&gt;] A list of the labels currently on the issue
+@see <a
+href="https://developer.github.com/v3/issues/labels/#add-labels-to-an-issue">developer.github.com/v3/issues/labels/#add-labels-to-an-issue</a>
+@example Add two labels for octokit/octokit.rb</p>
+
+<pre>Octokit.add_labels_to_an_issue(&quot;octokit/octokit.rb&quot;, 10, [&#39;V3 Transition&#39;, &#39;Improvement&#39;])</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="add_labels_to_an_issue-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/labels.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_labels_to_an_issue</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">number</span>, <span class="ruby-identifier">labels</span>)
+  <span class="ruby-identifier">post</span> <span class="ruby-node">&quot;#{Repository.path repo}/issues/#{number}/labels&quot;</span>, <span class="ruby-identifier">labels</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_label-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_label!</span><span
+            class="method-args">(repo, label, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete a label from a repository.</p>
+
+<p>This deletes the label from the repository, and removes it from all issues.</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param label [String] String name of the label
+@return [Boolean] Success @see <a
+href="https://developer.github.com/v3/issues/labels/#delete-a-label">developer.github.com/v3/issues/labels/#delete-a-label</a>
+@example Delete the label “Version 1.0” from the repository.</p>
+
+<pre>Octokit.delete_label!(&quot;octokit/octokit.rb&quot;, &quot;Version 1.0&quot;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="delete_label-21-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/labels.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_label!</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">label</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:delete</span>, <span class="ruby-node">&quot;#{Repository.path repo}/labels/#{label}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-label" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">label</span><span
+            class="method-args">(repo, name, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get single label for a repository</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param name [String] Name of the label @return
+[Sawyer::Resource] A single label from the repository @see <a
+href="https://developer.github.com/v3/issues/labels/#get-a-single-label">developer.github.com/v3/issues/labels/#get-a-single-label</a>
+@example Get the “V3 Addition” label from octokit/octokit.rb</p>
+
+<pre>Octokit.labels(&quot;octokit/octokit.rb&quot;, &quot;V3 Addition&quot;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="label-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/labels.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">label</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span> <span class="ruby-node">&quot;#{Repository.path repo}/labels/#{name}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-labels" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">labels</span><span
+            class="method-args">(repo, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List available labels for a repository</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @return [Array&lt;Sawyer::Resource&gt;] A list of
+the labels across the repository @see <a
+href="https://developer.github.com/v3/issues/labels/#list-all-labels-for-this-repository">developer.github.com/v3/issues/labels/#list-all-labels-for-this-repository</a>
+@example List labels for octokit/octokit.rb</p>
+
+<pre>Octokit.labels(&quot;octokit/octokit.rb&quot;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="labels-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/labels.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">labels</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">paginate</span> <span class="ruby-node">&quot;#{Repository.path repo}/labels&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-labels_for_issue" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">labels_for_issue</span><span
+            class="method-args">(repo, number, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List labels for a given issue</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param number [Fixnum] Number ID of the issue
+@return [Array&lt;Sawyer::Resource&gt;] A list of the labels currently on
+the issue @see <a
+href="https://developer.github.com/v3/issues/labels/#list-labels-on-an-issue">developer.github.com/v3/issues/labels/#list-labels-on-an-issue</a>
+@example List labels for octokit/octokit.rb, issue # 1</p>
+
+<pre>Octokit.labels_for_issue(&quot;octokit/octokit.rb&quot;, 1)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="labels_for_issue-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/labels.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">labels_for_issue</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">number</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">paginate</span> <span class="ruby-node">&quot;#{Repository.path repo}/issues/#{number}/labels&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-labels_for_milestone" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">labels_for_milestone</span><span
+            class="method-args">(repo, number, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get labels for every issue in a milestone</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param number [Fixnum] Number ID of the milestone
+@return [Array&lt;Sawyer::Resource&gt;] A list of the labels across the
+milestone @see  <a
+href="http://developer.github.com/v3/issues/labels/#get-labels-for-every-issue-in-a-milestone">developer.github.com/v3/issues/labels/#get-labels-for-every-issue-in-a-milestone</a>
+@example List all labels for milestone #2 on octokit/octokit.rb</p>
+
+<pre>Octokit.labels_for_milestone(&quot;octokit/octokit.rb&quot;, 2)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="labels_for_milestone-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/labels.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">labels_for_milestone</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">number</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">paginate</span> <span class="ruby-node">&quot;#{Repository.path repo}/milestones/#{number}/labels&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_all_labels" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_all_labels</span><span
+            class="method-args">(repo, number, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove all label from an Issue</p>
+
+<p>This removes the label from the Issue</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param number [Fixnum] Number ID of the issue
+@return [Boolean] Success of operation @see <a
+href="https://developer.github.com/v3/issues/labels/#remove-all-labels-from-an-issue">developer.github.com/v3/issues/labels/#remove-all-labels-from-an-issue</a>
+@example Remove all labels from Issue #23</p>
+
+<pre>Octokit.remove_all_labels(&quot;octokit/octokit.rb&quot;, 23)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="remove_all_labels-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/labels.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_all_labels</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">number</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:delete</span>, <span class="ruby-node">&quot;#{Repository.path repo}/issues/#{number}/labels&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_label" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_label</span><span
+            class="method-args">(repo, number, label, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove a label from an Issue</p>
+
+<p>This removes the label from the Issue</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param number [Fixnum] Number ID of the issue
+@param label [String] String name of the label @return
+[Array&lt;Sawyer::Resource&gt;] A list of the labels currently on the issue
+@see <a
+href="https://developer.github.com/v3/issues/labels/#remove-a-label-from-an-issue">developer.github.com/v3/issues/labels/#remove-a-label-from-an-issue</a>
+@example Remove the label “Version 1.0” from the repository.</p>
+
+<pre>Octokit.remove_label(&quot;octokit/octokit.rb&quot;, 23, &quot;Version 1.0&quot;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="remove_label-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/labels.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_label</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">number</span>, <span class="ruby-identifier">label</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">delete</span> <span class="ruby-node">&quot;#{Repository.path repo}/issues/#{number}/labels/#{label}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-replace_all_labels" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">replace_all_labels</span><span
+            class="method-args">(repo, number, labels, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Replace all labels on an Issue</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A Github repository @param number [Fixnum] Number ID of the issue
+@param labels [Array] An array of labels to use as replacement @return
+[Array&lt;Sawyer::Resource&gt;] A list of the labels currently on the issue
+@see <a
+href="https://developer.github.com/v3/issues/labels/#replace-all-labels-for-an-issue">developer.github.com/v3/issues/labels/#replace-all-labels-for-an-issue</a>
+@example Replace labels for octokit/octokit.rb Issue #10</p>
+
+<pre>Octokit.replace_all_labels(&quot;octokit/octokit.rb&quot;, 10, [&#39;V3 Transition&#39;, &#39;Improvement&#39;])</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="replace_all_labels-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/labels.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">replace_all_labels</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">number</span>, <span class="ruby-identifier">labels</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">put</span> <span class="ruby-node">&quot;#{Repository.path repo}/issues/#{number}/labels&quot;</span>, <span class="ruby-identifier">labels</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_label" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_label</span><span
+            class="method-args">(repo, label, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update a label</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param label [String] The name of the label which
+will be updated @param options [Hash] A customizable set of options.
+@option options [String] :name An updated label name @option options
+[String] :color An updated color value, in hex, without leading # @return
+[Sawyer::Resource] The updated label @see <a
+href="https://developer.github.com/v3/issues/labels/#update-a-label">developer.github.com/v3/issues/labels/#update-a-label</a>
+@example Update the label “Version 1.0” with new color “#cceeaa”</p>
+
+<pre class="ruby"><span class="ruby-constant">Octokit</span>.<span class="ruby-identifier">update_label</span>(<span class="ruby-string">&quot;octokit/octokit.rb&quot;</span>, <span class="ruby-string">&quot;Version 1.0&quot;</span>, {:<span class="ruby-identifier">color</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;cceeaa&quot;</span>})
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="update_label-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/labels.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_label</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">label</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">patch</span> <span class="ruby-node">&quot;#{Repository.path repo}/labels/#{label}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

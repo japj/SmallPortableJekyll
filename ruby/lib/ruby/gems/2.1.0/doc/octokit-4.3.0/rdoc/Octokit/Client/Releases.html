@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Octokit::Client::Releases - octokit-4.3.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-content_type_from_file">#content_type_from_file</a>
+    
+    <li ><a href="#method-i-create_release">#create_release</a>
+    
+    <li ><a href="#method-i-delete_release">#delete_release</a>
+    
+    <li ><a href="#method-i-delete_release_asset">#delete_release_asset</a>
+    
+    <li ><a href="#method-i-edit_release">#edit_release</a>
+    
+    <li ><a href="#method-i-edit_release_asset">#edit_release_asset</a>
+    
+    <li ><a href="#method-i-latest_release">#latest_release</a>
+    
+    <li ><a href="#method-i-list_releases">#list_releases</a>
+    
+    <li ><a href="#method-i-release">#release</a>
+    
+    <li ><a href="#method-i-release_asset">#release_asset</a>
+    
+    <li ><a href="#method-i-release_assets">#release_assets</a>
+    
+    <li ><a href="#method-i-release_for_tag">#release_for_tag</a>
+    
+    <li ><a href="#method-i-releases">#releases</a>
+    
+    <li ><a href="#method-i-update_release">#update_release</a>
+    
+    <li ><a href="#method-i-update_release_asset">#update_release_asset</a>
+    
+    <li ><a href="#method-i-upload_asset">#upload_asset</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Octokit::Client::Releases">
+  <h1 id="module-Octokit::Client::Releases" class="module">
+    module Octokit::Client::Releases
+  </h1>
+
+  <section class="description">
+    
+<p>Methods for the <a href="Releases.html">Releases</a> API</p>
+
+<p>@see <a
+href="https://developer.github.com/v3/repos/releases">developer.github.com/v3/repos/releases</a>/</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-create_release" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_release</span><span
+            class="method-args">(repo, tag_name, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a release</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param tag_name [String] Git tag from which to
+create release @option options [String] :target_commitish Specifies the
+commitish value that determines where the Git tag is created from. @option
+options [String] :name Name for the release @option options [String] :body
+Content for release notes @option options [Boolean] :draft Mark this
+release as a draft @option options [Boolean] :prerelease Mark this release
+as a pre-release @return [Sawyer::Resource] The release @see <a
+href="https://developer.github.com/v3/repos/releases/#create-a-release">developer.github.com/v3/repos/releases/#create-a-release</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_release-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/releases.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_release</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:tag_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">tag_name</span>)
+  <span class="ruby-identifier">post</span> <span class="ruby-node">&quot;#{Repository.path repo}/releases&quot;</span>, <span class="ruby-identifier">opts</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_release" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_release</span><span
+            class="method-args">(url, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete a release</p>
+
+<p>@param url [String] URL for the release as returned from .releases @return
+[Boolean] Success or failure @see <a
+href="https://developer.github.com/v3/repos/releases/#delete-a-release">developer.github.com/v3/repos/releases/#delete-a-release</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="delete_release-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/releases.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_release</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span>(<span class="ruby-value">:delete</span>, <span class="ruby-identifier">url</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_release_asset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_release_asset</span><span
+            class="method-args">(asset_url, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete a release asset</p>
+
+<p>@param asset_url [String] URL for the asset as returned from
+.release_assets @return [Boolean] Success or failure @see <a
+href="https://developer.github.com/v3/repos/releases/#delete-a-release-asset">developer.github.com/v3/repos/releases/#delete-a-release-asset</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="delete_release_asset-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/releases.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_release_asset</span>(<span class="ruby-identifier">asset_url</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span>(<span class="ruby-value">:delete</span>, <span class="ruby-identifier">asset_url</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-edit_release" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">edit_release</span><span
+            class="method-args">(url, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Releases.html#method-i-update_release">update_release</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-edit_release_asset" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">edit_release_asset</span><span
+            class="method-args">(asset_url, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Releases.html#method-i-update_release_asset">update_release_asset</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-latest_release" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">latest_release</span><span
+            class="method-args">(repo, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the latest release</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @return [Sawyer::Resource] The release @see <a
+href="https://developer.github.com/v3/repos/releases/#get-the-latest-release">developer.github.com/v3/repos/releases/#get-the-latest-release</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="latest_release-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/releases.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">latest_release</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span> <span class="ruby-node">&quot;#{Repository.path repo}/releases/latest&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-list_releases" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">list_releases</span><span
+            class="method-args">(repo, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Releases.html#method-i-releases">releases</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-release" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">release</span><span
+            class="method-args">(url, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get a release</p>
+
+<p>@param url [String] URL for the release as returned from .releases @return
+[Sawyer::Resource] The release @see <a
+href="https://developer.github.com/v3/repos/releases/#get-a-single-release">developer.github.com/v3/repos/releases/#get-a-single-release</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="release-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/releases.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">release</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span> <span class="ruby-identifier">url</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-release_asset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">release_asset</span><span
+            class="method-args">(asset_url, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get a single release asset</p>
+
+<p>@param asset_url [String] URL for the asset as returned from
+.release_assets @return [Sawyer::Resource] The release asset @see <a
+href="https://developer.github.com/v3/repos/releases/#get-a-single-release-asset">developer.github.com/v3/repos/releases/#get-a-single-release-asset</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="release_asset-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/releases.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">release_asset</span>(<span class="ruby-identifier">asset_url</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span>(<span class="ruby-identifier">asset_url</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-release_assets" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">release_assets</span><span
+            class="method-args">(release_url, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List release assets</p>
+
+<p>@param release_url [String] URL for the release as returned from .releases
+@return [Array&lt;Sawyer::Resource&gt;] A list of release assets @see <a
+href="https://developer.github.com/v3/repos/releases/#list-assets-for-a-release">developer.github.com/v3/repos/releases/#list-assets-for-a-release</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="release_assets-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/releases.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">release_assets</span>(<span class="ruby-identifier">release_url</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">paginate</span> <span class="ruby-identifier">release</span>(<span class="ruby-identifier">release_url</span>).<span class="ruby-identifier">rels</span>[<span class="ruby-value">:assets</span>].<span class="ruby-identifier">href</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-release_for_tag" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">release_for_tag</span><span
+            class="method-args">(repo, tag_name, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the release for a given tag</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param tag_name [String] the name for a tag
+@return [Sawyer::Resource] The release @see <a
+href="https://developer.github.com/v3/repos/releases/#get-a-release-by-tag-name">developer.github.com/v3/repos/releases/#get-a-release-by-tag-name</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="release_for_tag-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/releases.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">release_for_tag</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">tag_name</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span> <span class="ruby-node">&quot;#{Repository.path repo}/releases/tags/#{tag_name}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-releases" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">releases</span><span
+            class="method-args">(repo, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List releases for a repository</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @return [Array&lt;Sawyer::Resource&gt;] A list of
+releases @see <a
+href="https://developer.github.com/v3/repos/releases/#list-releases-for-a-repository">developer.github.com/v3/repos/releases/#list-releases-for-a-repository</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="releases-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/releases.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">releases</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">paginate</span> <span class="ruby-node">&quot;#{Repository.path repo}/releases&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Releases.html#method-i-list_releases">list_releases</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_release" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_release</span><span
+            class="method-args">(url, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update a release</p>
+
+<p>@param url [String] URL for the release as returned from .releases @option
+options [String] :target_commitish Specifies the commitish value that
+determines where the Git tag is created from. @option options [String]
+:name Name for the release @option options [String] :body Content for
+release notes @option options [Boolean] :draft Mark this release as a draft
+@option options [Boolean] :prerelease Mark this release as a pre-release
+@return [Sawyer::Resource] The release @see <a
+href="https://developer.github.com/v3/repos/releases/#edit-a-release">developer.github.com/v3/repos/releases/#edit-a-release</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="update_release-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/releases.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_release</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">patch</span> <span class="ruby-identifier">url</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Releases.html#method-i-edit_release">edit_release</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_release_asset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_release_asset</span><span
+            class="method-args">(asset_url, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update a release asset</p>
+
+<p>@param asset_url [String] URL for the asset as returned from
+.release_assets @option options [String] :name The name for the file
+@option options [String] :label The download text for the file @return
+[Sawyer::Resource] The release asset @see <a
+href="https://developer.github.com/v3/repos/releases/#edit-a-release-asset">developer.github.com/v3/repos/releases/#edit-a-release-asset</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="update_release_asset-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/releases.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_release_asset</span>(<span class="ruby-identifier">asset_url</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">patch</span>(<span class="ruby-identifier">asset_url</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Releases.html#method-i-edit_release_asset">edit_release_asset</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upload_asset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload_asset</span><span
+            class="method-args">(release_url, path_or_file, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Upload a release asset</p>
+
+<p>@param release_url [String] URL for the release as returned from .releases
+@param path_or_file [String] Path to file to upload @option options
+[String] :content_type The MIME type for the file to upload @option options
+[String] :name The name for the file @return [Sawyer::Resource] The release
+asset @see <a
+href="https://developer.github.com/v3/repos/releases/#upload-a-release-asset">developer.github.com/v3/repos/releases/#upload-a-release-asset</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="upload_asset-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/releases.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upload_asset</span>(<span class="ruby-identifier">release_url</span>, <span class="ruby-identifier">path_or_file</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">file</span> = <span class="ruby-identifier">path_or_file</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:read</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">path_or_file</span> <span class="ruby-operator">:</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">path_or_file</span>, <span class="ruby-string">&quot;r+b&quot;</span>)
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:content_type</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">content_type_from_file</span>(<span class="ruby-identifier">file</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Octokit</span><span class="ruby-operator">::</span><span class="ruby-constant">MissingContentType</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:content_type</span>].<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">name</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:name</span>]
+    <span class="ruby-identifier">name</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">file</span>.<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">upload_url</span> = <span class="ruby-identifier">release</span>(<span class="ruby-identifier">release_url</span>).<span class="ruby-identifier">rels</span>[<span class="ruby-value">:upload</span>].<span class="ruby-identifier">href_template</span>.<span class="ruby-identifier">expand</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>)
+
+  <span class="ruby-identifier">request</span> <span class="ruby-value">:post</span>, <span class="ruby-identifier">upload_url</span>, <span class="ruby-identifier">file</span>.<span class="ruby-identifier">read</span>, <span class="ruby-identifier">parse_query_and_convenience_headers</span>(<span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">file</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-content_type_from_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">content_type_from_file</span><span
+            class="method-args">(file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="content_type_from_file-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/releases.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">content_type_from_file</span>(<span class="ruby-identifier">file</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;mime/types&#39;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">mime_type</span> = <span class="ruby-constant">MIME</span><span class="ruby-operator">::</span><span class="ruby-constant">Types</span>.<span class="ruby-identifier">type_for</span>(<span class="ruby-identifier">file</span>.<span class="ruby-identifier">path</span>).<span class="ruby-identifier">first</span>
+    <span class="ruby-identifier">mime_type</span>.<span class="ruby-identifier">content_type</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">LoadError</span>
+  <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;Please pass content_type or install mime-types gem to guess content type from file&quot;</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Octokit</span><span class="ruby-operator">::</span><span class="ruby-constant">MissingContentType</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">msg</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

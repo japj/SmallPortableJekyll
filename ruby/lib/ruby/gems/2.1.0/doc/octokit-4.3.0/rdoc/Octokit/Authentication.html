@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Octokit::Authentication - octokit-4.3.0 Documentation</title>
+
+<link href="../fonts.css" rel="stylesheet">
+<link href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/search_index.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/searcher.js"></script>
+<script src="../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-application_authenticated-3F">#application_authenticated?</a>
+    
+    <li ><a href="#method-i-application_authentication">#application_authentication</a>
+    
+    <li ><a href="#method-i-basic_authenticated-3F">#basic_authenticated?</a>
+    
+    <li ><a href="#method-i-login_from_netrc">#login_from_netrc</a>
+    
+    <li ><a href="#method-i-token_authenticated-3F">#token_authenticated?</a>
+    
+    <li ><a href="#method-i-user_authenticated-3F">#user_authenticated?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Octokit::Authentication">
+  <h1 id="module-Octokit::Authentication" class="module">
+    module Octokit::Authentication
+  </h1>
+
+  <section class="description">
+    
+<p><a href="Authentication.html">Authentication</a> methods for
+{Octokit::Client}</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-application_authenticated-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">application_authenticated?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Indicates if the client has OAuth Application client_id and secret
+credentials to make anonymous requests at a higher rate limit</p>
+
+<p>@see <a
+href="https://developer.github.com/v3/#unauthenticated-rate-limited-requests">developer.github.com/v3/#unauthenticated-rate-limited-requests</a>
+@return Boolean</p>
+          
+          
+
+          
+          <div class="method-source-code" id="application_authenticated-3F-source">
+            <pre><span class="ruby-comment"># File lib/octokit/authentication.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">application_authenticated?</span>
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-identifier">application_authentication</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-basic_authenticated-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">basic_authenticated?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Indicates if the client was supplied  Basic Auth username and password</p>
+
+<p>@see <a
+href="https://developer.github.com/v3/#authentication">developer.github.com/v3/#authentication</a>
+@return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="basic_authenticated-3F-source">
+            <pre><span class="ruby-comment"># File lib/octokit/authentication.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">basic_authenticated?</span>
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span>(<span class="ruby-ivar">@login</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@password</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-token_authenticated-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">token_authenticated?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Indicates if the client was supplied an OAuth access token</p>
+
+<p>@see <a
+href="https://developer.github.com/v3/#authentication">developer.github.com/v3/#authentication</a>
+@return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="token_authenticated-3F-source">
+            <pre><span class="ruby-comment"># File lib/octokit/authentication.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">token_authenticated?</span>
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-ivar">@access_token</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-user_authenticated-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">user_authenticated?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Indicates if the client was supplied an OAuth access token or Basic Auth
+username and password</p>
+
+<p>@see <a
+href="https://developer.github.com/v3/#authentication">developer.github.com/v3/#authentication</a>
+@return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="user_authenticated-3F-source">
+            <pre><span class="ruby-comment"># File lib/octokit/authentication.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">user_authenticated?</span>
+  <span class="ruby-identifier">basic_authenticated?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">token_authenticated?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-application_authentication" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">application_authentication</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="application_authentication-source">
+            <pre><span class="ruby-comment"># File lib/octokit/authentication.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">application_authentication</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client_id</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@client_secret</span>
+    {
+      <span class="ruby-value">:client_id</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@client_id</span>,
+      <span class="ruby-value">:client_secret</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@client_secret</span>
+    }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-login_from_netrc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">login_from_netrc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="login_from_netrc-source">
+            <pre><span class="ruby-comment"># File lib/octokit/authentication.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">login_from_netrc</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">netrc?</span>
+
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;netrc&#39;</span>
+  <span class="ruby-identifier">info</span> = <span class="ruby-constant">Netrc</span>.<span class="ruby-identifier">read</span> <span class="ruby-identifier">netrc_file</span>
+  <span class="ruby-identifier">netrc_host</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">api_endpoint</span>).<span class="ruby-identifier">host</span>
+  <span class="ruby-identifier">creds</span> = <span class="ruby-identifier">info</span>[<span class="ruby-identifier">netrc_host</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">creds</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-comment"># creds will be nil if there is no netrc for this end point</span>
+    <span class="ruby-identifier">octokit_warn</span> <span class="ruby-node">&quot;Error loading credentials from netrc file for #{api_endpoint}&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">creds</span> = <span class="ruby-identifier">creds</span>.<span class="ruby-identifier">to_a</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">login</span> = <span class="ruby-identifier">creds</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">password</span> = <span class="ruby-identifier">creds</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">LoadError</span>
+  <span class="ruby-identifier">octokit_warn</span> <span class="ruby-string">&quot;Please install netrc gem for .netrc support&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

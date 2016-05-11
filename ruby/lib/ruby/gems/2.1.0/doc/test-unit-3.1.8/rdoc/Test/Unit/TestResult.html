@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Test::Unit::TestResult - test-unit-3.1.8 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Util/Observable.html">Test::Unit::Util::Observable</a>
+  
+  
+  
+    <li><a class="include" href="NullResultContainerInitializer.html">Test::Unit::NullResultContainerInitializer</a>
+  
+  
+  
+    <li><a class="include" href="TestResultFailureSupport.html">Test::Unit::TestResultFailureSupport</a>
+  
+  
+  
+    <li><a class="include" href="TestResultErrorSupport.html">Test::Unit::TestResultErrorSupport</a>
+  
+  
+  
+    <li><a class="include" href="TestResultPendingSupport.html">Test::Unit::TestResultPendingSupport</a>
+  
+  
+  
+    <li><a class="include" href="TestResultOmissionSupport.html">Test::Unit::TestResultOmissionSupport</a>
+  
+  
+  
+    <li><a class="include" href="TestResultNotificationSupport.html">Test::Unit::TestResultNotificationSupport</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add_assertion">#add_assertion</a>
+    
+    <li ><a href="#method-i-add_pass">#add_pass</a>
+    
+    <li ><a href="#method-i-add_run">#add_run</a>
+    
+    <li ><a href="#method-i-notify_changed">#notify_changed</a>
+    
+    <li ><a href="#method-i-notify_fault">#notify_fault</a>
+    
+    <li ><a href="#method-i-pass_percentage">#pass_percentage</a>
+    
+    <li ><a href="#method-i-passed-3F">#passed?</a>
+    
+    <li ><a href="#method-i-status">#status</a>
+    
+    <li ><a href="#method-i-stop">#stop</a>
+    
+    <li ><a href="#method-i-summary">#summary</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Test::Unit::TestResult">
+  <h1 id="class-Test::Unit::TestResult" class="class">
+    class Test::Unit::TestResult
+  </h1>
+
+  <section class="description">
+    
+<p>Collects <a href="Failure.html">Test::Unit::Failure</a> and <a
+href="Error.html">Test::Unit::Error</a> so that they can be displayed to
+the user. To this end, observers can be added to it, allowing the dynamic
+updating of, say, a UI.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="CHANGED">CHANGED
+        
+        <dd>
+        
+      
+        <dt id="FAULT">FAULT
+        
+        <dd>
+        
+      
+        <dt id="FINISHED">FINISHED
+        
+        <dd>
+        
+      
+        <dt id="PASS_ASSERTION">PASS_ASSERTION
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-assertion_count" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">assertion_count</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-faults" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">faults</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-pass_count" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">pass_count</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-run_count" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">run_count</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-stop_tag" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">stop_tag</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Constructs a new, empty <a href="TestResult.html">TestResult</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testresult.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-ivar">@run_count</span>, <span class="ruby-ivar">@pass_count</span>, <span class="ruby-ivar">@assertion_count</span> = <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@summary_generators</span> = []
+  <span class="ruby-ivar">@problem_checkers</span> = []
+  <span class="ruby-ivar">@faults</span> = []
+  <span class="ruby-ivar">@stop_tag</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">initialize_containers</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_assertion" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_assertion</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Records an individual assertion.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_assertion-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testresult.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_assertion</span>
+  <span class="ruby-ivar">@assertion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">notify_listeners</span>(<span class="ruby-constant">PASS_ASSERTION</span>, <span class="ruby-keyword">self</span>)
+  <span class="ruby-identifier">notify_changed</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_pass" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_pass</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_pass-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testresult.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_pass</span>
+  <span class="ruby-ivar">@pass_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_run</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Records a test run.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_run-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testresult.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_run</span>
+  <span class="ruby-ivar">@run_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">notify_listeners</span>(<span class="ruby-constant">FINISHED</span>, <span class="ruby-keyword">self</span>)
+  <span class="ruby-identifier">notify_changed</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pass_percentage" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pass_percentage</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pass_percentage-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testresult.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pass_percentage</span>
+  <span class="ruby-identifier">n_tests</span> = <span class="ruby-ivar">@run_count</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">omission_count</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">n_tests</span>.<span class="ruby-identifier">zero?</span>
+    <span class="ruby-value">0</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-value">100.0</span> <span class="ruby-operator">*</span> (<span class="ruby-ivar">@pass_count</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">n_tests</span>.<span class="ruby-identifier">to_f</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-passed-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">passed?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns whether or not this <a href="TestResult.html">TestResult</a>
+represents successful completion.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="passed-3F-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testresult.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">passed?</span>
+  <span class="ruby-ivar">@problem_checkers</span>.<span class="ruby-identifier">all?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">checker</span><span class="ruby-operator">|</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">checker</span>)}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-status" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">status</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returnes a string that shows result status.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="status-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testresult.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">status</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">passed?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">pending_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-string">&quot;pending&quot;</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">omission_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-string">&quot;omission&quot;</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">notification_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-string">&quot;notification&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-string">&quot;pass&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">error_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-string">&quot;error&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">failure_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-string">&quot;failure&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="stop-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testresult.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stop</span>
+  <span class="ruby-identifier">throw</span> <span class="ruby-ivar">@stop_tag</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-summary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">summary</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a string contain the recorded runs, assertions, failures and errors
+in this <a href="TestResult.html">TestResult</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="summary-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testresult.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">summary</span>
+  [<span class="ruby-node">&quot;#{run_count} tests&quot;</span>,
+   <span class="ruby-node">&quot;#{assertion_count} assertions&quot;</span>,
+   <span class="ruby-operator">*</span><span class="ruby-ivar">@summary_generators</span>.<span class="ruby-identifier">collect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">generator</span><span class="ruby-operator">|</span> <span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">generator</span>)}].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;, &quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testresult.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">summary</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-notify_changed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">notify_changed</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="notify_changed-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testresult.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">notify_changed</span>
+  <span class="ruby-identifier">notify_listeners</span>(<span class="ruby-constant">CHANGED</span>, <span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-notify_fault" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">notify_fault</span><span
+            class="method-args">(fault)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="notify_fault-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testresult.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">notify_fault</span>(<span class="ruby-identifier">fault</span>)
+  <span class="ruby-ivar">@faults</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">fault</span>
+  <span class="ruby-identifier">notify_listeners</span>(<span class="ruby-constant">FAULT</span>, <span class="ruby-identifier">fault</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Ethon::Curls::Options - ethon-0.9.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-option">::option</a>
+    
+    <li ><a href="#method-c-option_alias">::option_alias</a>
+    
+    <li ><a href="#method-c-option_type">::option_type</a>
+    
+    <li ><a href="#method-i-set_option">#set_option</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Ethon::Curls::Options">
+  <h1 id="module-Ethon::Curls::Options" class="module">
+    module Ethon::Curls::Options
+  </h1>
+
+  <section class="description">
+    
+<p>This module contains logic for setting options on easy or multi interface.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="FOPTION_STRINGS">FOPTION_STRINGS
+        
+        <dd>
+        
+      
+        <dt id="FTYPES">FTYPES
+        
+        <dd>
+        
+      
+        <dt id="FUNCS">FUNCS
+        
+        <dd>
+        
+      
+        <dt id="OPTION_STRINGS">OPTION_STRINGS
+        
+        <dd>
+        
+      
+        <dt id="OPTION_TYPE_BASE">OPTION_TYPE_BASE
+        
+        <dd>
+        
+      
+        <dt id="OPTION_TYPE_MAP">OPTION_TYPE_MAP
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-option" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">option</span><span
+            class="method-args">(ftype,name,type,num,opts=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="option-source">
+            <pre><span class="ruby-comment"># File lib/ethon/curls/options.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">option</span>(<span class="ruby-identifier">ftype</span>,<span class="ruby-identifier">name</span>,<span class="ruby-identifier">type</span>,<span class="ruby-identifier">num</span>,<span class="ruby-identifier">opts</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">type</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:enum</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">opts</span>=<span class="ruby-constant">Hash</span>[<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">each_with_index</span>.<span class="ruby-identifier">to_a</span>]
+    <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Hash</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;Ethon::Curls::Options #{ftype} #{name} Expected opts to be an Array or a Hash.&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:bitmask</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Hash</span> <span class="ruby-keyword">then</span>
+        <span class="ruby-identifier">hopts</span>=<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">pop</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">hopts</span>={}
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span>,<span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">nil?</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span><span class="ruby-operator">==</span><span class="ruby-value">0</span> <span class="ruby-keyword">then</span>
+            <span class="ruby-identifier">hopts</span>[<span class="ruby-identifier">v</span>]=<span class="ruby-value">0</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">hopts</span>[<span class="ruby-identifier">v</span>]=<span class="ruby-value">1</span><span class="ruby-operator">&lt;&lt;</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>)
+          <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>=<span class="ruby-identifier">hopts</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Hash</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;Ethon::Curls::Options #{ftype} #{name} Expected opts to be an Array or a Hash.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">opts</span>[<span class="ruby-value">:all</span>]=<span class="ruby-value">-1</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">include?</span> <span class="ruby-value">:all</span>
+    <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span> <span class="ruby-keyword">then</span>
+        <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">k</span>]=<span class="ruby-identifier">v</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">b</span>] }.<span class="ruby-identifier">inject</span> <span class="ruby-value">:|</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:buffer</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;Ethon::Curls::Options #{ftype} #{name} Expected opts to be an Array or a Hash.&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Integer</span>
+
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Ethon::Curls::Options #{ftype} #{name} Expected no opts.&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">opthash</span>=<span class="ruby-identifier">const_get</span>(<span class="ruby-constant">FOPTION_STRINGS</span>[<span class="ruby-identifier">ftype</span>])
+  <span class="ruby-identifier">opthash</span>[<span class="ruby-identifier">name</span>] = { <span class="ruby-value">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">type</span>,
+                    <span class="ruby-value">:opt</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">OPTION_TYPE_BASE</span>[<span class="ruby-constant">OPTION_TYPE_MAP</span>[<span class="ruby-identifier">type</span>]] <span class="ruby-operator">+</span> <span class="ruby-identifier">num</span>,
+                    <span class="ruby-value">:opts</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-option_alias" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">option_alias</span><span
+            class="method-args">(ftype,name,*aliases)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="option_alias-source">
+            <pre><span class="ruby-comment"># File lib/ethon/curls/options.rb, line 187</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">option_alias</span>(<span class="ruby-identifier">ftype</span>,<span class="ruby-identifier">name</span>,<span class="ruby-operator">*</span><span class="ruby-identifier">aliases</span>)
+  <span class="ruby-identifier">opthash</span>=<span class="ruby-identifier">const_get</span>(<span class="ruby-constant">FOPTION_STRINGS</span>[<span class="ruby-identifier">ftype</span>])
+  <span class="ruby-identifier">aliases</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">opthash</span>[<span class="ruby-identifier">a</span>]=<span class="ruby-identifier">opthash</span>[<span class="ruby-identifier">name</span>] }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-option_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">option_type</span><span
+            class="method-args">(type)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="option_type-source">
+            <pre><span class="ruby-comment"># File lib/ethon/curls/options.rb, line 192</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">option_type</span>(<span class="ruby-identifier">type</span>)
+  <span class="ruby-identifier">cname</span> = <span class="ruby-constant">FOPTION_STRINGS</span>[<span class="ruby-identifier">type</span>]
+  <span class="ruby-identifier">const_set</span>(<span class="ruby-identifier">cname</span>, {})
+  <span class="ruby-identifier">define_method</span>(<span class="ruby-constant">OPTION_STRINGS</span>[<span class="ruby-identifier">type</span>]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">rt</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">Ethon</span><span class="ruby-operator">::</span><span class="ruby-constant">Curls</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">cname</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>[<span class="ruby-value">:opt</span>]] } <span class="ruby-keyword">if</span> <span class="ruby-identifier">rt</span> <span class="ruby-operator">==</span> <span class="ruby-value">:enum</span>
+    <span class="ruby-constant">Ethon</span><span class="ruby-operator">::</span><span class="ruby-constant">Curls</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">cname</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-set_option" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_option</span><span
+            class="method-args">(option, value, handle, type = :easy)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets appropriate option for easy, depending on value type.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_option-source">
+            <pre><span class="ruby-comment"># File lib/ethon/curls/options.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_option</span>(<span class="ruby-identifier">option</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">handle</span>, <span class="ruby-identifier">type</span> = <span class="ruby-value">:easy</span>)
+  <span class="ruby-identifier">type</span> = <span class="ruby-identifier">type</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NameError</span>, <span class="ruby-node">&quot;Ethon::Curls::Options unknown type #{type}.&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-constant">OPTION_STRINGS</span>[<span class="ruby-identifier">type</span>])
+  <span class="ruby-identifier">opthash</span>=<span class="ruby-identifier">send</span>(<span class="ruby-constant">OPTION_STRINGS</span>[<span class="ruby-identifier">type</span>], <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errors</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidOption</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">option</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">opthash</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">option</span>)
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">opthash</span>[<span class="ruby-identifier">option</span>][<span class="ruby-value">:type</span>]
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:none</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">value</span>=<span class="ruby-value">1</span>
+    <span class="ruby-identifier">func</span>=<span class="ruby-value">:long</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:int</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">func</span>=<span class="ruby-value">:long</span>
+    <span class="ruby-identifier">value</span>=<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:bool</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">func</span>=<span class="ruby-value">:long</span>
+    <span class="ruby-identifier">value</span>=(<span class="ruby-identifier">value</span><span class="ruby-operator">&amp;&amp;</span><span class="ruby-identifier">value!</span>=<span class="ruby-value">0</span>) <span class="ruby-operator">?</span> <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:time</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">func</span>=<span class="ruby-value">:long</span>
+    <span class="ruby-identifier">value</span>=<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:enum</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">func</span>=<span class="ruby-value">:long</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Symbol</span>
+      <span class="ruby-identifier">opthash</span>[<span class="ruby-identifier">option</span>][<span class="ruby-value">:opts</span>][<span class="ruby-identifier">value</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+      <span class="ruby-identifier">opthash</span>[<span class="ruby-identifier">option</span>][<span class="ruby-value">:opts</span>][<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_sym</span>]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:bitmask</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">func</span>=<span class="ruby-value">:long</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Symbol</span>
+      <span class="ruby-identifier">opthash</span>[<span class="ruby-identifier">option</span>][<span class="ruby-value">:opts</span>][<span class="ruby-identifier">value</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>
+      <span class="ruby-identifier">value</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">res</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">res</span><span class="ruby-operator">|</span><span class="ruby-identifier">opthash</span>[<span class="ruby-identifier">option</span>][<span class="ruby-value">:opts</span>][<span class="ruby-identifier">v</span>] }
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:string</span>
+    <span class="ruby-identifier">func</span>=<span class="ruby-value">:string</span>
+    <span class="ruby-identifier">value</span>=<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:string_as_pointer</span>
+    <span class="ruby-identifier">func</span> = <span class="ruby-value">:ffipointer</span>
+    <span class="ruby-identifier">s</span> = <span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-identifier">s</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-constant">FFI</span><span class="ruby-operator">::</span><span class="ruby-constant">MemoryPointer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:char</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">bytesize</span>)
+    <span class="ruby-identifier">value</span>.<span class="ruby-identifier">put_bytes</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">s</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:string_escape_null</span>
+    <span class="ruby-identifier">func</span>=<span class="ruby-value">:string</span>
+    <span class="ruby-identifier">value</span>=<span class="ruby-constant">Util</span>.<span class="ruby-identifier">escape_zero_byte</span>(<span class="ruby-identifier">value</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:ffipointer</span>
+    <span class="ruby-identifier">func</span>=<span class="ruby-value">:ffipointer</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errors</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidValue</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">option</span>,<span class="ruby-identifier">value</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">FFI</span><span class="ruby-operator">::</span><span class="ruby-constant">Pointer</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:curl_slist</span>
+    <span class="ruby-identifier">func</span>=<span class="ruby-value">:ffipointer</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errors</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidValue</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">option</span>,<span class="ruby-identifier">value</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">FFI</span><span class="ruby-operator">::</span><span class="ruby-constant">Pointer</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:buffer</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-node">&quot;Ethon::Curls::Options option #{option} buffer type not implemented.&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:dontuse_object</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-node">&quot;Ethon::Curls::Options option #{option} type not implemented.&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:cbdata</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-node">&quot;Ethon::Curls::Options option #{option} callback data type not implemented. Use Ruby closures.&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:callback</span>
+    <span class="ruby-identifier">func</span>=<span class="ruby-value">:callback</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errors</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidValue</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">option</span>,<span class="ruby-identifier">value</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Proc</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:debug_callback</span>
+    <span class="ruby-identifier">func</span>=<span class="ruby-value">:debug_callback</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errors</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidValue</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">option</span>,<span class="ruby-identifier">value</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Proc</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:off_t</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">func</span>=<span class="ruby-value">:off_t</span>
+    <span class="ruby-identifier">value</span>=<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">func</span><span class="ruby-operator">==</span><span class="ruby-value">:long</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">func</span><span class="ruby-operator">==</span><span class="ruby-value">:off_t</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">bits</span>=<span class="ruby-constant">FFI</span>.<span class="ruby-identifier">type_size</span>(<span class="ruby-value">:long</span>)<span class="ruby-operator">*</span><span class="ruby-value">8</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">func</span><span class="ruby-operator">==</span><span class="ruby-value">:long</span>
+      <span class="ruby-identifier">bits</span>=<span class="ruby-constant">FFI</span>.<span class="ruby-identifier">type_size</span>(<span class="ruby-value">:int64</span>)<span class="ruby-operator">*</span><span class="ruby-value">8</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">func</span><span class="ruby-operator">==</span><span class="ruby-value">:off_t</span>
+      <span class="ruby-identifier">tv</span>=((<span class="ruby-identifier">value</span><span class="ruby-operator">&lt;</span><span class="ruby-value">0</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">abs</span><span class="ruby-operator">-</span><span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">value</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errors</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidValue</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">option</span>,<span class="ruby-identifier">value</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">tv</span><span class="ruby-operator">&lt;</span>(<span class="ruby-value">1</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-identifier">bits</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">send</span>(<span class="ruby-constant">FUNCS</span>[<span class="ruby-identifier">type</span>][<span class="ruby-identifier">func</span>], <span class="ruby-identifier">handle</span>, <span class="ruby-identifier">opthash</span>[<span class="ruby-identifier">option</span>][<span class="ruby-value">:opt</span>], <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

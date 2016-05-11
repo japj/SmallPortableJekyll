@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Typhoeus - typhoeus-1.0.2 Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="Typhoeus/Request/Actions.html">Typhoeus::Request::Actions</a>
+  
+  
+  
+    <li><a class="extend" href="Typhoeus/Request/Callbacks/Types.html">Typhoeus::Request::Callbacks::Types</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-before">::before</a>
+    
+    <li ><a href="#method-c-configure">::configure</a>
+    
+    <li ><a href="#method-c-stub">::stub</a>
+    
+    <li ><a href="#method-c-with_connection">::with_connection</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Typhoeus">
+  <h1 id="module-Typhoeus" class="module">
+    module Typhoeus
+  </h1>
+
+  <section class="description">
+    
+<p><a href="Typhoeus.html">Typhoeus</a> is a HTTP client library based on
+Ethon which wraps libcurl. Sitting on top of libcurl makes <a
+href="Typhoeus.html">Typhoeus</a> very reliable and fast.</p>
+
+<p>There are some gems using <a href="Typhoeus.html">Typhoeus</a> like {<a
+href="https://github.com/myronmarston/vcr">github.com/myronmarston/vcr</a>
+VCR}, {<a
+href="https://github.com/bblimke/webmock">github.com/bblimke/webmock</a>
+WebMock} or {<a
+href="https://github.com/technoweenie/faraday">github.com/technoweenie/faraday</a>
+Faraday}. VCR and WebMock provide their own adapter whereas <a
+href="Faraday.html">Faraday</a> relies on {Faraday::Adapter::Typhoeus}
+since <a href="Typhoeus.html">Typhoeus</a> version 0.5.</p>
+
+<p>@example (see <a href="Typhoeus/Request.html">Typhoeus::Request</a>)
+@example (see <a href="Typhoeus/Hydra.html">Typhoeus::Hydra</a>)</p>
+
+<p>@see <a href="Typhoeus/Request.html">Typhoeus::Request</a> @see <a
+href="Typhoeus/Hydra.html">Typhoeus::Hydra</a> @see <a
+href="Faraday/Adapter/Typhoeus.html">Faraday::Adapter::Typhoeus</a></p>
+
+<p>@since 0.5.0</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="USER_AGENT">USER_AGENT
+        
+        <dd><p>The default <a href="Typhoeus.html">Typhoeus</a> user agent.</p>
+        
+      
+        <dt id="VERSION">VERSION
+        
+        <dd><p>The current <a href="Typhoeus.html">Typhoeus</a> version.</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-before" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">before</span><span
+            class="method-args">(&block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add before callbacks.</p>
+
+<p>@example Add before callback.</p>
+
+<pre class="ruby"><span class="ruby-constant">Typhoeus</span>.<span class="ruby-identifier">before</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">request</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">base_url</span> }
+</pre>
+
+<p>@param [ Block ] block The callback.</p>
+
+<p>@yield [ <a href="Typhoeus/Request.html">Typhoeus::Request</a> ]</p>
+
+<p>@return [ Array&lt;Block&gt; ] All before blocks.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="before-source">
+            <pre><span class="ruby-comment"># File lib/typhoeus.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">before</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@before</span> <span class="ruby-operator">||=</span> []
+  <span class="ruby-ivar">@before</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">block</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-ivar">@before</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-configure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">configure</span><span
+            class="method-args">() { |Config| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the <a href="Typhoeus.html">Typhoeus</a> configuration options by
+passing a block.</p>
+
+<p>@example (see <a href="Typhoeus/Config.html">Typhoeus::Config</a>)</p>
+
+<p>@yield [ <a href="Typhoeus/Config.html">Typhoeus::Config</a> ]</p>
+
+<p>@return [ <a href="Typhoeus/Config.html">Typhoeus::Config</a> ] The
+configuration.</p>
+
+<p>@see <a href="Typhoeus/Config.html">Typhoeus::Config</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="configure-source">
+            <pre><span class="ruby-comment"># File lib/typhoeus.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">configure</span>
+  <span class="ruby-keyword">yield</span> <span class="ruby-constant">Config</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-stub" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stub</span><span
+            class="method-args">(base_url, options = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Stub out a specific request.</p>
+
+<p>@example (see <a
+href="Typhoeus/Expectation.html">Typhoeus::Expectation</a>)</p>
+
+<p>@param [ String ] base_url The url to stub out. @param [ Hash ] options The
+options to stub out.</p>
+
+<p>@return [ <a href="Typhoeus/Expectation.html">Typhoeus::Expectation</a> ]
+The expecatation.</p>
+
+<p>@see <a href="Typhoeus/Expectation.html">Typhoeus::Expectation</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="stub-source">
+            <pre><span class="ruby-comment"># File lib/typhoeus.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">stub</span>(<span class="ruby-identifier">base_url</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">expectation</span> = <span class="ruby-constant">Expectation</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">find</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">base_url</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">base_url</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">options</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">options</span> }
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">expectation</span> = <span class="ruby-constant">Expectation</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">base_url</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-constant">Expectation</span>.<span class="ruby-identifier">all</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">expectation</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">and_return</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">expectation</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-with_connection" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_connection</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Execute given block as if block connection is turned off. The old block
+connection state is restored afterwards.</p>
+
+<p>@example Make a real request, no matter if it&#39;s blocked.</p>
+
+<pre class="ruby"><span class="ruby-constant">Typhoeus</span><span class="ruby-operator">::</span><span class="ruby-constant">Config</span>.<span class="ruby-identifier">block_connection</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-constant">Typhoeus</span>.<span class="ruby-identifier">get</span>(<span class="ruby-string">&quot;www.example.com&quot;</span>).<span class="ruby-identifier">code</span>
+<span class="ruby-comment">#=&gt; raise Typhoeus::Errors::NoStub</span>
+
+<span class="ruby-constant">Typhoeus</span>.<span class="ruby-identifier">with_connection</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-constant">Typhoeus</span>.<span class="ruby-identifier">get</span>(<span class="ruby-string">&quot;www.example.com&quot;</span>).<span class="ruby-identifier">code</span>
+  <span class="ruby-comment">#=&gt; :ok</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>@param [ Block ] block The block to execute.</p>
+
+<p>@return [ Object ] Returns the return value of the block.</p>
+
+<p>@see <a
+href="Typhoeus/Config.html#attribute-i-block_connection">Typhoeus::Config#block_connection</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="with_connection-source">
+            <pre><span class="ruby-comment"># File lib/typhoeus.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">with_connection</span>
+  <span class="ruby-identifier">old</span> = <span class="ruby-constant">Config</span>.<span class="ruby-identifier">block_connection</span>
+  <span class="ruby-constant">Config</span>.<span class="ruby-identifier">block_connection</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">yield</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-constant">Config</span>.<span class="ruby-identifier">block_connection</span> = <span class="ruby-identifier">old</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

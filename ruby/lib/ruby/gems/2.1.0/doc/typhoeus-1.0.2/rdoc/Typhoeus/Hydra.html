@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Typhoeus::Hydra - typhoeus-1.0.2 Documentation</title>
+
+<link href="../fonts.css" rel="stylesheet">
+<link href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/search_index.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/searcher.js"></script>
+<script src="../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Hydra/Addable.html">Typhoeus::Hydra::Addable</a>
+  
+  
+  
+    <li><a class="include" href="Hydra/Runnable.html">Typhoeus::Hydra::Runnable</a>
+  
+  
+  
+    <li><a class="include" href="Hydra/Memoizable.html">Typhoeus::Hydra::Memoizable</a>
+  
+  
+  
+    <li><a class="include" href="Hydra/Cacheable.html">Typhoeus::Hydra::Cacheable</a>
+  
+  
+  
+    <li><a class="include" href="Hydra/BlockConnection.html">Typhoeus::Hydra::BlockConnection</a>
+  
+  
+  
+    <li><a class="include" href="Hydra/Stubbable.html">Typhoeus::Hydra::Stubbable</a>
+  
+  
+  
+    <li><a class="include" href="Hydra/Before.html">Typhoeus::Hydra::Before</a>
+  
+  
+  
+    <li><a class="include" href="Hydra/Queueable.html">Typhoeus::Hydra::Queueable</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-hydra">#hydra</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Typhoeus::Hydra">
+  <h1 id="class-Typhoeus::Hydra" class="class">
+    class Typhoeus::Hydra
+  </h1>
+
+  <section class="description">
+    
+<p><a href="Hydra.html">Hydra</a> manages making parallel HTTP requests. This
+is achieved by using libcurls multi interface: <a
+href="http://curl.haxx.se/libcurl/c/libcurl-multi.html">curl.haxx.se/libcurl/c/libcurl-multi.html</a>
+The benefits are that you don&#39;t have to worry running the requests by
+yourself.</p>
+
+<p><a href="Hydra.html">Hydra</a> will also handle how many requests you can
+make in parallel. Things will get flakey if you try to make too many
+requests at the same time. The built in limit is 200. When more requests
+than that are queued up, hydra will save them for later and start the
+requests as others are finished. You can raise or lower the concurrency
+limit through the <a href="Hydra.html">Hydra</a> constructor.</p>
+
+<p>Regarding the asynchronous behavior of the hydra, it is important to know
+that this is completely hidden from the developer and you are free to apply
+whatever technique you want to your code. That should not conflict with
+libcurls internal concurrency mechanism.</p>
+
+<p>@example Use the hydra to do multiple requests.</p>
+
+<pre class="ruby"><span class="ruby-identifier">hydra</span> = <span class="ruby-constant">Typhoeus</span><span class="ruby-operator">::</span><span class="ruby-constant">Hydra</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">requests</span> = (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">9</span>).<span class="ruby-identifier">map</span>{ <span class="ruby-constant">Typhoeus</span><span class="ruby-operator">::</span><span class="ruby-constant">Request</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;www.example.com&quot;</span>) }
+<span class="ruby-identifier">requests</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">request</span><span class="ruby-operator">|</span> <span class="ruby-identifier">hydra</span>.<span class="ruby-identifier">queue</span>(<span class="ruby-identifier">request</span>) }
+<span class="ruby-identifier">hydra</span>.<span class="ruby-identifier">run</span>
+</pre>
+
+<p>@note Callbacks are going to delay the request</p>
+
+<pre>execution.</pre>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-max_concurrency" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">max_concurrency</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@example Set max_concurrency.</p>
+
+<pre>Typhoeus::Hydra.new(max_concurrency: 20)</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-multi" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">multi</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@api private</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new hydra. All {<a
+href="http://rubydoc.info/github/typhoeus/ethon/Ethon/Multi#initialize-instance_method">rubydoc.info/github/typhoeus/ethon/Ethon/Multi#initialize-instance_method</a>
+Ethon::Multi#initialize} options are also available.</p>
+
+<p>@example Create a hydra.</p>
+
+<pre>Typhoeus::Hydra.new</pre>
+
+<p>@example Create a hydra with max_concurrency.</p>
+
+<pre>Typhoeus::Hydra.new(max_concurrency: 20)</pre>
+
+<p>@param [ Hash ] options The options hash.</p>
+
+<p>@option options :max_concurrency [ Integer ] Number</p>
+
+<pre>of max concurrent connections to create. Default is
+200.</pre>
+
+<p>@see <a
+href="http://rubydoc.info/github/typhoeus/ethon/Ethon/Multi#initialize-instance_method">rubydoc.info/github/typhoeus/ethon/Ethon/Multi#initialize-instance_method</a></p>
+
+<pre>Ethon::Multi#initialize</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/typhoeus/hydra.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+  <span class="ruby-ivar">@max_concurrency</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-ivar">@options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:max_concurrency</span>, <span class="ruby-value">200</span>))
+  <span class="ruby-ivar">@multi</span> = <span class="ruby-constant">Ethon</span><span class="ruby-operator">::</span><span class="ruby-constant">Multi</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>.<span class="ruby-identifier">reject</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">_</span><span class="ruby-operator">|</span> <span class="ruby-identifier">k</span><span class="ruby-operator">==</span><span class="ruby-value">:max_concurrency</span>})
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-hydra" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hydra</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a memoized hydra instance.</p>
+
+<p>@example Get a hydra.</p>
+
+<pre>Typhoeus::Hydra.hydra</pre>
+
+<p>@return [Typhoeus::Hydra] A new hydra.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="hydra-source">
+            <pre><span class="ruby-comment"># File lib/typhoeus/hydra.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hydra</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-value">:typhoeus_hydra</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

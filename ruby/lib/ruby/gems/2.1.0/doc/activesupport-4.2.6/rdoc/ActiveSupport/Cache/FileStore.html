@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class ActiveSupport::Cache::FileStore - activesupport-4.2.6 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Store.html">ActiveSupport::Cache::Store</a>
+  
+</div>
+
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="Strategy/LocalCache.html">ActiveSupport::Cache::Strategy::LocalCache</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-cleanup">#cleanup</a>
+    
+    <li ><a href="#method-i-clear">#clear</a>
+    
+    <li ><a href="#method-i-decrement">#decrement</a>
+    
+    <li ><a href="#method-i-delete_empty_directories">#delete_empty_directories</a>
+    
+    <li ><a href="#method-i-delete_entry">#delete_entry</a>
+    
+    <li ><a href="#method-i-delete_matched">#delete_matched</a>
+    
+    <li ><a href="#method-i-ensure_cache_path">#ensure_cache_path</a>
+    
+    <li ><a href="#method-i-file_path_key">#file_path_key</a>
+    
+    <li ><a href="#method-i-increment">#increment</a>
+    
+    <li ><a href="#method-i-key_file_path">#key_file_path</a>
+    
+    <li ><a href="#method-i-modify_value">#modify_value</a>
+    
+    <li ><a href="#method-i-read_entry">#read_entry</a>
+    
+    <li ><a href="#method-i-search_dir">#search_dir</a>
+    
+    <li ><a href="#method-i-write_entry">#write_entry</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-ActiveSupport::Cache::FileStore">
+  <h1 id="class-ActiveSupport::Cache::FileStore" class="class">
+    class ActiveSupport::Cache::FileStore
+  </h1>
+
+  <section class="description">
+    
+<p>A cache store implementation which stores everything on the filesystem.</p>
+
+<p><a href="FileStore.html">FileStore</a> implements the <a
+href="Strategy/LocalCache.html">Strategy::LocalCache</a> strategy which
+implements an in-memory cache inside of a block.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DIR_FORMATTER">DIR_FORMATTER
+        
+        <dd>
+        
+      
+        <dt id="EXCLUDED_DIRS">EXCLUDED_DIRS
+        
+        <dd>
+        
+      
+        <dt id="FILENAME_MAX_SIZE">FILENAME_MAX_SIZE
+        
+        <dd>
+        
+      
+        <dt id="FILEPATH_MAX_SIZE">FILEPATH_MAX_SIZE
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-cache_path" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">cache_path</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(cache_path, options = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Store.html#method-c-new">ActiveSupport::Cache::Store.new</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/active_support/cache/file_store.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">cache_path</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-ivar">@cache_path</span> = <span class="ruby-identifier">cache_path</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">extend</span> <span class="ruby-constant">Strategy</span><span class="ruby-operator">::</span><span class="ruby-constant">LocalCache</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-cleanup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cleanup</span><span
+            class="method-args">(options = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Preemptively iterates through all stored keys and removes the ones which
+have expired.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cleanup-source">
+            <pre><span class="ruby-comment"># File lib/active_support/cache/file_store.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cleanup</span>(<span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">merged_options</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">search_dir</span>(<span class="ruby-identifier">cache_path</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fname</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">key</span> = <span class="ruby-identifier">file_path_key</span>(<span class="ruby-identifier">fname</span>)
+    <span class="ruby-identifier">entry</span> = <span class="ruby-identifier">read_entry</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-identifier">delete_entry</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">expired?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-clear" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear</span><span
+            class="method-args">(options = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Deletes all items from the cache. In this case it deletes all the entries
+in the specified file store directory except for .gitkeep. Be careful which
+directory is specified in your config file when using
+<code>FileStore</code> because everything in that directory will be
+deleted.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clear-source">
+            <pre><span class="ruby-comment"># File lib/active_support/cache/file_store.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear</span>(<span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">root_dirs</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">entries</span>(<span class="ruby-identifier">cache_path</span>).<span class="ruby-identifier">reject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> (<span class="ruby-constant">EXCLUDED_DIRS</span> <span class="ruby-operator">+</span> [<span class="ruby-string">&quot;.gitkeep&quot;</span>]).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">f</span>)}
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_r</span>(<span class="ruby-identifier">root_dirs</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">cache_path</span>, <span class="ruby-identifier">f</span>)})
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-decrement" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">decrement</span><span
+            class="method-args">(name, amount = 1, options = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Decrements an already existing integer value that is stored in the cache.
+If the key is not found nothing is done.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="decrement-source">
+            <pre><span class="ruby-comment"># File lib/active_support/cache/file_store.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">decrement</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">amount</span> = <span class="ruby-value">1</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">modify_value</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">-</span><span class="ruby-identifier">amount</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_matched" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_matched</span><span
+            class="method-args">(matcher, options = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete_matched-source">
+            <pre><span class="ruby-comment"># File lib/active_support/cache/file_store.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_matched</span>(<span class="ruby-identifier">matcher</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">merged_options</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">instrument</span>(<span class="ruby-value">:delete_matched</span>, <span class="ruby-identifier">matcher</span>.<span class="ruby-identifier">inspect</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">matcher</span> = <span class="ruby-identifier">key_matcher</span>(<span class="ruby-identifier">matcher</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-identifier">search_dir</span>(<span class="ruby-identifier">cache_path</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">key</span> = <span class="ruby-identifier">file_path_key</span>(<span class="ruby-identifier">path</span>)
+      <span class="ruby-identifier">delete_entry</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">matcher</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-increment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">increment</span><span
+            class="method-args">(name, amount = 1, options = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Increments an already existing integer value that is stored in the cache.
+If the key is not found nothing is done.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="increment-source">
+            <pre><span class="ruby-comment"># File lib/active_support/cache/file_store.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">increment</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">amount</span> = <span class="ruby-value">1</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">modify_value</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">amount</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-delete_entry" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_entry</span><span
+            class="method-args">(key, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete_entry-source">
+            <pre><span class="ruby-comment"># File lib/active_support/cache/file_store.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_entry</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">file_name</span> = <span class="ruby-identifier">key_file_path</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">file_name</span>)
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-constant">File</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">file_name</span>)
+      <span class="ruby-identifier">delete_empty_directories</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">file_name</span>))
+      <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-comment"># Just in case the error was caused by another process deleting the file first.</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">file_name</span>)
+      <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_entry" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_entry</span><span
+            class="method-args">(key, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="read_entry-source">
+            <pre><span class="ruby-comment"># File lib/active_support/cache/file_store.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read_entry</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">file_name</span> = <span class="ruby-identifier">key_file_path</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">file_name</span>)
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">file_name</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">f</span>) }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;FileStoreError (#{e}): #{e.message}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_entry" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write_entry</span><span
+            class="method-args">(key, entry, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="write_entry-source">
+            <pre><span class="ruby-comment"># File lib/active_support/cache/file_store.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write_entry</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">entry</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">file_name</span> = <span class="ruby-identifier">key_file_path</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:unless_exist</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">file_name</span>)
+  <span class="ruby-identifier">ensure_cache_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">file_name</span>))
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">atomic_write</span>(<span class="ruby-identifier">file_name</span>, <span class="ruby-identifier">cache_path</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">entry</span>, <span class="ruby-identifier">f</span>)}
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-delete_empty_directories" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_empty_directories</span><span
+            class="method-args">(dir)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete empty directories in the cache.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delete_empty_directories-source">
+            <pre><span class="ruby-comment"># File lib/active_support/cache/file_store.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_empty_directories</span>(<span class="ruby-identifier">dir</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">realpath</span>(<span class="ruby-identifier">dir</span>) <span class="ruby-operator">==</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">realpath</span>(<span class="ruby-identifier">cache_path</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">entries</span>(<span class="ruby-identifier">dir</span>).<span class="ruby-identifier">reject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-constant">EXCLUDED_DIRS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">f</span>)}.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">dir</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">delete_empty_directories</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">dir</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ensure_cache_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ensure_cache_path</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Make sure a file path&#39;s directories exist.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ensure_cache_path-source">
+            <pre><span class="ruby-comment"># File lib/active_support/cache/file_store.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ensure_cache_path</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">makedirs</span>(<span class="ruby-identifier">path</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-file_path_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">file_path_key</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Translate a file path into a key.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="file_path_key-source">
+            <pre><span class="ruby-comment"># File lib/active_support/cache/file_store.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">file_path_key</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">fname</span> = <span class="ruby-identifier">path</span>[<span class="ruby-identifier">cache_path</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">split</span>(<span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEPARATOR</span>, <span class="ruby-value">4</span>).<span class="ruby-identifier">last</span>
+  <span class="ruby-constant">URI</span>.<span class="ruby-identifier">decode_www_form_component</span>(<span class="ruby-identifier">fname</span>, <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-key_file_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">key_file_path</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Translate a key into a file path.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="key_file_path-source">
+            <pre><span class="ruby-comment"># File lib/active_support/cache/file_store.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">key_file_path</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-constant">FILEPATH_MAX_SIZE</span>
+    <span class="ruby-identifier">key</span> = <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>.<span class="ruby-identifier">hexdigest</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">fname</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">encode_www_form_component</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">hash</span> = <span class="ruby-constant">Zlib</span>.<span class="ruby-identifier">adler32</span>(<span class="ruby-identifier">fname</span>)
+  <span class="ruby-identifier">hash</span>, <span class="ruby-identifier">dir_1</span> = <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-value">0x1000</span>)
+  <span class="ruby-identifier">dir_2</span> = <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">modulo</span>(<span class="ruby-value">0x1000</span>)
+  <span class="ruby-identifier">fname_paths</span> = []
+
+  <span class="ruby-comment"># Make sure file name doesn&#39;t exceed file system limits.</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">fname_paths</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">fname</span>[<span class="ruby-value">0</span>, <span class="ruby-constant">FILENAME_MAX_SIZE</span>]
+    <span class="ruby-identifier">fname</span> = <span class="ruby-identifier">fname</span>[<span class="ruby-constant">FILENAME_MAX_SIZE</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+  <span class="ruby-keyword">end</span> <span class="ruby-keyword">until</span> <span class="ruby-identifier">fname</span>.<span class="ruby-identifier">blank?</span>
+
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">cache_path</span>, <span class="ruby-constant">DIR_FORMATTER</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">dir_1</span>, <span class="ruby-constant">DIR_FORMATTER</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">dir_2</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">fname_paths</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-modify_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">modify_value</span><span
+            class="method-args">(name, amount, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Modifies the amount of an already existing integer value that is stored in
+the cache. If the key is not found nothing is done.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="modify_value-source">
+            <pre><span class="ruby-comment"># File lib/active_support/cache/file_store.rb, line 175</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">modify_value</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">amount</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">file_name</span> = <span class="ruby-identifier">key_file_path</span>(<span class="ruby-identifier">namespaced_key</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span>))
+
+  <span class="ruby-identifier">lock_file</span>(<span class="ruby-identifier">file_name</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">options</span> = <span class="ruby-identifier">merged_options</span>(<span class="ruby-identifier">options</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span> = <span class="ruby-identifier">read</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span>)
+      <span class="ruby-identifier">num</span> = <span class="ruby-identifier">num</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">amount</span>
+      <span class="ruby-identifier">write</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">num</span>, <span class="ruby-identifier">options</span>)
+      <span class="ruby-identifier">num</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-search_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search_dir</span><span
+            class="method-args">(dir, &callback)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="search_dir-source">
+            <pre><span class="ruby-comment"># File lib/active_support/cache/file_store.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">search_dir</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">callback</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">dir</span>)
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">foreach</span>(<span class="ruby-identifier">dir</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">EXCLUDED_DIRS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">d</span>)
+    <span class="ruby-identifier">name</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">d</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">search_dir</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">callback</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">callback</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">name</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

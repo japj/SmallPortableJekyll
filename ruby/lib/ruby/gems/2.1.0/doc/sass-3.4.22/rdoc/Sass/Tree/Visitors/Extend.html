@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Sass::Tree::Visitors::Extend - sass-3.4.22 Documentation</title>
+
+<link href="../../../fonts.css" rel="stylesheet">
+<link href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/navigation.js"></script>
+<script src="../../../js/search_index.js"></script>
+<script src="../../../js/search.js"></script>
+<script src="../../../js/searcher.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Base.html">Sass::Tree::Visitors::Base</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-visit">::visit</a>
+    
+    <li ><a href="#method-i-check_extends_fired-21">#check_extends_fired!</a>
+    
+    <li class="calls-super" ><a href="#method-i-visit">#visit</a>
+    
+    <li class="calls-super" ><a href="#method-i-visit_children">#visit_children</a>
+    
+    <li ><a href="#method-i-visit_rule">#visit_rule</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Sass::Tree::Visitors::Extend">
+  <h1 id="class-Sass::Tree::Visitors::Extend" class="class">
+    class Sass::Tree::Visitors::Extend
+  </h1>
+
+  <section class="description">
+    
+<p>A visitor for performing selector inheritance on a static CSS tree.</p>
+
+<p>Destructively modifies the tree.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(extends)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/extend.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">extends</span>)
+  <span class="ruby-ivar">@parent_directives</span> = []
+  <span class="ruby-ivar">@extends</span> = <span class="ruby-identifier">extends</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-visit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit</span><span
+            class="method-args">(root, extends)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Performs the given extensions on the static CSS tree based in `root`, then
+validates that all extends matched some selector.</p>
+
+<p>@param root [Tree::Node] The root node of the tree to visit. @param extends
+[Sass::Util::SubsetMap{Selector::Simple =&gt;</p>
+
+<pre>                                    Sass::Tree::Visitors::Cssize::Extend}]
+The extensions to perform on this tree.</pre>
+
+<p>@return [Object] The return value of {#visit} for the root node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="visit-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/extend.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">visit</span>(<span class="ruby-identifier">root</span>, <span class="ruby-identifier">extends</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">extends</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">extends</span>).<span class="ruby-identifier">send</span>(<span class="ruby-value">:visit</span>, <span class="ruby-identifier">root</span>)
+  <span class="ruby-identifier">check_extends_fired!</span> <span class="ruby-identifier">extends</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-visit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If an exception is raised, this adds proper metadata to the backtrace.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Base.html#method-c-visit">Sass::Tree::Visitors::Base.visit</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="visit-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/extend.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visit</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">node</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">e</span>.<span class="ruby-identifier">modify_backtrace</span>(<span class="ruby-value">:filename</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">filename</span>, <span class="ruby-value">:line</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">line</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visit_children" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit_children</span><span
+            class="method-args">(parent)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Keeps track of the current parent directives.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Base.html#method-i-visit_children">Sass::Tree::Visitors::Base#visit_children</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="visit_children-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/extend.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visit_children</span>(<span class="ruby-identifier">parent</span>)
+  <span class="ruby-ivar">@parent_directives</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">parent</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">DirectiveNode</span>)
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-ivar">@parent_directives</span>.<span class="ruby-identifier">pop</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">DirectiveNode</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visit_rule" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit_rule</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Applies the extend to a single rule&#39;s selector.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="visit_rule-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/extend.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visit_rule</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">resolved_rules</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">resolved_rules</span>.<span class="ruby-identifier">do_extend</span>(<span class="ruby-ivar">@extends</span>, <span class="ruby-ivar">@parent_directives</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-check_extends_fired-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_extends_fired!</span><span
+            class="method-args">(extends)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_extends_fired-21-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/extend.rb, line 50</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">check_extends_fired!</span>(<span class="ruby-identifier">extends</span>)
+      <span class="ruby-identifier">extends</span>.<span class="ruby-identifier">each_value</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ex</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">result</span> <span class="ruby-operator">==</span> <span class="ruby-value">:succeeded</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">node</span>.<span class="ruby-identifier">optional?</span>
+        <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;\&quot;#{ex.extender}\&quot; failed to @extend \&quot;#{ex.target.join}\&quot;.&quot;</span>
+        <span class="ruby-identifier">reason</span> =
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">result</span> <span class="ruby-operator">==</span> <span class="ruby-value">:not_found</span>
+            <span class="ruby-node">&quot;The selector \&quot;#{ex.target.join}\&quot; was not found.&quot;</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-node">&quot;No selectors matching \&quot;#{ex.target.join}\&quot; could be unified with \&quot;#{ex.extender}\&quot;.&quot;</span>
+          <span class="ruby-keyword">end</span>
+
+        <span class="ruby-comment"># TODO(nweiz): this should use the Sass stack trace of the extend node.</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;#{message}
+#{reason}
+Use &quot;@extend #{ex.target.join} !optional&quot; if the extend should be able to fail.
+&quot;</span>, <span class="ruby-value">:filename</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">node</span>.<span class="ruby-identifier">filename</span>, <span class="ruby-value">:line</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">node</span>.<span class="ruby-identifier">line</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

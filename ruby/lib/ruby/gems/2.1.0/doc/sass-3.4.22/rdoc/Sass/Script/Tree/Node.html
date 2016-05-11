@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Sass::Script::Tree::Node - sass-3.4.22 Documentation</title>
+
+<link href="../../../fonts.css" rel="stylesheet">
+<link href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/navigation.js"></script>
+<script src="../../../js/search_index.js"></script>
+<script src="../../../js/search.js"></script>
+<script src="../../../js/searcher.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-_perform">#_perform</a>
+    
+    <li ><a href="#method-i-children">#children</a>
+    
+    <li ><a href="#method-i-dasherize">#dasherize</a>
+    
+    <li ><a href="#method-i-deep_copy">#deep_copy</a>
+    
+    <li ><a href="#method-i-force_division-21">#force_division!</a>
+    
+    <li ><a href="#method-i-options-3D">#options=</a>
+    
+    <li ><a href="#method-i-opts">#opts</a>
+    
+    <li ><a href="#method-i-perform">#perform</a>
+    
+    <li ><a href="#method-i-to_sass">#to_sass</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Sass::Script::Tree::Node">
+  <h1 id="class-Sass::Script::Tree::Node" class="class">
+    class Sass::Script::Tree::Node
+  </h1>
+
+  <section class="description">
+    
+<p>The abstract superclass for SassScript parse tree nodes.</p>
+
+<p>Use {#perform} to evaluate a parse tree.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-css_variable_warning" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">css_variable_warning</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The warning that this node should emit if it executes in a way that&#39;s
+not safe for a <a href="../../CSS.html">CSS</a> variable value.</p>
+
+<p>This is `nil` if this is not in a <a href="../../CSS.html">CSS</a> variable
+value.</p>
+
+<p>@return [Sass::Script::CssVariableWarning]</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-filename" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">filename</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The file name of the document on which this node appeared.</p>
+
+<p>@return [String]</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-line" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">line</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The line of the document on which this node appeared.</p>
+
+<p>@return [Fixnum]</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">options</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The options hash for this node.</p>
+
+<p>@return [{Symbol =&gt; Object}]</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-source_range" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">source_range</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The source range in the document on which this node appeared.</p>
+
+<p>@return [Sass::Source::Range]</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-children" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">children</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns all child nodes of this node.</p>
+
+<p>@return [Array&lt;Node&gt;]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="children-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/node.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">children</span>
+  <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">abstract</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-deep_copy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deep_copy</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a deep clone of this node. The child nodes are cloned, but options
+are not.</p>
+
+<p>@return [Node]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="deep_copy-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/node.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deep_copy</span>
+  <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">abstract</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-force_division-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">force_division!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Forces any division operations with number literals in this expression to
+do real division, rather than returning strings.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="force_division-21-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/node.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">force_division!</span>
+  <span class="ruby-identifier">children</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">force_division!</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-options-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">options=</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the options hash for this node, as well as for all child nodes. See
+{file:SASS_REFERENCE.md#sass_options the <a
+href="../../../Sass.html">Sass</a> options documentation}.</p>
+
+<p>@param options [{Symbol =&gt; Object}] The options</p>
+          
+          
+
+          
+          <div class="method-source-code" id="options-3D-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/node.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">options=</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+  <span class="ruby-identifier">children</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Hash</span>
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>}
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">c</span>.<span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-perform" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">perform</span><span
+            class="method-args">(environment)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Evaluates the node.</p>
+
+<p>{#perform} shouldn&#39;t be overridden directly; instead, override
+{#_perform}.</p>
+
+<p>@param environment [Sass::Environment] The environment in which to evaluate
+the SassScript @return [Sass::Script::Value] The SassScript object that is
+the value of the SassScript</p>
+          
+          
+
+          
+          <div class="method-source-code" id="perform-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/node.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">perform</span>(<span class="ruby-identifier">environment</span>)
+  <span class="ruby-identifier">_perform</span>(<span class="ruby-identifier">environment</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">e</span>.<span class="ruby-identifier">modify_backtrace</span>(<span class="ruby-value">:line</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">line</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_sass" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_sass</span><span
+            class="method-args">(opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the text of this SassScript expression.</p>
+
+<p>@options opts :quote [String]</p>
+
+<pre>The preferred quote style for quoted strings. If `:none`, strings are
+always emitted unquoted.</pre>
+
+<p>@return [String]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_sass-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/node.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_sass</span>(<span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">abstract</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-_perform" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_perform</span><span
+            class="method-args">(environment)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Evaluates this node. Note that all {Sass::Script::Value} objects created
+within this method should have their {#options} attribute set, probably via
+{#opts}.</p>
+
+<p>@param environment [Sass::Environment] The environment in which to evaluate
+the SassScript @return [Sass::Script::Value] The SassScript object that is
+the value of the SassScript @see <a
+href="Node.html#method-i-perform">perform</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="_perform-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/node.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_perform</span>(<span class="ruby-identifier">environment</span>)
+  <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">abstract</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dasherize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dasherize</span><span
+            class="method-args">(s, opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Converts underscores to dashes if the :dasherize option is set.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dasherize-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/node.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dasherize</span>(<span class="ruby-identifier">s</span>, <span class="ruby-identifier">opts</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:dasherize</span>]
+    <span class="ruby-identifier">s</span>.<span class="ruby-identifier">tr</span>(<span class="ruby-string">&#39;_&#39;</span>, <span class="ruby-string">&#39;-&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">s</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-opts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">opts</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the {#options} field on the given value and returns it.</p>
+
+<p>@param value [Sass::Script::Value] @return [Sass::Script::Value]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="opts-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/node.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">opts</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">value</span>.<span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>
+  <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

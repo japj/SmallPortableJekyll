@@ -1,0 +1,201 @@
+have_func: checking for labs() in stdlib.h... -------------------- yes
+
+"gcc -o conftest.exe -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32 -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I. -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -LD:/GitHub/SmallPortableJekyll/ruby/lib -L.      -lmsvcrt-ruby210  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: int main(int argc, char **argv)
+6: {
+7:   return 0;
+8: }
+/* end */
+
+"gcc -o conftest.exe -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32 -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I. -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -LD:/GitHub/SmallPortableJekyll/ruby/lib -L.      -lmsvcrt-ruby210  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:17:32: warning: variable 'p' set but not used [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <stdlib.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     printf("%p", &t);
+13:   }
+14: 
+15:   return 0;
+16: }
+17: int t(void) { void ((*volatile p)()); p = (void ((*)()))labs; return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for llabs() in stdlib.h... -------------------- yes
+
+"gcc -o conftest.exe -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32 -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I. -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -LD:/GitHub/SmallPortableJekyll/ruby/lib -L.      -lmsvcrt-ruby210  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:17:32: warning: variable 'p' set but not used [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <stdlib.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     printf("%p", &t);
+13:   }
+14: 
+15:   return 0;
+16: }
+17: int t(void) { void ((*volatile p)()); p = (void ((*)()))llabs; return 0; }
+/* end */
+
+--------------------
+
+have_type: checking for struct RRational in ruby.h... -------------------- yes
+
+"gcc -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32 -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I. -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <ruby.h>
+6: 
+7: /*top*/
+8: typedef struct RRational conftest_type;
+9: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+
+have_func: checking for rb_rational_num() in ruby.h... -------------------- no
+
+"gcc -o conftest.exe -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32 -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I. -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -LD:/GitHub/SmallPortableJekyll/ruby/lib -L.      -lmsvcrt-ruby210  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:17:57: error: 'rb_rational_num' undeclared (first use in this function)
+conftest.c:17:57: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:17:32: warning: variable 'p' set but not used [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     printf("%p", &t);
+13:   }
+14: 
+15:   return 0;
+16: }
+17: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_rational_num; return 0; }
+/* end */
+
+"gcc -o conftest.exe -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32 -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I. -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -LD:/GitHub/SmallPortableJekyll/ruby/lib -L.      -lmsvcrt-ruby210  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:17:1: warning: implicit declaration of function 'rb_rational_num' [-Wimplicit-function-declaration]
+C:\Users\japj\AppData\Local\Temp\ccG5T0yX.o: In function `t':
+D:\GitHub\SmallPortableJekyll\ruby\lib\ruby\gems\2.1.0\gems\bigdecimal-1.2.7/conftest.c:17: undefined reference to `rb_rational_num'
+collect2.exe: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     printf("%p", &t);
+13:   }
+14: 
+15:   return 0;
+16: }
+17: int t(void) { rb_rational_num(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_rational_den() in ruby.h... -------------------- no
+
+"gcc -o conftest.exe -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32 -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I. -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -LD:/GitHub/SmallPortableJekyll/ruby/lib -L.      -lmsvcrt-ruby210  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:17:57: error: 'rb_rational_den' undeclared (first use in this function)
+conftest.c:17:57: note: each undeclared identifier is reported only once for each function it appears in
+conftest.c:17:32: warning: variable 'p' set but not used [-Wunused-but-set-variable]
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     printf("%p", &t);
+13:   }
+14: 
+15:   return 0;
+16: }
+17: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_rational_den; return 0; }
+/* end */
+
+"gcc -o conftest.exe -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32 -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I. -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration conftest.c  -L. -LD:/GitHub/SmallPortableJekyll/ruby/lib -L.      -lmsvcrt-ruby210  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:17:1: warning: implicit declaration of function 'rb_rational_den' [-Wimplicit-function-declaration]
+C:\Users\japj\AppData\Local\Temp\cc08IDGO.o: In function `t':
+D:\GitHub\SmallPortableJekyll\ruby\lib\ruby\gems\2.1.0\gems\bigdecimal-1.2.7/conftest.c:17: undefined reference to `rb_rational_den'
+collect2.exe: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     printf("%p", &t);
+13:   }
+14: 
+15:   return 0;
+16: }
+17: int t(void) { rb_rational_den(); return 0; }
+/* end */
+
+--------------------
+

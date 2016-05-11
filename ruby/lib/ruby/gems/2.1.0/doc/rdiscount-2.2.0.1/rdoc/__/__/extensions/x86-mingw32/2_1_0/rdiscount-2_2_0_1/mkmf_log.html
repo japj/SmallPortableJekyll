@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>mkmf.log - rdiscount-2.2.0.1 Documentation</title>
+
+<link href="../../../../../../fonts.css" rel="stylesheet">
+<link href="../../../../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../../../";
+</script>
+
+<script src="../../../../../../js/jquery.js"></script>
+<script src="../../../../../../js/navigation.js"></script>
+<script src="../../../../../../js/search_index.js"></script>
+<script src="../../../../../../js/search.js"></script>
+<script src="../../../../../../js/searcher.js"></script>
+<script src="../../../../../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../../../__/__/extensions/x86-mingw32/2_1_0/rdiscount-2_2_0_1/gem_build_complete.html">gem.build_complete</a>
+  
+    <li><a href="../../../../../../__/__/extensions/x86-mingw32/2_1_0/rdiscount-2_2_0_1/gem_make_out.html">gem_make.out</a>
+  
+    <li><a href="../../../../../../__/__/extensions/x86-mingw32/2_1_0/rdiscount-2_2_0_1/mkmf_log.html">mkmf.log</a>
+  
+    <li><a href="../../../../../../COPYING.html">COPYING</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page ../../extensions/x86-mingw32/2.1.0/rdiscount-2.2.0.1/mkmf.log">
+
+<p>have_func: checking for random()… ——————– no</p>
+
+<p>“gcc -o conftest.exe
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT
+-D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g
+-Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration conftest.c  -L.
+-LD:/GitHub/SmallPortableJekyll/ruby/lib -L.      -lmsvcrt-ruby210 
+-lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  ” checked program was:</p>
+
+<pre>begin</pre>
+
+<p>1: include “ruby.h” 2:  3: include &lt;winsock2.h&gt; 4: include
+&lt;windows.h&gt; 5: int main(int argc, char **argv) 6: { 7:   return 0; 8:
+}</p>
+
+<pre>end</pre>
+
+<p>“gcc -o conftest.exe
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT
+-D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g
+-Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration conftest.c  -L.
+-LD:/GitHub/SmallPortableJekyll/ruby/lib -L.      -lmsvcrt-ruby210 
+-lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  ” conftest.c: In
+function &#39;t&#39;: conftest.c:16:57: error: &#39;random&#39; undeclared
+(first use in this function) conftest.c:16:57: note: each undeclared
+identifier is reported only once for each function it appears in
+conftest.c:16:32: warning: variable &#39;p&#39; set but not used
+[-Wunused-but-set-variable] checked program was: /* begin */</p>
+
+<pre>1: #include &quot;ruby.h&quot;
+2: 
+3: #include &lt;winsock2.h&gt;
+4: #include &lt;windows.h&gt;
+5: 
+6: /*top*/
+7: extern int t(void);
+8: int main(int argc, char **argv)
+9: {</pre>
+
+<p>10:   if (argc &gt; 1000000) { 11:     printf(“%p”, &amp;t); 12:   } 13: 
+14:   return 0; 15: } 16: int t(void) { void ((*volatile p)()); p = (void
+((*)()))random; return 0; } /* end */</p>
+
+<p>“gcc -o conftest.exe
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT
+-D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g
+-Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration conftest.c  -L.
+-LD:/GitHub/SmallPortableJekyll/ruby/lib -L.      -lmsvcrt-ruby210 
+-lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  ” conftest.c: In
+function &#39;t&#39;: conftest.c:16:1: warning: implicit declaration of
+function &#39;random&#39; [-Wimplicit-function-declaration]
+C:UsersjapjAppDataLocalTempcc0C6bAU.o: In function `t&#39;:
+D:GitHubSmallPortableJekyllrubylibrubygems2.1.0gemsrdiscount-2.2.0.1ext/conftest.c:16:
+undefined reference to `random&#39; collect2.exe: error: ld returned 1 exit
+status checked program was: /* begin */</p>
+
+<pre>1: #include &quot;ruby.h&quot;
+2: 
+3: #include &lt;winsock2.h&gt;
+4: #include &lt;windows.h&gt;
+5: 
+6: /*top*/
+7: extern int t(void);
+8: int main(int argc, char **argv)
+9: {</pre>
+
+<p>10:   if (argc &gt; 1000000) { 11:     printf(“%p”, &amp;t); 12:   } 13: 
+14:   return 0; 15: } 16: int t(void) { random(); return 0; } /* end */</p>
+<hr>
+
+<p>have_func: checking for srandom()… ——————– no</p>
+
+<p>“gcc -o conftest.exe
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT
+-D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g
+-Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration conftest.c  -L.
+-LD:/GitHub/SmallPortableJekyll/ruby/lib -L.      -lmsvcrt-ruby210 
+-lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  ” conftest.c: In
+function &#39;t&#39;: conftest.c:16:57: error: &#39;srandom&#39; undeclared
+(first use in this function) conftest.c:16:57: note: each undeclared
+identifier is reported only once for each function it appears in
+conftest.c:16:32: warning: variable &#39;p&#39; set but not used
+[-Wunused-but-set-variable] checked program was: /* begin */</p>
+
+<pre>1: #include &quot;ruby.h&quot;
+2: 
+3: #include &lt;winsock2.h&gt;
+4: #include &lt;windows.h&gt;
+5: 
+6: /*top*/
+7: extern int t(void);
+8: int main(int argc, char **argv)
+9: {</pre>
+
+<p>10:   if (argc &gt; 1000000) { 11:     printf(“%p”, &amp;t); 12:   } 13: 
+14:   return 0; 15: } 16: int t(void) { void ((*volatile p)()); p = (void
+((*)()))srandom; return 0; } /* end */</p>
+
+<p>“gcc -o conftest.exe
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT
+-D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g
+-Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration conftest.c  -L.
+-LD:/GitHub/SmallPortableJekyll/ruby/lib -L.      -lmsvcrt-ruby210 
+-lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  ” conftest.c: In
+function &#39;t&#39;: conftest.c:16:1: warning: implicit declaration of
+function &#39;srandom&#39; [-Wimplicit-function-declaration]
+C:UsersjapjAppDataLocalTempccImBhkO.o: In function `t&#39;:
+D:GitHubSmallPortableJekyllrubylibrubygems2.1.0gemsrdiscount-2.2.0.1ext/conftest.c:16:
+undefined reference to `srandom&#39; collect2.exe: error: ld returned 1
+exit status checked program was: /* begin */</p>
+
+<pre>1: #include &quot;ruby.h&quot;
+2: 
+3: #include &lt;winsock2.h&gt;
+4: #include &lt;windows.h&gt;
+5: 
+6: /*top*/
+7: extern int t(void);
+8: int main(int argc, char **argv)
+9: {</pre>
+
+<p>10:   if (argc &gt; 1000000) { 11:     printf(“%p”, &amp;t); 12:   } 13: 
+14:   return 0; 15: } 16: int t(void) { srandom(); return 0; } /* end */</p>
+<hr>
+
+<p>have_func: checking for rand()… ——————– yes</p>
+
+<p>“gcc -o conftest.exe
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT
+-D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g
+-Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration conftest.c  -L.
+-LD:/GitHub/SmallPortableJekyll/ruby/lib -L.      -lmsvcrt-ruby210 
+-lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  ” conftest.c: In
+function &#39;t&#39;: conftest.c:16:32: warning: variable &#39;p&#39; set
+but not used [-Wunused-but-set-variable] checked program was: /* begin */</p>
+
+<pre>1: #include &quot;ruby.h&quot;
+2: 
+3: #include &lt;winsock2.h&gt;
+4: #include &lt;windows.h&gt;
+5: 
+6: /*top*/
+7: extern int t(void);
+8: int main(int argc, char **argv)
+9: {</pre>
+
+<p>10:   if (argc &gt; 1000000) { 11:     printf(“%p”, &amp;t); 12:   } 13: 
+14:   return 0; 15: } 16: int t(void) { void ((*volatile p)()); p = (void
+((*)()))rand; return 0; } /* end */</p>
+<hr>
+
+<p>have_func: checking for srand()… ——————– yes</p>
+
+<p>“gcc -o conftest.exe
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT
+-D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g
+-Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration conftest.c  -L.
+-LD:/GitHub/SmallPortableJekyll/ruby/lib -L.      -lmsvcrt-ruby210 
+-lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  ” conftest.c: In
+function &#39;t&#39;: conftest.c:16:32: warning: variable &#39;p&#39; set
+but not used [-Wunused-but-set-variable] checked program was: /* begin */</p>
+
+<pre>1: #include &quot;ruby.h&quot;
+2: 
+3: #include &lt;winsock2.h&gt;
+4: #include &lt;windows.h&gt;
+5: 
+6: /*top*/
+7: extern int t(void);
+8: int main(int argc, char **argv)
+9: {</pre>
+
+<p>10:   if (argc &gt; 1000000) { 11:     printf(“%p”, &amp;t); 12:   } 13: 
+14:   return 0; 15: } 16: int t(void) { void ((*volatile p)()); p = (void
+((*)()))srand; return 0; } /* end */</p>
+<hr>
+
+<p>check_sizeof: checking size of unsigned long… ——————– 4</p>
+
+<p>“gcc -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT
+-D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g
+-Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration   -c conftest.c” conftest.c:9:5: error:
+size of array &#39;conftest_const&#39; is negative checked program was: /*
+begin */ 1: include “ruby.h” 2:  3: include &lt;winsock2.h&gt; 4: include
+&lt;windows.h&gt; 5: typedef unsigned long rbcv_typedef_; 6: static
+rbcv_typedef_ *rbcv_ptr_; 7:  8: /<strong>top</strong>/ 9: int
+conftest_const[(sizeof((*rbcv_ptr_)) &lt; 0) ? 1 : -1]; /* end */</p>
+
+<p>“gcc -o conftest.exe
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT
+-D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g
+-Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration conftest.c  -L.
+-LD:/GitHub/SmallPortableJekyll/ruby/lib -L.      -lmsvcrt-ruby210 
+-lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  ” checked program was:
+/* begin */</p>
+
+<pre>1: #include &quot;ruby.h&quot;
+2: 
+3: #include &lt;winsock2.h&gt;
+4: #include &lt;windows.h&gt;
+5: typedef unsigned long rbcv_typedef_;
+6: static rbcv_typedef_ *rbcv_ptr_;
+7: 
+8: #include &lt;stdio.h&gt;
+9: /*top*/</pre>
+
+<p>10: typedef unsigned 11: ifdef PRI_LL_PREFIX 12: define PRI_CONFTEST_PREFIX
+PRI_LL_PREFIX 13: LONG_LONG 14: else 15: define PRI_CONFTEST_PREFIX “l” 16:
+long 17: endif 18: conftest_type; 19: conftest_type conftest_const =
+(conftest_type)(sizeof((*rbcv_ptr_))); 20: int main()
+{printf(“%”PRI_CONFTEST_PREFIX“un”, conftest_const); return 0;} /* end */</p>
+
+<p>./conftest |</p>
+<hr>
+
+<p>check_sizeof: checking size of unsigned int… ——————– 4</p>
+
+<p>“gcc -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT
+-D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g
+-Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration   -c conftest.c” conftest.c:9:5: error:
+size of array &#39;conftest_const&#39; is negative checked program was: /*
+begin */ 1: include “ruby.h” 2:  3: include &lt;winsock2.h&gt; 4: include
+&lt;windows.h&gt; 5: typedef unsigned int rbcv_typedef_; 6: static
+rbcv_typedef_ *rbcv_ptr_; 7:  8: /<strong>top</strong>/ 9: int
+conftest_const[(sizeof((*rbcv_ptr_)) &lt; 0) ? 1 : -1]; /* end */</p>
+
+<p>“gcc -o conftest.exe
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT
+-D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g
+-Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration conftest.c  -L.
+-LD:/GitHub/SmallPortableJekyll/ruby/lib -L.      -lmsvcrt-ruby210 
+-lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  ” checked program was:
+/* begin */</p>
+
+<pre>1: #include &quot;ruby.h&quot;
+2: 
+3: #include &lt;winsock2.h&gt;
+4: #include &lt;windows.h&gt;
+5: typedef unsigned int rbcv_typedef_;
+6: static rbcv_typedef_ *rbcv_ptr_;
+7: 
+8: #include &lt;stdio.h&gt;
+9: /*top*/</pre>
+
+<p>10: typedef unsigned 11: ifdef PRI_LL_PREFIX 12: define PRI_CONFTEST_PREFIX
+PRI_LL_PREFIX 13: LONG_LONG 14: else 15: define PRI_CONFTEST_PREFIX “l” 16:
+long 17: endif 18: conftest_type; 19: conftest_type conftest_const =
+(conftest_type)(sizeof((*rbcv_ptr_))); 20: int main()
+{printf(“%”PRI_CONFTEST_PREFIX“un”, conftest_const); return 0;} /* end */</p>
+
+<p>./conftest |</p>
+<hr>
+
+<p>check_sizeof: checking size of unsigned short… ——————– 2</p>
+
+<p>“gcc -ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT
+-D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g
+-Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration   -c conftest.c” conftest.c:9:5: error:
+size of array &#39;conftest_const&#39; is negative checked program was: /*
+begin */ 1: include “ruby.h” 2:  3: include &lt;winsock2.h&gt; 4: include
+&lt;windows.h&gt; 5: typedef unsigned short rbcv_typedef_; 6: static
+rbcv_typedef_ *rbcv_ptr_; 7:  8: /<strong>top</strong>/ 9: int
+conftest_const[(sizeof((*rbcv_ptr_)) &lt; 0) ? 1 : -1]; /* end */</p>
+
+<p>“gcc -o conftest.exe
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/ruby/backward
+-ID:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0 -I.
+-DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT
+-D_FILE_OFFSET_BITS=64   -O3 -fno-omit-frame-pointer -fno-fast-math -g
+-Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long
+-Wno-missing-field-initializers -Wunused-variable -Wpointer-arith
+-Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration conftest.c  -L.
+-LD:/GitHub/SmallPortableJekyll/ruby/lib -L.      -lmsvcrt-ruby210 
+-lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  ” checked program was:
+/* begin */</p>
+
+<pre>1: #include &quot;ruby.h&quot;
+2: 
+3: #include &lt;winsock2.h&gt;
+4: #include &lt;windows.h&gt;
+5: typedef unsigned short rbcv_typedef_;
+6: static rbcv_typedef_ *rbcv_ptr_;
+7: 
+8: #include &lt;stdio.h&gt;
+9: /*top*/</pre>
+
+<p>10: typedef unsigned 11: ifdef PRI_LL_PREFIX 12: define PRI_CONFTEST_PREFIX
+PRI_LL_PREFIX 13: LONG_LONG 14: else 15: define PRI_CONFTEST_PREFIX “l” 16:
+long 17: endif 18: conftest_type; 19: conftest_type conftest_const =
+(conftest_type)(sizeof((*rbcv_ptr_))); 20: int main()
+{printf(“%”PRI_CONFTEST_PREFIX“un”, conftest_const); return 0;} /* end */</p>
+
+<p>./conftest |</p>
+<hr>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

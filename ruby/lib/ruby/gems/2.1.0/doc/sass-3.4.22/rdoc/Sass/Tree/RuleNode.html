@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Sass::Tree::RuleNode - sass-3.4.22 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Node.html">Sass::Tree::Node</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li class="calls-super" ><a href="#method-i-3D-3D">#==</a>
+    
+    <li ><a href="#method-i-add_rules">#add_rules</a>
+    
+    <li ><a href="#method-i-continued-3F">#continued?</a>
+    
+    <li ><a href="#method-i-debug_info">#debug_info</a>
+    
+    <li class="calls-super" ><a href="#method-i-filename-3D">#filename=</a>
+    
+    <li ><a href="#method-i-invisible-3F">#invisible?</a>
+    
+    <li class="calls-super" ><a href="#method-i-line-3D">#line=</a>
+    
+    <li ><a href="#method-i-try_to_parse_non_interpolated_rules">#try_to_parse_non_interpolated_rules</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Sass::Tree::RuleNode">
+  <h1 id="class-Sass::Tree::RuleNode" class="class">
+    class Sass::Tree::RuleNode
+  </h1>
+
+  <section class="description">
+    
+<p>A static node representing a <a href="../CSS.html">CSS</a> rule.</p>
+
+<p>@see <a href="../Tree.html">Sass::Tree</a></p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="PARENT">PARENT
+        
+        <dd><p>The character used to include the parent selector</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-group_end" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">group_end</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Whether or not this rule is the last rule in a nested group. This is only
+set in a <a href="../CSS.html">CSS</a> tree.</p>
+
+<p>@return [Boolean]</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-parsed_rules" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">parsed_rules</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The <a href="../CSS.html">CSS</a> selector for this rule, without any
+unresolved interpolation but with parent references still intact. It&#39;s
+only guaranteed to be set once {Tree::Visitors::Perform} has been run, but
+it may be set before then for optimization reasons.</p>
+
+<p>@return [Selector::CommaSequence]</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-resolved_rules" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">resolved_rules</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The <a href="../CSS.html">CSS</a> selector for this rule, without any
+unresolved interpolation or parent references. It&#39;s only set once
+{Tree::Visitors::Perform} has been run.</p>
+
+<p>@return [Selector::CommaSequence]</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-rule" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">rule</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The <a href="../CSS.html">CSS</a> selector for this rule, interspersed with
+{Sass::Script::Tree::Node}s representing `#{}`-interpolation. Any adjacent
+strings will be merged together.</p>
+
+<p>@return [Array&lt;String, Sass::Script::Tree::Node&gt;]</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-selector_source_range" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">selector_source_range</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The entire selector source range for this rule. @return
+[Sass::Source::Range]</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-stack_trace" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">stack_trace</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The stack trace. This is only readable in a <a href="../CSS.html">CSS</a>
+tree as it is written during the perform step and only when the
+:trace_selectors option is set.</p>
+
+<p>@return [String]</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-tabs" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">tabs</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>How deep this rule is indented relative to a base-level rule. This is only
+greater than 0 in the case that:</p>
+<ul><li>
+<p>This node is in a <a href="../CSS.html">CSS</a> tree</p>
+</li><li>
+<p>The style is :nested</p>
+</li><li>
+<p>This is a child rule of another rule</p>
+</li><li>
+<p>The parent rule has properties, and thus will be rendered</p>
+</li></ul>
+
+<p>@return [Fixnum]</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(rule, selector_source_range = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param rule [Array&lt;String, Sass::Script::Tree::Node&gt;,
+Sass::Selector::CommaSequence]</p>
+
+<pre>The CSS rule, either unparsed or parsed.</pre>
+
+<p>@param <a
+href="RuleNode.html#attribute-i-selector_source_range">#selector_source_range</a>
+[Sass::Source::Range]</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Node.html#method-c-new">Sass::Tree::Node.new</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/rule_node.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">rule</span>, <span class="ruby-identifier">selector_source_range</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">rule</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Selector</span><span class="ruby-operator">::</span><span class="ruby-constant">CommaSequence</span>)
+    <span class="ruby-ivar">@rule</span> = [<span class="ruby-identifier">rule</span>.<span class="ruby-identifier">to_s</span>]
+    <span class="ruby-ivar">@parsed_rules</span> = <span class="ruby-identifier">rule</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">merged</span> = <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">merge_adjacent_strings</span>(<span class="ruby-identifier">rule</span>)
+    <span class="ruby-ivar">@rule</span> = <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">strip_string_array</span>(<span class="ruby-identifier">merged</span>)
+    <span class="ruby-identifier">try_to_parse_non_interpolated_rules</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@selector_source_range</span> = <span class="ruby-identifier">selector_source_range</span>
+  <span class="ruby-ivar">@tabs</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">super</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">==</span><span
+            class="method-args">(other)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Compares the contents of two rules.</p>
+
+<p>@param other [Object] The object to compare with @return [Boolean] Whether
+or not this node and the other object</p>
+
+<pre>are the same</pre>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              Sass::Tree::Node#==
+            </div>
+          
+
+          
+          <div class="method-source-code" id="3D-3D-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/rule_node.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">rule</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">rule</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_rules" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_rules</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Adds another {RuleNode}&#39;s rules to this one&#39;s.</p>
+
+<p>@param node [RuleNode] The other node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_rules-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/rule_node.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_rules</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-ivar">@rule</span> = <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">strip_string_array</span>(
+    <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">merge_adjacent_strings</span>(<span class="ruby-ivar">@rule</span> <span class="ruby-operator">+</span> [<span class="ruby-string">&quot;\n&quot;</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">rule</span>))
+  <span class="ruby-identifier">try_to_parse_non_interpolated_rules</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-continued-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">continued?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Boolean] Whether or not this rule is continued on the next line</p>
+          
+          
+
+          
+          <div class="method-source-code" id="continued-3F-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/rule_node.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">continued?</span>
+  <span class="ruby-identifier">last</span> = <span class="ruby-ivar">@rule</span>.<span class="ruby-identifier">last</span>
+  <span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">last</span>[<span class="ruby-value">-1</span>] <span class="ruby-operator">==</span> <span class="ruby-value">?,</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-debug_info" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">debug_info</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A hash that will be associated with this rule in the <a
+href="../CSS.html">CSS</a> document if the
+{file:SASS_REFERENCE.md#debug_info-option `:debug_info` option} is enabled.
+This data is used by e.g. [the FireSass Firebug extension](<a
+href="https://addons.mozilla.org/en-US/firefox/addon/103988">addons.mozilla.org/en-US/firefox/addon/103988</a>).</p>
+
+<p>@return [{#to_s =&gt; to_s}]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="debug_info-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/rule_node.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">debug_info</span>
+  {<span class="ruby-value">:filename</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">filename</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-string">&quot;file://&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">escape_uri</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">filename</span>))),
+   <span class="ruby-value">:line</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">line</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-filename-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">filename=</span><span
+            class="method-args">(filename)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If we&#39;ve precached the parsed selector, set the filename on it, too.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="filename-3D-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/rule_node.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">filename=</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-ivar">@parsed_rules</span>.<span class="ruby-identifier">filename</span> = <span class="ruby-identifier">filename</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@parsed_rules</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-invisible-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">invisible?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A rule node is invisible if it has only placeholder selectors.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="invisible-3F-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/rule_node.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">invisible?</span>
+  <span class="ruby-identifier">resolved_rules</span>.<span class="ruby-identifier">members</span>.<span class="ruby-identifier">all?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">seq</span><span class="ruby-operator">|</span> <span class="ruby-identifier">seq</span>.<span class="ruby-identifier">has_placeholder?</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-line-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">line=</span><span
+            class="method-args">(line)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If we&#39;ve precached the parsed selector, set the line on it, too.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="line-3D-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/rule_node.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">line=</span>(<span class="ruby-identifier">line</span>)
+  <span class="ruby-ivar">@parsed_rules</span>.<span class="ruby-identifier">line</span> = <span class="ruby-identifier">line</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@parsed_rules</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-try_to_parse_non_interpolated_rules" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">try_to_parse_non_interpolated_rules</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="try_to_parse_non_interpolated_rules-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/rule_node.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">try_to_parse_non_interpolated_rules</span>
+  <span class="ruby-ivar">@parsed_rules</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@rule</span>.<span class="ruby-identifier">all?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)}
+
+  <span class="ruby-comment"># We don&#39;t use real filename/line info because we don&#39;t have it yet.</span>
+  <span class="ruby-comment"># When we get it, we&#39;ll set it on the parsed rules if possible.</span>
+  <span class="ruby-identifier">parser</span> = <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">SCSS</span><span class="ruby-operator">::</span><span class="ruby-constant">StaticParser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@rule</span>.<span class="ruby-identifier">join</span>.<span class="ruby-identifier">strip</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-value">1</span>)
+  <span class="ruby-comment"># rubocop:disable RescueModifier</span>
+  <span class="ruby-ivar">@parsed_rules</span> = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse_selector</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-comment"># rubocop:enable RescueModifier</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

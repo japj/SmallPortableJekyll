@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Ethon::Multi - ethon-0.9.0 Documentation</title>
+
+<link href="../fonts.css" rel="stylesheet">
+<link href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/search_index.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/searcher.js"></script>
+<script src="../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Multi/Stack.html">Ethon::Multi::Stack</a>
+  
+  
+  
+    <li><a class="include" href="Multi/Operations.html">Ethon::Multi::Operations</a>
+  
+  
+  
+    <li><a class="include" href="Multi/Options.html">Ethon::Multi::Options</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-set_attributes">#set_attributes</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Ethon::Multi">
+  <h1 id="class-Ethon::Multi" class="class">
+    class Ethon::Multi
+  </h1>
+
+  <section class="description">
+    
+<p>This class represents libcurl multi.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new multi. Initialize curl in case it didn&#39;t happen before.</p>
+
+<p>@example Create a new <a href="Multi.html">Multi</a>.</p>
+
+<pre>Multi.new</pre>
+
+<p>@param [ Hash ] options The options.</p>
+
+<p>@option options :socketdata [String]</p>
+
+<pre>Pass a pointer to whatever you want passed to the
+curl_socket_callback&#39;s forth argument, the userp pointer. This is not
+used by libcurl but only passed-thru as-is. Set the callback pointer
+with CURLMOPT_SOCKETFUNCTION.</pre>
+
+<p>@option options :pipelining [Boolean]</p>
+
+<pre>Pass a long set to 1 to enable or 0 to disable. Enabling pipelining
+on a multi handle will make it attempt to perform HTTP Pipelining as
+far as possible for transfers using this handle. This means that if
+you add a second request that can use an already existing connection,
+the second request will be &quot;piped&quot; on the same connection rather than
+being executed in parallel. (Added in 7.16.0)</pre>
+
+<p>@option options :timerfunction [Proc]</p>
+
+<pre>Pass a pointer to a function matching the curl_multi_timer_callback
+prototype. This function will then be called when the timeout value
+changes. The timeout value is at what latest time the application
+should call one of the &quot;performing&quot; functions of the multi interface
+(curl_multi_socket_action(3) and curl_multi_perform(3)) - to allow
+libcurl to keep timeouts and retries etc to work. A timeout value of
+-1 means that there is no timeout at all, and 0 means that the
+timeout is already reached. Libcurl attempts to limit calling this
+only when the fixed future timeout time actually changes. See also
+CURLMOPT_TIMERDATA. This callback can be used instead of, or in
+addition to, curl_multi_timeout(3). (Added in 7.16.0)</pre>
+
+<p>@option options :timerdata [String]</p>
+
+<pre>Pass a pointer to whatever you want passed to the
+curl_multi_timer_callback&#39;s third argument, the userp pointer. This
+is not used by libcurl but only passed-thru as-is. Set the callback
+pointer with CURLMOPT_TIMERFUNCTION. (Added in 7.16.0)</pre>
+
+<p>@option options :maxconnects [Integer]</p>
+
+<pre>Pass a long. The set number will be used as the maximum amount of
+simultaneously open connections that libcurl may cache. Default is
+10, and libcurl will enlarge the size for each added easy handle to
+make it fit 4 times the number of added easy handles.
+By setting this option, you can prevent the cache size from growing
+beyond the limit set by you.
+When the cache is full, curl closes the oldest one in the cache to
+prevent the number of open connections from increasing.
+This option is for the multi handle&#39;s use only, when using the easy
+interface you should instead use the CURLOPT_MAXCONNECTS option.
+(Added in 7.16.3)</pre>
+
+<p>@option options :max_total_connections [Integer] Pass a long. The set
+number will be used as the maximum amount of  simultaneously open
+connections in total. For each new session,  libcurl will open a new
+connection up to the limit set by  CURLMOPT_MAX_TOTAL_CONNECTIONS. When the
+limit is reached, the  sessions will be pending until there are available
+connections.  If CURLMOPT_PIPELINING is 1, libcurl will try to pipeline if
+the host  is capable of it. The default value is 0, which means that there
+is no limit. However,  for backwards compatibility, setting it to 0 when
+CURLMOPT_PIPELINING  is 1 will not be treated as unlimited. Instead it will
+open only 1  connection and try to pipeline on it. (Added in 7.30.0)</p>
+
+<p>@return [ <a href="Multi.html">Multi</a> ] The new multi.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/ethon/multi.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-constant">Curl</span>.<span class="ruby-identifier">init</span>
+  <span class="ruby-identifier">set_attributes</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">init_vars</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-set_attributes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_attributes</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set given options.</p>
+
+<p>@example Set options.</p>
+
+<pre>multi.set_attributes(options)</pre>
+
+<p>@raise InvalidOption</p>
+
+<p>@see initialize</p>
+
+<p>@api private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_attributes-source">
+            <pre><span class="ruby-comment"># File lib/ethon/multi.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_attributes</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-node">&quot;#{key}=&quot;</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errors</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidOption</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">method</span>(<span class="ruby-node">&quot;#{key}=&quot;</span>).<span class="ruby-identifier">call</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

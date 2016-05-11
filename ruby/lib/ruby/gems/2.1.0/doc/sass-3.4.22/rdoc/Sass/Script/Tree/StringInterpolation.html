@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Sass::Script::Tree::StringInterpolation - sass-3.4.22 Documentation</title>
+
+<link href="../../../fonts.css" rel="stylesheet">
+<link href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/navigation.js"></script>
+<script src="../../../js/search_index.js"></script>
+<script src="../../../js/search.js"></script>
+<script src="../../../js/searcher.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Node.html">Sass::Script::Tree::Node</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-_perform">#_perform</a>
+    
+    <li ><a href="#method-i-_to_sass">#_to_sass</a>
+    
+    <li ><a href="#method-i-children">#children</a>
+    
+    <li ><a href="#method-i-deep_copy">#deep_copy</a>
+    
+    <li ><a href="#method-i-inspect">#inspect</a>
+    
+    <li ><a href="#method-i-quote">#quote</a>
+    
+    <li ><a href="#method-i-quote_for">#quote_for</a>
+    
+    <li ><a href="#method-i-to_sass">#to_sass</a>
+    
+    <li ><a href="#method-i-type">#type</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Sass::Script::Tree::StringInterpolation">
+  <h1 id="class-Sass::Script::Tree::StringInterpolation" class="class">
+    class Sass::Script::Tree::StringInterpolation
+  </h1>
+
+  <section class="description">
+    
+<p>A SassScript object representing `#{}` interpolation within a string.</p>
+
+<p>@see <a href="Interpolation.html">Interpolation</a></p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-after" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">after</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [StringInterpolation, Literal]</p>
+
+<pre>The string literal or string interpolation before this interpolation.</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-before" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">before</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [Literal] The string literal before this interpolation.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-mid" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">mid</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [Node] The SassScript within the interpolation</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(before, mid, after)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Interpolation.html">Interpolation</a> in a string is of the form
+`“before #{mid} after”`, where `before` and `after` may include more
+interpolation.</p>
+
+<p>@param before [StringInterpolation, Literal] See
+{StringInterpolation#before} @param mid [Node] See
+{StringInterpolation#mid} @param after [Literal] See
+{StringInterpolation#after}</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/string_interpolation.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">before</span>, <span class="ruby-identifier">mid</span>, <span class="ruby-identifier">after</span>)
+  <span class="ruby-ivar">@before</span> = <span class="ruby-identifier">before</span>
+  <span class="ruby-ivar">@mid</span> = <span class="ruby-identifier">mid</span>
+  <span class="ruby-ivar">@after</span> = <span class="ruby-identifier">after</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-children" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">children</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the three components of the interpolation, `before`, `mid`, and
+`after`.</p>
+
+<p>@return [Array&lt;Node&gt;] @see initialize @see <a
+href="Node.html#method-i-children">Sass::Script::Tree::Node#children</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="children-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/string_interpolation.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">children</span>
+  [<span class="ruby-ivar">@before</span>, <span class="ruby-ivar">@mid</span>, <span class="ruby-ivar">@after</span>].<span class="ruby-identifier">compact</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-deep_copy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deep_copy</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@see <a
+href="Node.html#method-i-deep_copy">Sass::Script::Tree::Node#deep_copy</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="deep_copy-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/string_interpolation.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deep_copy</span>
+  <span class="ruby-identifier">node</span> = <span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-string">&#39;@before&#39;</span>, <span class="ruby-ivar">@before</span>.<span class="ruby-identifier">deep_copy</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@before</span>
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-string">&#39;@mid&#39;</span>, <span class="ruby-ivar">@mid</span>.<span class="ruby-identifier">deep_copy</span>)
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-string">&#39;@after&#39;</span>, <span class="ruby-ivar">@after</span>.<span class="ruby-identifier">deep_copy</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@after</span>
+  <span class="ruby-identifier">node</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [String] A human-readable s-expression representation of the
+interpolation</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/string_interpolation.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspect</span>
+  <span class="ruby-node">&quot;(string_interpolation #{@before.inspect} #{@mid.inspect} #{@after.inspect})&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-quote" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">quote</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the quote character that should be used to wrap a <a
+href="../../../Sass.html">Sass</a> representation of this interpolation.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="quote-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/string_interpolation.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">quote</span>
+  <span class="ruby-identifier">quote_for</span>(<span class="ruby-keyword">self</span>) <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&quot;&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_sass" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_sass</span><span
+            class="method-args">(opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@see <a
+href="Node.html#method-i-to_sass">Sass::Script::Tree::Node#to_sass</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_sass-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/string_interpolation.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_sass</span>(<span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-identifier">quote</span> = <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:string</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:quote</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">quote_for</span>(<span class="ruby-keyword">self</span>) <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&quot;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-value">:none</span>
+  <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:quote</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">quote</span>)
+
+  <span class="ruby-identifier">res</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">quote</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">quote</span> <span class="ruby-operator">!=</span> <span class="ruby-value">:none</span>
+  <span class="ruby-identifier">res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">_to_sass</span>(<span class="ruby-identifier">before</span>, <span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;#{&#39;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@mid</span>.<span class="ruby-identifier">to_sass</span>(<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:quote</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span>)) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;}&#39;</span>
+  <span class="ruby-identifier">res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">_to_sass</span>(<span class="ruby-identifier">after</span>, <span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">quote</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">quote</span> <span class="ruby-operator">!=</span> <span class="ruby-value">:none</span>
+  <span class="ruby-identifier">res</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">type</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Whether this is a <a href="../../CSS.html">CSS</a> string or a <a
+href="../../CSS.html">CSS</a> identifier. The difference is that strings
+are written with double-quotes, while identifiers aren&#39;t.</p>
+
+<p>String interpolations are only ever identifiers if they&#39;re quote-like
+functions such as `url()`.</p>
+
+<p>@return [Symbol] `:string` or `:identifier`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="type-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/string_interpolation.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">type</span>
+  <span class="ruby-ivar">@before</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">type</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-_perform" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_perform</span><span
+            class="method-args">(environment)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Evaluates the interpolation.</p>
+
+<p>@param environment [Sass::Environment] The environment in which to evaluate
+the SassScript @return [Sass::Script::Value::String]</p>
+
+<pre>The SassScript string that is the value of the interpolation</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="_perform-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/string_interpolation.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_perform</span>(<span class="ruby-identifier">environment</span>)
+  <span class="ruby-identifier">res</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">before</span> = <span class="ruby-ivar">@before</span>.<span class="ruby-identifier">perform</span>(<span class="ruby-identifier">environment</span>)
+  <span class="ruby-identifier">res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">before</span>.<span class="ruby-identifier">value</span>
+  <span class="ruby-identifier">mid</span> = <span class="ruby-ivar">@mid</span>.<span class="ruby-identifier">perform</span>(<span class="ruby-identifier">environment</span>)
+  <span class="ruby-identifier">res</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">mid</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Script</span><span class="ruby-operator">::</span><span class="ruby-constant">Value</span><span class="ruby-operator">::</span><span class="ruby-constant">String</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">mid</span>.<span class="ruby-identifier">value</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">mid</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-value">:quote</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:none</span>))
+  <span class="ruby-identifier">res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@after</span>.<span class="ruby-identifier">perform</span>(<span class="ruby-identifier">environment</span>).<span class="ruby-identifier">value</span>
+  <span class="ruby-identifier">opts</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Script</span><span class="ruby-operator">::</span><span class="ruby-constant">Value</span><span class="ruby-operator">::</span><span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">res</span>, <span class="ruby-identifier">before</span>.<span class="ruby-identifier">type</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-_to_sass" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_to_sass</span><span
+            class="method-args">(string_or_interp, opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_to_sass-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/string_interpolation.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_to_sass</span>(<span class="ruby-identifier">string_or_interp</span>, <span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">string_or_interp</span>.<span class="ruby-identifier">to_sass</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">opts</span>[<span class="ruby-value">:quote</span>] <span class="ruby-operator">==</span> <span class="ruby-value">:none</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">result</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-value">1</span><span class="ruby-operator">...</span><span class="ruby-value">-1</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-quote_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">quote_for</span><span
+            class="method-args">(string_or_interp)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="quote_for-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/string_interpolation.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">quote_for</span>(<span class="ruby-identifier">string_or_interp</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">string_or_interp</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Script</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">Literal</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">string_or_interp</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;&quot;&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">string_or_interp</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;&#39;&quot;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;&#39;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">string_or_interp</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;&quot;&#39;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Double-quotes take precedence over single quotes.</span>
+  <span class="ruby-identifier">before_quote</span> = <span class="ruby-identifier">quote_for</span>(<span class="ruby-identifier">string_or_interp</span>.<span class="ruby-identifier">before</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;&quot;&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">before_quote</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;&quot;&#39;</span>
+  <span class="ruby-identifier">after_quote</span> = <span class="ruby-identifier">quote_for</span>(<span class="ruby-identifier">string_or_interp</span>.<span class="ruby-identifier">after</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;&quot;&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">after_quote</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;&quot;&#39;</span>
+
+  <span class="ruby-comment"># Returns &quot;&#39;&quot; if either or both insist on single quotes, and nil</span>
+  <span class="ruby-comment"># otherwise.</span>
+  <span class="ruby-identifier">before_quote</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">after_quote</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>feed.xml - jekyll-feed-0.5.1 Documentation</title>
+
+<link href="../fonts.css" rel="stylesheet">
+<link href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/search_index.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/searcher.js"></script>
+<script src="../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../lib/feed_xml.html">feed.xml</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page lib/feed.xml">
+
+<p>{% if site.url %}</p>
+
+<pre>{% assign url_base = site.url | append: site.baseurl %}</pre>
+
+<p>{% else %}</p>
+
+<pre>{% assign url_base = site.github.url %}</pre>
+
+<p>{% endif %} &lt;feed xmlns=“<a
+href="http://www.w3.org/2005/Atom">www.w3.org/2005/Atom</a>”{% if site.lang
+%} xml:lang=“{{ site.lang }}”{% endif %}&gt;</p>
+
+<pre>&lt;generator uri=&quot;http://jekyllrb.com&quot; version=&quot;{{ jekyll.version }}&quot;&gt;Jekyll&lt;/generator&gt;
+&lt;link href=&quot;{{ page.url | prepend: url_base }}&quot; rel=&quot;self&quot; type=&quot;application/atom+xml&quot; /&gt;
+&lt;link href=&quot;{{ url_base }}/&quot; rel=&quot;alternate&quot; type=&quot;text/html&quot; {% if site.lang %}hreflang=&quot;{{ site.lang }}&quot; {% endif %}/&gt;
+&lt;updated&gt;{{ site.time | date_to_xmlschema }}&lt;/updated&gt;
+&lt;id&gt;{{ url_base | xml_escape }}/&lt;/id&gt;
+
+{% if site.title %}
+  &lt;title&gt;{{ site.title | xml_escape }}&lt;/title&gt;
+{% elsif site.name %}
+  &lt;title&gt;{{ site.name | xml_escape }}&lt;/title&gt;
+{% endif %}
+
+{% if site.description %}
+  &lt;subtitle&gt;{{ site.description | xml_escape }}&lt;/subtitle&gt;
+{% endif %}
+
+{% if site.author %}
+  &lt;author&gt;
+    {% if site.author.name %}
+      &lt;name&gt;{{ site.author.name | xml_escape }}&lt;/name&gt;
+    {% else %}
+      &lt;name&gt;{{ site.author | xml_escape }}&lt;/name&gt;
+    {% endif %}
+    {% if site.author.email %}
+      &lt;email&gt;{{ site.author.email | xml_escape }}&lt;/email&gt;
+    {% endif %}
+    {% if site.author.uri %}
+      &lt;uri&gt;{{ site.author.uri | xml_escape }}&lt;/uri&gt;
+    {% endif %}
+  &lt;/author&gt;
+{% endif %}
+
+{% for post in site.posts limit: 10 %}
+{% unless post.draft %}
+  &lt;entry{% if post.lang %} xml:lang=&quot;{{ post.lang }}&quot;{% endif %}&gt;
+    &lt;title&gt;{{ post.title | markdownify | strip_html | replace: &#39;\n&#39;, &#39; &#39; | strip | xml_escape }}&lt;/title&gt;
+    &lt;link href=&quot;{{ post.url | prepend: url_base }}&quot; rel=&quot;alternate&quot; type=&quot;text/html&quot; title=&quot;{{ post.title | xml_escape }}&quot; /&gt;
+    &lt;published&gt;{{ post.date | date_to_xmlschema }}&lt;/published&gt;
+    {% if post.last_modified_at %}
+      &lt;updated&gt;{{ post.last_modified_at | date_to_xmlschema }}&lt;/updated&gt;
+    {% else %}
+      &lt;updated&gt;{{ post.date | date_to_xmlschema }}&lt;/updated&gt;
+    {% endif %}
+
+    &lt;id&gt;{{ post.id | prepend: url_base | xml_escape }}&lt;/id&gt;
+    &lt;content type=&quot;html&quot; xml:base=&quot;{{ post.url | prepend: url_base | xml_escape }}&quot;&gt;{{ post.content | strip | xml_escape }}&lt;/content&gt;
+
+    {% assign post_author = post.author | default: post.authors[0] | default: site.author %}
+    {% assign post_author_email = false %}
+    {% assign post_author_uri = false %}
+    {% if post_author %}
+      {% if post_author.email %}
+        {% assign post_author_email = post_author.email %}
+      {% else %}
+        {% if site.data.authors and site.data.authors[post_author] %}
+          {% assign post_author_email = site.data.authors[post_author].email %}
+        {% endif %}
+      {% endif %}
+      {% if post_author.uri %}
+        {% assign post_author_uri = post_author.uri %}
+      {% else %}
+        {% if site.data.authors and site.data.authors[post_author] %}
+          {% assign post_author_email = site.data.authors[post_author].uri %}
+        {% endif %}
+      {% endif %}
+      {% if post_author.name %}
+        {% assign post_author = post_author.name %}
+      {% endif %}
+      &lt;author&gt;
+          &lt;name&gt;{{ post_author | xml_escape }}&lt;/name&gt;
+        {% if post_author_email %}
+          &lt;email&gt;{{ post_author_email | xml_escape }}&lt;/email&gt;
+        {% endif %}
+        {% if post_author_uri %}
+          &lt;uri&gt;{{ post_author_uri | xml_escape }}&lt;/uri&gt;
+        {% endif %}
+      &lt;/author&gt;
+    {% endif %}
+
+    {% if post.category %}
+      &lt;category term=&quot;{{ post.category | xml_escape }}&quot; /&gt;
+    {% endif %}
+
+    {% for tag in post.tags %}
+      &lt;category term=&quot;{{ tag | xml_escape }}&quot; /&gt;
+    {% endfor %}
+
+    {% if post.excerpt and post.excerpt != empty %}
+      &lt;summary&gt;{{ post.excerpt | strip_html | replace: &#39;\n&#39;, &#39; &#39; | strip | xml_escape }}&lt;/summary&gt;
+    {% endif %}
+
+    {% assign post_image = post.image %}
+    {% if post_image %}
+      {% unless post_image contains &quot;://&quot; %}
+        {% assign post_image = post_image | prepend: url_base | xml_escape  %}
+      {% endunless %}
+      &lt;media:thumbnail xmlns:media=&quot;http://search.yahoo.com/mrss/&quot; url=&quot;{{ post_image }}&quot; /&gt;
+    {% endif %}
+  &lt;/entry&gt;
+{% endunless %}
+{% endfor %}</pre>
+
+<p>&lt;/feed&gt;</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

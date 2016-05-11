@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Test::Unit::TestSuite - test-unit-3.1.8 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-3C-3C">#&lt;&lt;</a>
+    
+    <li ><a href="#method-i-3D-3D">#==</a>
+    
+    <li ><a href="#method-i-delete">#delete</a>
+    
+    <li ><a href="#method-i-delete_tests">#delete_tests</a>
+    
+    <li ><a href="#method-i-empty-3F">#empty?</a>
+    
+    <li ><a href="#method-i-handle_exception">#handle_exception</a>
+    
+    <li ><a href="#method-i-passed-3F">#passed?</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-run_shutdown">#run_shutdown</a>
+    
+    <li ><a href="#method-i-run_startup">#run_startup</a>
+    
+    <li ><a href="#method-i-run_test">#run_test</a>
+    
+    <li ><a href="#method-i-size">#size</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Test::Unit::TestSuite">
+  <h1 id="class-Test::Unit::TestSuite" class="class">
+    class Test::Unit::TestSuite
+  </h1>
+
+  <section class="description">
+    
+<p>A collection of tests which can be <a
+href="TestSuite.html#method-i-run">run</a>.</p>
+
+<p>Note: It is easy to confuse a <a href="TestSuite.html">TestSuite</a>
+instance with something that has a static suite method; I know because
+<em>I</em> have trouble keeping them straight. Think of something that has
+a suite method as simply providing a way to get a meaningful <a
+href="TestSuite.html">TestSuite</a> instance.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="FINISHED">FINISHED
+        
+        <dd>
+        
+      
+        <dt id="FINISHED_OBJECT">FINISHED_OBJECT
+        
+        <dd>
+        
+      
+        <dt id="STARTED">STARTED
+        
+        <dd>
+        
+      
+        <dt id="STARTED_OBJECT">STARTED_OBJECT
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-elapsed_time" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">elapsed_time</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-priority" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">priority</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p><a href="../../Test.html">Test</a> suite that has higher priority is ran
+prior to test suites that have lower priority.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-start_time" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">start_time</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-test_case" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">test_case</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-tests" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">tests</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(name="Unnamed TestSuite", test_case=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new <a href="TestSuite.html">TestSuite</a> with the given name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testsuite.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">name</span>=<span class="ruby-string">&quot;Unnamed TestSuite&quot;</span>, <span class="ruby-identifier">test_case</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+  <span class="ruby-ivar">@tests</span> = []
+  <span class="ruby-ivar">@test_case</span> = <span class="ruby-identifier">test_case</span>
+  <span class="ruby-ivar">@n_tests</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@priority</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@start_time</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@elapsed_time</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@passed</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3C-3C" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">&lt;&lt;</span><span
+            class="method-args">(test)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Adds the test to the suite.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3C-3C-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testsuite.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">&lt;&lt;</span>(<span class="ruby-identifier">test</span>)
+  <span class="ruby-ivar">@tests</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">test</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-3D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">==</span><span
+            class="method-args">(other)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>It&#39;s handy to be able to compare <a href="TestSuite.html">TestSuite</a>
+instances.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3D-3D-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testsuite.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>))
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span>(<span class="ruby-ivar">@name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">name</span>)
+  <span class="ruby-ivar">@tests</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">tests</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete</span><span
+            class="method-args">(test)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testsuite.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete</span>(<span class="ruby-identifier">test</span>)
+  <span class="ruby-ivar">@tests</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">test</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_tests" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_tests</span><span
+            class="method-args">(tests)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete_tests-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testsuite.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_tests</span>(<span class="ruby-identifier">tests</span>)
+  <span class="ruby-ivar">@tests</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">tests</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-empty-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">empty?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="empty-3F-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testsuite.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">size</span>.<span class="ruby-identifier">zero?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-passed-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">passed?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="passed-3F-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testsuite.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">passed?</span>
+  <span class="ruby-ivar">@passed</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(result) { |STARTED, name| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Runs the tests and/or suites contained in this <a
+href="TestSuite.html">TestSuite</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testsuite.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>(<span class="ruby-identifier">result</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">progress_block</span>)
+  <span class="ruby-ivar">@start_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-keyword">yield</span>(<span class="ruby-constant">STARTED</span>, <span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">yield</span>(<span class="ruby-constant">STARTED_OBJECT</span>, <span class="ruby-keyword">self</span>)
+  <span class="ruby-identifier">run_startup</span>(<span class="ruby-identifier">result</span>)
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">test</span> = <span class="ruby-ivar">@tests</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-ivar">@n_tests</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">test</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">run_test</span>(<span class="ruby-identifier">test</span>, <span class="ruby-identifier">result</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">progress_block</span>)
+    <span class="ruby-ivar">@passed</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">test</span>.<span class="ruby-identifier">passed?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">run_shutdown</span>(<span class="ruby-identifier">result</span>)
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-ivar">@elapsed_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@start_time</span>
+    <span class="ruby-keyword">yield</span>(<span class="ruby-constant">FINISHED</span>, <span class="ruby-identifier">name</span>)
+    <span class="ruby-keyword">yield</span>(<span class="ruby-constant">FINISHED_OBJECT</span>, <span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">size</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Retuns the rolled up number of tests in this suite; i.e. if the suite
+contains other suites, it counts the tests within those suites, not the
+suites themselves.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="size-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testsuite.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">total_size</span> = <span class="ruby-ivar">@n_tests</span>
+  <span class="ruby-ivar">@tests</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">test</span><span class="ruby-operator">|</span> <span class="ruby-identifier">total_size</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">test</span>.<span class="ruby-identifier">size</span> }
+  <span class="ruby-identifier">total_size</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Overridden to return the name given the suite at creation.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testsuite.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-ivar">@name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-handle_exception" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_exception</span><span
+            class="method-args">(exception, result)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_exception-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testsuite.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_exception</span>(<span class="ruby-identifier">exception</span>, <span class="ruby-identifier">result</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">exception</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">*</span><span class="ruby-constant">ErrorHandler</span><span class="ruby-operator">::</span><span class="ruby-constant">PASS_THROUGH_EXCEPTIONS</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">add_error</span>(<span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@test_case</span>.<span class="ruby-identifier">name</span>, <span class="ruby-identifier">exception</span>))
+    <span class="ruby-ivar">@passed</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run_shutdown" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run_shutdown</span><span
+            class="method-args">(result)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run_shutdown-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testsuite.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run_shutdown</span>(<span class="ruby-identifier">result</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@test_case</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@test_case</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:shutdown</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-ivar">@test_case</span>.<span class="ruby-identifier">shutdown</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">handle_exception</span>(<span class="ruby-identifier">$!</span>, <span class="ruby-identifier">result</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run_startup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run_startup</span><span
+            class="method-args">(result)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run_startup-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testsuite.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run_startup</span>(<span class="ruby-identifier">result</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@test_case</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@test_case</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:startup</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-ivar">@test_case</span>.<span class="ruby-identifier">startup</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">handle_exception</span>(<span class="ruby-identifier">$!</span>, <span class="ruby-identifier">result</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run_test" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run_test</span><span
+            class="method-args">(test, result) { |STARTED_OBJECT, test| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run_test-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/testsuite.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run_test</span>(<span class="ruby-identifier">test</span>, <span class="ruby-identifier">result</span>)
+  <span class="ruby-identifier">finished_is_yielded</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">finished_object_is_yielded</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">previous_event_name</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">test</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">result</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">event_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">previous_event_name</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">TestCase</span><span class="ruby-operator">::</span><span class="ruby-constant">STARTED</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">event_name</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">TestCase</span><span class="ruby-operator">::</span><span class="ruby-constant">STARTED_OBJECT</span>
+        <span class="ruby-keyword">yield</span>(<span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">TestCase</span><span class="ruby-operator">::</span><span class="ruby-constant">STARTED_OBJECT</span>, <span class="ruby-identifier">test</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">TestCase</span><span class="ruby-operator">::</span><span class="ruby-constant">FINISHED</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">event_name</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">TestCase</span><span class="ruby-operator">::</span><span class="ruby-constant">FINISHED_OBJECT</span>
+        <span class="ruby-keyword">yield</span>(<span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">TestCase</span><span class="ruby-operator">::</span><span class="ruby-constant">FINISHED_OBJECT</span>, <span class="ruby-identifier">test</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">finished_object_is_yielded</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">event_name</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">TestCase</span><span class="ruby-operator">::</span><span class="ruby-constant">STARTED</span>
+      <span class="ruby-identifier">finished_is_yielded</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-identifier">finished_object_is_yielded</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">TestCase</span><span class="ruby-operator">::</span><span class="ruby-constant">FINISHED</span>
+      <span class="ruby-identifier">finished_is_yielded</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">previous_event_name</span> = <span class="ruby-identifier">event_name</span>
+    <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">event_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">finished_is_yielded</span> <span class="ruby-keyword">and</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">finished_object_is_yielded</span>
+    <span class="ruby-keyword">yield</span>(<span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">TestCase</span><span class="ruby-operator">::</span><span class="ruby-constant">FINISHED_OBJECT</span>, <span class="ruby-identifier">test</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

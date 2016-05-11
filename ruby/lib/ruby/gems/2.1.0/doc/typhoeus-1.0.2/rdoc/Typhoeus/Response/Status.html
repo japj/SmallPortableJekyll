@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Typhoeus::Response::Status - typhoeus-1.0.2 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-http_version">#http_version</a>
+    
+    <li ><a href="#method-i-modified-3F">#modified?</a>
+    
+    <li ><a href="#method-i-status_message">#status_message</a>
+    
+    <li ><a href="#method-i-success-3F">#success?</a>
+    
+    <li ><a href="#method-i-timed_out-3F">#timed_out?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Typhoeus::Response::Status">
+  <h1 id="module-Typhoeus::Response::Status" class="module">
+    module Typhoeus::Response::Status
+  </h1>
+
+  <section class="description">
+    
+<p>This module contains logic about the http status.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-http_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">http_version</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return the http version.</p>
+
+<p>@example Return http version.</p>
+
+<pre>response.http_version</pre>
+
+<p>@return [ String ] The http version.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="http_version-source">
+            <pre><span class="ruby-comment"># File lib/typhoeus/response/status.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">http_version</span>
+  <span class="ruby-ivar">@http_version</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">first_header_line</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">first_header_line</span>[<span class="ruby-regexp">/HTTP\/(\S+)/</span>, <span class="ruby-value">1</span>] <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-modified-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">modified?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return wether the response is modified.</p>
+
+<p>@example Return if the response was modified.</p>
+
+<pre>response.modified?</pre>
+
+<p>@return [ Boolean ] Return true if modified, false else.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="modified-3F-source">
+            <pre><span class="ruby-comment"># File lib/typhoeus/response/status.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">modified?</span>
+  (<span class="ruby-identifier">mock</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">return_code</span> <span class="ruby-operator">==</span> <span class="ruby-value">:ok</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">response_code</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">response_code</span> <span class="ruby-operator">!=</span> <span class="ruby-value">304</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-status_message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">status_message</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return the status message if present.</p>
+
+<p>@example Return status message.</p>
+
+<pre>reesponse.status_message</pre>
+
+<p>@return [ String ] The message.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="status_message-source">
+            <pre><span class="ruby-comment"># File lib/typhoeus/response/status.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">status_message</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@status_message</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-ivar">@status_message</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@status_message</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:status_message</span>] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:status_message</span>].<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-comment"># HTTP servers can choose not to include the explanation to HTTP codes. The RFC</span>
+  <span class="ruby-comment"># states this (http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4):</span>
+  <span class="ruby-comment"># Except when responding to a HEAD request, the server SHOULD include an entity containing</span>
+  <span class="ruby-comment"># an explanation of the error situation [...]</span>
+  <span class="ruby-comment"># This means &#39;HTTP/1.1 404&#39; is as valid as &#39;HTTP/1.1 404 Not Found&#39; and we have to handle it.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># Regexp doc: http://rubular.com/r/eAr1oVYsVa</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">first_header_line</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">first_header_line</span>[<span class="ruby-regexp">/\d{3} (.*)$/</span>, <span class="ruby-value">1</span>] <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-ivar">@status_message</span> = <span class="ruby-identifier">first_header_line</span>[<span class="ruby-regexp">/\d{3} (.*)$/</span>, <span class="ruby-value">1</span>].<span class="ruby-identifier">chomp</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@status_message</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-success-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">success?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return wether the response is a success.</p>
+
+<p>@example Return if the response was successful.</p>
+
+<pre>response.success?</pre>
+
+<p>@return [ Boolean ] Return true if successful, false else.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="success-3F-source">
+            <pre><span class="ruby-comment"># File lib/typhoeus/response/status.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">success?</span>
+  (<span class="ruby-identifier">mock</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">return_code</span> <span class="ruby-operator">==</span> <span class="ruby-value">:ok</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">response_code</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">response_code</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">200</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">response_code</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">300</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-timed_out-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">timed_out?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return whether the response is timed out.</p>
+
+<p>@example Return if the response timed out.</p>
+
+<pre>response.timed_out?</pre>
+
+<p>@return [ Boolean ] Return true if timed out, false else.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="timed_out-3F-source">
+            <pre><span class="ruby-comment"># File lib/typhoeus/response/status.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">timed_out?</span>
+  <span class="ruby-identifier">return_code</span> <span class="ruby-operator">==</span> <span class="ruby-value">:operation_timedout</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

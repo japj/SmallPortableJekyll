@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Sass::Script::Tree::MapLiteral - sass-3.4.22 Documentation</title>
+
+<link href="../../../fonts.css" rel="stylesheet">
+<link href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/navigation.js"></script>
+<script src="../../../js/search_index.js"></script>
+<script src="../../../js/search.js"></script>
+<script src="../../../js/searcher.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Node
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-_perform">#_perform</a>
+    
+    <li ><a href="#method-i-children">#children</a>
+    
+    <li ><a href="#method-i-deep_copy">#deep_copy</a>
+    
+    <li ><a href="#method-i-inspect">#inspect</a>
+    
+    <li ><a href="#method-i-to_sass">#to_sass</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Sass::Script::Tree::MapLiteral">
+  <h1 id="class-Sass::Script::Tree::MapLiteral" class="class">
+    class Sass::Script::Tree::MapLiteral
+  </h1>
+
+  <section class="description">
+    
+<p>A class representing a map literal. When resolved, this returns a
+{Sass::Script::Node::Map}.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-pairs" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">pairs</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The key/value pairs that make up this map node. This isn&#39;t a Hash so
+that we can detect key collisions once all the keys have been performed.</p>
+
+<p>@return [Array&lt;(Node, <a href="Node.html">Node</a>)&gt;]</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(pairs)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new map literal.</p>
+
+<p>@param pairs [Array&lt;(Node, <a href="Node.html">Node</a>)&gt;] See
+{#pairs}</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/map_literal.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">pairs</span>)
+  <span class="ruby-ivar">@pairs</span> = <span class="ruby-identifier">pairs</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-children" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">children</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@see <a
+href="Node.html#method-i-children">Sass::Script::Tree::Node#children</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="children-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/map_literal.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">children</span>
+  <span class="ruby-ivar">@pairs</span>.<span class="ruby-identifier">flatten</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-deep_copy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deep_copy</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@see <a
+href="Node.html#method-i-deep_copy">Sass::Script::Tree::Node#deep_copy</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="deep_copy-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/map_literal.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deep_copy</span>
+  <span class="ruby-identifier">node</span> = <span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-string">&#39;@pairs&#39;</span>,
+    <span class="ruby-identifier">pairs</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span>(<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)<span class="ruby-operator">|</span> [<span class="ruby-identifier">k</span>.<span class="ruby-identifier">deep_copy</span>, <span class="ruby-identifier">v</span>.<span class="ruby-identifier">deep_copy</span>]})
+  <span class="ruby-identifier">node</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspect" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect</span><span
+            class="method-args">(opts = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="MapLiteral.html#method-i-to_sass">to_sass</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-to_sass" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_sass</span><span
+            class="method-args">(opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@see <a
+href="Node.html#method-i-to_sass">Sass::Script::Tree::Node#to_sass</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_sass-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/map_literal.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_sass</span>(<span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;()&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">pairs</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">to_sass</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">ListLiteral</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">separator</span> <span class="ruby-operator">==</span> <span class="ruby-value">:comma</span>
+      <span class="ruby-node">&quot;(#{value.to_sass(opts)})&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_sass</span>(<span class="ruby-identifier">opts</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-string">&quot;(&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">pairs</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span>(<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)<span class="ruby-operator">|</span> <span class="ruby-node">&quot;#{to_sass[k]}: #{to_sass[v]}&quot;</span>}.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;, &#39;</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;)&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="MapLiteral.html#method-i-inspect">inspect</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-_perform" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_perform</span><span
+            class="method-args">(environment)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@see Node#_perform</p>
+          
+          
+
+          
+          <div class="method-source-code" id="_perform-source">
+            <pre><span class="ruby-comment"># File lib/sass/script/tree/map_literal.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_perform</span>(<span class="ruby-identifier">environment</span>)
+  <span class="ruby-identifier">keys</span> = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">map</span> = <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Script</span><span class="ruby-operator">::</span><span class="ruby-constant">Value</span><span class="ruby-operator">::</span><span class="ruby-constant">Map</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">to_hash</span>(<span class="ruby-identifier">pairs</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>)<span class="ruby-operator">|</span>
+    <span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span> = <span class="ruby-identifier">k</span>.<span class="ruby-identifier">perform</span>(<span class="ruby-identifier">environment</span>), <span class="ruby-identifier">v</span>.<span class="ruby-identifier">perform</span>(<span class="ruby-identifier">environment</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">k</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Duplicate key #{k.inspect} in map #{to_sass}.&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">keys</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">k</span>
+    [<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>]
+  <span class="ruby-keyword">end</span>))
+  <span class="ruby-identifier">map</span>.<span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>
+  <span class="ruby-identifier">map</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

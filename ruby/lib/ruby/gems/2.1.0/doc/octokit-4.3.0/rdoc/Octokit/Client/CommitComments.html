@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Octokit::Client::CommitComments - octokit-4.3.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-commit_comment">#commit_comment</a>
+    
+    <li ><a href="#method-i-commit_comments">#commit_comments</a>
+    
+    <li ><a href="#method-i-create_commit_comment">#create_commit_comment</a>
+    
+    <li ><a href="#method-i-delete_commit_comment">#delete_commit_comment</a>
+    
+    <li ><a href="#method-i-list_commit_comments">#list_commit_comments</a>
+    
+    <li ><a href="#method-i-update_commit_comment">#update_commit_comment</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Octokit::Client::CommitComments">
+  <h1 id="module-Octokit::Client::CommitComments" class="module">
+    module Octokit::Client::CommitComments
+  </h1>
+
+  <section class="description">
+    
+<p>Methods for the Commit Comments API</p>
+
+<p>@see <a
+href="https://developer.github.com/v3/repos/comments">developer.github.com/v3/repos/comments</a>/</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-commit_comment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">commit_comment</span><span
+            class="method-args">(repo, id, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get a single commit comment</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository @param
+id [String] The ID of the comment to fetch @return [Sawyer::Resource]
+Commit comment @see <a
+href="https://developer.github.com/v3/repos/comments/#get-a-single-commit-comment">developer.github.com/v3/repos/comments/#get-a-single-commit-comment</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="commit_comment-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/commit_comments.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">commit_comment</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span> <span class="ruby-node">&quot;#{Repository.path repo}/comments/#{id}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-commit_comments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">commit_comments</span><span
+            class="method-args">(repo, sha, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List comments for a single commit</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository @param
+sha [String] The SHA of the commit whose comments will be fetched @return
+[Array]  List of commit comments @see <a
+href="https://developer.github.com/v3/repos/comments/#list-comments-for-a-single-commit">developer.github.com/v3/repos/comments/#list-comments-for-a-single-commit</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="commit_comments-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/commit_comments.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">commit_comments</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">sha</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">paginate</span> <span class="ruby-node">&quot;#{Repository.path repo}/commits/#{sha}/comments&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_commit_comment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_commit_comment</span><span
+            class="method-args">(repo, sha, body, path=nil, line=nil, position=nil, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a commit comment</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository @param
+sha [String] Sha of the commit to comment on @param body [String] Message
+@param path [String] Relative path of file to comment on @param line
+[Integer] Line number in the file to comment on @param position [Integer]
+Line index in the diff to comment on @return [Sawyer::Resource] Commit
+comment @see <a
+href="https://developer.github.com/v3/repos/comments/#create-a-commit-comment">developer.github.com/v3/repos/comments/#create-a-commit-comment</a>
+@example Create a commit comment</p>
+
+<pre class="ruby"><span class="ruby-identifier">comment</span> = <span class="ruby-constant">Octokit</span>.<span class="ruby-identifier">create_commit_comment</span>(<span class="ruby-string">&quot;octocat/Hello-World&quot;</span>, <span class="ruby-string">&quot;827efc6d56897b048c772eb4087f854f46256132&quot;</span>, <span class="ruby-string">&quot;My comment message&quot;</span>, <span class="ruby-string">&quot;README.md&quot;</span>, <span class="ruby-value">10</span>, <span class="ruby-value">1</span>)
+<span class="ruby-identifier">comment</span>.<span class="ruby-identifier">commit_id</span> <span class="ruby-comment"># =&gt; &quot;827efc6d56897b048c772eb4087f854f46256132&quot;</span>
+<span class="ruby-identifier">comment</span>.<span class="ruby-identifier">id</span> <span class="ruby-comment"># =&gt; 54321</span>
+<span class="ruby-identifier">comment</span>.<span class="ruby-identifier">body</span> <span class="ruby-comment"># =&gt; &quot;My comment message&quot;</span>
+<span class="ruby-identifier">comment</span>.<span class="ruby-identifier">path</span> <span class="ruby-comment"># =&gt; &quot;README.md&quot;</span>
+<span class="ruby-identifier">comment</span>.<span class="ruby-identifier">line</span> <span class="ruby-comment"># =&gt; 10</span>
+<span class="ruby-identifier">comment</span>.<span class="ruby-identifier">position</span> <span class="ruby-comment"># =&gt; 1</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="create_commit_comment-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/commit_comments.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_commit_comment</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">sha</span>, <span class="ruby-identifier">body</span>, <span class="ruby-identifier">path</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">line</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">position</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">params</span> = {
+    <span class="ruby-value">:body</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">body</span>,
+    <span class="ruby-value">:path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">path</span>,
+    <span class="ruby-value">:line</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">line</span>,
+    <span class="ruby-value">:position</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">position</span>
+  }
+  <span class="ruby-identifier">post</span> <span class="ruby-node">&quot;#{Repository.path repo}/commits/#{sha}/comments&quot;</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">params</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_commit_comment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_commit_comment</span><span
+            class="method-args">(repo, id, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete a commit comment</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository @param
+id [String] The ID of the comment to delete @return [Boolean] Success @see
+<a
+href="https://developer.github.com/v3/repos/comments/#delete-a-commit-comment">developer.github.com/v3/repos/comments/#delete-a-commit-comment</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="delete_commit_comment-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/commit_comments.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_commit_comment</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:delete</span>, <span class="ruby-node">&quot;#{Repository.path repo}/comments/#{id}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-list_commit_comments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">list_commit_comments</span><span
+            class="method-args">(repo, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List all commit comments</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository @return
+[Array] List of commit comments @see <a
+href="https://developer.github.com/v3/repos/comments/#list-commit-comments-for-a-repository">developer.github.com/v3/repos/comments/#list-commit-comments-for-a-repository</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="list_commit_comments-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/commit_comments.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_commit_comments</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">paginate</span> <span class="ruby-node">&quot;#{Repository.path repo}/comments&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_commit_comment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_commit_comment</span><span
+            class="method-args">(repo, id, body, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update a commit comment</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository @param
+id [String] The ID of the comment to update @param body [String] Message
+@return [Sawyer::Resource] Updated commit comment @see <a
+href="https://developer.github.com/v3/repos/comments/#update-a-commit-comment">developer.github.com/v3/repos/comments/#update-a-commit-comment</a>
+@example Update a commit comment</p>
+
+<pre class="ruby"><span class="ruby-identifier">comment</span> = <span class="ruby-constant">Octokit</span>.<span class="ruby-identifier">update_commit_comment</span>(<span class="ruby-string">&quot;octocat/Hello-World&quot;</span>, <span class="ruby-string">&quot;860296&quot;</span>, <span class="ruby-string">&quot;Updated commit comment&quot;</span>)
+<span class="ruby-identifier">comment</span>.<span class="ruby-identifier">id</span> <span class="ruby-comment"># =&gt; 860296</span>
+<span class="ruby-identifier">comment</span>.<span class="ruby-identifier">body</span> <span class="ruby-comment"># =&gt; &quot;Updated commit comment&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="update_commit_comment-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/commit_comments.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_commit_comment</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">body</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">params</span> = {
+    <span class="ruby-value">:body</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">body</span>
+  }
+  <span class="ruby-identifier">patch</span> <span class="ruby-node">&quot;#{Repository.path repo}/comments/#{id}&quot;</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">params</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

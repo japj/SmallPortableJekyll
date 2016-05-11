@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>README - RedCloth</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-RedCloth+-+Textile+parser+for+Ruby">RedCloth - Textile parser for Ruby</a>
+    <li><a href="#label-RedCloth">RedCloth</a>
+    <li><a href="#label-Attention+-+Deprecating+JRuby+and+Windows+support+in+version+4.3">Attention - Deprecating JRuby and Windows support in version 4.3</a>
+    <li><a href="#label-Installing">Installing</a>
+    <li><a href="#label-Compiling">Compiling</a>
+    <li><a href="#label-Supported+platforms">Supported platforms</a>
+    <li><a href="#label-Bugs">Bugs</a>
+    <li><a href="#label-Using+RedCloth">Using RedCloth</a>
+    <li><a href="#label-What+is+Textile%3F">What is Textile?</a>
+    <li><a href="#label-Sample+Textile+Text">Sample Textile Text</a>
+    <li><a href="#label-Writing+Textile">Writing Textile</a>
+    <li><a href="#label-Quick+Phrase+Modifiers">Quick Phrase Modifiers</a>
+    <li><a href="#label-Links">Links</a>
+    <li><a href="#label-Images">Images</a>
+    <li><a href="#label-Defining+Acronyms">Defining Acronyms</a>
+    <li><a href="#label-Adding+Tables">Adding Tables</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./__/__/extensions/x86-mingw32/2_1_0/RedCloth-4_3_0/gem_build_complete.html">gem.build_complete</a>
+  
+    <li><a href="./__/__/extensions/x86-mingw32/2_1_0/RedCloth-4_3_0/gem_make_out.html">gem_make.out</a>
+  
+    <li><a href="./__/__/extensions/x86-mingw32/2_1_0/RedCloth-4_3_0/mkmf_log.html">mkmf.log</a>
+  
+    <li><a href="./CHANGELOG.html">CHANGELOG</a>
+  
+    <li><a href="./COPYING.html">COPYING</a>
+  
+    <li><a href="./README_rdoc.html">README</a>
+  
+    <li><a href="./ext/redcloth_scan/Makefile.html">Makefile</a>
+  
+    <li><a href="./ext/redcloth_scan/redcloth_scan-i386-mingw32_def.html">redcloth_scan-i386-mingw32.def</a>
+  
+    <li><a href="./lib/tasks/pureruby_rake.html">pureruby.rake</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page README.rdoc">
+
+<h1 id="label-RedCloth+-+Textile+parser+for+Ruby">RedCloth - Textile parser for Ruby<span><a href="#label-RedCloth+-+Textile+parser+for+Ruby">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+<dl class="rdoc-list note-list"><dt>Homepage
+<dd>
+<p><a href="http://redcloth.org">redcloth.org</a></p>
+</dd><dt>Maintainer
+<dd>
+<p>Joshua Siler <a
+href="https://github.com/joshuasiler">github.com/joshuasiler</a></p>
+</dd><dt>Author
+<dd>
+<p>Jason Garber</p>
+</dd><dt>Copyright
+<dd>
+<p>© 2011 Jason Garber</p>
+</dd><dt>License
+<dd>
+<p>MIT</p>
+</dd></dl>
+
+<p><a href="https://travis-ci.org/jgarber/redcloth"><img
+src="https://travis-ci.org/jgarber/redcloth.svg" /></a> <a
+href="https://codeclimate.com/github/jgarber/redcloth"><img
+src="https://codeclimate.com/github/jgarber/redcloth/badges/gpa.svg" /></a></p>
+
+<p>(See <a href="http://redcloth.org/textile">redcloth.org/textile</a>/ for a
+Textile reference.)</p>
+
+<h1 id="label-RedCloth">RedCloth<span><a href="#label-RedCloth">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p>RedCloth is a Ruby library for converting Textile into HTML.</p>
+
+<h2 id="label-Attention+-+Deprecating+JRuby+and+Windows+support+in+version+4.3">Attention - Deprecating JRuby and Windows support in version 4.3<span><a href="#label-Attention+-+Deprecating+JRuby+and+Windows+support+in+version+4.3">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>In order to prioritize merging a fix for the long standing vulnerability
+<strong>CVE-2012-6684</strong>, our <a
+href="https://github.com/joshuasiler">new maintainer</a> has elected to
+stop maintaining the precompiled versions for Windows and JRuby.</p>
+
+<h2 id="label-Installing">Installing<span><a href="#label-Installing">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>RedCloth can be installed via RubyGems:</p>
+
+<pre>gem install RedCloth</pre>
+
+<h2 id="label-Compiling">Compiling<span><a href="#label-Compiling">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>If you just want to use RedCloth, you do NOT need to build/compile it. It
+is compiled from C sources automatically when you install the gem on the
+ruby platform. Precompiled binary gems are provided for JRuby and Win32
+platforms prior to version 4.3.</p>
+
+<p>RedCloth can be compiled with <code>rake compile</code>. Ragel 6.3 or
+greater is required. Again, Ragel is NOT needed to simply use RedCloth.</p>
+
+<h3 id="label-Supported+platforms">Supported platforms<span><a href="#label-Supported+platforms">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>By default, the rake compile task builds a native C extension (MRI 1.8 or
+1.9). A pure Ruby version can also be generated, but it&#39;s super slow
+and Ruby 1.8-only, and doesn&#39;t support multi-byte characters.</p>
+
+<p>The RedCloth::EXTENSION_LANGUAGE constant indicates in which language your
+copy of RedCloth is compiled.</p>
+
+<h2 id="label-Bugs">Bugs<span><a href="#label-Bugs">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Please submit bugs as issues to this repo.</p>
+
+<h2 id="label-Using+RedCloth">Using RedCloth<span><a href="#label-Using+RedCloth">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>RedCloth is simply an extension of the String class that can handle Textile
+formatting.  Use it like a String and output HTML with its RedCloth#to_html
+method.</p>
+
+<p>Simple use:</p>
+
+<pre>text = &quot;This is *my* text.&quot;
+RedCloth.new(text).to_html</pre>
+
+<p>Multi-line example:</p>
+
+<pre>doc = RedCloth.new &lt;&lt;EOD
+h2. Test document
+
+Just a simple test.
+EOD
+puts doc.to_html</pre>
+
+<h2 id="label-What+is+Textile%3F">What is Textile?<span><a href="#label-What+is+Textile%3F">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Textile is a simple formatting style for text documents, loosely based on
+some HTML conventions.</p>
+
+<h2 id="label-Sample+Textile+Text">Sample Textile Text<span><a href="#label-Sample+Textile+Text">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<pre>h2. This is a title
+
+h3. This is a subhead
+
+This is a bit of paragraph.
+
+bq. This is a blockquote.</pre>
+
+<h1 id="label-Writing+Textile">Writing Textile<span><a href="#label-Writing+Textile">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p>A Textile document consists of paragraphs.  Paragraphs can be specially
+formatted by adding a small instruction to the beginning of the paragraph.</p>
+
+<pre>h3.     Header 3.
+bq.     Blockquote.
+#       Numeric list.
+*       Bulleted list.</pre>
+
+<h2 id="label-Quick+Phrase+Modifiers">Quick Phrase Modifiers<span><a href="#label-Quick+Phrase+Modifiers">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Quick phrase modifiers are also included, to allow formatting of small
+portions of text within a paragraph.</p>
+
+<pre>_emphasis_
+__italicized__
+*strong*
+**bold**
+??citation??
+-deleted text-
++inserted text+
+^superscript^
+~subscript~
+@code@
+%(classname)span%
+
+==notextile== (leave text alone)</pre>
+
+<h2 id="label-Links">Links<span><a href="#label-Links">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>To make a hypertext link, put the link text in “quotation marks” followed
+immediately by a colon and the URL of the link.</p>
+
+<p>Optional: text in (parentheses) following the link text, but before the
+closing quotation mark, will become a title attribute for the link, visible
+as a tool tip when a cursor is above it.</p>
+
+<p>Example:</p>
+
+<pre>&quot;This is a link (This is a title)&quot;:http://www.textism.com</pre>
+
+<p>Will become:</p>
+
+<pre>&lt;a href=&quot;http://www.textism.com&quot; title=&quot;This is a title&quot;&gt;This is a link&lt;/a&gt;</pre>
+
+<h2 id="label-Images">Images<span><a href="#label-Images">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>To insert an image, put the URL for the image inside exclamation marks.</p>
+
+<p>Optional: text that immediately follows the URL in (parentheses) will be
+used as the Alt text for the image. Images on the web should always have
+descriptive Alt text for the benefit of readers using non-graphical
+browsers.</p>
+
+<p>Optional: place a colon followed by a URL immediately after the closing !
+to make the image into a link.</p>
+
+<p>Example:</p>
+
+<pre>!http://www.textism.com/common/textist.gif(Textist)!</pre>
+
+<p>Will become:</p>
+
+<pre>&lt;img src=&quot;http://www.textism.com/common/textist.gif&quot; alt=&quot;Textist&quot; /&gt;</pre>
+
+<p>With a link:</p>
+
+<pre>!/common/textist.gif(Textist)!:http://textism.com</pre>
+
+<p>Will become:</p>
+
+<pre>&lt;a href=&quot;http://textism.com&quot;&gt;&lt;img src=&quot;/common/textist.gif&quot; alt=&quot;Textist&quot; /&gt;&lt;/a&gt;</pre>
+
+<h2 id="label-Defining+Acronyms">Defining Acronyms<span><a href="#label-Defining+Acronyms">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>HTML allows authors to define acronyms via the tag. The definition appears
+as a tool tip when a cursor hovers over the acronym. A crucial aid to clear
+writing, this should be used at least once for each acronym in documents
+where they appear.</p>
+
+<p>To quickly define an acronym in Textile, place the full text in
+(parentheses) immediately following the acronym.</p>
+
+<p>Example:</p>
+
+<pre>ACLU(American Civil Liberties Union)</pre>
+
+<p>Will become:</p>
+
+<pre>&lt;acronym title=&quot;American Civil Liberties Union&quot;&gt;ACLU&lt;/acronym&gt;</pre>
+
+<h2 id="label-Adding+Tables">Adding Tables<span><a href="#label-Adding+Tables">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>In Textile, simple tables can be added by separating each column by a pipe.</p>
+
+<pre>|a|simple|table|row|
+|And|Another|table|row|</pre>
+
+<p>Styles are applied with curly braces.</p>
+
+<pre>table{border:1px solid black}.
+{background:#ddd;color:red}. |a|red|row|</pre>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

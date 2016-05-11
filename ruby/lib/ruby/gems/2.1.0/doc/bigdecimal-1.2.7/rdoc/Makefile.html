@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Makefile - bigdecimal-1.2.7 Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./__/__/extensions/x86-mingw32/2_1_0/bigdecimal-1_2_7/gem_build_complete.html">gem.build_complete</a>
+  
+    <li><a href="./__/__/extensions/x86-mingw32/2_1_0/bigdecimal-1_2_7/gem_make_out.html">gem_make.out</a>
+  
+    <li><a href="./__/__/extensions/x86-mingw32/2_1_0/bigdecimal-1_2_7/mkmf_log.html">mkmf.log</a>
+  
+    <li><a href="./Makefile.html">Makefile</a>
+  
+    <li><a href="./README.html">README</a>
+  
+    <li><a href="./bigdecimal-i386-mingw32_def.html">bigdecimal-i386-mingw32.def</a>
+  
+    <li><a href="./depend.html">depend</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page Makefile">
+
+<p>SHELL = /bin/sh</p>
+
+<p># V=0 quiet, V=1 verbose.  other values don&#39;t work. V = 0 Q1 = $(V:1=)
+Q = $(Q1:0=@) ECHO1 = $(V:1=@:) ECHO = $(ECHO1:0=@echo)</p>
+
+<p>#### Start of system configuration section. ####</p>
+
+<p>srcdir = . topdir = /D/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0
+hdrdir = $(topdir) arch_hdrdir =
+D:/GitHub/SmallPortableJekyll/ruby/include/ruby-2.1.0/i386-mingw32
+PATH_SEPARATOR = : VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
+prefix = $(DESTDIR)/D/GitHub/SmallPortableJekyll/ruby rubysitearchprefix =
+$(rubylibprefix)/$(sitearch) rubyarchprefix = $(rubylibprefix)/$(arch)
+rubylibprefix = $(libdir)/$(RUBY_BASE_NAME) exec_prefix = $(prefix)
+vendorarchhdrdir = $(vendorhdrdir)/$(sitearch) sitearchhdrdir =
+$(sitehdrdir)/$(sitearch) rubyarchhdrdir = $(rubyhdrdir)/$(arch)
+vendorhdrdir = $(rubyhdrdir)/vendor_ruby sitehdrdir =
+$(rubyhdrdir)/site_ruby rubyhdrdir = $(includedir)/$(RUBY_VERSION_NAME)
+vendorarchdir = $(vendorlibdir)/$(sitearch) vendorlibdir =
+$(vendordir)/$(ruby_version) vendordir = $(rubylibprefix)/vendor_ruby
+sitearchdir = $(DESTDIR)./.gem.20160511-8588-usliko sitelibdir =
+$(DESTDIR)./.gem.20160511-8588-usliko sitedir = $(rubylibprefix)/site_ruby
+rubyarchdir = $(rubylibdir)/$(arch) rubylibdir =
+$(rubylibprefix)/$(ruby_version) sitearchincludedir =
+$(includedir)/$(sitearch) archincludedir = $(includedir)/$(arch)
+sitearchlibdir = $(libdir)/$(sitearch) archlibdir = $(libdir)/$(arch) ridir
+= $(datarootdir)/$(RI_BASE_NAME) mandir = $(datarootdir)/man localedir =
+$(datarootdir)/locale libdir = $(exec_prefix)/lib psdir = $(docdir) pdfdir
+= $(docdir) dvidir = $(docdir) htmldir = $(docdir) infodir =
+$(datarootdir)/info docdir = $(datarootdir)/doc/$(PACKAGE) oldincludedir =
+$(DESTDIR)/usr/include includedir = $(prefix)/include localstatedir =
+$(prefix)/var sharedstatedir = $(prefix)/com sysconfdir = $(prefix)/etc
+datadir = $(datarootdir) datarootdir = $(prefix)/share libexecdir =
+$(exec_prefix)/libexec sbindir = $(exec_prefix)/sbin bindir =
+$(exec_prefix)/bin archdir = $(rubyarchdir)</p>
+
+<p>CC = gcc CXX = g++ LIBRUBY = lib$(RUBY_SO_NAME).dll.a LIBRUBY_A =
+lib$(RUBY_SO_NAME)-static.a LIBRUBYARG_SHARED = -l$(RUBY_SO_NAME)
+LIBRUBYARG_STATIC = -l$(RUBY_SO_NAME)-static empty = OUTFLAG = -o $(empty)
+COUTFLAG = -o $(empty)</p>
+
+<p>RUBY_EXTCONF_H =  cflags   =  $(optflags) $(debugflags) $(warnflags)
+optflags = -O3 -fno-omit-frame-pointer -fno-fast-math debugflags = -g
+warnflags = -Wall -Wextra -Wno-unused-parameter -Wno-parentheses
+-Wno-long-long -Wno-missing-field-initializers -Wunused-variable
+-Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement
+-Wimplicit-function-declaration CCDLFLAGS =  CFLAGS   = $(CCDLFLAGS)
+$(cflags) $(ARCH_FLAG) INCFLAGS = -I. -I$(arch_hdrdir)
+-I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir) DEFS     =
+-D_FILE_OFFSET_BITS=64 CPPFLAGS = -DHAVE_LABS -DHAVE_LLABS
+-DHAVE_TYPE_STRUCT_RRATIONAL -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501
+-D__MINGW_USE_VC2005_COMPAT $(DEFS) $(cppflags) CXXFLAGS = $(CCDLFLAGS)
+$(cxxflags) $(ARCH_FLAG) ldflags  = -L.  dldflags = 
+-Wl,–enable-auto-image-base,–enable-auto-import $(DEFFILE)  ARCH_FLAG = 
+DLDFLAGS = $(ldflags) $(dldflags) $(ARCH_FLAG) LDSHARED = $(CC) -shared
+$(if $(filter-out -g -g0,$(debugflags)),,-s) LDSHAREDXX = $(CXX) -shared
+$(if $(filter-out -g -g0,$(debugflags)),,-s) AR = ar EXEEXT = .exe</p>
+
+<p>RUBY_INSTALL_NAME = ruby RUBY_SO_NAME = msvcrt-ruby210 RUBYW_INSTALL_NAME =
+$(RUBYW_BASE_NAME) RUBY_VERSION_NAME = $(RUBY_BASE_NAME)-$(ruby_version)
+RUBYW_BASE_NAME = rubyw RUBY_BASE_NAME = ruby</p>
+
+<p>arch = i386-mingw32 sitearch = i386-msvcrt ruby_version = 2.1.0 ruby =
+$(bindir)/ruby RUBY = $(ruby) ruby_headers = $(hdrdir)/ruby.h
+$(hdrdir)/ruby/ruby.h $(hdrdir)/ruby/defines.h $(hdrdir)/ruby/missing.h
+$(hdrdir)/ruby/intern.h $(hdrdir)/ruby/st.h $(hdrdir)/ruby/subst.h
+$(arch_hdrdir)/ruby/config.h</p>
+
+<p>RM = rm -f RM_RF = $(RUBY) -run -e rm – -rf RMDIRS = rmdir
+–ignore-fail-on-non-empty -p MAKEDIRS = /usr/bin/mkdir -p INSTALL =
+/usr/bin/install -c INSTALL_PROG = $(INSTALL) -m 0755 INSTALL_DATA =
+$(INSTALL) -m 644 COPY = cp TOUCH = exit &gt;</p>
+
+<p>#### End of system configuration section. ####</p>
+
+<p>preload =</p>
+
+<p>libpath = . $(libdir) LIBPATH =  -L. -L$(libdir) DEFFILE =
+$(TARGET)-$(arch).def</p>
+
+<p>CLEANFILES = mkmf.log $(DEFFILE) DISTCLEANFILES =  DISTCLEANDIRS =</p>
+
+<p>extout =  extout_prefix =  target_prefix =  LOCAL_LIBS =  LIBS =
+$(LIBRUBYARG_SHARED)  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi</p>
+
+<p>ORIG_SRCS = bigdecimal.c SRCS = $(ORIG_SRCS)  OBJS = bigdecimal.o HDRS =
+$(srcdir)/bigdecimal.h TARGET = bigdecimal TARGET_NAME = bigdecimal
+TARGET_ENTRY = Init_$(TARGET_NAME) DLLIB = $(TARGET).so EXTSTATIC = 
+STATIC_LIB =</p>
+
+<p>TIMESTAMP_DIR = . BINDIR        = $(bindir) RUBYCOMMONDIR =
+$(sitedir)$(target_prefix) RUBYLIBDIR    = $(sitelibdir)$(target_prefix)
+RUBYARCHDIR   = $(sitearchdir)$(target_prefix) HDRDIR        =
+$(rubyhdrdir)/ruby$(target_prefix) ARCHHDRDIR    =
+$(rubyhdrdir)/$(arch)/ruby$(target_prefix)</p>
+
+<p>TARGET_SO     = $(DLLIB) CLEANLIBS     = $(TARGET).so  CLEANOBJS     = *.o 
+*.bak</p>
+
+<p>all:    $(DLLIB) static: $(STATIC_LIB) .PHONY: all install static
+install-so install-rb .PHONY: clean clean-so clean-static clean-rb</p>
+<dl class="rdoc-list note-list"><dt>clean-static
+<dt>clean-rb-default
+<dt>clean-rb
+<dt>clean-so
+<dd>
+<p>clean: clean-so clean-static clean-rb-default clean-rb</p>
+
+<pre>-$(Q)$(RM) $(CLEANLIBS) $(CLEANOBJS) $(CLEANFILES) .*.time</pre>
+<dl class="rdoc-list note-list"><dt>distclean-rb-default
+<dt>distclean-rb
+<dt>distclean-so
+<dt>distclean-static
+<dd>
+<p>distclean: clean distclean-so distclean-static distclean-rb-default
+distclean-rb</p>
+
+<pre>-$(Q)$(RM) Makefile $(RUBY_EXTCONF_H) conftest.* mkmf.log
+-$(Q)$(RM) core ruby$(EXEEXT) *~ $(DISTCLEANFILES)
+-$(Q)$(RMDIRS) $(DISTCLEANDIRS) 2&gt; /dev/null || true</pre>
+
+<p>realclean: distclean install: install-so install-rb</p>
+
+<p>install-so: $(DLLIB) $(TIMESTAMP_DIR)/.RUBYARCHDIR.time</p>
+
+<pre>$(INSTALL_PROG) $(DLLIB) $(RUBYARCHDIR)</pre>
+<dl class="rdoc-list note-list"><dt>clean-static
+<dd>
+<p>-$(Q)$(RM) $(STATIC_LIB)</p>
+</dd></dl>
+
+<p>install-rb: pre-install-rb install-rb-default install-rb-default:
+pre-install-rb-default pre-install-rb: <a href="Makefile.html">Makefile</a>
+pre-install-rb-default: <a href="Makefile.html">Makefile</a>
+pre-install-rb-default: $(TIMESTAMP_DIR)/.RUBYLIBDIR.-.bigdecimal.time
+install-rb-default: $(RUBYLIBDIR)/bigdecimal/jacobian.rb
+$(RUBYLIBDIR)/bigdecimal/jacobian.rb: $(srcdir)/lib/bigdecimal/jacobian.rb
+$(TIMESTAMP_DIR)/.RUBYLIBDIR.-.bigdecimal.time</p>
+
+<pre>$(Q) $(INSTALL_DATA) $(srcdir)/lib/bigdecimal/jacobian.rb $(@D)</pre>
+
+<p>install-rb-default: $(RUBYLIBDIR)/bigdecimal/ludcmp.rb
+$(RUBYLIBDIR)/bigdecimal/ludcmp.rb: $(srcdir)/lib/bigdecimal/ludcmp.rb
+$(TIMESTAMP_DIR)/.RUBYLIBDIR.-.bigdecimal.time</p>
+
+<pre>$(Q) $(INSTALL_DATA) $(srcdir)/lib/bigdecimal/ludcmp.rb $(@D)</pre>
+
+<p>install-rb-default: $(RUBYLIBDIR)/bigdecimal/math.rb
+$(RUBYLIBDIR)/bigdecimal/math.rb: $(srcdir)/lib/bigdecimal/math.rb
+$(TIMESTAMP_DIR)/.RUBYLIBDIR.-.bigdecimal.time</p>
+
+<pre>$(Q) $(INSTALL_DATA) $(srcdir)/lib/bigdecimal/math.rb $(@D)</pre>
+
+<p>install-rb-default: $(RUBYLIBDIR)/bigdecimal/newton.rb
+$(RUBYLIBDIR)/bigdecimal/newton.rb: $(srcdir)/lib/bigdecimal/newton.rb
+$(TIMESTAMP_DIR)/.RUBYLIBDIR.-.bigdecimal.time</p>
+
+<pre>$(Q) $(INSTALL_DATA) $(srcdir)/lib/bigdecimal/newton.rb $(@D)</pre>
+
+<p>install-rb-default: $(RUBYLIBDIR)/bigdecimal/util.rb
+$(RUBYLIBDIR)/bigdecimal/util.rb: $(srcdir)/lib/bigdecimal/util.rb
+$(TIMESTAMP_DIR)/.RUBYLIBDIR.-.bigdecimal.time</p>
+
+<pre>$(Q) $(INSTALL_DATA) $(srcdir)/lib/bigdecimal/util.rb $(@D)</pre>
+
+<p>pre-install-rb-default:</p>
+
+<pre>$(ECHO) installing default bigdecimal libraries</pre>
+
+<p>$(TIMESTAMP_DIR)/.RUBYARCHDIR.time:</p>
+
+<pre>$(Q) $(MAKEDIRS) $(@D) $(RUBYARCHDIR)
+$(Q) $(TOUCH) $@</pre>
+
+<p>$(TIMESTAMP_DIR)/.RUBYLIBDIR.-.bigdecimal.time:</p>
+
+<pre>$(Q) $(MAKEDIRS) $(@D) $(RUBYLIBDIR)/bigdecimal
+$(Q) $(TOUCH) $@</pre>
+
+<p>site-install: site-install-so site-install-rb site-install-so: install-so
+site-install-rb: install-rb</p>
+
+<p>.SUFFIXES: .c .m .cc .mm .cxx .cpp .o</p>
+
+<p>.cc.o:</p>
+
+<pre>$(ECHO) compiling $(&lt;)
+$(Q) $(CXX) $(INCFLAGS) $(CPPFLAGS) $(CXXFLAGS) $(COUTFLAG)$@ -c $&lt;</pre>
+
+<p>.mm.o:</p>
+
+<pre>$(ECHO) compiling $(&lt;)
+$(Q) $(CXX) $(INCFLAGS) $(CPPFLAGS) $(CXXFLAGS) $(COUTFLAG)$@ -c $&lt;</pre>
+
+<p>.cxx.o:</p>
+
+<pre>$(ECHO) compiling $(&lt;)
+$(Q) $(CXX) $(INCFLAGS) $(CPPFLAGS) $(CXXFLAGS) $(COUTFLAG)$@ -c $&lt;</pre>
+
+<p>.cpp.o:</p>
+
+<pre>$(ECHO) compiling $(&lt;)
+$(Q) $(CXX) $(INCFLAGS) $(CPPFLAGS) $(CXXFLAGS) $(COUTFLAG)$@ -c $&lt;</pre>
+
+<p>.c.o:</p>
+
+<pre>$(ECHO) compiling $(&lt;)
+$(Q) $(CC) $(INCFLAGS) $(CPPFLAGS) $(CFLAGS) $(COUTFLAG)$@ -c $&lt;</pre>
+
+<p>.m.o:</p>
+
+<pre>$(ECHO) compiling $(&lt;)
+$(Q) $(CC) $(INCFLAGS) $(CPPFLAGS) $(CFLAGS) $(COUTFLAG)$@ -c $&lt;</pre>
+
+<p>$(DLLIB): $(DEFFILE) $(OBJS) <a href="Makefile.html">Makefile</a></p>
+
+<pre>$(ECHO) linking shared-object $(DLLIB)
+-$(Q)$(RM) $(@)
+$(Q) $(LDSHARED) -o $@ $(OBJS) $(LIBPATH) $(DLDFLAGS) $(LOCAL_LIBS) $(LIBS)</pre>
+
+<p>$(DEFFILE):</p>
+
+<pre>$(ECHO) generating $(@)
+$(Q) $(RUBY) -e &quot;puts &#39;EXPORTS&#39;, &#39;$(TARGET_ENTRY)&#39;&quot;  &gt; $@</pre>
+
+<p>### # AUTOGENERATED DEPENDENCIES START bigdecimal.o: $(RUBY_EXTCONF_H)
+bigdecimal.o: $(arch_hdrdir)/ruby/config.h bigdecimal.o:
+$(hdrdir)/ruby/defines.h bigdecimal.o: $(hdrdir)/ruby/intern.h
+bigdecimal.o: $(hdrdir)/ruby/missing.h bigdecimal.o: $(hdrdir)/ruby/st.h
+bigdecimal.o: $(hdrdir)/ruby/subst.h bigdecimal.o: $(hdrdir)/ruby/util.h
+bigdecimal.o: $(hdrdir)/ruby/ruby.h bigdecimal.o: bigdecimal.c
+bigdecimal.o: bigdecimal.h # AUTOGENERATED DEPENDENCIES END</p>
+</dd></dl>
+</dd></dl>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

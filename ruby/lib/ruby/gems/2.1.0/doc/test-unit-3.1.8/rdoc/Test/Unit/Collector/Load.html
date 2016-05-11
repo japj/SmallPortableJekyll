@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Test::Unit::Collector::Load - test-unit-3.1.8 Documentation</title>
+
+<link href="../../../fonts.css" rel="stylesheet">
+<link href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/navigation.js"></script>
+<script src="../../../js/search_index.js"></script>
+<script src="../../../js/search.js"></script>
+<script src="../../../js/searcher.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../Collector.html">Test::Unit::Collector</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add_load_path">#add_load_path</a>
+    
+    <li ><a href="#method-i-add_require_failed_test_suite">#add_require_failed_test_suite</a>
+    
+    <li ><a href="#method-i-base-3D">#base=</a>
+    
+    <li ><a href="#method-i-collect">#collect</a>
+    
+    <li ><a href="#method-i-collect_file">#collect_file</a>
+    
+    <li ><a href="#method-i-collect_recursive">#collect_recursive</a>
+    
+    <li ><a href="#method-i-default_test_paths-3D">#default_test_paths=</a>
+    
+    <li ><a href="#method-i-excluded_directory-3F">#excluded_directory?</a>
+    
+    <li ><a href="#method-i-excluded_file-3F">#excluded_file?</a>
+    
+    <li class="calls-super" ><a href="#method-i-filter_backtrace">#filter_backtrace</a>
+    
+    <li ><a href="#method-i-find_test_cases">#find_test_cases</a>
+    
+    <li ><a href="#method-i-name">#name</a>
+    
+    <li ><a href="#method-i-priority">#priority</a>
+    
+    <li ><a href="#method-i-resolve_path">#resolve_path</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Test::Unit::Collector::Load">
+  <h1 id="class-Test::Unit::Collector::Load" class="class">
+    class Test::Unit::Collector::Load
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-base" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">base</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-default_test_paths" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">default_test_paths</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-excludes" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">excludes</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-patterns" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">patterns</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../Collector.html#method-c-new">Test::Unit::Collector.new</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/load.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@system_excludes</span> = [<span class="ruby-regexp">/~\z/</span>, <span class="ruby-node">/\A\.\#/</span>]
+  <span class="ruby-ivar">@system_directory_excludes</span> = [<span class="ruby-regexp">/\A(?:CVS|\.svn|\.git)\z/</span>]
+  <span class="ruby-ivar">@patterns</span> = [<span class="ruby-regexp">/\Atest[_\-].+\.rb\z/m</span>, <span class="ruby-regexp">/[_\-]test\.rb\z/</span>]
+  <span class="ruby-ivar">@excludes</span> = []
+  <span class="ruby-ivar">@base</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@default_test_paths</span> = []
+  <span class="ruby-ivar">@require_failed_infos</span> = []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-base-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">base=</span><span
+            class="method-args">(base)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="base-3D-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/load.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">base=</span>(<span class="ruby-identifier">base</span>)
+  <span class="ruby-identifier">base</span> = <span class="ruby-constant">Pathname</span>(<span class="ruby-identifier">base</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">base</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@base</span> = <span class="ruby-identifier">base</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-collect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">collect</span><span
+            class="method-args">(*froms)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="collect-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/load.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">collect</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">froms</span>)
+  <span class="ruby-identifier">add_load_path</span>(<span class="ruby-ivar">@base</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">froms</span> = <span class="ruby-ivar">@default_test_paths</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">froms</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">froms</span> = [<span class="ruby-string">&quot;.&quot;</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">froms</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">test_suites</span> = []
+    <span class="ruby-identifier">already_gathered</span> = <span class="ruby-identifier">find_test_cases</span>
+    <span class="ruby-identifier">froms</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">from</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">from</span> = <span class="ruby-identifier">resolve_path</span>(<span class="ruby-identifier">from</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">from</span>.<span class="ruby-identifier">directory?</span>
+        <span class="ruby-identifier">test_suite</span> = <span class="ruby-identifier">collect_recursive</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">already_gathered</span>)
+        <span class="ruby-identifier">test_suites</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">test_suite</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">test_suite</span>.<span class="ruby-identifier">tests</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">collect_file</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">test_suites</span>, <span class="ruby-identifier">already_gathered</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">add_require_failed_test_suite</span>(<span class="ruby-identifier">test_suites</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">test_suites</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">test_suite</span> = <span class="ruby-constant">TestSuite</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;[#{froms.join(&#39;, &#39;)}]&quot;</span>)
+      <span class="ruby-identifier">sort</span>(<span class="ruby-identifier">test_suites</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sub_test_suite</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">test_suite</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">sub_test_suite</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">test_suite</span> = <span class="ruby-identifier">test_suites</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">test_suite</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_test_paths-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_test_paths=</span><span
+            class="method-args">(paths)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_test_paths-3D-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/load.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_test_paths=</span>(<span class="ruby-identifier">paths</span>)
+  <span class="ruby-ivar">@default_test_paths</span> = <span class="ruby-identifier">paths</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Pathname</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_test_cases" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_test_cases</span><span
+            class="method-args">(ignore=[])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_test_cases-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/load.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_test_cases</span>(<span class="ruby-identifier">ignore</span>=[])
+  <span class="ruby-identifier">test_cases</span> = []
+  <span class="ruby-constant">TestCase</span><span class="ruby-operator">::</span><span class="ruby-constant">DESCENDANTS</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">test_case</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">test_cases</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">test_case</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ignore</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">test_case</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">ignore</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">test_cases</span>)
+  <span class="ruby-identifier">test_cases</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_load_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_load_path</span><span
+            class="method-args">(path) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_load_path-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/load.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_load_path</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">yield</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">path</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">index</span> = <span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">delete_at</span>(<span class="ruby-identifier">index</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_require_failed_test_suite" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_require_failed_test_suite</span><span
+            class="method-args">(test_suites)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_require_failed_test_suite-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/load.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_require_failed_test_suite</span>(<span class="ruby-identifier">test_suites</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@require_failed_infos</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">require_failed_infos</span> = <span class="ruby-ivar">@require_failed_infos</span>
+  <span class="ruby-identifier">require_failed_omissions</span> = <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">TestCase</span>)
+  <span class="ruby-identifier">require_failed_omissions</span>.<span class="ruby-identifier">class_eval</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier">name</span>
+        <span class="ruby-string">&quot;RequireFailedOmissions&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">require_failed_infos</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">info</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">path</span> = <span class="ruby-identifier">info</span>[<span class="ruby-value">:path</span>]
+      <span class="ruby-identifier">normalized_path</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/[^a-z0-9\_]+/i</span>, <span class="ruby-string">&#39;_&#39;</span>)
+      <span class="ruby-identifier">normalized_path</span> = <span class="ruby-identifier">normalized_path</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\A_+/</span>, <span class="ruby-string">&#39;&#39;</span>)
+      <span class="ruby-identifier">exception</span> = <span class="ruby-identifier">info</span>[<span class="ruby-value">:exception</span>]
+      <span class="ruby-identifier">define_method</span>(<span class="ruby-node">&quot;test_require_#{normalized_path}&quot;</span>) <span class="ruby-keyword">do</span>
+        <span class="ruby-ivar">@require_failed_exception</span> = <span class="ruby-identifier">exception</span>
+        <span class="ruby-identifier">omit</span>(<span class="ruby-node">&quot;failed to load: &lt;#{path}&gt;: &lt;#{exception.message}&gt;&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">priority</span>
+      <span class="ruby-value">100</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">filter_backtrace</span>(<span class="ruby-identifier">location</span>)
+      <span class="ruby-keyword">super</span>(<span class="ruby-ivar">@require_failed_exception</span>.<span class="ruby-identifier">backtrace</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">add_suite</span>(<span class="ruby-identifier">test_suites</span>, <span class="ruby-identifier">require_failed_omissions</span>.<span class="ruby-identifier">suite</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-collect_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">collect_file</span><span
+            class="method-args">(path, test_suites, already_gathered)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="collect_file-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/load.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">collect_file</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">test_suites</span>, <span class="ruby-identifier">already_gathered</span>)
+  <span class="ruby-ivar">@program_file</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">$0</span>)
+  <span class="ruby-identifier">expanded_path</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">expand_path</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@program_file</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">expanded_path</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">add_load_path</span>(<span class="ruby-identifier">expanded_path</span>.<span class="ruby-identifier">dirname</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">require</span>(<span class="ruby-identifier">path</span>.<span class="ruby-identifier">basename</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">LoadError</span>
+      <span class="ruby-ivar">@require_failed_infos</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">expanded_path</span>, <span class="ruby-value">:exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">$!</span>}
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">add_test_cases</span>(<span class="ruby-identifier">test_suites</span>, <span class="ruby-identifier">find_test_cases</span>(<span class="ruby-identifier">already_gathered</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-collect_recursive" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">collect_recursive</span><span
+            class="method-args">(path, already_gathered)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="collect_recursive-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/load.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">collect_recursive</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">already_gathered</span>)
+  <span class="ruby-identifier">sub_test_suites</span> = []
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">directory?</span>
+    <span class="ruby-identifier">directories</span>, <span class="ruby-identifier">files</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">partition</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">child</span>.<span class="ruby-identifier">directory?</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">excluded_file?</span>(<span class="ruby-identifier">child</span>.<span class="ruby-identifier">basename</span>.<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-identifier">collect_file</span>(<span class="ruby-identifier">child</span>, <span class="ruby-identifier">sub_test_suites</span>, <span class="ruby-identifier">already_gathered</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">directories</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">excluded_directory?</span>(<span class="ruby-identifier">child</span>.<span class="ruby-identifier">basename</span>.<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-identifier">sub_test_suite</span> = <span class="ruby-identifier">collect_recursive</span>(<span class="ruby-identifier">child</span>, <span class="ruby-identifier">already_gathered</span>)
+      <span class="ruby-identifier">sub_test_suites</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">sub_test_suite</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sub_test_suite</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">excluded_file?</span>(<span class="ruby-identifier">path</span>.<span class="ruby-identifier">basename</span>.<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-identifier">collect_file</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">sub_test_suites</span>, <span class="ruby-identifier">already_gathered</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">test_suite</span> = <span class="ruby-constant">TestSuite</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">path</span>.<span class="ruby-identifier">basename</span>.<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-identifier">sort</span>(<span class="ruby-identifier">sub_test_suites</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sub_test_suite</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">test_suite</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">sub_test_suite</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">test_suite</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-excluded_directory-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">excluded_directory?</span><span
+            class="method-args">(base)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="excluded_directory-3F-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/load.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">excluded_directory?</span>(<span class="ruby-identifier">base</span>)
+  <span class="ruby-ivar">@system_directory_excludes</span>.<span class="ruby-identifier">any?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">pattern</span><span class="ruby-operator">|</span> <span class="ruby-identifier">pattern</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">base</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-excluded_file-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">excluded_file?</span><span
+            class="method-args">(base)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="excluded_file-3F-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/load.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">excluded_file?</span>(<span class="ruby-identifier">base</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@system_excludes</span>.<span class="ruby-identifier">any?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">pattern</span><span class="ruby-operator">|</span> <span class="ruby-identifier">pattern</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">base</span>}
+
+  <span class="ruby-identifier">patterns</span> = <span class="ruby-ivar">@patterns</span> <span class="ruby-operator">||</span> []
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">patterns</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">patterns</span>.<span class="ruby-identifier">any?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">pattern</span><span class="ruby-operator">|</span> <span class="ruby-identifier">pattern</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">base</span>}
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">excludes</span> = <span class="ruby-ivar">@excludes</span> <span class="ruby-operator">||</span> []
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">excludes</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">excludes</span>.<span class="ruby-identifier">any?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">pattern</span><span class="ruby-operator">|</span> <span class="ruby-identifier">pattern</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">base</span>}
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-filter_backtrace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">filter_backtrace</span><span
+            class="method-args">(location)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="filter_backtrace-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/load.rb, line 190</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">filter_backtrace</span>(<span class="ruby-identifier">location</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-ivar">@require_failed_exception</span>.<span class="ruby-identifier">backtrace</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="name-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/load.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-string">&quot;RequireFailedOmissions&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-priority" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">priority</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="priority-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/load.rb, line 186</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">priority</span>
+  <span class="ruby-value">100</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-resolve_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resolve_path</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="resolve_path-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/load.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resolve_path</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@base</span>
+    <span class="ruby-ivar">@base</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">path</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Pathname</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

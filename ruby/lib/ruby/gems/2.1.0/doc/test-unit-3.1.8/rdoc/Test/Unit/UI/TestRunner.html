@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Test::Unit::UI::TestRunner - test-unit-3.1.8 Documentation</title>
+
+<link href="../../../fonts.css" rel="stylesheet">
+<link href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/navigation.js"></script>
+<script src="../../../js/search_index.js"></script>
+<script src="../../../js/search.js"></script>
+<script src="../../../js/searcher.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../../Object.html">Object</a>
+  
+</div>
+
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="TestRunnerUtilities.html">Test::Unit::UI::TestRunnerUtilities</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-attach_listeners">#attach_listeners</a>
+    
+    <li ><a href="#method-i-diff_target_string-3F">#diff_target_string?</a>
+    
+    <li ><a href="#method-i-prepare_for_diff">#prepare_for_diff</a>
+    
+    <li ><a href="#method-i-setup_mediator">#setup_mediator</a>
+    
+    <li ><a href="#method-i-start">#start</a>
+    
+    <li ><a href="#method-i-start_mediator">#start_mediator</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Test::Unit::UI::TestRunner">
+  <h1 id="class-Test::Unit::UI::TestRunner" class="class">
+    class Test::Unit::UI::TestRunner
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-listeners" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">listeners</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(suite, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/ui/testrunner.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">suite</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">suite</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:suite</span>)
+    <span class="ruby-ivar">@suite</span> = <span class="ruby-identifier">suite</span>.<span class="ruby-identifier">suite</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@suite</span> = <span class="ruby-identifier">suite</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+  <span class="ruby-ivar">@listeners</span> = <span class="ruby-ivar">@options</span>[<span class="ruby-value">:listeners</span>] <span class="ruby-operator">||</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Begins the test run.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/ui/testrunner.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start</span>
+  <span class="ruby-identifier">setup_mediator</span>
+  <span class="ruby-identifier">attach_to_mediator</span>
+  <span class="ruby-identifier">attach_listeners</span>
+  <span class="ruby-identifier">start_mediator</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-attach_listeners" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attach_listeners</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="attach_listeners-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/ui/testrunner.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">attach_listeners</span>
+  <span class="ruby-ivar">@listeners</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">listener</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">listener</span>.<span class="ruby-identifier">attach_to_mediator</span>(<span class="ruby-ivar">@mediator</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-diff_target_string-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">diff_target_string?</span><span
+            class="method-args">(string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="diff_target_string-3F-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/ui/testrunner.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">diff_target_string?</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-constant">Assertions</span><span class="ruby-operator">::</span><span class="ruby-constant">AssertionMessage</span>.<span class="ruby-identifier">diff_target_string?</span>(<span class="ruby-identifier">string</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prepare_for_diff" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prepare_for_diff</span><span
+            class="method-args">(from, to)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="prepare_for_diff-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/ui/testrunner.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">prepare_for_diff</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>)
+  <span class="ruby-constant">Assertions</span><span class="ruby-operator">::</span><span class="ruby-constant">AssertionMessage</span>.<span class="ruby-identifier">prepare_for_diff</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_mediator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_mediator</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_mediator-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/ui/testrunner.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_mediator</span>
+  <span class="ruby-ivar">@mediator</span> = <span class="ruby-constant">TestRunnerMediator</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@suite</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_mediator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start_mediator</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="start_mediator-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/ui/testrunner.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start_mediator</span>
+  <span class="ruby-ivar">@mediator</span>.<span class="ruby-identifier">run</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

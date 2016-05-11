@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>RI - rdoc-4.2.2 Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-RI">RI</a>
+    <li><a href="#label-Usage">Usage</a>
+    <li><a href="#label-Options">Options</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./CONTRIBUTING_rdoc.html">CONTRIBUTING</a>
+  
+    <li><a href="./CVE-2013-0256_rdoc.html">CVE-2013-0256</a>
+  
+    <li><a href="./ExampleMarkdown_md.html">ExampleMarkdown</a>
+  
+    <li><a href="./ExampleRDoc_rdoc.html">ExampleRDoc</a>
+  
+    <li><a href="./History_rdoc.html">History</a>
+  
+    <li><a href="./LEGAL_rdoc.html">LEGAL</a>
+  
+    <li><a href="./LICENSE_rdoc.html">LICENSE</a>
+  
+    <li><a href="./Manifest_txt.html">Manifest</a>
+  
+    <li><a href="./README_rdoc.html">README</a>
+  
+    <li><a href="./RI_rdoc.html">RI</a>
+  
+    <li><a href="./Rakefile.html">Rakefile</a>
+  
+    <li><a href="./TODO_rdoc.html">TODO</a>
+  
+    <li><a href="./lib/rdoc/markdown_kpeg.html">markdown.kpeg</a>
+  
+    <li><a href="./lib/rdoc/markdown/literals_1_8_kpeg.html">literals_1_8.kpeg</a>
+  
+    <li><a href="./lib/rdoc/markdown/literals_1_9_kpeg.html">literals_1_9.kpeg</a>
+  
+    <li><a href="./lib/rdoc/rd/block_parser_ry.html">block_parser.ry</a>
+  
+    <li><a href="./lib/rdoc/rd/inline_parser_ry.html">inline_parser.ry</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page RI.rdoc">
+
+<h1 id="label-RI"><a href="RI_rdoc.html">RI</a><span><a href="#label-RI">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p><code>ri</code> is a tool that allows Ruby documentation to be viewed on
+the command-line.</p>
+
+<p>You can use <code>ri</code> to look up information from either the command
+line or interactively.  When you run <code>ri</code> without any arguments
+it will launch in interactive mode.  In interactive mode you can
+tab-complete class and method names.</p>
+
+<h2 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>To see information for a class, do:</p>
+
+<pre>ri ClassName</pre>
+
+<p>For example, for the Array class, do:</p>
+
+<pre>ri Array</pre>
+
+<p>To see information on a method on a class, do:</p>
+
+<pre>ri ClassName.method</pre>
+
+<p>This will show both instance and class methods.  For example, the IO class
+defines both IO::read and IO#read:</p>
+
+<pre>ri IO.read</pre>
+
+<p>To see information for an instance method, do:</p>
+
+<pre>ri ClassName#method_name</pre>
+
+<p>For example, for Array&#39;s <code>join</code> method, do:</p>
+
+<pre>ri Array#join</pre>
+
+<p>To see information for a class method, do:</p>
+
+<pre>ri ClassName::method_name</pre>
+
+<p>For example, for Module&#39;s <code>private</code> method, do:</p>
+
+<pre>ri Module::private</pre>
+
+<p>To read documentation for all <code>read</code> methods, do:</p>
+
+<pre>ri read</pre>
+
+<h2 id="label-Options">Options<span><a href="#label-Options">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p><code>ri</code> supports a variety of options, all of which can be viewed
+via <code>--help</code>. Of particular interest, are:</p>
+<dl class="rdoc-list label-list"><dt><code>-f</code>
+<dd>
+<p>Outputs ri data using the selected formatter.  You can see the available
+formatters in <code>ri --help</code></p>
+</dd><dt><code>-T</code>
+<dd>
+<p>Send output to stdout, rather than to a pager.</p>
+</dd></dl>
+
+<p>All options also can be specified through the <code>RI</code> environment
+variable. Command-line options always override those specified in the
+<code>RI</code> environment variable.</p>
+
+<p>The <code>RI_PAGER</code> environment variable allows you to choose a
+particular pager or particular options for your pager.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

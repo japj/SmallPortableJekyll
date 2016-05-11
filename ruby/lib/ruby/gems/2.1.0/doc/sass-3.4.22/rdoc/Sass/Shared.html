@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Sass::Shared - sass-3.4.22 Documentation</title>
+
+<link href="../fonts.css" rel="stylesheet">
+<link href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/search_index.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/searcher.js"></script>
+<script src="../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-balance">#balance</a>
+    
+    <li ><a href="#method-i-handle_interpolation">#handle_interpolation</a>
+    
+    <li ><a href="#method-i-human_indentation">#human_indentation</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Sass::Shared">
+  <h1 id="module-Sass::Shared" class="module">
+    module Sass::Shared
+  </h1>
+
+  <section class="description">
+    
+<p>This module contains functionality that&#39;s shared between Haml and <a
+href="../Sass.html">Sass</a>.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-balance" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">balance</span><span
+            class="method-args">(scanner, start, finish, count = 0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Moves a scanner through a balanced pair of characters. For example:</p>
+
+<pre>Foo (Bar (Baz bang) bop) (Bang (bop bip))
+^                       ^
+from                    to</pre>
+
+<p>@param scanner [StringScanner] The string scanner to move @param start
+[Character] The character opening the balanced pair.</p>
+
+<pre>A `Fixnum` in 1.8, a `String` in 1.9</pre>
+
+<p>@param finish [Character] The character closing the balanced pair.</p>
+
+<pre>A `Fixnum` in 1.8, a `String` in 1.9</pre>
+
+<p>@param count [Fixnum] The number of opening characters matched</p>
+
+<pre>before calling this method</pre>
+
+<p>@return [(String, String)] The string matched within the balanced pair</p>
+
+<pre>and the rest of the string.
+`[&quot;Foo (Bar (Baz bang) bop)&quot;, &quot; (Bang (bop bip))&quot;]` in the example above.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="balance-source">
+            <pre><span class="ruby-comment"># File lib/sass/shared.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">balance</span>(<span class="ruby-identifier">scanner</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">finish</span>, <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>)
+  <span class="ruby-identifier">str</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-identifier">scanner</span> = <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span><span class="ruby-operator">::</span><span class="ruby-constant">MultibyteStringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">scanner</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">StringScanner</span>
+  <span class="ruby-identifier">regexp</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;(.*?)[\\#{start.chr}\\#{finish.chr}]&quot;</span>, <span class="ruby-constant">Regexp</span><span class="ruby-operator">::</span><span class="ruby-constant">MULTILINE</span>)
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-identifier">regexp</span>)
+    <span class="ruby-identifier">str</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">matched</span>
+    <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">matched</span>[<span class="ruby-value">-1</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">start</span>
+    <span class="ruby-identifier">count</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">matched</span>[<span class="ruby-value">-1</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">finish</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-identifier">str</span>, <span class="ruby-identifier">scanner</span>.<span class="ruby-identifier">rest</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_interpolation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_interpolation</span><span
+            class="method-args">(str) { |scan while scan(/(.*?)(\\*)\| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Scans through a string looking for the interoplation-opening `#{` and, when
+it&#39;s found, yields the scanner to the calling code so it can handle it
+properly.</p>
+
+<p>The scanner will have any backslashes immediately in front of the `#{` as
+the second capture group (`<a href="2">scan</a>`), and the text prior to
+that as the first (`<a href="1">scan</a>`).</p>
+
+<p>@yieldparam scan [StringScanner] The scanner scanning through the string
+@return [String] The text remaining in the scanner after all `#{`s have
+been processed</p>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_interpolation-source">
+            <pre><span class="ruby-comment"># File lib/sass/shared.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_interpolation</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">scan</span> = <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span><span class="ruby-operator">::</span><span class="ruby-constant">MultibyteStringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-keyword">yield</span> <span class="ruby-identifier">scan</span> <span class="ruby-keyword">while</span> <span class="ruby-identifier">scan</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-node">/(.*?)(\*)\#\{/m</span>)
+  <span class="ruby-identifier">scan</span>.<span class="ruby-identifier">rest</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-human_indentation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">human_indentation</span><span
+            class="method-args">(indentation, was = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Formats a string for use in error messages about indentation.</p>
+
+<p>@param indentation [String] The string used for indentation @param was
+[Boolean] Whether or not to add `“was”` or `“were”`</p>
+
+<pre>(depending on how many characters were in `indentation`)</pre>
+
+<p>@return [String] The name of the indentation (e.g. `“12 spaces”`, `“1
+tab”`)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="human_indentation-source">
+            <pre><span class="ruby-comment"># File lib/sass/shared.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">human_indentation</span>(<span class="ruby-identifier">indentation</span>, <span class="ruby-identifier">was</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">indentation</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value">?\</span><span class="ruby-identifier">t</span>)
+    <span class="ruby-identifier">noun</span> = <span class="ruby-string">&#39;space&#39;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">indentation</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value">?\</span><span class="ruby-identifier">s</span>)
+    <span class="ruby-identifier">noun</span> = <span class="ruby-string">&#39;tab&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">indentation</span>.<span class="ruby-identifier">inspect</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">was</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39; was&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">singular</span> = <span class="ruby-identifier">indentation</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">was</span>
+    <span class="ruby-identifier">was</span> = <span class="ruby-identifier">singular</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39; was&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39; were&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">was</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-node">&quot;#{indentation.length} #{noun}#{&#39;s&#39; unless singular}#{was}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

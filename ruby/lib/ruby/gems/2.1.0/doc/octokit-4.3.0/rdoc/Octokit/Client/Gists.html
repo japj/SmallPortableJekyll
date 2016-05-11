@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Octokit::Client::Gists - octokit-4.3.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-create_gist">#create_gist</a>
+    
+    <li ><a href="#method-i-create_gist_comment">#create_gist_comment</a>
+    
+    <li ><a href="#method-i-delete_gist">#delete_gist</a>
+    
+    <li ><a href="#method-i-delete_gist_comment">#delete_gist_comment</a>
+    
+    <li ><a href="#method-i-edit_gist">#edit_gist</a>
+    
+    <li ><a href="#method-i-fork_gist">#fork_gist</a>
+    
+    <li ><a href="#method-i-gist">#gist</a>
+    
+    <li ><a href="#method-i-gist_comment">#gist_comment</a>
+    
+    <li ><a href="#method-i-gist_comments">#gist_comments</a>
+    
+    <li ><a href="#method-i-gist_commits">#gist_commits</a>
+    
+    <li ><a href="#method-i-gist_forks">#gist_forks</a>
+    
+    <li ><a href="#method-i-gist_starred-3F">#gist_starred?</a>
+    
+    <li ><a href="#method-i-gists">#gists</a>
+    
+    <li ><a href="#method-i-list_gists">#list_gists</a>
+    
+    <li ><a href="#method-i-public_gists">#public_gists</a>
+    
+    <li ><a href="#method-i-star_gist">#star_gist</a>
+    
+    <li ><a href="#method-i-starred_gists">#starred_gists</a>
+    
+    <li ><a href="#method-i-unstar_gist">#unstar_gist</a>
+    
+    <li ><a href="#method-i-update_gist_comment">#update_gist_comment</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Octokit::Client::Gists">
+  <h1 id="module-Octokit::Client::Gists" class="module">
+    module Octokit::Client::Gists
+  </h1>
+
+  <section class="description">
+    
+<p>Methods for the <a href="Gists.html">Gists</a> API</p>
+
+<p>@see <a
+href="https://developer.github.com/v3/gists">developer.github.com/v3/gists</a>/</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-create_gist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_gist</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a gist</p>
+
+<p>@param options [Hash] <a href="../Gist.html">Gist</a> information. @option
+options [String] :description @option options [Boolean] :public Sets gist
+visibility @option options [Array&lt;Hash&gt;] :files Files that make up
+this gist. Keys</p>
+
+<pre>should be the filename, the value a Hash with a :content key with text
+content of the Gist.</pre>
+
+<p>@return [Sawyer::Resource] Newly created gist info @see <a
+href="https://developer.github.com/v3/gists/#create-a-gist">developer.github.com/v3/gists/#create-a-gist</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_gist-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/gists.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_gist</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">post</span> <span class="ruby-string">&#39;gists&#39;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_gist_comment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_gist_comment</span><span
+            class="method-args">(gist_id, comment, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create gist comment</p>
+
+<p>Requires authenticated client.</p>
+
+<p>@param gist_id [String] Id of the gist. @param comment [String] Comment
+contents. @return [Sawyer::Resource] Hash representing the new comment.
+@see <a
+href="https://developer.github.com/v3/gists/comments/#create-a-comment">developer.github.com/v3/gists/comments/#create-a-comment</a>
+@example</p>
+
+<pre>@client.create_gist_comment(&#39;3528645&#39;, &#39;This is very helpful.&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="create_gist_comment-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/gists.rb, line 198</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_gist_comment</span>(<span class="ruby-identifier">gist_id</span>, <span class="ruby-identifier">comment</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>({<span class="ruby-value">:body</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">comment</span>})
+  <span class="ruby-identifier">post</span> <span class="ruby-node">&quot;gists/#{gist_id}/comments&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_gist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_gist</span><span
+            class="method-args">(gist, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete a gist</p>
+
+<p>@param gist [String] <a href="../Gist.html">Gist</a> ID @return [Boolean]
+Indicating success of deletion @see <a
+href="https://developer.github.com/v3/gists/#delete-a-gist">developer.github.com/v3/gists/#delete-a-gist</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="delete_gist-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/gists.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_gist</span>(<span class="ruby-identifier">gist</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:delete</span>, <span class="ruby-node">&quot;gists/#{Gist.new(gist)}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_gist_comment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_gist_comment</span><span
+            class="method-args">(gist_id, gist_comment_id, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete gist comment</p>
+
+<p>Requires authenticated client.</p>
+
+<p>@param gist_id [String] Id of the gist. @param gist_comment_id [Integer] Id
+of the gist comment to delete. @return [Boolean] True if comment deleted,
+false otherwise. @see <a
+href="https://developer.github.com/v3/gists/comments/#delete-a-comment">developer.github.com/v3/gists/comments/#delete-a-comment</a>
+@example</p>
+
+<pre>@client.delete_gist_comment(&#39;208sdaz3&#39;, &#39;586399&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="delete_gist_comment-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/gists.rb, line 229</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_gist_comment</span>(<span class="ruby-identifier">gist_id</span>, <span class="ruby-identifier">gist_comment_id</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span>(<span class="ruby-value">:delete</span>, <span class="ruby-node">&quot;gists/#{gist_id}/comments/#{gist_comment_id}&quot;</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-edit_gist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit_gist</span><span
+            class="method-args">(gist, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Edit a gist</p>
+
+<p>@param options [Hash] <a href="../Gist.html">Gist</a> information. @option
+options [String] :description @option options [Boolean] :public Sets gist
+visibility @option options [Hash] :files Files that make up this gist. Keys</p>
+
+<pre>should be the filename, the value a Hash with a :content key with text
+content of the Gist.
+
+NOTE: All files from the previous version of the
+gist are carried over by default if not included in the hash. Deletes
+can be performed by including the filename with a null hash.</pre>
+
+<p>@return</p>
+
+<pre>[Sawyer::Resource] Newly created gist info</pre>
+
+<p>@see <a
+href="https://developer.github.com/v3/gists/#edit-a-gist">developer.github.com/v3/gists/#edit-a-gist</a>
+@example Update a gist</p>
+
+<pre class="ruby"><span class="ruby-ivar">@client</span>.<span class="ruby-identifier">edit_gist</span>(<span class="ruby-string">&#39;some_id&#39;</span>, {
+  :<span class="ruby-identifier">files</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-string">&quot;boo.md&quot;</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-string">&quot;content&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;updated stuff&quot;</span>}}
+})
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="edit_gist-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/gists.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit_gist</span>(<span class="ruby-identifier">gist</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">patch</span> <span class="ruby-node">&quot;gists/#{Gist.new(gist)}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fork_gist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fork_gist</span><span
+            class="method-args">(gist, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fork a gist</p>
+
+<p>@param gist [String] <a href="../Gist.html">Gist</a> ID @return
+[Sawyer::Resource] Data for the new gist @see <a
+href="https://developer.github.com/v3/gists/#fork-a-gist">developer.github.com/v3/gists/#fork-a-gist</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="fork_gist-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/gists.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fork_gist</span>(<span class="ruby-identifier">gist</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">post</span> <span class="ruby-node">&quot;gists/#{Gist.new(gist)}/forks&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-gist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gist</span><span
+            class="method-args">(gist, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get a single gist</p>
+
+<p>@param gist [String] ID of gist to fetch @option options [String] :sha
+Specific gist revision SHA @return [Sawyer::Resource] <a
+href="../Gist.html">Gist</a> information @see <a
+href="https://developer.github.com/v3/gists/#get-a-single-gist">developer.github.com/v3/gists/#get-a-single-gist</a>
+@see <a
+href="https://developer.github.com/v3/gists/#get-a-specific-revision-of-a-gist">developer.github.com/v3/gists/#get-a-specific-revision-of-a-gist</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="gist-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/gists.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gist</span>(<span class="ruby-identifier">gist</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">sha</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:sha</span>)
+    <span class="ruby-identifier">get</span> <span class="ruby-node">&quot;gists/#{Gist.new(gist)}/#{sha}&quot;</span>, <span class="ruby-identifier">options</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">get</span> <span class="ruby-node">&quot;gists/#{Gist.new(gist)}&quot;</span>, <span class="ruby-identifier">options</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-gist_comment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gist_comment</span><span
+            class="method-args">(gist_id, gist_comment_id, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get gist comment</p>
+
+<p>@param gist_id [String] Id of the gist. @param gist_comment_id [Integer] Id
+of the gist comment. @return [Sawyer::Resource] Hash representing gist
+comment. @see <a
+href="https://developer.github.com/v3/gists/comments/#get-a-single-comment">developer.github.com/v3/gists/comments/#get-a-single-comment</a>
+@example</p>
+
+<pre>Octokit.gist_comment(&#39;208sdaz3&#39;, 1451398)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="gist_comment-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/gists.rb, line 184</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gist_comment</span>(<span class="ruby-identifier">gist_id</span>, <span class="ruby-identifier">gist_comment_id</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span> <span class="ruby-node">&quot;gists/#{gist_id}/comments/#{gist_comment_id}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-gist_comments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gist_comments</span><span
+            class="method-args">(gist_id, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List gist comments</p>
+
+<p>@param gist_id [String] <a href="../Gist.html">Gist</a> Id. @return
+[Array&lt;Sawyer::Resource&gt;] Array of hashes representing comments. @see
+<a
+href="https://developer.github.com/v3/gists/comments/#list-comments-on-a-gist">developer.github.com/v3/gists/comments/#list-comments-on-a-gist</a>
+@example</p>
+
+<pre>Octokit.gist_comments(&#39;3528ae645&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="gist_comments-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/gists.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gist_comments</span>(<span class="ruby-identifier">gist_id</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">paginate</span> <span class="ruby-node">&quot;gists/#{gist_id}/comments&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-gist_commits" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gist_commits</span><span
+            class="method-args">(gist, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List gist commits</p>
+
+<p>@param gist [String] <a href="../Gist.html">Gist</a> ID @return [Array]
+List of commits to the gist @see <a
+href="https://developer.github.com/v3/gists/#list-gist-commits">developer.github.com/v3/gists/#list-gist-commits</a>
+@example List commits for a gist</p>
+
+<pre>@client.gist_commits(&#39;some_id&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="gist_commits-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/gists.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gist_commits</span>(<span class="ruby-identifier">gist</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">paginate</span> <span class="ruby-node">&quot;gists/#{Gist.new(gist)}/commits&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-gist_forks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gist_forks</span><span
+            class="method-args">(gist, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List gist forks</p>
+
+<p>@param gist [String] <a href="../Gist.html">Gist</a> ID @return [Array]
+List of gist forks @see <a
+href="https://developer.github.com/v3/gists/#list-gist-forks">developer.github.com/v3/gists/#list-gist-forks</a>
+@example List gist forks</p>
+
+<pre>@client.gist_forks(&#39;some-id&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="gist_forks-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/gists.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gist_forks</span>(<span class="ruby-identifier">gist</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">paginate</span> <span class="ruby-node">&quot;gists/#{Gist.new(gist)}/forks&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-gist_starred-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gist_starred?</span><span
+            class="method-args">(gist, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Check if a gist is starred</p>
+
+<p>@param gist [String] <a href="../Gist.html">Gist</a> ID @return [Boolean]
+Indicates if gist is starred @see <a
+href="https://developer.github.com/v3/gists/#check-if-a-gist-is-starred">developer.github.com/v3/gists/#check-if-a-gist-is-starred</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="gist_starred-3F-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/gists.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gist_starred?</span>(<span class="ruby-identifier">gist</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:get</span>, <span class="ruby-node">&quot;gists/#{Gist.new(gist)}/star&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-gists" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gists</span><span
+            class="method-args">(user=nil, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List gists for a user or all public gists</p>
+
+<p>@param user [String] An optional user to filter listing @return
+[Array&lt;Sawyer::Resource&gt;] A list of gists @example Fetch all gists
+for defunkt</p>
+
+<pre>Octokit.gists(&#39;defunkt&#39;)</pre>
+
+<p>@example Fetch all public gists</p>
+
+<pre>Octokit.gists</pre>
+
+<p>@see <a
+href="https://developer.github.com/v3/gists/#list-gists">developer.github.com/v3/gists/#list-gists</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="gists-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/gists.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gists</span>(<span class="ruby-identifier">user</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">paginate</span> <span class="ruby-string">&#39;gists&#39;</span>, <span class="ruby-identifier">options</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">paginate</span> <span class="ruby-node">&quot;#{User.path user}/gists&quot;</span>, <span class="ruby-identifier">options</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Gists.html#method-i-list_gists">list_gists</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-list_gists" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">list_gists</span><span
+            class="method-args">(user=nil, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Gists.html#method-i-gists">gists</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-public_gists" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">public_gists</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List public gists</p>
+
+<p>@return [Array&lt;Sawyer::Resource&gt;] A list of gists @example Fetch all
+public gists</p>
+
+<pre>Octokit.public_gists</pre>
+
+<p>@see <a
+href="https://developer.github.com/v3/gists/#list-gists">developer.github.com/v3/gists/#list-gists</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="public_gists-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/gists.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">public_gists</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">paginate</span> <span class="ruby-string">&#39;gists/public&#39;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-star_gist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">star_gist</span><span
+            class="method-args">(gist, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Star a gist</p>
+
+<p>@param gist [String] <a href="../Gist.html">Gist</a> ID @return [Boolean]
+Indicates if gist is starred successfully @see <a
+href="https://developer.github.com/v3/gists/#star-a-gist">developer.github.com/v3/gists/#star-a-gist</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="star_gist-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/gists.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">star_gist</span>(<span class="ruby-identifier">gist</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:put</span>, <span class="ruby-node">&quot;gists/#{Gist.new(gist)}/star&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-starred_gists" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">starred_gists</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List the authenticated user’s starred gists</p>
+
+<p>@return [Array&lt;Sawyer::Resource&gt;] A list of gists @see <a
+href="https://developer.github.com/v3/gists/#list-gists">developer.github.com/v3/gists/#list-gists</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="starred_gists-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/gists.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">starred_gists</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">paginate</span> <span class="ruby-string">&#39;gists/starred&#39;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unstar_gist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unstar_gist</span><span
+            class="method-args">(gist, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Unstar a gist</p>
+
+<p>@param gist [String] <a href="../Gist.html">Gist</a> ID @return [Boolean]
+Indicates if gist is unstarred successfully @see <a
+href="https://developer.github.com/v3/gists/#unstar-a-gist">developer.github.com/v3/gists/#unstar-a-gist</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="unstar_gist-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/gists.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unstar_gist</span>(<span class="ruby-identifier">gist</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:delete</span>, <span class="ruby-node">&quot;gists/#{Gist.new(gist)}/star&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_gist_comment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_gist_comment</span><span
+            class="method-args">(gist_id, gist_comment_id, comment, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update gist comment</p>
+
+<p>Requires authenticated client</p>
+
+<p>@param gist_id [String] Id of the gist. @param gist_comment_id [Integer] Id
+of the gist comment to update. @param comment [String] Updated comment
+contents. @return [Sawyer::Resource] Hash representing the updated comment.
+@see <a
+href="https://developer.github.com/v3/gists/comments/#edit-a-comment">developer.github.com/v3/gists/comments/#edit-a-comment</a>
+@example</p>
+
+<pre>@client.update_gist_comment(&#39;208sdaz3&#39;, &#39;3528645&#39;, &#39;:heart:&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="update_gist_comment-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/gists.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_gist_comment</span>(<span class="ruby-identifier">gist_id</span>, <span class="ruby-identifier">gist_comment_id</span>, <span class="ruby-identifier">comment</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>({<span class="ruby-value">:body</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">comment</span>})
+  <span class="ruby-identifier">patch</span> <span class="ruby-node">&quot;gists/#{gist_id}/comments/#{gist_comment_id}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

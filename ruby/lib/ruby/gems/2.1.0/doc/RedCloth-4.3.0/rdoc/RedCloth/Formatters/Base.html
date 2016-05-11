@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module RedCloth::Formatters::Base - RedCloth</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-after_transform">#after_transform</a>
+    
+    <li ><a href="#method-i-before_transform">#before_transform</a>
+    
+    <li ><a href="#method-i-formatter_methods">#formatter_methods</a>
+    
+    <li ><a href="#method-i-ignore">#ignore</a>
+    
+    <li ><a href="#method-i-inline_redcloth_version">#inline_redcloth_version</a>
+    
+    <li ><a href="#method-i-method_missing">#method_missing</a>
+    
+    <li ><a href="#method-i-notextile">#notextile</a>
+    
+    <li ><a href="#method-i-pba">#pba</a>
+    
+    <li ><a href="#method-i-redcloth_version">#redcloth_version</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-RedCloth::Formatters::Base">
+  <h1 id="module-RedCloth::Formatters::Base" class="module">
+    module RedCloth::Formatters::Base
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-ignore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ignore</span><span
+            class="method-args">(opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ignore-source">
+            <pre><span class="ruby-comment"># File lib/redcloth/formatters/base.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ignore</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">opts</span>[<span class="ruby-value">:text</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Base.html#method-i-notextile">notextile</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inline_redcloth_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inline_redcloth_version</span><span
+            class="method-args">(opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inline_redcloth_version-source">
+            <pre><span class="ruby-comment"># File lib/redcloth/formatters/base.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inline_redcloth_version</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-constant">RedCloth</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION</span><span class="ruby-operator">::</span><span class="ruby-constant">STRING</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-notextile" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">notextile</span><span
+            class="method-args">(opts)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Base.html#method-i-ignore">ignore</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-redcloth_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">redcloth_version</span><span
+            class="method-args">(opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="redcloth_version-source">
+            <pre><span class="ruby-comment"># File lib/redcloth/formatters/base.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">redcloth_version</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">p</span>(<span class="ruby-value">:text</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{opts[:prefix]}#{RedCloth::VERSION}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-after_transform" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">after_transform</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="after_transform-source">
+            <pre><span class="ruby-comment"># File lib/redcloth/formatters/base.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">after_transform</span>(<span class="ruby-identifier">text</span>)
+  
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-before_transform" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">before_transform</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="before_transform-source">
+            <pre><span class="ruby-comment"># File lib/redcloth/formatters/base.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">before_transform</span>(<span class="ruby-identifier">text</span>)
+  
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-formatter_methods" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">formatter_methods</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="formatter_methods-source">
+            <pre><span class="ruby-comment"># File lib/redcloth/formatters/base.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">formatter_methods</span>
+  <span class="ruby-identifier">singleton_methods</span>.<span class="ruby-identifier">map!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span> <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_sym</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-method_missing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_missing</span><span
+            class="method-args">(method, opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="method_missing-source">
+            <pre><span class="ruby-comment"># File lib/redcloth/formatters/base.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">opts</span>[<span class="ruby-value">:text</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&quot;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pba" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pba</span><span
+            class="method-args">(opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pba-source">
+            <pre><span class="ruby-comment"># File lib/redcloth/formatters/base.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pba</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:style</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">filter_styles</span>
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:class</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">filter_classes</span>
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:id</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">filter_ids</span>
+
+  <span class="ruby-identifier">atts</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-identifier">opts</span>[<span class="ruby-value">:&quot;text-align&quot;</span>] = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:align</span>)
+  <span class="ruby-identifier">opts</span>[<span class="ruby-value">:style</span>] <span class="ruby-operator">+=</span> <span class="ruby-string">&#39;;&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:style</span>] <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">opts</span>[<span class="ruby-value">:style</span>][<span class="ruby-value">-1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;;&#39;</span>)
+  [<span class="ruby-value">:float</span>, <span class="ruby-value">:&quot;text-align&quot;</span>, <span class="ruby-value">:&quot;vertical-align&quot;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">opts</span>[<span class="ruby-value">:style</span>] = <span class="ruby-node">&quot;#{a}:#{opts[a]};#{opts[:style]}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">a</span>]
+  <span class="ruby-keyword">end</span>
+  [<span class="ruby-value">:&quot;padding-right&quot;</span>, <span class="ruby-value">:&quot;padding-left&quot;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">opts</span>[<span class="ruby-value">:style</span>] = <span class="ruby-node">&quot;#{a}:#{opts[a]}em;#{opts[:style]}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">a</span>]
+  <span class="ruby-keyword">end</span>
+  [<span class="ruby-value">:style</span>, <span class="ruby-value">:class</span>, <span class="ruby-value">:lang</span>, <span class="ruby-value">:id</span>, <span class="ruby-value">:colspan</span>, <span class="ruby-value">:rowspan</span>, <span class="ruby-value">:title</span>, <span class="ruby-value">:start</span>, <span class="ruby-value">:align</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">atts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot; #{a}=\&quot;#{ html_esc(opts[a].to_s, :html_escape_attributes) }\&quot;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">a</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">atts</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

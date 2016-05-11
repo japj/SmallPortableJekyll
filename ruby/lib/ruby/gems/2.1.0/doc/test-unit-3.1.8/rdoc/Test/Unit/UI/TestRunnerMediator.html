@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Test::Unit::UI::TestRunnerMediator - test-unit-3.1.8 Documentation</title>
+
+<link href="../../../fonts.css" rel="stylesheet">
+<link href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/navigation.js"></script>
+<script src="../../../js/search_index.js"></script>
+<script src="../../../js/search.js"></script>
+<script src="../../../js/searcher.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../Util/Observable.html">Test::Unit::Util::Observable</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-create_result">#create_result</a>
+    
+    <li ><a href="#method-i-measure_time">#measure_time</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-run_suite">#run_suite</a>
+    
+    <li ><a href="#method-i-with_listener">#with_listener</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Test::Unit::UI::TestRunnerMediator">
+  <h1 id="class-Test::Unit::UI::TestRunnerMediator" class="class">
+    class Test::Unit::UI::TestRunnerMediator
+  </h1>
+
+  <section class="description">
+    
+<p>Provides an interface to write any given UI against, hopefully making it
+easy to write new UIs.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="FINISHED">FINISHED
+        
+        <dd>
+        
+      
+        <dt id="RESET">RESET
+        
+        <dd>
+        
+      
+        <dt id="STARTED">STARTED
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(suite)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new <a href="TestRunnerMediator.html">TestRunnerMediator</a>
+initialized to run the passed suite.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/ui/testrunnermediator.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">suite</span>)
+  <span class="ruby-ivar">@suite</span> = <span class="ruby-identifier">suite</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Runs the suite the <a href="TestRunnerMediator.html">TestRunnerMediator</a>
+was created with.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/ui/testrunnermediator.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>
+  <span class="ruby-constant">AutoRunner</span>.<span class="ruby-identifier">need_auto_run</span> = <span class="ruby-keyword">false</span>
+
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">create_result</span>
+
+  <span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span>.<span class="ruby-identifier">run_at_start_hooks</span>
+  <span class="ruby-identifier">start_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">catch</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">stop_tag</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">result</span>.<span class="ruby-identifier">stop_tag</span> = <span class="ruby-identifier">stop_tag</span>
+      <span class="ruby-identifier">with_listener</span>(<span class="ruby-identifier">result</span>) <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">notify_listeners</span>(<span class="ruby-constant">RESET</span>, <span class="ruby-ivar">@suite</span>.<span class="ruby-identifier">size</span>)
+        <span class="ruby-identifier">notify_listeners</span>(<span class="ruby-constant">STARTED</span>, <span class="ruby-identifier">result</span>)
+
+        <span class="ruby-identifier">run_suite</span>(<span class="ruby-identifier">result</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">elapsed_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">start_time</span>
+    <span class="ruby-identifier">notify_listeners</span>(<span class="ruby-constant">FINISHED</span>, <span class="ruby-identifier">elapsed_time</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span>.<span class="ruby-identifier">run_at_exit_hooks</span>
+
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run_suite" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run_suite</span><span
+            class="method-args">(result=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Just for backward compatibility for NetBeans. NetBeans should not use
+monkey patching. NetBeans should use runner change public API.</p>
+
+<p>See GitHub#38</p>
+
+<pre>https://github.com/test-unit/test-unit/issues/38</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="run_suite-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/ui/testrunnermediator.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run_suite</span>(<span class="ruby-identifier">result</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">run</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@suite</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">result</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">channel</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">notify_listeners</span>(<span class="ruby-identifier">channel</span>, <span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-create_result" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_result</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A factory method to create the result the mediator should run with. Can be
+overridden by subclasses if one wants to use a different result.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_result-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/ui/testrunnermediator.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_result</span>
+  <span class="ruby-constant">TestResult</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-measure_time" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">measure_time</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="measure_time-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/ui/testrunnermediator.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">measure_time</span>
+  <span class="ruby-identifier">begin_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-keyword">yield</span>
+  <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">begin_time</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_listener" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_listener</span><span
+            class="method-args">(result) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="with_listener-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/ui/testrunnermediator.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_listener</span>(<span class="ruby-identifier">result</span>)
+  <span class="ruby-identifier">finished_listener</span> = <span class="ruby-identifier">result</span>.<span class="ruby-identifier">add_listener</span>(<span class="ruby-constant">TestResult</span><span class="ruby-operator">::</span><span class="ruby-constant">FINISHED</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">notify_listeners</span>(<span class="ruby-constant">TestResult</span><span class="ruby-operator">::</span><span class="ruby-constant">FINISHED</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">changed_listener</span> = <span class="ruby-identifier">result</span>.<span class="ruby-identifier">add_listener</span>(<span class="ruby-constant">TestResult</span><span class="ruby-operator">::</span><span class="ruby-constant">CHANGED</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">notify_listeners</span>(<span class="ruby-constant">TestResult</span><span class="ruby-operator">::</span><span class="ruby-constant">CHANGED</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">pass_assertion_listener</span> = <span class="ruby-identifier">result</span>.<span class="ruby-identifier">add_listener</span>(<span class="ruby-constant">TestResult</span><span class="ruby-operator">::</span><span class="ruby-constant">PASS_ASSERTION</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">notify_listeners</span>(<span class="ruby-constant">TestResult</span><span class="ruby-operator">::</span><span class="ruby-constant">PASS_ASSERTION</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">fault_listener</span> = <span class="ruby-identifier">result</span>.<span class="ruby-identifier">add_listener</span>(<span class="ruby-constant">TestResult</span><span class="ruby-operator">::</span><span class="ruby-constant">FAULT</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">notify_listeners</span>(<span class="ruby-constant">TestResult</span><span class="ruby-operator">::</span><span class="ruby-constant">FAULT</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">remove_listener</span>(<span class="ruby-constant">TestResult</span><span class="ruby-operator">::</span><span class="ruby-constant">FAULT</span>, <span class="ruby-identifier">fault_listener</span>)
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">remove_listener</span>(<span class="ruby-constant">TestResult</span><span class="ruby-operator">::</span><span class="ruby-constant">CHANGED</span>, <span class="ruby-identifier">changed_listener</span>)
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">remove_listener</span>(<span class="ruby-constant">TestResult</span><span class="ruby-operator">::</span><span class="ruby-constant">FINISHED</span>, <span class="ruby-identifier">finished_listener</span>)
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">remove_listener</span>(<span class="ruby-constant">TestResult</span><span class="ruby-operator">::</span><span class="ruby-constant">PASS_ASSERTION</span>,
+                           <span class="ruby-identifier">pass_assertion_listener</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,17 @@
+D:/GitHub/SmallPortableJekyll/ruby/bin/ruby.exe extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+generating console-i386-mingw32.def
+compiling console.c
+console.c: In function 'console_key_pressed_p':
+console.c:722:6: warning: implicit declaration of function 'rb_sym2str' [-Wimplicit-function-declaration]
+linking shared-object io/console.so
+console.o: In function `console_key_pressed_p':
+D:\GitHub\SmallPortableJekyll\ruby\lib\ruby\gems\2.1.0\gems\io-console-0.4.5/console.c:722: undefined reference to `rb_sym2str'
+collect2.exe: error: ld returned 1 exit status
+make: *** [console.so] Error 1
+
+make failed, exit code 2

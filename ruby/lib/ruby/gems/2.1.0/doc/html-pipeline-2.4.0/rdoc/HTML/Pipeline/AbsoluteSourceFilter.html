@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class HTML::Pipeline::AbsoluteSourceFilter - html-pipeline-2.4.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Filter
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-call">#call</a>
+    
+    <li ><a href="#method-i-image_base_url">#image_base_url</a>
+    
+    <li ><a href="#method-i-image_subpage_url">#image_subpage_url</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-HTML::Pipeline::AbsoluteSourceFilter">
+  <h1 id="class-HTML::Pipeline::AbsoluteSourceFilter" class="class">
+    class HTML::Pipeline::AbsoluteSourceFilter
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-call" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>HTML <a href="Filter.html">Filter</a> for replacing relative and root
+relative image URLs with fully qualified URLs</p>
+
+<p>This is useful if an image is root relative but should really be going
+through a cdn, or if the content for the page assumes the host is known
+i.e. scraped webpages and some RSS feeds.</p>
+
+<p>Context options:</p>
+
+<pre>:image_base_url - Base URL for image host for root relative src.
+:image_subpage_url - For relative src.</pre>
+
+<p>This filter does not write additional information to the context. This
+filter would need to be run before <a
+href="CamoFilter.html">CamoFilter</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="call-source">
+            <pre><span class="ruby-comment"># File lib/html/pipeline/absolute_source_filter.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">call</span>
+  <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;img&quot;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span><span class="ruby-operator">|</span> 
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">element</span>[<span class="ruby-string">&#39;src&#39;</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">element</span>[<span class="ruby-string">&#39;src&#39;</span>].<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">src</span> = <span class="ruby-identifier">element</span>[<span class="ruby-string">&#39;src&#39;</span>].<span class="ruby-identifier">strip</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">src</span>.<span class="ruby-identifier">start_with?</span> <span class="ruby-string">&#39;http&#39;</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">src</span>.<span class="ruby-identifier">start_with?</span> <span class="ruby-string">&#39;/&#39;</span>
+        <span class="ruby-identifier">base</span> = <span class="ruby-identifier">image_base_url</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">base</span> = <span class="ruby-identifier">image_subpage_url</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">element</span>[<span class="ruby-string">&quot;src&quot;</span>] = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">base</span>, <span class="ruby-identifier">src</span>).<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">doc</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-image_base_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">image_base_url</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Private: the base url you want to use</p>
+          
+          
+
+          
+          <div class="method-source-code" id="image_base_url-source">
+            <pre><span class="ruby-comment"># File lib/html/pipeline/absolute_source_filter.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">image_base_url</span>
+  <span class="ruby-identifier">context</span>[<span class="ruby-value">:image_base_url</span>] <span class="ruby-keyword">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Missing context :image_base_url for #{self.class.name}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-image_subpage_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">image_subpage_url</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Private: the relative url you want to use</p>
+          
+          
+
+          
+          <div class="method-source-code" id="image_subpage_url-source">
+            <pre><span class="ruby-comment"># File lib/html/pipeline/absolute_source_filter.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">image_subpage_url</span>
+  <span class="ruby-identifier">context</span>[<span class="ruby-value">:image_subpage_url</span>] <span class="ruby-keyword">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Missing context :image_subpage_url for #{self.class.name}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

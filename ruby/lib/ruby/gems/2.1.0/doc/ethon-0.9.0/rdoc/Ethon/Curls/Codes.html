@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Ethon::Curls::Codes - ethon-0.9.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-easy_codes">#easy_codes</a>
+    
+    <li ><a href="#method-i-multi_codes">#multi_codes</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Ethon::Curls::Codes">
+  <h1 id="module-Ethon::Curls::Codes" class="module">
+    module Ethon::Curls::Codes
+  </h1>
+
+  <section class="description">
+    
+<p>This module contains all easy and multi return codes.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-easy_codes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">easy_codes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Libcurl error codes, refer <a
+href="https://github.com/bagder/curl/blob/master/include/curl/curl.h">github.com/bagder/curl/blob/master/include/curl/curl.h</a>
+for details</p>
+          
+          
+
+          
+          <div class="method-source-code" id="easy_codes-source">
+            <pre><span class="ruby-comment"># File lib/ethon/curls/codes.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">easy_codes</span>
+  [
+    <span class="ruby-value">:ok</span>,
+    <span class="ruby-value">:unsupported_protocol</span>,
+    <span class="ruby-value">:failed_init</span>,
+    <span class="ruby-value">:url_malformat</span>,
+    <span class="ruby-value">:not_built_in</span>,
+    <span class="ruby-value">:couldnt_resolve_proxy</span>,
+    <span class="ruby-value">:couldnt_resolve_host</span>,
+    <span class="ruby-value">:couldnt_connect</span>,
+    <span class="ruby-value">:ftp_weird_server_reply</span>,
+    <span class="ruby-value">:remote_access_denied</span>,
+    <span class="ruby-value">:ftp_accept_failed</span>,
+    <span class="ruby-value">:ftp_weird_pass_reply</span>,
+    <span class="ruby-value">:ftp_accept_timeout</span>,
+    <span class="ruby-value">:ftp_weird_pasv_reply</span>,
+    <span class="ruby-value">:ftp_weird_227_format</span>,
+    <span class="ruby-value">:ftp_cant_get_host</span>,
+    <span class="ruby-value">:obsolete16</span>,
+    <span class="ruby-value">:ftp_couldnt_set_type</span>,
+    <span class="ruby-value">:partial_file</span>,
+    <span class="ruby-value">:ftp_couldnt_retr_file</span>,
+    <span class="ruby-value">:obsolete20</span>,
+    <span class="ruby-value">:quote_error</span>,
+    <span class="ruby-value">:http_returned_error</span>,
+    <span class="ruby-value">:write_error</span>,
+    <span class="ruby-value">:obsolete24</span>,
+    <span class="ruby-value">:upload_failed</span>,
+    <span class="ruby-value">:read_error</span>,
+    <span class="ruby-value">:out_of_memory</span>,
+    <span class="ruby-value">:operation_timedout</span>,
+    <span class="ruby-value">:obsolete29</span>,
+    <span class="ruby-value">:ftp_port_failed</span>,
+    <span class="ruby-value">:ftp_couldnt_use_rest</span>,
+    <span class="ruby-value">:obsolete32</span>,
+    <span class="ruby-value">:range_error</span>,
+    <span class="ruby-value">:http_post_error</span>,
+    <span class="ruby-value">:ssl_connect_error</span>,
+    <span class="ruby-value">:bad_download_resume</span>,
+    <span class="ruby-value">:file_couldnt_read_file</span>,
+    <span class="ruby-value">:ldap_cannot_bind</span>,
+    <span class="ruby-value">:ldap_search_failed</span>,
+    <span class="ruby-value">:obsolete40</span>,
+    <span class="ruby-value">:function_not_found</span>,
+    <span class="ruby-value">:aborted_by_callback</span>,
+    <span class="ruby-value">:bad_function_argument</span>,
+    <span class="ruby-value">:obsolete44</span>,
+    <span class="ruby-value">:interface_failed</span>,
+    <span class="ruby-value">:obsolete46</span>,
+    <span class="ruby-value">:too_many_redirects</span> ,
+    <span class="ruby-value">:unknown_option</span>,
+    <span class="ruby-value">:telnet_option_syntax</span> ,
+    <span class="ruby-value">:obsolete50</span>,
+    <span class="ruby-value">:peer_failed_verification</span>,
+    <span class="ruby-value">:got_nothing</span>,
+    <span class="ruby-value">:ssl_engine_notfound</span>,
+    <span class="ruby-value">:ssl_engine_setfailed</span>,
+    <span class="ruby-value">:send_error</span>,
+    <span class="ruby-value">:recv_error</span>,
+    <span class="ruby-value">:obsolete57</span>,
+    <span class="ruby-value">:ssl_certproblem</span>,
+    <span class="ruby-value">:ssl_cipher</span>,
+    <span class="ruby-value">:ssl_cacert</span>,
+    <span class="ruby-value">:bad_content_encoding</span>,
+    <span class="ruby-value">:ldap_invalid_url</span>,
+    <span class="ruby-value">:filesize_exceeded</span>,
+    <span class="ruby-value">:use_ssl_failed</span>,
+    <span class="ruby-value">:send_fail_rewind</span>,
+    <span class="ruby-value">:ssl_engine_initfailed</span>,
+    <span class="ruby-value">:login_denied</span>,
+    <span class="ruby-value">:tftp_notfound</span>,
+    <span class="ruby-value">:tftp_perm</span>,
+    <span class="ruby-value">:remote_disk_full</span>,
+    <span class="ruby-value">:tftp_illegal</span>,
+    <span class="ruby-value">:tftp_unknownid</span>,
+    <span class="ruby-value">:remote_file_exists</span>,
+    <span class="ruby-value">:tftp_nosuchuser</span>,
+    <span class="ruby-value">:conv_failed</span>,
+    <span class="ruby-value">:conv_reqd</span>,
+    <span class="ruby-value">:ssl_cacert_badfile</span>,
+    <span class="ruby-value">:remote_file_not_found</span>,
+    <span class="ruby-value">:ssh</span>,
+    <span class="ruby-value">:ssl_shutdown_failed</span>,
+    <span class="ruby-value">:again</span>,
+    <span class="ruby-value">:ssl_crl_badfile</span>,
+    <span class="ruby-value">:ssl_issuer_error</span>,
+    <span class="ruby-value">:ftp_pret_failed</span>,
+    <span class="ruby-value">:rtsp_cseq_error</span>,
+    <span class="ruby-value">:rtsp_session_error</span>,
+    <span class="ruby-value">:ftp_bad_file_list</span>,
+    <span class="ruby-value">:chunk_failed</span>,
+    <span class="ruby-value">:last</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-multi_codes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">multi_codes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Curl-Multi socket error codes, refer <a
+href="https://github.com/bagder/curl/blob/master/include/curl/multi.h">github.com/bagder/curl/blob/master/include/curl/multi.h</a>
+for details</p>
+          
+          
+
+          
+          <div class="method-source-code" id="multi_codes-source">
+            <pre><span class="ruby-comment"># File lib/ethon/curls/codes.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">multi_codes</span>
+  [
+    <span class="ruby-value">:call_multi_perform</span>, <span class="ruby-value">-1</span>,
+    <span class="ruby-value">:ok</span>,
+    <span class="ruby-value">:bad_handle</span>,
+    <span class="ruby-value">:bad_easy_handle</span>,
+    <span class="ruby-value">:out_of_memory</span>,
+    <span class="ruby-value">:internal_error</span>,
+    <span class="ruby-value">:bad_socket</span>,
+    <span class="ruby-value">:unknown_option</span>,
+    <span class="ruby-value">:last</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

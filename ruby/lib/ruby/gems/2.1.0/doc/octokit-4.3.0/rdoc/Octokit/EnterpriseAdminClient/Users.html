@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Octokit::EnterpriseAdminClient::Users - octokit-4.3.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-create_impersonation_token">#create_impersonation_token</a>
+    
+    <li ><a href="#method-i-create_user">#create_user</a>
+    
+    <li ><a href="#method-i-delete_impersonation_token">#delete_impersonation_token</a>
+    
+    <li ><a href="#method-i-delete_key">#delete_key</a>
+    
+    <li ><a href="#method-i-delete_user">#delete_user</a>
+    
+    <li ><a href="#method-i-demote">#demote</a>
+    
+    <li ><a href="#method-i-list_all_keys">#list_all_keys</a>
+    
+    <li ><a href="#method-i-promote">#promote</a>
+    
+    <li ><a href="#method-i-rename_user">#rename_user</a>
+    
+    <li ><a href="#method-i-suspend">#suspend</a>
+    
+    <li ><a href="#method-i-unsuspend">#unsuspend</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Octokit::EnterpriseAdminClient::Users">
+  <h1 id="module-Octokit::EnterpriseAdminClient::Users" class="module">
+    module Octokit::EnterpriseAdminClient::Users
+  </h1>
+
+  <section class="description">
+    
+<p>Methods for the Enterprise <a href="../User.html">User</a> Administration
+API</p>
+
+<p>@see <a
+href="https://developer.github.com/v3/users/administration">developer.github.com/v3/users/administration</a>/</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-create_impersonation_token" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_impersonation_token</span><span
+            class="method-args">(login, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates an impersonation OAuth token.</p>
+
+<p>@param login [String] The user to create a token for. @param options
+[Array&lt;String&gt;] :scopes The scopes to apply. @see <a
+href="https://developer.github.com/v3/users/administration/#create-an-impersonation-oauth-token">developer.github.com/v3/users/administration/#create-an-impersonation-oauth-token</a>
+@example</p>
+
+<pre class="ruby"><span class="ruby-ivar">@admin_client</span>.<span class="ruby-identifier">create_impersonation_token</span>(<span class="ruby-string">&#39;foobar&#39;</span>, {:<span class="ruby-identifier">scopes</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">&#39;repo:write&#39;</span>]})
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="create_impersonation_token-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/users.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_impersonation_token</span>(<span class="ruby-identifier">login</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">post</span> <span class="ruby-node">&quot;admin/users/#{login}/authorizations&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_user" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_user</span><span
+            class="method-args">(login, email, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new user.</p>
+
+<p>@param login [String] The user&#39;s username. @param email [String] The
+user&#39;s email address. @see <a
+href="https://developer.github.com/v3/users/administration/#create-a-new-user">developer.github.com/v3/users/administration/#create-a-new-user</a>
+@example</p>
+
+<pre>@admin_client.create_user(&#39;foobar&#39;, &#39;notreal@foo.bar&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="create_user-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/users.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_user</span>(<span class="ruby-identifier">login</span>, <span class="ruby-identifier">email</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:login</span>] = <span class="ruby-identifier">login</span>
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:email</span>] = <span class="ruby-identifier">email</span>
+  <span class="ruby-identifier">post</span> <span class="ruby-string">&quot;admin/users&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_impersonation_token" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_impersonation_token</span><span
+            class="method-args">(login, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Deletes an impersonation OAuth token.</p>
+
+<p>@param login [String] The user whose token should be deleted. @see <a
+href="https://developer.github.com/v3/users/administration/#delete-an-impersonation-oauth-token">developer.github.com/v3/users/administration/#delete-an-impersonation-oauth-token</a>
+@example</p>
+
+<pre>@admin_client.delete_impersonation_token(&#39;foobar&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="delete_impersonation_token-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/users.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_impersonation_token</span>(<span class="ruby-identifier">login</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:delete</span>, <span class="ruby-node">&quot;admin/users/#{login}/authorizations&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_key</span><span
+            class="method-args">(id, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Deletes a public SSH keys.</p>
+
+<p>@param id [Number] The ID of the key to delete. @see <a
+href="https://developer.github.com/v3/users/administration/#delete-a-public-key">developer.github.com/v3/users/administration/#delete-a-public-key</a>
+@example</p>
+
+<pre>@admin_client.delete_key(1)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="delete_key-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/users.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_key</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:delete</span>,  <span class="ruby-node">&quot;admin/keys/#{id}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_user" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_user</span><span
+            class="method-args">(username, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Deletes a user.</p>
+
+<p>@param username [String] The username to delete. @see <a
+href="https://developer.github.com/v3/users/administration/#delete-a-user">developer.github.com/v3/users/administration/#delete-a-user</a>
+@example</p>
+
+<pre>@admin_client.delete_key(1)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="delete_user-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/users.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_user</span>(<span class="ruby-identifier">username</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:delete</span>,  <span class="ruby-node">&quot;admin/users/#{username}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-demote" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">demote</span><span
+            class="method-args">(user, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Demote a site administrator to an ordinary user</p>
+
+<p>@param user [String] Username of the user to demote. @return [Boolean] True
+if demote was successful, false otherwise. @see <a
+href="https://developer.github.com/v3/users/administration/#demote-a-site-administrator-to-an-ordinary-user">developer.github.com/v3/users/administration/#demote-a-site-administrator-to-an-ordinary-user</a>
+@example</p>
+
+<pre>@admin_client.demote(&#39;holman&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="demote-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/users.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">demote</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:delete</span>, <span class="ruby-node">&quot;users/#{user}/site_admin&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-list_all_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">list_all_keys</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Lists all the public SSH keys.</p>
+
+<p>@see <a
+href="https://developer.github.com/v3/users/administration/#list-all-public-keys">developer.github.com/v3/users/administration/#list-all-public-keys</a>
+@example</p>
+
+<pre>@admin_client.list_all_keys</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="list_all_keys-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/users.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_all_keys</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span> <span class="ruby-string">&quot;admin/keys&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-promote" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">promote</span><span
+            class="method-args">(user, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Promote an ordinary user to a site administrator</p>
+
+<p>@param user [String] Username of the user to promote. @return [Boolean]
+True if promote was successful, false otherwise. @see <a
+href="https://developer.github.com/v3/users/administration/#promote-an-ordinary-user-to-a-site-administrator">developer.github.com/v3/users/administration/#promote-an-ordinary-user-to-a-site-administrator</a>
+@example</p>
+
+<pre>@admin_client.promote(&#39;holman&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="promote-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/users.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">promote</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:put</span>, <span class="ruby-node">&quot;users/#{user}/site_admin&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rename_user" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rename_user</span><span
+            class="method-args">(old_login, new_login, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Rename a user.</p>
+
+<p>@param old_login [String] The user&#39;s old username. @param new_login
+[String] The user&#39;s new username. @see <a
+href="https://developer.github.com/v3/users/administration/#rename-an-existing-user">developer.github.com/v3/users/administration/#rename-an-existing-user</a>
+@example</p>
+
+<pre>@admin_client.rename_user(&#39;foobar&#39;, &#39;foofoobar&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="rename_user-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/users.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rename_user</span>(<span class="ruby-identifier">old_login</span>, <span class="ruby-identifier">new_login</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:login</span>] = <span class="ruby-identifier">new_login</span>
+  <span class="ruby-identifier">patch</span> <span class="ruby-node">&quot;admin/users/#{old_login}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-suspend" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">suspend</span><span
+            class="method-args">(user, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Suspend a user.</p>
+
+<p>@param user [String] Username of the user to suspend. @return [Boolean]
+True if suspend was successful, false otherwise. @see <a
+href="https://developer.github.com/v3/users/administration/#suspend-a-user">developer.github.com/v3/users/administration/#suspend-a-user</a>
+@example</p>
+
+<pre>@admin_client.suspend(&#39;holman&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="suspend-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/users.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">suspend</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:put</span>, <span class="ruby-node">&quot;users/#{user}/suspended&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unsuspend" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unsuspend</span><span
+            class="method-args">(user, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Unsuspend a user.</p>
+
+<p>@param user [String] Username of the user to unsuspend. @return [Boolean]
+True if unsuspend was successful, false otherwise. @see <a
+href="https://developer.github.com/v3/users/administration/#unsuspend-a-user">developer.github.com/v3/users/administration/#unsuspend-a-user</a>
+@example</p>
+
+<pre>@admin_client.unsuspend(&#39;holman&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="unsuspend-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/users.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unsuspend</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:delete</span>, <span class="ruby-node">&quot;users/#{user}/suspended&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

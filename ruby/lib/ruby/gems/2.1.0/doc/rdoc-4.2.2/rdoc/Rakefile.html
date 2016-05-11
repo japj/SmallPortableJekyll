@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Rakefile - rdoc-4.2.2 Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./CONTRIBUTING_rdoc.html">CONTRIBUTING</a>
+  
+    <li><a href="./CVE-2013-0256_rdoc.html">CVE-2013-0256</a>
+  
+    <li><a href="./ExampleMarkdown_md.html">ExampleMarkdown</a>
+  
+    <li><a href="./ExampleRDoc_rdoc.html">ExampleRDoc</a>
+  
+    <li><a href="./History_rdoc.html">History</a>
+  
+    <li><a href="./LEGAL_rdoc.html">LEGAL</a>
+  
+    <li><a href="./LICENSE_rdoc.html">LICENSE</a>
+  
+    <li><a href="./Manifest_txt.html">Manifest</a>
+  
+    <li><a href="./README_rdoc.html">README</a>
+  
+    <li><a href="./RI_rdoc.html">RI</a>
+  
+    <li><a href="./Rakefile.html">Rakefile</a>
+  
+    <li><a href="./TODO_rdoc.html">TODO</a>
+  
+    <li><a href="./lib/rdoc/markdown_kpeg.html">markdown.kpeg</a>
+  
+    <li><a href="./lib/rdoc/markdown/literals_1_8_kpeg.html">literals_1_8.kpeg</a>
+  
+    <li><a href="./lib/rdoc/markdown/literals_1_9_kpeg.html">literals_1_9.kpeg</a>
+  
+    <li><a href="./lib/rdoc/rd/block_parser_ry.html">block_parser.ry</a>
+  
+    <li><a href="./lib/rdoc/rd/inline_parser_ry.html">inline_parser.ry</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page Rakefile">
+
+<p>$:.unshift File.expand_path &#39;lib&#39; require &#39;rdoc&#39; require
+&#39;hoe&#39;</p>
+
+<p><a href="'BENCHMARK'">ENV</a> = &#39;yes&#39;</p>
+
+<p>task :docs    =&gt; :generate task :test    =&gt; :generate</p>
+
+<p>PARSER_FILES = %w[</p>
+
+<pre>lib/rdoc/rd/block_parser.rb
+lib/rdoc/rd/inline_parser.rb
+lib/rdoc/markdown.rb
+lib/rdoc/markdown/literals_1_8.rb
+lib/rdoc/markdown/literals_1_9.rb</pre>
+
+<p>]</p>
+
+<p>Hoe.plugin :git Hoe.plugin :kpeg Hoe.plugin :minitest Hoe.plugin :travis</p>
+
+<p>$rdoc_rakefile = true</p>
+
+<p>hoe = Hoe.spec &#39;rdoc&#39; do</p>
+
+<pre>developer &#39;Eric Hodel&#39;, &#39;drbrain@segment7.net&#39;
+developer &#39;Dave Thomas&#39;, &#39;&#39;
+developer &#39;Phil Hagelberg&#39;, &#39;technomancy@gmail.com&#39;
+developer &#39;Tony Strauss&#39;, &#39;tony.strauss@designingpatterns.com&#39;
+
+self.rsync_args = &#39;-avz&#39;
+rdoc_locations &lt;&lt; &#39;docs.seattlerb.org:/data/www/docs.seattlerb.org/rdoc/&#39;
+rdoc_locations &lt;&lt; &#39;drbrain@rubyforge.org:/var/www/gforge-projects/rdoc/&#39;
+
+spec_extras[:post_install_message] = &lt;&lt;-MESSAGE</pre>
+
+<p>Depending on your version of ruby, you may need to install ruby rdoc/ri
+data:</p>
+
+<p>&lt;= 1.8.6 : unsupported</p>
+
+<pre>= 1.8.7 : gem install rdoc-data; rdoc-data --install
+= 1.9.1 : gem install rdoc-data; rdoc-data --install</pre>
+
+<p>&gt;= 1.9.2 : nothing to do! Yay!</p>
+
+<pre>MESSAGE
+
+self.licenses &lt;&lt; &#39;Ruby&#39;
+self.readme_file  = &#39;README.rdoc&#39;
+self.history_file = &#39;History.rdoc&#39;
+self.testlib = :minitest
+self.extra_rdoc_files += %w[
+  CVE-2013-0256.rdoc
+  CONTRIBUTING.rdoc
+  ExampleMarkdown.md
+  ExampleRDoc.rdoc
+  History.rdoc
+  LEGAL.rdoc
+  LICENSE.rdoc
+  README.rdoc
+  RI.rdoc
+  TODO.rdoc
+]
+
+self.clean_globs += PARSER_FILES
+self.kpeg_flags = &#39;-fsv&#39; if self.respond_to? :kpeg_flags= # no plugin
+
+require_ruby_version &#39;&gt;= 1.8.7&#39;
+extra_deps     &lt;&lt; [&#39;json&#39;,     &#39;~&gt; 1.4&#39;]
+extra_dev_deps &lt;&lt; [&#39;racc&#39;,     &#39;~&gt; 1.4&#39;, &#39;&gt; 1.4.10&#39;]
+extra_dev_deps &lt;&lt; [&#39;minitest&#39;, &#39;~&gt; 4&#39;]
+
+extra_rdoc_files &lt;&lt; &#39;Rakefile&#39;
+spec_extras[&#39;required_rubygems_version&#39;] = &#39;&gt;= 1.3&#39;
+spec_extras[&#39;homepage&#39;] = &#39;http://docs.seattlerb.org/rdoc&#39;</pre>
+
+<p>end</p>
+
+<p>hoe.test_prelude = &#39;gem “minitest”, “~&gt; 4.0”&#39;</p>
+
+<p>def rake(*args)</p>
+
+<pre>sh $0, *args</pre>
+
+<p>end</p>
+
+<p>need_racc = PARSER_FILES.any? do |rb_file|</p>
+
+<pre>ry_file = rb_file.gsub(/\.rb\z/, &quot;.ry&quot;)
+not File.exist?(rb_file) or
+  (File.exist?(ry_file) and File.mtime(rb_file) &lt; File.mtime(ry_file))</pre>
+
+<p>end</p>
+
+<p>if need_racc</p>
+
+<pre>Rake::Task[&quot;default&quot;].prerequisites.clear
+task :default do
+  rake &quot;check_extra_deps&quot;
+  rake &quot;install_plugins&quot;
+  rake &quot;newb&quot;
+end</pre>
+
+<p>end</p>
+
+<p><a href="'docs'">Rake::Task</a>.actions.clear task :docs do</p>
+
+<pre class="ruby"><span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-string">&#39;lib&#39;</span>
+<span class="ruby-identifier">require</span> <span class="ruby-string">&#39;rdoc&#39;</span>
+
+<span class="ruby-identifier">options</span> = <span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">options</span>.<span class="ruby-identifier">title</span> = <span class="ruby-node">&quot;rdoc #{RDoc::VERSION} Documentation&quot;</span>
+<span class="ruby-identifier">options</span>.<span class="ruby-identifier">op_dir</span> = <span class="ruby-string">&#39;doc&#39;</span>
+<span class="ruby-identifier">options</span>.<span class="ruby-identifier">main_page</span> = <span class="ruby-string">&#39;README.rdoc&#39;</span>
+<span class="ruby-identifier">options</span>.<span class="ruby-identifier">files</span> = <span class="ruby-identifier">hoe</span>.<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">extra_rdoc_files</span> <span class="ruby-operator">+</span> <span class="ruby-node">%w[lib]</span>
+<span class="ruby-identifier">options</span>.<span class="ruby-identifier">setup_generator</span> <span class="ruby-string">&#39;darkfish&#39;</span>
+
+<span class="ruby-constant">RDoc</span><span class="ruby-operator">::</span><span class="ruby-constant">RDoc</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">document</span> <span class="ruby-identifier">options</span>
+</pre>
+
+<p>end</p>
+
+<p># requires ruby 1.8 and ruby 1.8 to build hoe.clean_globs -=
+PARSER_FILES.grep(/literals_/)</p>
+
+<p>task :generate =&gt; :isolate task :generate =&gt; PARSER_FILES task
+:check_manifest =&gt; :generate</p>
+
+<p>rule &#39;.rb&#39; =&gt; &#39;.ry&#39; do |t|</p>
+
+<pre>racc = Gem.bin_path &#39;racc&#39;, &#39;racc&#39;
+
+ruby &quot;-rubygems #{racc} -l -o #{t.name} #{t.source}&quot;</pre>
+
+<p>end</p>
+
+<p>path = “pkg/#{hoe.spec.full_name}”</p>
+
+<p>package_parser_files = PARSER_FILES.map do |parser_file|</p>
+
+<pre class="ruby"><span class="ruby-identifier">package_parser_file</span> = <span class="ruby-node">&quot;#{path}/#{parser_file}&quot;</span>
+<span class="ruby-identifier">file</span> <span class="ruby-identifier">package_parser_file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">parser_file</span> <span class="ruby-comment"># ensure copy runs before racc</span>
+<span class="ruby-identifier">package_parser_file</span>
+</pre>
+
+<p>end</p>
+
+<p>task “#{path}.gem” =&gt; package_parser_files</p>
+
+<p># These tasks expect to have the following directory structure: # #  
+git/git.rubini.us/code # Rubinius git HEAD checkout #   svn/ruby/trunk     
+# ruby subversion HEAD checkout #   svn/rdoc/trunk         # <a
+href="RDoc.html">RDoc</a> subversion HEAD checkout # # If you don&#39;t
+have this directory structure, set RUBY_PATH and/or # RUBINIUS_PATH.</p>
+
+<p>diff_options = “-urpN –exclude &#39;<strong>svn</strong>&#39; –exclude
+&#39;*swp&#39; –exclude &#39;*rbc&#39;” rsync_options = “-avP –exclude
+&#39;<strong>svn</strong>&#39; –exclude &#39;*swp&#39; –exclude
+&#39;*rbc&#39; –exclude &#39;*.rej&#39; –exclude &#39;*.orig&#39; –exclude
+&#39;*.kpeg&#39; –exclude &#39;*.ry&#39; –exclude &#39;literals_1_8.rb&#39;
+–exclude &#39;gauntlet_rdoc.rb&#39;”</p>
+
+<p>rubinius_dir = <a href="'RUBINIUS_PATH'">ENV</a> ||
+&#39;../../../git/git.rubini.us/code&#39; ruby_dir = <a
+href="'RUBY_PATH'">ENV</a> || &#39;../../svn/ruby/trunk&#39;</p>
+
+<p>desc “Updates Ruby HEAD with the currently checked-out copy of <a
+href="RDoc.html">RDoc</a>.” task :update_ruby do</p>
+
+<pre>sh &quot;rsync #{rsync_options} bin/rdoc #{ruby_dir}/bin/rdoc&quot;
+sh &quot;rsync #{rsync_options} bin/ri #{ruby_dir}/bin/ri&quot;
+sh &quot;rsync #{rsync_options} lib/ #{ruby_dir}/lib&quot;
+sh &quot;rsync #{rsync_options} test/ #{ruby_dir}/test/rdoc&quot;</pre>
+
+<p>end</p>
+
+<p>desc “Diffs Ruby HEAD with the currently checked-out copy of <a
+href="RDoc.html">RDoc</a>.” task :diff_ruby do</p>
+
+<pre>options = &quot;-urpN --exclude &#39;*svn*&#39; --exclude &#39;*swp&#39; --exclude &#39;*rbc&#39;&quot;
+
+sh &quot;diff #{diff_options} bin/rdoc #{ruby_dir}/bin/rdoc; true&quot;
+sh &quot;diff #{diff_options} bin/ri #{ruby_dir}/bin/ri; true&quot;
+sh &quot;diff #{diff_options} lib/rdoc.rb #{ruby_dir}/lib/rdoc.rb; true&quot;
+sh &quot;diff #{diff_options} lib/rdoc #{ruby_dir}/lib/rdoc; true&quot;
+sh &quot;diff #{diff_options} test #{ruby_dir}/test/rdoc; true&quot;</pre>
+
+<p>end</p>
+
+<p>desc “Updates Rubinius HEAD with the currently checked-out copy of <a
+href="RDoc.html">RDoc</a>.” task :update_rubinius do</p>
+
+<pre>sh &quot;rsync #{rsync_options} bin/rdoc #{rubinius_dir}/lib/bin/rdoc.rb&quot;
+sh &quot;rsync #{rsync_options} bin/ri #{rubinius_dir}/lib/bin/ri.rb&quot;
+sh &quot;rsync #{rsync_options} lib/ #{rubinius_dir}/lib&quot;
+sh &quot;rsync #{rsync_options} test/ #{rubinius_dir}/test/rdoc&quot;</pre>
+
+<p>end</p>
+
+<p>desc “Diffs Rubinius HEAD with the currently checked-out copy of <a
+href="RDoc.html">RDoc</a>.” task :diff_rubinius do</p>
+
+<pre>sh &quot;diff #{diff_options} bin/rdoc #{rubinius_dir}/lib/bin/rdoc.rb; true&quot;
+sh &quot;diff #{diff_options} bin/ri #{rubinius_dir}/lib/bin/ri.rb; true&quot;
+sh &quot;diff #{diff_options} lib/rdoc.rb #{rubinius_dir}/lib/rdoc.rb; true&quot;
+sh &quot;diff #{diff_options} lib/rdoc #{rubinius_dir}/lib/rdoc; true&quot;
+sh &quot;diff #{diff_options} test #{rubinius_dir}/test/rdoc; true&quot;</pre>
+
+<p>end</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

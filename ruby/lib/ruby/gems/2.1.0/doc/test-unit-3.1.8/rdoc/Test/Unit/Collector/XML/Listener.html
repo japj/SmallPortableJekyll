@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Test::Unit::Collector::XML::Listener - test-unit-3.1.8 Documentation</title>
+
+<link href="../../../../fonts.css" rel="stylesheet">
+<link href="../../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../";
+</script>
+
+<script src="../../../../js/jquery.js"></script>
+<script src="../../../../js/navigation.js"></script>
+<script src="../../../../js/search_index.js"></script>
+<script src="../../../../js/search.js"></script>
+<script src="../../../../js/searcher.js"></script>
+<script src="../../../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../../../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">REXML::StreamListener</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-_ns">#_ns</a>
+    
+    <li ><a href="#method-i-current_path">#current_path</a>
+    
+    <li ><a href="#method-i-next_state">#next_state</a>
+    
+    <li ><a href="#method-i-normalize_local">#normalize_local</a>
+    
+    <li ><a href="#method-i-parent_tag">#parent_tag</a>
+    
+    <li ><a href="#method-i-split_name">#split_name</a>
+    
+    <li ><a href="#method-i-tag_end">#tag_end</a>
+    
+    <li ><a href="#method-i-tag_start">#tag_start</a>
+    
+    <li ><a href="#method-i-test_case_end">#test_case_end</a>
+    
+    <li ><a href="#method-i-test_end">#test_end</a>
+    
+    <li ><a href="#method-i-test_suite_end">#test_suite_end</a>
+    
+    <li ><a href="#method-i-text">#text</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Test::Unit::Collector::XML::Listener">
+  <h1 id="class-Test::Unit::Collector::XML::Listener" class="class">
+    class Test::Unit::Collector::XML::Listener
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="NAME_SPLIT">NAME_SPLIT
+        
+        <dd>
+        
+      
+        <dt id="STATE_TABLE">STATE_TABLE
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-test_suites" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">test_suites</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/xml.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-ivar">@ns_stack</span> = [{<span class="ruby-string">&quot;xml&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:xml</span>}]
+  <span class="ruby-ivar">@tag_stack</span> = [[<span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:root</span>]]
+  <span class="ruby-ivar">@text_stack</span> = [<span class="ruby-string">&#39;&#39;</span>]
+  <span class="ruby-ivar">@state_stack</span> = [<span class="ruby-value">:root</span>]
+  <span class="ruby-ivar">@values</span> = {}
+  <span class="ruby-ivar">@test_suites</span> = []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-tag_end" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tag_end</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="tag_end-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/xml.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tag_end</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">state</span> = <span class="ruby-ivar">@state_stack</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-identifier">text</span> = <span class="ruby-ivar">@text_stack</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">local</span> = <span class="ruby-ivar">@tag_stack</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-identifier">no_action_states</span> = [<span class="ruby-value">:root</span>, <span class="ruby-value">:stream</span>]
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">state</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">*</span><span class="ruby-identifier">no_action_states</span>
+    <span class="ruby-comment"># do nothing</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:test_suite</span>
+    <span class="ruby-identifier">test_suite_end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:complete_test_case</span>
+    <span class="ruby-ivar">@test_suites</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@test_case</span>.<span class="ruby-identifier">suite</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:test_case</span>
+    <span class="ruby-identifier">test_case_end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:result</span>
+    <span class="ruby-ivar">@result</span> = <span class="ruby-ivar">@values</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:test</span>
+    <span class="ruby-identifier">test_end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:pass_assertion</span>
+    <span class="ruby-ivar">@n_pass_assertions</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:backtrace</span>
+    <span class="ruby-ivar">@values</span> = <span class="ruby-ivar">@values_backup</span>
+    <span class="ruby-ivar">@values</span>[<span class="ruby-string">&quot;backtrace&quot;</span>] = <span class="ruby-ivar">@backtrace</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:entry</span>
+    <span class="ruby-identifier">file</span> = <span class="ruby-ivar">@values</span>[<span class="ruby-string">&#39;file&#39;</span>]
+    <span class="ruby-identifier">line</span> = <span class="ruby-ivar">@values</span>[<span class="ruby-string">&#39;line&#39;</span>]
+    <span class="ruby-identifier">info</span> = <span class="ruby-ivar">@values</span>[<span class="ruby-string">&#39;info&#39;</span>]
+    <span class="ruby-ivar">@backtrace</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{file}:#{line}: #{info}&quot;</span>
+    <span class="ruby-ivar">@values</span> = {}
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">local</span> = <span class="ruby-identifier">normalize_local</span>(<span class="ruby-identifier">local</span>)
+    <span class="ruby-ivar">@values</span>[<span class="ruby-identifier">local</span>] = <span class="ruby-identifier">text</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@ns_stack</span>.<span class="ruby-identifier">pop</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tag_start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tag_start</span><span
+            class="method-args">(name, attributes)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="tag_start-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/xml.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tag_start</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">attributes</span>)
+  <span class="ruby-ivar">@text_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-string">&#39;&#39;</span>)
+
+  <span class="ruby-identifier">ns</span> = <span class="ruby-ivar">@ns_stack</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">attrs</span> = {}
+  <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-regexp">/\Axmlns(?:\z|:)/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">n</span>
+      <span class="ruby-identifier">ns</span>[<span class="ruby-identifier">$POSTMATCH</span>] = <span class="ruby-identifier">v</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">attrs</span>[<span class="ruby-identifier">n</span>] = <span class="ruby-identifier">v</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@ns_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">ns</span>)
+
+  <span class="ruby-identifier">_parent_tag</span> = <span class="ruby-identifier">parent_tag</span>
+  <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">local</span> = <span class="ruby-identifier">split_name</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">uri</span> = <span class="ruby-identifier">_ns</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-identifier">prefix</span>)
+  <span class="ruby-ivar">@tag_stack</span>.<span class="ruby-identifier">push</span>([<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">local</span>])
+
+  <span class="ruby-identifier">state</span> = <span class="ruby-identifier">next_state</span>(<span class="ruby-ivar">@state_stack</span>.<span class="ruby-identifier">last</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">local</span>)
+  <span class="ruby-ivar">@state_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">state</span>)
+  <span class="ruby-ivar">@values</span> = {}
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">state</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:test_suite</span>, <span class="ruby-value">:test_case</span>
+    <span class="ruby-comment"># do nothing</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:test</span>
+    <span class="ruby-ivar">@n_pass_assertions</span> = <span class="ruby-value">0</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">_parent_tag</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;start-test&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:backtrace</span>
+    <span class="ruby-ivar">@backtrace</span> = []
+    <span class="ruby-ivar">@values_backup</span> = <span class="ruby-ivar">@values</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-text" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">text</span><span
+            class="method-args">(data)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="text-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/xml.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">text</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-ivar">@text_stack</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-_ns" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_ns</span><span
+            class="method-args">(ns, prefix)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_ns-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/xml.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_ns</span>(<span class="ruby-identifier">ns</span>, <span class="ruby-identifier">prefix</span>)
+  <span class="ruby-identifier">ns</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">prefix</span>, <span class="ruby-string">&quot;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-current_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">current_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="current_path-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/xml.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">current_path</span>
+  <span class="ruby-identifier">locals</span> = <span class="ruby-ivar">@tag_stack</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">uri</span>, <span class="ruby-identifier">local</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">local</span>
+  <span class="ruby-keyword">end</span>
+  [<span class="ruby-string">&quot;&quot;</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">locals</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;/&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-next_state" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">next_state</span><span
+            class="method-args">(current_state, uri, local)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="next_state-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/xml.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">next_state</span>(<span class="ruby-identifier">current_state</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">local</span>)
+  <span class="ruby-identifier">local</span> = <span class="ruby-identifier">normalize_local</span>(<span class="ruby-identifier">local</span>)
+  <span class="ruby-identifier">valid_elements</span> = <span class="ruby-constant">STATE_TABLE</span>[<span class="ruby-identifier">current_state</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">valid_elements</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;unexpected element: #{current_path}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">next_state</span> = <span class="ruby-identifier">local</span>.<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">valid_elements</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">next_state</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;unexpected element: #{current_path}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">next_state</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-normalize_local" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">normalize_local</span><span
+            class="method-args">(local)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="normalize_local-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/xml.rb, line 196</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">normalize_local</span>(<span class="ruby-identifier">local</span>)
+  <span class="ruby-identifier">local</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/-/</span>, <span class="ruby-string">&quot;_&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parent_tag" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parent_tag</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parent_tag-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/xml.rb, line 200</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parent_tag</span>
+  <span class="ruby-ivar">@tag_stack</span>.<span class="ruby-identifier">last</span>[<span class="ruby-value">1</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-split_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">split_name</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="split_name-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/xml.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">split_name</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">NAME_SPLIT</span>
+  [<span class="ruby-node">$1</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-node">$2</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_case_end" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_case_end</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_case_end-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/xml.rb, line 215</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_case_end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">parent_tag</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;start-test-case&quot;</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-ivar">@values</span>[<span class="ruby-string">&quot;name&quot;</span>]
+  <span class="ruby-ivar">@test_case</span> = <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">TestCase</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">define_method</span>(<span class="ruby-value">:name</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">name</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_end" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_end</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_end-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/xml.rb, line 225</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">parent_tag</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;complete-test&quot;</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-ivar">@values</span>[<span class="ruby-string">&quot;name&quot;</span>]
+  <span class="ruby-identifier">n_pass_assertions</span> = <span class="ruby-ivar">@n_pass_assertions</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@result</span>
+  <span class="ruby-ivar">@test_case</span>.<span class="ruby-identifier">module_eval</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">test</span>
+    <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">n_pass_assertions</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">add_assertion</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">result</span>[<span class="ruby-string">&quot;status&quot;</span>]
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;omission&quot;</span>
+        <span class="ruby-identifier">add_omission</span>(<span class="ruby-constant">Omission</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>,
+                                  <span class="ruby-identifier">result</span>[<span class="ruby-string">&quot;backtrace&quot;</span>],
+                                  <span class="ruby-identifier">result</span>[<span class="ruby-string">&quot;detail&quot;</span>]))
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_suite_end" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_suite_end</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_suite_end-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/collector/xml.rb, line 204</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_suite_end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">parent_tag</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;start-test-suite&quot;</span>
+  <span class="ruby-identifier">suite</span> = <span class="ruby-constant">TestSuite</span>.<span class="ruby-identifier">new</span>
+  [<span class="ruby-string">&quot;start_time&quot;</span>, <span class="ruby-string">&quot;elapsed_time&quot;</span>, <span class="ruby-string">&quot;n_tests&quot;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@values</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">key</span>)
+      <span class="ruby-identifier">suite</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-node">&quot;@#{key}&quot;</span>, <span class="ruby-ivar">@values</span>[<span class="ruby-identifier">key</span>])
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@test_suites</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">suite</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

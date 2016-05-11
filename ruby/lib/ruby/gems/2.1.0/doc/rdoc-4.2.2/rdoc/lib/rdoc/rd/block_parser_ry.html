@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>block_parser.ry - rdoc-4.2.2 Documentation</title>
+
+<link href="../../../fonts.css" rel="stylesheet">
+<link href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/navigation.js"></script>
+<script src="../../../js/search_index.js"></script>
+<script src="../../../js/search.js"></script>
+<script src="../../../js/searcher.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../CONTRIBUTING_rdoc.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../CVE-2013-0256_rdoc.html">CVE-2013-0256</a>
+  
+    <li><a href="../../../ExampleMarkdown_md.html">ExampleMarkdown</a>
+  
+    <li><a href="../../../ExampleRDoc_rdoc.html">ExampleRDoc</a>
+  
+    <li><a href="../../../History_rdoc.html">History</a>
+  
+    <li><a href="../../../LEGAL_rdoc.html">LEGAL</a>
+  
+    <li><a href="../../../LICENSE_rdoc.html">LICENSE</a>
+  
+    <li><a href="../../../Manifest_txt.html">Manifest</a>
+  
+    <li><a href="../../../README_rdoc.html">README</a>
+  
+    <li><a href="../../../RI_rdoc.html">RI</a>
+  
+    <li><a href="../../../Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../TODO_rdoc.html">TODO</a>
+  
+    <li><a href="../../../lib/rdoc/markdown_kpeg.html">markdown.kpeg</a>
+  
+    <li><a href="../../../lib/rdoc/markdown/literals_1_8_kpeg.html">literals_1_8.kpeg</a>
+  
+    <li><a href="../../../lib/rdoc/markdown/literals_1_9_kpeg.html">literals_1_9.kpeg</a>
+  
+    <li><a href="../../../lib/rdoc/rd/block_parser_ry.html">block_parser.ry</a>
+  
+    <li><a href="../../../lib/rdoc/rd/inline_parser_ry.html">inline_parser.ry</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page lib/rdoc/rd/block_parser.ry">
+
+<p>class BlockParser</p>
+
+<pre>preclow
+  nonassoc DUMMY
+  left     ITEMLISTLINE
+           ENUMLISTLINE
+           DESCLISTLINE
+           METHODLISTLINE
+           STRINGLINE
+prechigh
+
+token STRINGLINE
+      ITEMLISTLINE
+      ENUMLISTLINE
+      DESCLISTLINE
+      METHODLISTLINE
+      WHITELINE
+      SUBTREE
+      HEADLINE
+      INCLUDE
+      INDENT
+      DEDENT
+      DUMMY
+
+rule
+  document : blocks { result = RDoc::Markup::Document.new(*val[0]) }
+           |        { raise ParseError, &quot;file empty&quot; }
+           ;
+
+  blocks : blocks block { result = val[0].concat val[1] }
+         | block        { result = val[0] }
+         ;
+
+  block : textblock { result = val }
+        | verbatim  { result = val }
+        | lists
+        | headline  { result = val }
+        | include   { result = val }
+        | WHITELINE { result = [RDoc::Markup::BlankLine.new] }
+        | SUBTREE   { result = val[0].parts }
+        ;
+
+  headline : HEADLINE {
+    # val[0] is like [level, title]
+    title = @inline_parser.parse(val[0][1])
+    result = RDoc::Markup::Heading.new(val[0][0], title)
+  }
+  ;
+
+  include : INCLUDE {
+    result = RDoc::Markup::Include.new val[0], @include_path
+  }
+  ;
+
+  textblock : textblockcontent = DUMMY {
+    # val[0] is Array of String
+    result = paragraph val[0]
+  }
+  ;
+
+  textblockcontent : textblockcontent STRINGLINE { result &lt;&lt; val[1].rstrip }
+                   | STRINGLINE { result = [val[0].rstrip] }
+                   ;
+
+  verbatim : INDENT verbatimcontent DEDENT {
+    # val[1] is Array of String
+    content = cut_off val[1]
+    result = RDoc::Markup::Verbatim.new(*content)
+
+    # imform to lexer.
+    @in_verbatim = false
+  }
+  ;
+
+  verbatim_after_lists : verbatimcontent {
+    # val[0] is Array of String
+    content = cut_off val[0]
+    result = RDoc::Markup::Verbatim.new(*content)
+
+    # imform to lexer.
+    @in_verbatim = false
+  }
+  ;
+
+  verbatimcontent : verbatimcontent STRINGLINE {
+    result &lt;&lt; val[1]
+  } | verbatimcontent INDENT verbatimcontent DEDENT {
+    result.concat val[2]
+  } | verbatimcontent WHITELINE {
+    result &lt;&lt; &quot;\n&quot;
+  } | STRINGLINE {
+    result = val
+    # inform to lexer.
+    @in_verbatim = true
+  }
+  ;
+
+  list : itemlist
+       | enumlist
+       | desclist
+       | methodlist
+       ;
+
+  lists : lists2 = DUMMY {
+    result = val[0]
+  } | INDENT lists2 DEDENT {
+    result = val[1]
+  } | INDENT lists2 verbatim_after_lists DEDENT {
+    result = val[1].push(val[2])
+  }
+  ;
+
+  lists2 : lists2 list { result = val[0] &lt;&lt; val[1] }
+         | list { result = [val[0]] }
+         ;
+
+  itemlist : itemlistitems  = DUMMY {
+    result = RDoc::Markup::List.new :BULLET, *val[0]
+  }
+  ;
+
+  itemlistitems : itemlistitems itemlistitem { result.push(val[1]) }
+                | itemlistitem { result = val }
+                ;
+
+  itemlistitem : first_textblock_in_itemlist other_blocks_in_list DEDENT {
+    result = RDoc::Markup::ListItem.new nil, val[0], *val[1]
+  }
+  ;
+
+  enumlist :  enumlistitems  = DUMMY {
+    result = RDoc::Markup::List.new :NUMBER, *val[0]
+  }
+  ;
+
+  enumlistitems : enumlistitems enumlistitem { result.push(val[1]) }
+                | enumlistitem { result = val }
+                ;
+
+  enumlistitem : first_textblock_in_enumlist other_blocks_in_list DEDENT {
+    result = RDoc::Markup::ListItem.new nil, val[0], *val[1]
+  }
+  ;
+
+  desclist : desclistitems  = DUMMY {
+    result = RDoc::Markup::List.new :NOTE, *val[0]
+  }
+  ;
+
+  desclistitems : desclistitems desclistitem { result.push(val[1]) }
+                | desclistitem { result = val }
+                ;
+
+  desclistitem : DESCLISTLINE description_part DEDENT {
+    term = @inline_parser.parse val[0].strip
+
+    result = RDoc::Markup::ListItem.new term, *val[1]
+  }
+  ;
+
+  methodlist : methodlistitems  = DUMMY {
+    result = RDoc::Markup::List.new :LABEL, *val[0]
+  }
+  ;
+
+  methodlistitems : methodlistitems methodlistitem { result.push(val[1]) }
+                  | methodlistitem { result = val }
+                  ;
+
+  methodlistitem : METHODLISTLINE description_part DEDENT {
+    result = RDoc::Markup::ListItem.new &quot;&lt;tt&gt;#{val[0].strip}&lt;/tt&gt;&quot;, *val[1]
+  }
+  ;
+
+  description_part : whitelines textblock blocks_in_list {
+    result = [val[1]].concat(val[2])
+  } | whitelines textblock {
+    result = [val[1]]
+  } | whitelines INDENT blocks_in_list DEDENT {
+    result = val[2]
+  } | whitelines {
+    result = []
+  }
+  ;
+
+  blocks_in_list : blocks_in_list block_in_list { result.concat val[1] }
+                 | block_in_list
+                 ;
+
+  block_in_list : textblock { result = val }
+                | verbatim  { result = val }
+                | lists
+                | WHITELINE { result = [] }
+                ;
+
+  whitelines  : whitelines2
+              |
+              ;
+
+  whitelines2 : WHITELINE whitelines2
+              | WHITELINE
+              ;
+
+  first_textblock_in_itemlist : ITEMLISTLINE textblockcontent {
+    result = paragraph [val[0]].concat(val[1])
+  } | ITEMLISTLINE {
+    result = paragraph [val[0]]
+  }
+  ;
+
+  first_textblock_in_enumlist : ENUMLISTLINE textblockcontent {
+    result = paragraph [val[0]].concat(val[1])
+  } | ENUMLISTLINE {
+    result = paragraph [val[0]]
+  }
+  ;
+
+  other_blocks_in_list : verbatim blocks_in_list {
+    result = [val[0]].concat(val[1])
+  } | lists blocks_in_list     { result.concat val[1] }
+    | WHITELINE blocks_in_list { result = val[1] }
+    | verbatim                 { result = val }
+    | lists
+    | WHITELINE                { result = [] }
+    |                          { result = [] }
+    ;</pre>
+
+<p>end</p>
+
+<p>—- inner</p>
+
+<p>#</p>
+
+<p>TMPFILE = [“rdtmp”, $$, 0]</p>
+
+<p>MARK_TO_LEVEL = {</p>
+
+<pre class="ruby"><span class="ruby-string">&#39;=&#39;</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>,
+<span class="ruby-string">&#39;==&#39;</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>,
+<span class="ruby-string">&#39;===&#39;</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-value">3</span>,
+<span class="ruby-string">&#39;====&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">4</span>,
+<span class="ruby-string">&#39;+&#39;</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span>,
+<span class="ruby-string">&#39;++&#39;</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-value">6</span>,
+</pre>
+
+<p>}</p>
+
+<p>#</p>
+
+<p>## # Footnotes for this document</p>
+
+<p>attr_reader :footnotes</p>
+
+<p>## # Labels for items in this document</p>
+
+<p>attr_reader :labels</p>
+
+<p>## # Path to find included files in</p>
+
+<p>attr_accessor :include_path</p>
+
+<p>## # Creates a new <a
+href="../../../RDoc/RD/BlockParser.html">RDoc::RD::BlockParser</a>.  Use
+parse to parse an rd-format # document.</p>
+
+<p>def initialize</p>
+
+<pre>@inline_parser = RDoc::RD::InlineParser.new self
+@include_path = []
+
+# for testing
+@footnotes = []
+@labels    = {}</pre>
+
+<p>end</p>
+
+<p>## # Parses <code>src</code> and returns an <a
+href="../../../RDoc/Markup/Document.html">RDoc::Markup::Document</a>.</p>
+
+<p>def parse src</p>
+
+<pre>@src = src
+@src.push false
+
+@footnotes = []
+@labels    = {}
+
+# @i: index(line no.) of src
+@i = 0
+
+# stack for current indentation
+@indent_stack = []
+
+# how indented.
+@current_indent = @indent_stack.join(&quot;&quot;)
+
+# RDoc::RD::BlockParser for tmp src
+@subparser = nil
+
+# which part is in now
+@in_part = nil
+@part_content = []
+
+@in_verbatim = false
+
+@yydebug = true
+
+document = do_parse
+
+unless @footnotes.empty? then
+  blankline = document.parts.pop
+
+  document.parts &lt;&lt; RDoc::Markup::Rule.new(1)
+  document.parts.concat @footnotes
+
+  document.parts.push blankline
+end
+
+document</pre>
+
+<p>end</p>
+
+<p>## # Returns the next token from the document</p>
+
+<p>def next_token # :nodoc:</p>
+
+<pre class="ruby"><span class="ruby-comment"># preprocessing</span>
+<span class="ruby-comment"># if it is not in RD part</span>
+<span class="ruby-comment"># =&gt; method</span>
+<span class="ruby-keyword">while</span> <span class="ruby-ivar">@in_part</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;rd&quot;</span>
+  <span class="ruby-identifier">line</span> = <span class="ruby-ivar">@src</span>[<span class="ruby-ivar">@i</span>]
+  <span class="ruby-ivar">@i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-comment"># next line</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">line</span>
+  <span class="ruby-comment"># src end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">return</span> [<span class="ruby-keyword">false</span>, <span class="ruby-keyword">false</span>]
+  <span class="ruby-comment"># RD part begin</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^=begin\s*(?:\bRD\b.*)?\s*$/</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@in_part</span> <span class="ruby-comment"># if in non-RD part</span>
+      <span class="ruby-ivar">@part_content</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">line</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@in_part</span> = <span class="ruby-string">&quot;rd&quot;</span>
+      <span class="ruby-keyword">return</span> [:<span class="ruby-constant">WHITELINE</span>, <span class="ruby-string">&quot;=begin\n&quot;</span>] <span class="ruby-comment"># &lt;= for textblockand</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># non-RD part begin</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^=begin\s+(\w+)/</span>
+    <span class="ruby-identifier">part</span> = <span class="ruby-node">$1</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@in_part</span> <span class="ruby-comment"># if in non-RD part</span>
+      <span class="ruby-ivar">@part_content</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">line</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@in_part</span> = <span class="ruby-identifier">part</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tree</span>.<span class="ruby-identifier">filter</span>[<span class="ruby-identifier">part</span>] <span class="ruby-comment"># if filter exists</span>
+</pre>
+
+<p>#  p “BEGIN_PART: #{@in_part}” # DEBUG</p>
+
+<pre>  end
+# non-RD part end
+when /^=end/
+  if @in_part # if in non-RD part</pre>
+
+<p>#  p “END_PART: #{@in_part}” # DEBUG</p>
+
+<pre>      # make Part-in object
+      part = RDoc::RD::Part.new(@part_content.join(&quot;&quot;), @tree, &quot;r&quot;)
+      @part_content.clear
+      # call filter, part_out is output(Part object)
+      part_out = @tree.filter[@in_part].call(part)
+
+      if @tree.filter[@in_part].mode == :rd # if output is RD formatted
+        subtree = parse_subtree(part_out.to_a)
+      else # if output is target formatted
+        basename = TMPFILE.join(&#39;.&#39;)
+        TMPFILE[-1] += 1
+        tmpfile = open(@tree.tmp_dir + &quot;/&quot; + basename + &quot;.#{@in_part}&quot;, &quot;w&quot;)
+        tmpfile.print(part_out)
+        tmpfile.close
+        subtree = parse_subtree([&quot;=begin\n&quot;, &quot;&lt;&lt;&lt; #{basename}\n&quot;, &quot;=end\n&quot;])
+      end
+      @in_part = nil
+      return [:SUBTREE, subtree]
+    end
+  else
+    if @in_part # if in non-RD part
+      @part_content.push(line)
+    end
+  end
+end
+
+@current_indent = @indent_stack.join(&quot;&quot;)
+line = @src[@i]
+case line
+when false
+  if_current_indent_equal(&quot;&quot;) do
+    [false, false]
+  end
+when /^=end/
+  if_current_indent_equal(&quot;&quot;) do
+    @in_part = nil
+    [:WHITELINE, &quot;=end&quot;] # MUST CHANGE??
+  end
+when /^\s*$/
+  @i += 1 # next line
+  return [:WHITELINE, &#39;:WHITELINE&#39;]
+when /^\#/  # comment line
+  @i += 1 # next line
+  self.next_token()
+when /^(={1,4})(?!=)\s*(?=\S)/, /^(\+{1,2})(?!\+)\s*(?=\S)/
+  rest = $&#39;                    # &#39;
+  rest.strip!
+  mark = $1
+  if_current_indent_equal(&quot;&quot;) do
+    return [:HEADLINE, [MARK_TO_LEVEL[mark], rest]]
+  end
+when /^&lt;&lt;&lt;\s*(\S+)/
+  file = $1
+  if_current_indent_equal(&quot;&quot;) do
+    suffix = file[-3 .. -1]
+    if suffix == &quot;.rd&quot; or suffix == &quot;.rb&quot;
+      subtree = parse_subtree(get_included(file))
+      [:SUBTREE, subtree]
+    else
+      [:INCLUDE, file]
+    end
+  end
+when /^(\s*)\*(\s*)/
+  rest = $&#39;                   # &#39;
+  newIndent = $2
+  if_current_indent_equal($1) do
+    if @in_verbatim
+      [:STRINGLINE, line]
+    else
+      @indent_stack.push(&quot;\s&quot; &lt;&lt; newIndent)
+      [:ITEMLISTLINE, rest]
+    end
+  end
+when /^(\s*)(\(\d+\))(\s*)/
+  rest = $&#39;                     # &#39;
+  mark = $2
+  newIndent = $3
+  if_current_indent_equal($1) do
+    if @in_verbatim
+      [:STRINGLINE, line]
+    else
+      @indent_stack.push(&quot;\s&quot; * mark.size &lt;&lt; newIndent)
+      [:ENUMLISTLINE, rest]
+    end
+  end
+when /^(\s*):(\s*)/
+  rest = $&#39;                    # &#39;
+  newIndent = $2
+  if_current_indent_equal($1) do
+    if @in_verbatim
+      [:STRINGLINE, line]
+    else
+      @indent_stack.push(&quot;\s#{$2}&quot;)
+      [:DESCLISTLINE, rest]
+    end
+  end
+when /^(\s*)---(?!-|\s*$)/
+  indent = $1
+  rest = $&#39;
+  /\s*/ === rest
+  term = $&#39;
+  new_indent = $&amp;
+  if_current_indent_equal(indent) do
+    if @in_verbatim
+      [:STRINGLINE, line]
+    else
+      @indent_stack.push(&quot;\s\s\s&quot; + new_indent)
+      [:METHODLISTLINE, term]
+    end
+  end
+when /^(\s*)/
+  if_current_indent_equal($1) do
+    [:STRINGLINE, line]
+  end
+else
+  raise &quot;[BUG] parsing error may occured.&quot;
+end</pre>
+
+<p>end</p>
+
+<p>## # Yields to the given block if <code>indent</code> matches the current
+indent, otherwise # an indentation token is processed.</p>
+
+<p>def if_current_indent_equal(indent)</p>
+
+<pre>indent = indent.sub(/\t/, &quot;\s&quot; * 8)
+if @current_indent == indent
+  @i += 1 # next line
+  yield
+elsif indent.index(@current_indent) == 0
+  @indent_stack.push(indent[@current_indent.size .. -1])
+  [:INDENT, &quot;:INDENT&quot;]
+else
+  @indent_stack.pop
+  [:DEDENT, &quot;:DEDENT&quot;]
+end</pre>
+
+<p>end private :if_current_indent_equal</p>
+
+<p>## # Cuts off excess whitespace in <code>src</code></p>
+
+<p>def cut_off(src)</p>
+
+<pre>ret = []
+whiteline_buf = []
+
+line = src.shift
+/^\s*/ =~ line
+
+indent = Regexp.quote($&amp;)
+ret.push($&#39;)
+
+while line = src.shift
+  if /^(\s*)$/ =~ line
+    whiteline_buf.push(line)
+  elsif /^#{indent}/ =~ line
+    unless whiteline_buf.empty?
+      ret.concat(whiteline_buf)
+      whiteline_buf.clear
+    end
+    ret.push($&#39;)
+  else
+    raise &quot;[BUG]: probably Parser Error while cutting off.\n&quot;
+  end
+end
+ret</pre>
+
+<p>end private :cut_off</p>
+
+<p>def set_term_to_element(parent, term) # 
+parent.set_term_under_document_struct(term, @tree.document_struct)</p>
+
+<pre>parent.set_term_without_document_struct(term)</pre>
+
+<p>end private :set_term_to_element</p>
+
+<p>## # Raises a ParseError when invalid formatting is found</p>
+
+<p>def on_error(et, ev, _values)</p>
+
+<pre>prv, cur, nxt = format_line_num(@i, @i+1, @i+2)
+
+raise ParseError, &lt;&lt;Msg</pre>
+
+<p>RD syntax error: line #{@i+1}:</p>
+
+<pre class="ruby"><span class="ruby-comment">#{prv}  |#{@src[@i-1].chomp}</span>
+<span class="ruby-comment">#{cur}=&gt;|#{@src[@i].chomp}</span>
+<span class="ruby-comment">#{nxt}  |#{@src[@i+1].chomp}</span>
+</pre>
+
+<p>Msg end</p>
+
+<p>## # Current line number</p>
+
+<p>def line_index</p>
+
+<pre>@i</pre>
+
+<p>end</p>
+
+<p>## # Parses subtree <code>src</code></p>
+
+<p>def parse_subtree src</p>
+
+<pre>@subparser ||= RDoc::RD::BlockParser.new
+
+@subparser.parse src</pre>
+
+<p>end private :parse_subtree</p>
+
+<p>## # Retrieves the content for <code>file</code> from the include_path</p>
+
+<p>def get_included(file)</p>
+
+<pre class="ruby"><span class="ruby-identifier">included</span> = []
+
+<span class="ruby-ivar">@include_path</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">dir</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">file_name</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">dir</span>, <span class="ruby-identifier">file</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">file_name</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">included</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">readlines</span> <span class="ruby-identifier">file_name</span>
+    <span class="ruby-keyword">break</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">included</span>
+</pre>
+
+<p>end private :get_included</p>
+
+<p>## # Formats line numbers <code>line_numbers</code> prettily</p>
+
+<p>def format_line_num(*line_numbers)</p>
+
+<pre class="ruby"><span class="ruby-identifier">width</span> = <span class="ruby-identifier">line_numbers</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span> }.<span class="ruby-identifier">max</span>
+<span class="ruby-identifier">line_numbers</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sprintf</span>(<span class="ruby-node">&quot;%#{width}d&quot;</span>, <span class="ruby-identifier">i</span>) }
+</pre>
+
+<p>end private :format_line_num</p>
+
+<p>## # Retrieves the content of <code>values</code> as a single String</p>
+
+<p>def content values</p>
+
+<pre class="ruby"><span class="ruby-identifier">values</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">content</span> }.<span class="ruby-identifier">join</span>
+</pre>
+
+<p>end</p>
+
+<p>## # Creates a paragraph for <code>value</code></p>
+
+<p>def paragraph value</p>
+
+<pre>content = cut_off(value).join(&#39; &#39;).rstrip
+contents = @inline_parser.parse content
+
+RDoc::Markup::Paragraph.new(*contents)</pre>
+
+<p>end</p>
+
+<p>## # Adds footnote <code>content</code> to the document</p>
+
+<p>def add_footnote content</p>
+
+<pre>index = @footnotes.length / 2 + 1
+
+footmark_link = &quot;{^#{index}}[rdoc-label:footmark-#{index}:foottext-#{index}]&quot;
+
+@footnotes &lt;&lt; RDoc::Markup::Paragraph.new(footmark_link, &#39; &#39;, *content)
+@footnotes &lt;&lt; RDoc::Markup::BlankLine.new
+
+index</pre>
+
+<p>end</p>
+
+<p>## # Adds label <code>label</code> to the document</p>
+
+<p>def add_label label</p>
+
+<pre>@labels[label] = true
+
+label</pre>
+
+<p>end</p>
+
+<p>#</p>
+
+<p>—- header class <a href="../../../RDoc/RD.html">RDoc::RD</a></p>
+
+<p>## # RD format parser for headings, paragraphs, lists, verbatim sections
+that # exist as blocks.</p>
+
+<p>—- footer end</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

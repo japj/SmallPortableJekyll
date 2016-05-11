@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Octokit::Client::LegacySearch - octokit-4.3.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-legacy_search_issues">#legacy_search_issues</a>
+    
+    <li ><a href="#method-i-legacy_search_repositories">#legacy_search_repositories</a>
+    
+    <li ><a href="#method-i-legacy_search_users">#legacy_search_users</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Octokit::Client::LegacySearch">
+  <h1 id="module-Octokit::Client::LegacySearch" class="module">
+    module Octokit::Client::LegacySearch
+  </h1>
+
+  <section class="description">
+    
+<p>Methods for the Legacy <a href="Search.html">Search</a> API</p>
+
+<p>@see <a
+href="https://developer.github.com/v3/search">developer.github.com/v3/search</a>/</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-legacy_search_issues" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">legacy_search_issues</span><span
+            class="method-args">(repo, search_term, state='open', options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Legacy search issues within a repository</p>
+
+<p>@param repo [String, <a href="../Repository.html">Repository</a>, Hash] A
+GitHub repository @param search_term [String] The term to search for @param
+state [String] :state (open) <code>open</code> or <code>closed</code>.
+@return [Array&lt;Sawyer::Resource&gt;] A list of issues matching the
+search term and state @example <a href="Search.html">Search</a> for
+&#39;test&#39; in the open issues for sferik/rails_admin</p>
+
+<pre>Octokit.search_issues(&quot;sferik/rails_admin&quot;, &#39;test&#39;, &#39;open&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="legacy_search_issues-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/legacy_search.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">legacy_search_issues</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">search_term</span>, <span class="ruby-identifier">state</span>=<span class="ruby-string">&#39;open&#39;</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span>(<span class="ruby-node">&quot;legacy/issues/search/#{Repository.new(repo)}/#{state}/#{search_term}&quot;</span>, <span class="ruby-identifier">options</span>)[<span class="ruby-string">&#39;issues&#39;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-legacy_search_repositories" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">legacy_search_repositories</span><span
+            class="method-args">(q, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Legacy repository search</p>
+
+<p>@see <a
+href="https://developer.github.com/v3/search/#search-repositories">developer.github.com/v3/search/#search-repositories</a>
+@param q [String] <a href="Search.html">Search</a> keyword @return
+[Array&lt;Sawyer::Resource&gt;] List of repositories found</p>
+          
+          
+
+          
+          <div class="method-source-code" id="legacy_search_repositories-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/legacy_search.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">legacy_search_repositories</span>(<span class="ruby-identifier">q</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span>(<span class="ruby-node">&quot;legacy/repos/search/#{q}&quot;</span>, <span class="ruby-identifier">options</span>)[<span class="ruby-string">&#39;repositories&#39;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-legacy_search_users" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">legacy_search_users</span><span
+            class="method-args">(search, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Search.html">Search</a> for user.</p>
+
+<p>@param search [String] <a href="../User.html">User</a> to search for.
+@return [Array&lt;Sawyer::Resource&gt;] Array of hashes representing users.
+@see <a
+href="https://developer.github.com/v3/search/#search-users">developer.github.com/v3/search/#search-users</a>
+@example</p>
+
+<pre>Octokit.search_users(&#39;pengwynn&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="legacy_search_users-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/legacy_search.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">legacy_search_users</span>(<span class="ruby-identifier">search</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span>(<span class="ruby-node">&quot;legacy/user/search/#{search}&quot;</span>, <span class="ruby-identifier">options</span>)[<span class="ruby-string">&#39;users&#39;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

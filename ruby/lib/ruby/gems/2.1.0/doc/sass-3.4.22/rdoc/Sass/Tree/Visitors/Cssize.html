@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Sass::Tree::Visitors::Cssize - sass-3.4.22 Documentation</title>
+
+<link href="../../../fonts.css" rel="stylesheet">
+<link href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/navigation.js"></script>
+<script src="../../../js/search_index.js"></script>
+<script src="../../../js/search.js"></script>
+<script src="../../../js/searcher.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Base.html">Sass::Tree::Visitors::Base</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li class="calls-super" ><a href="#method-c-visit">::visit</a>
+    
+    <li ><a href="#method-i-bubblable-3F">#bubblable?</a>
+    
+    <li ><a href="#method-i-bubble">#bubble</a>
+    
+    <li ><a href="#method-i-debubble">#debubble</a>
+    
+    <li ><a href="#method-i-parent">#parent</a>
+    
+    <li class="calls-super" ><a href="#method-i-visit">#visit</a>
+    
+    <li ><a href="#method-i-visit_atroot">#visit_atroot</a>
+    
+    <li ><a href="#method-i-visit_children">#visit_children</a>
+    
+    <li ><a href="#method-i-visit_children_without_parent">#visit_children_without_parent</a>
+    
+    <li ><a href="#method-i-visit_directive">#visit_directive</a>
+    
+    <li ><a href="#method-i-visit_extend">#visit_extend</a>
+    
+    <li ><a href="#method-i-visit_import">#visit_import</a>
+    
+    <li ><a href="#method-i-visit_keyframerule">#visit_keyframerule</a>
+    
+    <li ><a href="#method-i-visit_media">#visit_media</a>
+    
+    <li ><a href="#method-i-visit_prop">#visit_prop</a>
+    
+    <li ><a href="#method-i-visit_root">#visit_root</a>
+    
+    <li ><a href="#method-i-visit_rule">#visit_rule</a>
+    
+    <li ><a href="#method-i-visit_supports">#visit_supports</a>
+    
+    <li ><a href="#method-i-visit_trace">#visit_trace</a>
+    
+    <li ><a href="#method-i-with_parent">#with_parent</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Sass::Tree::Visitors::Cssize">
+  <h1 id="class-Sass::Tree::Visitors::Cssize" class="class">
+    class Sass::Tree::Visitors::Cssize
+  </h1>
+
+  <section class="description">
+    
+<p>A visitor for converting a static <a href="../../../Sass.html">Sass</a>
+tree into a static CSS tree.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="Extend">Extend
+        
+        <dd><p>A simple struct wrapping up information about a single `@extend` instance.
+A single {ExtendNode} can have multiple Extends if either the parent node
+or the extended selector is a comma sequence.</p>
+
+<p>@attr extender [Sass::Selector::Sequence]</p>
+
+<pre>The selector of the CSS rule containing the `@extend`.</pre>
+
+<p>@attr target [Array&lt;Sass::Selector::Simple&gt;] The selector being
+`@extend`ed. @attr node [Sass::Tree::ExtendNode] The node that produced
+this extend. @attr directives [Array&lt;Sass::Tree::DirectiveNode&gt;]</p>
+
+<pre>The directives containing the `@extend`.</pre>
+
+<p>@attr result [Symbol]</p>
+
+<pre>The result of this extend. One of `:not_found` (the target doesn&#39;t exist
+in the document), `:failed_to_unify` (the target exists but cannot be
+unified with the extender), or `:succeeded`.</pre>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-ivar">@parents</span> = []
+  <span class="ruby-ivar">@extends</span> = <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span><span class="ruby-operator">::</span><span class="ruby-constant">SubsetMap</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-visit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit</span><span
+            class="method-args">(root)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param root [Tree::Node] The root node of the tree to visit. @return
+[(Tree::Node, <a
+href="../../Util/SubsetMap.html">Sass::Util::SubsetMap</a>)] The resulting
+tree of static nodes</p>
+
+<pre>*and* the extensions defined for this tree</pre>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Base.html#method-c-visit">Sass::Tree::Visitors::Base.visit</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="visit-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">visit</span>(<span class="ruby-identifier">root</span>); <span class="ruby-keyword">super</span>; <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-parent" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parent</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the immediate parent of the current node. @return [Tree::Node]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parent-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parent</span>
+  <span class="ruby-ivar">@parents</span>.<span class="ruby-identifier">last</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If an exception is raised, this adds proper metadata to the backtrace.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Base.html#method-c-visit">Sass::Tree::Visitors::Base.visit</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="visit-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visit</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">node</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">e</span>.<span class="ruby-identifier">modify_backtrace</span>(<span class="ruby-value">:filename</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">filename</span>, <span class="ruby-value">:line</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">line</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visit_atroot" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit_atroot</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="visit_atroot-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visit_atroot</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-comment"># If there aren&#39;t any more directives or rules that this @at-root needs to</span>
+  <span class="ruby-comment"># exclude, we can get rid of it and just evaluate the children.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@parents</span>.<span class="ruby-identifier">none?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">exclude_node?</span>(<span class="ruby-identifier">n</span>)}
+    <span class="ruby-identifier">results</span> = <span class="ruby-identifier">visit_children_without_parent</span>(<span class="ruby-identifier">node</span>)
+    <span class="ruby-identifier">results</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">tabs</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">tabs</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">bubblable?</span>(<span class="ruby-identifier">c</span>)}
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">results</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">bubblable?</span>(<span class="ruby-identifier">results</span>.<span class="ruby-identifier">last</span>)
+      <span class="ruby-identifier">results</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">group_end</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">group_end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">results</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># If this @at-root excludes the immediate parent, return it as-is so that it</span>
+  <span class="ruby-comment"># can be bubbled up by the parent node.</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Bubble</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">node</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">exclude_node?</span>(<span class="ruby-identifier">parent</span>)
+
+  <span class="ruby-comment"># Otherwise, duplicate the current parent and move it into the @at-root</span>
+  <span class="ruby-comment"># node. As above, returning an @at-root node signals to the parent directive</span>
+  <span class="ruby-comment"># that it should be bubbled upwards.</span>
+  <span class="ruby-identifier">bubble</span>(<span class="ruby-identifier">node</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visit_children" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit_children</span><span
+            class="method-args">(parent)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Keeps track of the current parent node.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="visit_children-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visit_children</span>(<span class="ruby-identifier">parent</span>)
+  <span class="ruby-identifier">with_parent</span> <span class="ruby-identifier">parent</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">children</span> = <span class="ruby-identifier">visit_children_without_parent</span>(<span class="ruby-identifier">parent</span>)
+    <span class="ruby-identifier">parent</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visit_children_without_parent" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit_children_without_parent</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Like {#visit_children}, but doesn&#39;t set {#parent}.</p>
+
+<p>@param node [Sass::Tree::Node] @return [Array&lt;Sass::Tree::Node&gt;] the
+flattened results of</p>
+
+<pre>visiting all the children of `node`</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="visit_children_without_parent-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visit_children_without_parent</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">visit</span>(<span class="ruby-identifier">c</span>)}.<span class="ruby-identifier">flatten</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visit_directive" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit_directive</span><span
+            class="method-args">(node) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Bubbles a directive up through RuleNodes.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="visit_directive-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 223</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visit_directive</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">node</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">has_children</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">RuleNode</span>)
+    <span class="ruby-comment"># @keyframes shouldn&#39;t include the rule nodes, so we manually create a</span>
+    <span class="ruby-comment"># bubble that doesn&#39;t have the parent&#39;s contents for them.</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">normalized_name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;@keyframes&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Bubble</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">node</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">bubble</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">yield</span>
+
+  <span class="ruby-comment"># Since we don&#39;t know if the mere presence of an unknown directive may be</span>
+  <span class="ruby-comment"># important, we should keep an empty version around even if all the contents</span>
+  <span class="ruby-comment"># are removed via @at-root. However, if the contents are just bubbled out,</span>
+  <span class="ruby-comment"># we don&#39;t need to do so.</span>
+  <span class="ruby-identifier">directive_exists</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">any?</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">child</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Bubble</span>)
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">child</span>.<span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">DirectiveNode</span>)
+    <span class="ruby-identifier">child</span>.<span class="ruby-identifier">node</span>.<span class="ruby-identifier">resolved_value</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">resolved_value</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># We know empty @keyframes directives do nothing.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">directive_exists</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;@keyframes&#39;</span>
+    []
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">empty_node</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">dup</span>
+    <span class="ruby-identifier">empty_node</span>.<span class="ruby-identifier">children</span> = []
+    [<span class="ruby-identifier">empty_node</span>]
+  <span class="ruby-keyword">end</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">debubble</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>, <span class="ruby-identifier">node</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visit_extend" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit_extend</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Registers an extension in the `@extends` subset map.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="visit_extend-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visit_extend</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">resolved_rules</span>.<span class="ruby-identifier">populate_extends</span>(<span class="ruby-ivar">@extends</span>, <span class="ruby-identifier">node</span>.<span class="ruby-identifier">resolved_selector</span>, <span class="ruby-identifier">node</span>,
+    <span class="ruby-ivar">@parents</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">DirectiveNode</span>)})
+  []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visit_import" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit_import</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Modifies exception backtraces to include the imported file.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="visit_import-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visit_import</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">visit_children_without_parent</span>(<span class="ruby-identifier">node</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">e</span>.<span class="ruby-identifier">modify_backtrace</span>(<span class="ruby-value">:filename</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">filename</span>)
+  <span class="ruby-identifier">e</span>.<span class="ruby-identifier">add_backtrace</span>(<span class="ruby-value">:filename</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">filename</span>, <span class="ruby-value">:line</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">line</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visit_keyframerule" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit_keyframerule</span><span
+            class="method-args">(node) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="visit_keyframerule-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visit_keyframerule</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">node</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">has_children</span>
+
+  <span class="ruby-keyword">yield</span>
+
+  <span class="ruby-identifier">debubble</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>, <span class="ruby-identifier">node</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visit_media" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit_media</span><span
+            class="method-args">(node) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Bubbles the `@media` directive up through RuleNodes and merges it with
+other `@media` directives.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="visit_media-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 255</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visit_media</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">bubble</span>(<span class="ruby-identifier">node</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">RuleNode</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Bubble</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">node</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">MediaNode</span>)
+
+  <span class="ruby-keyword">yield</span>
+
+  <span class="ruby-identifier">debubble</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>, <span class="ruby-identifier">node</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-identifier">child</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">child</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">MediaNode</span>)
+    <span class="ruby-comment"># Copies of `node` can be bubbled, and we don&#39;t want to merge it with its</span>
+    <span class="ruby-comment"># own query.</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-identifier">child</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">child</span>.<span class="ruby-identifier">resolved_query</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">resolved_query</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-identifier">child</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">child</span>.<span class="ruby-identifier">resolved_query</span> = <span class="ruby-identifier">child</span>.<span class="ruby-identifier">resolved_query</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">resolved_query</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visit_prop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit_prop</span><span
+            class="method-args">(node) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Converts nested properties into flat properties and updates the indentation
+of the prop node based on the nesting level.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="visit_prop-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visit_prop</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">PropNode</span>)
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">resolved_name</span> = <span class="ruby-node">&quot;#{parent.resolved_name}-#{node.resolved_name}&quot;</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">tabs</span> = <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">tabs</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">parent</span>.<span class="ruby-identifier">resolved_value</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-value">1</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">style</span> <span class="ruby-operator">==</span> <span class="ruby-value">:nested</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">yield</span>
+
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">node</span>.<span class="ruby-identifier">resolved_value</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:check!</span>)
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visit_root" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit_root</span><span
+            class="method-args">(node) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>In Ruby 1.8, ensures that there&#39;s only one `@charset` directive and
+that it&#39;s at the top of the document.</p>
+
+<p>@return [(Tree::Node, <a
+href="../../Util/SubsetMap.html">Sass::Util::SubsetMap</a>)] The resulting
+tree of static nodes</p>
+
+<pre>*and* the extensions defined for this tree</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="visit_root-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visit_root</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">yield</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-comment"># In Ruby 1.9 we can make all @charset nodes invisible</span>
+    <span class="ruby-comment"># and infer the final @charset from the encoding of the final string.</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">ruby1_8?</span>
+      <span class="ruby-identifier">charset</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">find</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">CharsetNode</span>)}
+      <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">reject!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">CharsetNode</span>)}
+      <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">charset</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">charset</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">imports_to_move</span> = []
+    <span class="ruby-identifier">import_limit</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">i</span> = <span class="ruby-value">-1</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">reject!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">import_limit</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">CssImportNode</span>)
+        <span class="ruby-identifier">imports_to_move</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">n</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">n</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">CommentNode</span>) <span class="ruby-operator">&amp;&amp;</span>
+          <span class="ruby-operator">!</span><span class="ruby-identifier">n</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">CharsetNode</span>) <span class="ruby-operator">&amp;&amp;</span>
+          <span class="ruby-operator">!</span><span class="ruby-identifier">n</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">CssImportNode</span>)
+        <span class="ruby-identifier">import_limit</span> = <span class="ruby-identifier">i</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">import_limit</span>
+      <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">import_limit</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">imports_to_move</span> <span class="ruby-operator">+</span>
+        <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>[<span class="ruby-identifier">import_limit</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">node</span>, <span class="ruby-ivar">@extends</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">e</span>.<span class="ruby-identifier">sass_template</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">template</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visit_rule" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit_rule</span><span
+            class="method-args">(node) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Updates the indentation of the rule node based on the nesting level. The
+selectors were resolved in {Perform}.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="visit_rule-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visit_rule</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">yield</span>
+
+  <span class="ruby-identifier">rules</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">bubblable?</span>(<span class="ruby-identifier">c</span>)}
+  <span class="ruby-identifier">props</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">reject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">bubblable?</span>(<span class="ruby-identifier">c</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">invisible?</span>}
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">props</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span> = <span class="ruby-identifier">props</span>
+    <span class="ruby-identifier">rules</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">tabs</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>} <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">style</span> <span class="ruby-operator">==</span> <span class="ruby-value">:nested</span>
+    <span class="ruby-identifier">rules</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">rules</span> = <span class="ruby-identifier">debubble</span>(<span class="ruby-identifier">rules</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">RuleNode</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">rules</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">bubblable?</span>(<span class="ruby-identifier">rules</span>.<span class="ruby-identifier">last</span>)
+    <span class="ruby-identifier">rules</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">group_end</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rules</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visit_supports" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit_supports</span><span
+            class="method-args">(node) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Bubbles the `@supports` directive up through RuleNodes.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="visit_supports-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 271</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visit_supports</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">node</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">has_children</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">bubble</span>(<span class="ruby-identifier">node</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">RuleNode</span>)
+
+  <span class="ruby-keyword">yield</span>
+
+  <span class="ruby-identifier">debubble</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>, <span class="ruby-identifier">node</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visit_trace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visit_trace</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Asserts that all the traced children are valid in their new location.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="visit_trace-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visit_trace</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">visit_children_without_parent</span>(<span class="ruby-identifier">node</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">e</span>.<span class="ruby-identifier">modify_backtrace</span>(<span class="ruby-value">:mixin</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name</span>, <span class="ruby-value">:filename</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">filename</span>, <span class="ruby-value">:line</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">line</span>)
+  <span class="ruby-identifier">e</span>.<span class="ruby-identifier">add_backtrace</span>(<span class="ruby-value">:filename</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">filename</span>, <span class="ruby-value">:line</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">line</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_parent" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_parent</span><span
+            class="method-args">(parent) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Runs a block of code with the current parent node replaced with the given
+node.</p>
+
+<p>@param parent [Tree::Node] The new parent for the duration of the block.
+@yield A block in which the parent is set to `parent`. @return [Object] The
+return value of the block.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="with_parent-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_parent</span>(<span class="ruby-identifier">parent</span>)
+  <span class="ruby-ivar">@parents</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">parent</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-ivar">@parents</span>.<span class="ruby-identifier">pop</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-bubblable-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bubblable?</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns whether or not a node can be bubbled up through the syntax tree.</p>
+
+<p>@param node [Sass::Tree::Node] @return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="bubblable-3F-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 343</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bubblable?</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Tree</span><span class="ruby-operator">::</span><span class="ruby-constant">RuleNode</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">bubbles?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-bubble" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bubble</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>“Bubbles” `node` one level by copying the parent and wrapping `node`&#39;s
+children with it.</p>
+
+<p>@param node [Sass::Tree::Node]. @return [Bubble]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="bubble-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 287</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bubble</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">new_rule</span> = <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">new_rule</span>.<span class="ruby-identifier">children</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span> = [<span class="ruby-identifier">new_rule</span>]
+  <span class="ruby-constant">Bubble</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">node</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-debubble" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">debubble</span><span
+            class="method-args">(children, parent = nil) { |node| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Pops all bubbles in `children` and intersperses the results with the other
+values.</p>
+
+<p>If `parent` is passed, it&#39;s copied and used as the parent node for the
+nested portions of `children`.</p>
+
+<p>@param children [List&lt;Sass::Tree::Node, Bubble&gt;] @param parent
+[Sass::Tree::Node] @yield [node] An optional block for processing bubbled
+nodes. Each bubbled</p>
+
+<pre>node will be passed to this block.</pre>
+
+<p>@yieldparam node [Sass::Tree::Node] A bubbled node. @yieldreturn
+[Sass::Tree::Node?] A node to use in place of the bubbled node.</p>
+
+<pre>This can be the node itself, or `nil` to indicate that the node should be
+omitted.</pre>
+
+<p>@return [List&lt;Sass::Tree::Node, Bubble&gt;]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="debubble-source">
+            <pre><span class="ruby-comment"># File lib/sass/tree/visitors/cssize.rb, line 309</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">debubble</span>(<span class="ruby-identifier">children</span>, <span class="ruby-identifier">parent</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment"># Keep track of the previous parent so that we don&#39;t divide `parent`</span>
+  <span class="ruby-comment"># unnecessarily if the `@at-root` doesn&#39;t produce any new nodes (e.g.</span>
+  <span class="ruby-comment"># `@at-root {@extend %foo}`).</span>
+  <span class="ruby-identifier">previous_parent</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">slice_by</span>(<span class="ruby-identifier">children</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Bubble</span>)}.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">is_bubble</span>, <span class="ruby-identifier">slice</span>)<span class="ruby-operator">|</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">is_bubble</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-identifier">slice</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">parent</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">previous_parent</span>
+        <span class="ruby-identifier">previous_parent</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">push</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">slice</span>)
+        <span class="ruby-keyword">next</span> []
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">previous_parent</span> = <span class="ruby-identifier">new_parent</span> = <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">dup</span>
+        <span class="ruby-identifier">new_parent</span>.<span class="ruby-identifier">children</span> = <span class="ruby-identifier">slice</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-identifier">new_parent</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">slice</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">bubble</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">node</span> = <span class="ruby-identifier">block_given?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">bubble</span>.<span class="ruby-identifier">node</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">bubble</span>.<span class="ruby-identifier">node</span>)
+      <span class="ruby-identifier">node</span>.<span class="ruby-identifier">tabs</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">bubble</span>.<span class="ruby-identifier">tabs</span>
+      <span class="ruby-identifier">node</span>.<span class="ruby-identifier">group_end</span> = <span class="ruby-identifier">bubble</span>.<span class="ruby-identifier">group_end</span>
+      <span class="ruby-identifier">results</span> = [<span class="ruby-identifier">visit</span>(<span class="ruby-identifier">node</span>)].<span class="ruby-identifier">flatten</span>
+      <span class="ruby-identifier">previous_parent</span> = <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">results</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">results</span>
+    <span class="ruby-keyword">end</span>.<span class="ruby-identifier">compact</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">flatten</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ActiveSupport::Callbacks - activesupport-4.2.6 Documentation</title>
+
+<link href="../fonts.css" rel="stylesheet">
+<link href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/search_index.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/searcher.js"></script>
+<script src="../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="Concern.html">ActiveSupport::Concern</a>
+  
+  
+  
+    <li><a class="extend" href="DescendantsTracker.html">ActiveSupport::DescendantsTracker</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-__run_callbacks__">#__run_callbacks__</a>
+    
+    <li ><a href="#method-i-halted_callback_hook">#halted_callback_hook</a>
+    
+    <li ><a href="#method-i-run_callbacks">#run_callbacks</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ActiveSupport::Callbacks">
+  <h1 id="module-ActiveSupport::Callbacks" class="module">
+    module ActiveSupport::Callbacks
+  </h1>
+
+  <section class="description">
+    
+<p><a href="Callbacks.html">Callbacks</a> are code hooks that are run at key
+points in an object&#39;s life cycle. The typical use case is to have a
+base class define a set of callbacks relevant to the other functionality it
+supplies, so that subclasses can install callbacks that enhance or modify
+the base functionality without needing to override or redefine methods of
+the base class.</p>
+
+<p>Mixing in this module allows you to define the events in the object&#39;s
+life cycle that will support callbacks (via
+<code>ClassMethods.define_callbacks</code>), set the instance methods,
+procs, or callback objects to be called (via
+<code>ClassMethods.set_callback</code>), and run the installed callbacks at
+the appropriate times (via <code>run_callbacks</code>).</p>
+
+<p>Three kinds of callbacks are supported: before callbacks, run before a
+certain event; after callbacks, run after the event; and around callbacks,
+blocks that surround the event, triggering it when they yield. <a
+href="Callbacks/Callback.html">Callback</a> code can be contained in
+instance methods, procs or lambdas, or callback objects that respond to
+certain predetermined methods. See <code>ClassMethods.set_callback</code>
+for details.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Record</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Callbacks</span>
+  <span class="ruby-identifier">define_callbacks</span> :<span class="ruby-identifier">save</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>
+    <span class="ruby-identifier">run_callbacks</span> :<span class="ruby-identifier">save</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;- save&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">PersonRecord</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Record</span>
+  <span class="ruby-identifier">set_callback</span> :<span class="ruby-identifier">save</span>, :<span class="ruby-identifier">before</span>, :<span class="ruby-identifier">saving_message</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">saving_message</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;saving...&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">set_callback</span> :<span class="ruby-identifier">save</span>, :<span class="ruby-identifier">after</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">object</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;saved&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">person</span> = <span class="ruby-constant">PersonRecord</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">save</span>
+</pre>
+
+<p>Output:</p>
+
+<pre>saving...
+- save
+saved</pre>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="CALLBACK_FILTER_TYPES">CALLBACK_FILTER_TYPES
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-run_callbacks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run_callbacks</span><span
+            class="method-args">(kind, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Runs the callbacks for the given event.</p>
+
+<p>Calls the before and around callbacks in the order they were set, yields
+the block (if given one), and then runs the after callbacks in reverse
+order.</p>
+
+<p>If the callback chain was halted, returns <code>false</code>. Otherwise
+returns the result of the block, <code>nil</code> if no callbacks have been
+set, or <code>true</code> if callbacks have been set but no block is given.</p>
+
+<pre>run_callbacks :save do
+  save
+end</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="run_callbacks-source">
+            <pre><span class="ruby-comment"># File lib/active_support/callbacks.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run_callbacks</span>(<span class="ruby-identifier">kind</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">send</span> <span class="ruby-node">&quot;_run_#{kind}_callbacks&quot;</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-__run_callbacks__" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">__run_callbacks__</span><span
+            class="method-args">(callbacks) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="__run_callbacks__-source">
+            <pre><span class="ruby-comment"># File lib/active_support/callbacks.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">__run_callbacks__</span>(<span class="ruby-identifier">callbacks</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">callbacks</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">runner</span> = <span class="ruby-identifier">callbacks</span>.<span class="ruby-identifier">compile</span>
+    <span class="ruby-identifier">e</span> = <span class="ruby-constant">Filters</span><span class="ruby-operator">::</span><span class="ruby-constant">Environment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-keyword">false</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">block</span>)
+    <span class="ruby-identifier">runner</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">e</span>).<span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-halted_callback_hook" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">halted_callback_hook</span><span
+            class="method-args">(filter)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A hook invoked every time a before callback is halted. This can be
+overridden in AS::Callback implementors in order to provide better
+debugging/logging.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="halted_callback_hook-source">
+            <pre><span class="ruby-comment"># File lib/active_support/callbacks.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">halted_callback_hook</span>(<span class="ruby-identifier">filter</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

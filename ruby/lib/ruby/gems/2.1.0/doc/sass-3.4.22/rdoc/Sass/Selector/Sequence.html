@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Sass::Selector::Sequence - sass-3.4.22 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="AbstractSequence.html">Sass::Selector::AbstractSequence</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-_eql-3F">#_eql?</a>
+    
+    <li ><a href="#method-i-_hash">#_hash</a>
+    
+    <li ><a href="#method-i-_sources">#_sources</a>
+    
+    <li ><a href="#method-i-_superselector-3F">#_superselector?</a>
+    
+    <li ><a href="#method-i-add_sources-21">#add_sources!</a>
+    
+    <li ><a href="#method-i-chunks">#chunks</a>
+    
+    <li ><a href="#method-i-contains_parent_ref-3F">#contains_parent_ref?</a>
+    
+    <li ><a href="#method-i-do_extend">#do_extend</a>
+    
+    <li ><a href="#method-i-extended_not_expanded_to_s">#extended_not_expanded_to_s</a>
+    
+    <li ><a href="#method-i-filename-3D">#filename=</a>
+    
+    <li ><a href="#method-i-group_selectors">#group_selectors</a>
+    
+    <li ><a href="#method-i-has_root-3F">#has_root?</a>
+    
+    <li ><a href="#method-i-inspect">#inspect</a>
+    
+    <li ><a href="#method-i-line-3D">#line=</a>
+    
+    <li ><a href="#method-i-merge_final_ops">#merge_final_ops</a>
+    
+    <li ><a href="#method-i-merge_initial_ops">#merge_initial_ops</a>
+    
+    <li ><a href="#method-i-parent_superselector-3F">#parent_superselector?</a>
+    
+    <li ><a href="#method-i-path_has_two_subjects-3F">#path_has_two_subjects?</a>
+    
+    <li ><a href="#method-i-resolve_parent_refs">#resolve_parent_refs</a>
+    
+    <li ><a href="#method-i-subjectless">#subjectless</a>
+    
+    <li ><a href="#method-i-subweave">#subweave</a>
+    
+    <li ><a href="#method-i-superselector-3F">#superselector?</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+    <li ><a href="#method-i-trim">#trim</a>
+    
+    <li ><a href="#method-i-unify">#unify</a>
+    
+    <li ><a href="#method-i-weave">#weave</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Sass::Selector::Sequence">
+  <h1 id="class-Sass::Selector::Sequence" class="class">
+    class Sass::Selector::Sequence
+  </h1>
+
+  <section class="description">
+    
+<p>An operator-separated sequence of {SimpleSequence simple selector
+sequences}.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-members" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">members</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The array of {SimpleSequence simple selector sequences}, operators, and
+newlines. The operators are strings such as `“+”` and `“&gt;”` representing
+the corresponding <a href="../CSS.html">CSS</a> operators, or interpolated
+SassScript. Newlines are also newline strings; these aren&#39;t
+semantically relevant, but they do affect formatting.</p>
+
+<p>@return [Array&lt;SimpleSequence, String|Array&lt;Sass::Tree::Node,
+String&gt;&gt;]</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(seqs_and_ops)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param seqs_and_ops [Array&lt;SimpleSequence,
+String|Array&lt;Sass::Tree::Node, String&gt;&gt;]</p>
+
+<pre>See \{#members}</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">seqs_and_ops</span>)
+  <span class="ruby-ivar">@members</span> = <span class="ruby-identifier">seqs_and_ops</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_sources-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_sources!</span><span
+            class="method-args">(sources)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add to the {SimpleSequence#sources} sets of the child simple sequences.
+This destructively modifies this sequence&#39;s members array, but not the
+child simple sequences.</p>
+
+<p>@param sources [Set&lt;Sequence&gt;]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_sources-21-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_sources!</span>(<span class="ruby-identifier">sources</span>)
+  <span class="ruby-identifier">members</span>.<span class="ruby-identifier">map!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">SimpleSequence</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">with_more_sources</span>(<span class="ruby-identifier">sources</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">m</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-contains_parent_ref-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">contains_parent_ref?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns whether there&#39;s a {Parent} selector anywhere in this sequence.</p>
+
+<p>@return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="contains_parent_ref-3F-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">contains_parent_ref?</span>
+  <span class="ruby-identifier">members</span>.<span class="ruby-identifier">any?</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sseq_or_op</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sseq_or_op</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">SimpleSequence</span>)
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">sseq_or_op</span>.<span class="ruby-identifier">members</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Parent</span>)
+    <span class="ruby-identifier">sseq_or_op</span>.<span class="ruby-identifier">members</span>.<span class="ruby-identifier">any?</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sel</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">sel</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Pseudo</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">sel</span>.<span class="ruby-identifier">selector</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">sel</span>.<span class="ruby-identifier">selector</span>.<span class="ruby-identifier">contains_parent_ref?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-do_extend" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">do_extend</span><span
+            class="method-args">(extends, parent_directives, replace, seen, original)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Non-destructively extends this selector with the extensions specified in a
+hash (which should come from {Sass::Tree::Visitors::Cssize}).</p>
+
+<p>@param extends [Sass::Util::SubsetMap{Selector::Simple =&gt;</p>
+
+<pre>                                    Sass::Tree::Visitors::Cssize::Extend}]
+The extensions to perform on this selector</pre>
+
+<p>@param parent_directives [Array&lt;Sass::Tree::DirectiveNode&gt;]</p>
+
+<pre>The directives containing this selector.</pre>
+
+<p>@param replace [Boolean]</p>
+
+<pre>Whether to replace the original selector entirely or include
+it in the result.</pre>
+
+<p>@param seen [Set&lt;Array&lt;Selector::Simple&gt;&gt;]</p>
+
+<pre>The set of simple sequences that are currently being replaced.</pre>
+
+<p>@param original [Boolean]</p>
+
+<pre>Whether this is the original selector being extended, as opposed to
+the result of a previous extension that&#39;s being re-extended.</pre>
+
+<p>@return [Array&lt;Sequence&gt;] A list of selectors generated</p>
+
+<pre>by extending this selector with `extends`.
+These correspond to a {CommaSequence}&#39;s {CommaSequence#members members array}.</pre>
+
+<p>@see <a
+href="CommaSequence.html#method-i-do_extend">Sass::Selector::CommaSequence#do_extend</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="do_extend-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">do_extend</span>(<span class="ruby-identifier">extends</span>, <span class="ruby-identifier">parent_directives</span>, <span class="ruby-identifier">replace</span>, <span class="ruby-identifier">seen</span>, <span class="ruby-identifier">original</span>)
+  <span class="ruby-identifier">extended_not_expanded</span> = <span class="ruby-identifier">members</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sseq_or_op</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> [[<span class="ruby-identifier">sseq_or_op</span>]] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sseq_or_op</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">SimpleSequence</span>)
+    <span class="ruby-identifier">extended</span> = <span class="ruby-identifier">sseq_or_op</span>.<span class="ruby-identifier">do_extend</span>(<span class="ruby-identifier">extends</span>, <span class="ruby-identifier">parent_directives</span>, <span class="ruby-identifier">replace</span>, <span class="ruby-identifier">seen</span>)
+
+    <span class="ruby-comment"># The First Law of Extend says that the generated selector should have</span>
+    <span class="ruby-comment"># specificity greater than or equal to that of the original selector.</span>
+    <span class="ruby-comment"># In order to ensure that, we record the original selector&#39;s</span>
+    <span class="ruby-comment"># (`extended.first`) original specificity.</span>
+    <span class="ruby-identifier">extended</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">add_sources!</span>([<span class="ruby-keyword">self</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">original</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">has_placeholder?</span>
+
+    <span class="ruby-identifier">extended</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">seq</span><span class="ruby-operator">|</span> <span class="ruby-identifier">seq</span>.<span class="ruby-identifier">members</span>}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">weaves</span> = <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">paths</span>(<span class="ruby-identifier">extended_not_expanded</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span> <span class="ruby-identifier">weave</span>(<span class="ruby-identifier">path</span>)}
+  <span class="ruby-identifier">trim</span>(<span class="ruby-identifier">weaves</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-constant">Sequence</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">p</span>)}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-filename-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">filename=</span><span
+            class="method-args">(filename)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the name of the file in which this selector was declared, or `nil` if
+it was not declared in a file (e.g. on stdin). This also sets the filename
+for all child selectors.</p>
+
+<p>@param filename [String, nil] @return [String, nil]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="filename-3D-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">filename=</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-identifier">members</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">filename</span> = <span class="ruby-identifier">filename</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">SimpleSequence</span>)}
+  <span class="ruby-identifier">filename</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a string representation of the sequence. This is basically the
+selector string.</p>
+
+<p>@return [String]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspect</span>
+  <span class="ruby-identifier">members</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">inspect</span>}.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-line-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">line=</span><span
+            class="method-args">(line)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the line of the <a href="../../Sass.html">Sass</a> template on which
+this selector was declared. This also sets the line for all child
+selectors.</p>
+
+<p>@param line [Fixnum] @return [Fixnum]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="line-3D-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">line=</span>(<span class="ruby-identifier">line</span>)
+  <span class="ruby-identifier">members</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">line</span> = <span class="ruby-identifier">line</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">SimpleSequence</span>)}
+  <span class="ruby-ivar">@line</span> = <span class="ruby-identifier">line</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-resolve_parent_refs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resolve_parent_refs</span><span
+            class="method-args">(super_cseq, implicit_parent)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Resolves the {Parent} selectors within this selector by replacing them with
+the given parent selector, handling commas appropriately.</p>
+
+<p>@param super_cseq [CommaSequence] The parent selector @param
+implicit_parent [Boolean] Whether the the parent</p>
+
+<pre>selector should automatically be prepended to the resolved
+selector if it contains no parent refs.</pre>
+
+<p>@return [CommaSequence] This selector, with parent references resolved
+@raise [Sass::SyntaxError] If a parent selector is invalid</p>
+          
+          
+
+          
+          <div class="method-source-code" id="resolve_parent_refs-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resolve_parent_refs</span>(<span class="ruby-identifier">super_cseq</span>, <span class="ruby-identifier">implicit_parent</span>)
+  <span class="ruby-identifier">members</span> = <span class="ruby-ivar">@members</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">nl</span> = (<span class="ruby-identifier">members</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;\n&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">members</span>.<span class="ruby-identifier">shift</span>)
+  <span class="ruby-identifier">contains_parent_ref</span> = <span class="ruby-identifier">contains_parent_ref?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">CommaSequence</span>.<span class="ruby-identifier">new</span>([<span class="ruby-keyword">self</span>]) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">implicit_parent</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">contains_parent_ref</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">contains_parent_ref</span>
+    <span class="ruby-identifier">old_members</span>, <span class="ruby-identifier">members</span> = <span class="ruby-identifier">members</span>, []
+    <span class="ruby-identifier">members</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">nl</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">nl</span>
+    <span class="ruby-identifier">members</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">SimpleSequence</span>.<span class="ruby-identifier">new</span>([<span class="ruby-constant">Parent</span>.<span class="ruby-identifier">new</span>], <span class="ruby-keyword">false</span>)
+    <span class="ruby-identifier">members</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">old_members</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">CommaSequence</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">paths</span>(<span class="ruby-identifier">members</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sseq_or_op</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> [<span class="ruby-identifier">sseq_or_op</span>] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sseq_or_op</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">SimpleSequence</span>)
+    <span class="ruby-identifier">sseq_or_op</span>.<span class="ruby-identifier">resolve_parent_refs</span>(<span class="ruby-identifier">super_cseq</span>).<span class="ruby-identifier">members</span>
+  <span class="ruby-keyword">end</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Sequence</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">path</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">seq_or_op</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-identifier">seq_or_op</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">seq_or_op</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sequence</span>)
+      <span class="ruby-identifier">seq_or_op</span>.<span class="ruby-identifier">members</span>
+    <span class="ruby-keyword">end</span>.<span class="ruby-identifier">flatten</span>)
+  <span class="ruby-keyword">end</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-subjectless" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">subjectless</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Converts the subject operator “!”, if it exists, into a “:has()” selector.</p>
+
+<p>@retur [Sequence]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="subjectless-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">subjectless</span>
+  <span class="ruby-identifier">pre_subject</span> = []
+  <span class="ruby-identifier">has</span> = []
+  <span class="ruby-identifier">subject</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">members</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sseq_or_op</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">subject</span>
+      <span class="ruby-identifier">has</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">sseq_or_op</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">sseq_or_op</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">sseq_or_op</span>.<span class="ruby-identifier">subject?</span>
+      <span class="ruby-identifier">pre_subject</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">sseq_or_op</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">subject</span> = <span class="ruby-identifier">sseq_or_op</span>.<span class="ruby-identifier">dup</span>
+      <span class="ruby-identifier">subject</span>.<span class="ruby-identifier">members</span> = <span class="ruby-identifier">sseq_or_op</span>.<span class="ruby-identifier">members</span>.<span class="ruby-identifier">dup</span>
+      <span class="ruby-identifier">subject</span>.<span class="ruby-identifier">subject</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-identifier">has</span> = []
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">subject</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">has</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">subject</span>.<span class="ruby-identifier">members</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Pseudo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:class</span>, <span class="ruby-string">&#39;has&#39;</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-constant">CommaSequence</span>.<span class="ruby-identifier">new</span>([<span class="ruby-constant">Sequence</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">has</span>)]))
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Sequence</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">pre_subject</span> <span class="ruby-operator">+</span> [<span class="ruby-identifier">subject</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-superselector-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">superselector?</span><span
+            class="method-args">(seq)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns whether or not this selector matches all elements that the given
+selector matches (as well as possibly more).</p>
+
+<p>@example</p>
+
+<pre class="ruby">(.<span class="ruby-identifier">foo</span>).<span class="ruby-identifier">superselector?</span>(.<span class="ruby-identifier">foo</span>.<span class="ruby-identifier">bar</span>) <span class="ruby-comment">#=&gt; true</span>
+(.<span class="ruby-identifier">foo</span>).<span class="ruby-identifier">superselector?</span>(.<span class="ruby-identifier">bar</span>) <span class="ruby-comment">#=&gt; false</span>
+</pre>
+
+<p>@param cseq [Sequence] @return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="superselector-3F-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">superselector?</span>(<span class="ruby-identifier">seq</span>)
+  <span class="ruby-identifier">_superselector?</span>(<span class="ruby-identifier">members</span>, <span class="ruby-identifier">seq</span>.<span class="ruby-identifier">members</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">(opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@see <a
+href="AbstractSequence.html#method-i-to_s">Sass::Selector::AbstractSequence#to_s</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>(<span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-ivar">@members</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">m</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-identifier">opts</span>)}.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/ ?\n ?/</span>, <span class="ruby-string">&quot;\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unify" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unify</span><span
+            class="method-args">(other)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Unifies this with another selector sequence to produce a selector that
+matches (a subset of) the intersection of the two inputs.</p>
+
+<p>@param other [Sequence] @return [CommaSequence, nil] The unified selector,
+or nil if unification failed. @raise [Sass::SyntaxError] If this selector
+cannot be unified.</p>
+
+<pre>This will only ever occur when a dynamic selector,
+such as {Parent} or {Interpolation}, is used in unification.
+Since these selectors should be resolved
+by the time extension and unification happen,
+this exception will only ever be raised as a result of programmer error</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="unify-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unify</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">base</span> = <span class="ruby-identifier">members</span>.<span class="ruby-identifier">last</span>
+  <span class="ruby-identifier">other_base</span> = <span class="ruby-identifier">other</span>.<span class="ruby-identifier">members</span>.<span class="ruby-identifier">last</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">base</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">SimpleSequence</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">other_base</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">SimpleSequence</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">unified</span> = <span class="ruby-identifier">other_base</span>.<span class="ruby-identifier">unify</span>(<span class="ruby-identifier">base</span>))
+
+  <span class="ruby-identifier">woven</span> = <span class="ruby-identifier">weave</span>([<span class="ruby-identifier">members</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-value">-1</span>], <span class="ruby-identifier">other</span>.<span class="ruby-identifier">members</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-value">-1</span>] <span class="ruby-operator">+</span> [<span class="ruby-identifier">unified</span>]])
+  <span class="ruby-constant">CommaSequence</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">woven</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">w</span><span class="ruby-operator">|</span> <span class="ruby-constant">Sequence</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">w</span>)})
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-_eql-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_eql?</span><span
+            class="method-args">(other)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_eql-3F-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 596</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_eql?</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">other</span>.<span class="ruby-identifier">members</span>.<span class="ruby-identifier">reject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;\n&quot;</span>}.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">members</span>.<span class="ruby-identifier">reject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;\n&quot;</span>})
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_hash-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 592</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_hash</span>
+  <span class="ruby-identifier">members</span>.<span class="ruby-identifier">reject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;\n&quot;</span>}.<span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-_sources" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_sources</span><span
+            class="method-args">(seq)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_sources-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 613</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_sources</span>(<span class="ruby-identifier">seq</span>)
+  <span class="ruby-identifier">s</span> = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">seq</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">sseq_or_op</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">sseq_or_op</span>.<span class="ruby-identifier">sources</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">sseq_or_op</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">SimpleSequence</span>)}
+  <span class="ruby-identifier">s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-_superselector-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_superselector?</span><span
+            class="method-args">(seq1, seq2)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Given two selector sequences, returns whether `seq1` is a superselector of
+`seq2`; that is, whether `seq1` matches every element `seq2` matches.</p>
+
+<p>@param seq1 [Array&lt;SimpleSequence or String&gt;] @param seq2
+[Array&lt;SimpleSequence or String&gt;] @return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="_superselector-3F-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 486</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_superselector?</span>(<span class="ruby-identifier">seq1</span>, <span class="ruby-identifier">seq2</span>)
+  <span class="ruby-identifier">seq1</span> = <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">reject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;\n&quot;</span>}
+  <span class="ruby-identifier">seq2</span> = <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">reject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;\n&quot;</span>}
+  <span class="ruby-comment"># Selectors with leading or trailing operators are neither</span>
+  <span class="ruby-comment"># superselectors nor subselectors.</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">||</span>
+    <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+  <span class="ruby-comment"># More complex selectors are never superselectors of less complex ones</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">superselector?</span>(<span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">last</span>, <span class="ruby-identifier">seq2</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-value">-1</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+
+  <span class="ruby-identifier">_</span>, <span class="ruby-identifier">si</span> = <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">enum_with_index</span>(<span class="ruby-identifier">seq2</span>).<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">superselector?</span>(<span class="ruby-identifier">e</span>, <span class="ruby-identifier">seq2</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">i</span>])
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">si</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">seq1</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">seq2</span>[<span class="ruby-identifier">si</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+
+    <span class="ruby-comment"># .foo ~ .bar is a superselector of .foo + .bar</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">seq1</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;~&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">seq2</span>[<span class="ruby-identifier">si</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;&gt;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">seq1</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">seq2</span>[<span class="ruby-identifier">si</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>]
+
+    <span class="ruby-comment"># .foo &gt; .baz is not a superselector of .foo &gt; .bar &gt; .baz or .foo &gt;</span>
+    <span class="ruby-comment"># .bar .baz, despite the fact that .baz is a superselector of .bar &gt;</span>
+    <span class="ruby-comment"># .baz and .bar .baz. Same goes for + and ~.</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">3</span>
+
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">_superselector?</span>(<span class="ruby-identifier">seq1</span>[<span class="ruby-value">2</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>], <span class="ruby-identifier">seq2</span>[<span class="ruby-identifier">si</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>])
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">seq2</span>[<span class="ruby-identifier">si</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">seq2</span>[<span class="ruby-identifier">si</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;&gt;&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">_superselector?</span>(<span class="ruby-identifier">seq1</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>], <span class="ruby-identifier">seq2</span>[<span class="ruby-identifier">si</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>])
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">_superselector?</span>(<span class="ruby-identifier">seq1</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>], <span class="ruby-identifier">seq2</span>[<span class="ruby-identifier">si</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>])
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-chunks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">chunks</span><span
+            class="method-args">(seq1, seq2) { |seq1| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Takes initial subsequences of `seq1` and `seq2` and returns all orderings
+of those subsequences. The initial subsequences are determined by a block.</p>
+
+<p>Destructively removes the initial subsequences of `seq1` and `seq2`.</p>
+
+<p>For example, given `(A B C | D E)` and `(1 2 | 3 4 5)` (with `|` denoting
+the boundary of the initial subsequence), this would return `[(A B C 1 2),
+(1 2 A B C)]`. The sequences would then be `(D E)` and `(3 4 5)`.</p>
+
+<p>@param seq1 [Array] @param seq2 [Array] @yield [a] Used to determine when
+to cut off the initial subsequences.</p>
+
+<pre>Called repeatedly for each sequence until it returns true.</pre>
+
+<p>@yieldparam a [Array] A final subsequence of one input sequence after</p>
+
+<pre>cutting off some initial subsequence.</pre>
+
+<p>@yieldreturn [Boolean] Whether or not to cut off the initial subsequence</p>
+
+<pre>here.</pre>
+
+<p>@return [Array&lt;Array&gt;] All possible orderings of the initial
+subsequences.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="chunks-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 446</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">chunks</span>(<span class="ruby-identifier">seq1</span>, <span class="ruby-identifier">seq2</span>)
+  <span class="ruby-identifier">chunk1</span> = []
+  <span class="ruby-identifier">chunk1</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">shift</span> <span class="ruby-keyword">until</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">seq1</span>
+  <span class="ruby-identifier">chunk2</span> = []
+  <span class="ruby-identifier">chunk2</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">shift</span> <span class="ruby-keyword">until</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">seq2</span>
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">chunk1</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">chunk2</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">return</span> [<span class="ruby-identifier">chunk2</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">chunk1</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">return</span> [<span class="ruby-identifier">chunk1</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">chunk2</span>.<span class="ruby-identifier">empty?</span>
+  [<span class="ruby-identifier">chunk1</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">chunk2</span>, <span class="ruby-identifier">chunk2</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">chunk1</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-extended_not_expanded_to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">extended_not_expanded_to_s</span><span
+            class="method-args">(extended_not_expanded)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="extended_not_expanded_to_s-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 619</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">extended_not_expanded_to_s</span>(<span class="ruby-identifier">extended_not_expanded</span>)
+  <span class="ruby-identifier">extended_not_expanded</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">choices</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">choices</span> = <span class="ruby-identifier">choices</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sel</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-identifier">sel</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">sel</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-node">&quot;#{sel.join &#39; &#39;}&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-identifier">choices</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">choices</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">choices</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39; &#39;</span>)
+    <span class="ruby-node">&quot;(#{choices.join &#39;, &#39;})&quot;</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span> <span class="ruby-string">&#39; &#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-group_selectors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">group_selectors</span><span
+            class="method-args">(seq)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Groups a sequence into subsequences. The subsequences are determined by
+strings; adjacent non-string elements will be put into separate groups, but
+any element adjacent to a string will be grouped with that string.</p>
+
+<p>For example, `(A B “C” D E “F” G “H” “I” J)` will become `[(A) (B “C” D) (E
+“F” G “H” “I” J)]`.</p>
+
+<p>@param seq [Array] @return [Array&lt;Array&gt;]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="group_selectors-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 466</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">group_selectors</span>(<span class="ruby-identifier">seq</span>)
+  <span class="ruby-identifier">newseq</span> = []
+  <span class="ruby-identifier">tail</span> = <span class="ruby-identifier">seq</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">until</span> <span class="ruby-identifier">tail</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">head</span> = []
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">head</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">tail</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-keyword">end</span> <span class="ruby-keyword">while</span> <span class="ruby-operator">!</span><span class="ruby-identifier">tail</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">head</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">tail</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-identifier">newseq</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">head</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">newseq</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_root-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_root?</span><span
+            class="method-args">(sseq)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="has_root-3F-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 630</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_root?</span>(<span class="ruby-identifier">sseq</span>)
+  <span class="ruby-identifier">sseq</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">SimpleSequence</span>) <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">sseq</span>.<span class="ruby-identifier">members</span>.<span class="ruby-identifier">any?</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">sel</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sel</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Pseudo</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">sel</span>.<span class="ruby-identifier">normalized_name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;root&quot;</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-merge_final_ops" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">merge_final_ops</span><span
+            class="method-args">(seq1, seq2, res = [])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Extracts final selector combinators (`“+”`, `“&gt;”`, `“~”`) and the
+selectors to which they apply from two sequences and merges them together
+into a single array.</p>
+
+<p>@param seq1 [Array&lt;SimpleSequence or String&gt;] @param seq2
+[Array&lt;SimpleSequence or String&gt;] @return [Array&lt;SimpleSequence or
+String or</p>
+
+<pre>  Array&lt;Array&lt;SimpleSequence or String&gt;&gt;]
+If there are no trailing combinators to be merged, this will be the
+empty array. If the trailing combinators cannot be merged, this will
+be nil. Otherwise, this will contained the merged selector. Array
+elements are [Sass::Util#paths]-style options; conceptually, an &quot;or&quot;
+of multiple selectors.</pre>
+
+<p>@comment</p>
+
+<pre>rubocop:disable MethodLength</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="merge_final_ops-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 342</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">merge_final_ops</span>(<span class="ruby-identifier">seq1</span>, <span class="ruby-identifier">seq2</span>, <span class="ruby-identifier">res</span> = [])
+  <span class="ruby-identifier">ops1</span>, <span class="ruby-identifier">ops2</span> = [], []
+  <span class="ruby-identifier">ops1</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">pop</span> <span class="ruby-keyword">while</span> <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+  <span class="ruby-identifier">ops2</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">pop</span> <span class="ruby-keyword">while</span> <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+
+  <span class="ruby-comment"># Not worth the headache of trying to preserve newlines here. The most</span>
+  <span class="ruby-comment"># important use of newlines is at the beginning of the selector to wrap</span>
+  <span class="ruby-comment"># across lines anyway.</span>
+  <span class="ruby-identifier">ops1</span>.<span class="ruby-identifier">reject!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-identifier">o</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;\n&quot;</span>}
+  <span class="ruby-identifier">ops2</span>.<span class="ruby-identifier">reject!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-identifier">o</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;\n&quot;</span>}
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">res</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ops1</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">ops2</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ops1</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">ops2</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+    <span class="ruby-comment"># If there are multiple operators, something hacky&#39;s going on. If one</span>
+    <span class="ruby-comment"># is a supersequence of the other, use that, otherwise give up.</span>
+    <span class="ruby-identifier">lcs</span> = <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">lcs</span>(<span class="ruby-identifier">ops1</span>, <span class="ruby-identifier">ops2</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">lcs</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">ops1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">lcs</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">ops2</span>
+    <span class="ruby-identifier">res</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-operator">*</span>(<span class="ruby-identifier">ops1</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ops2</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">ops1</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">ops2</span>).<span class="ruby-identifier">reverse</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">res</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># This code looks complicated, but it&#39;s actually just a bunch of special</span>
+  <span class="ruby-comment"># cases for interactions between different combinators.</span>
+  <span class="ruby-identifier">op1</span>, <span class="ruby-identifier">op2</span> = <span class="ruby-identifier">ops1</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">ops2</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">op1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">op2</span>
+    <span class="ruby-identifier">sel1</span> = <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">pop</span>
+    <span class="ruby-identifier">sel2</span> = <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">pop</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">op1</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;~&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">op2</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;~&#39;</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">sel1</span>.<span class="ruby-identifier">superselector?</span>(<span class="ruby-identifier">sel2</span>)
+        <span class="ruby-identifier">res</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">sel2</span>, <span class="ruby-string">&#39;~&#39;</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">sel2</span>.<span class="ruby-identifier">superselector?</span>(<span class="ruby-identifier">sel1</span>)
+        <span class="ruby-identifier">res</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">sel1</span>, <span class="ruby-string">&#39;~&#39;</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">merged</span> = <span class="ruby-identifier">sel1</span>.<span class="ruby-identifier">unify</span>(<span class="ruby-identifier">sel2</span>)
+        <span class="ruby-identifier">res</span>.<span class="ruby-identifier">unshift</span> [
+          [<span class="ruby-identifier">sel1</span>, <span class="ruby-string">&#39;~&#39;</span>, <span class="ruby-identifier">sel2</span>, <span class="ruby-string">&#39;~&#39;</span>],
+          [<span class="ruby-identifier">sel2</span>, <span class="ruby-string">&#39;~&#39;</span>, <span class="ruby-identifier">sel1</span>, <span class="ruby-string">&#39;~&#39;</span>],
+          ([<span class="ruby-identifier">merged</span>, <span class="ruby-string">&#39;~&#39;</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">merged</span>)
+        ].<span class="ruby-identifier">compact</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">elsif</span> (<span class="ruby-identifier">op1</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;~&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">op2</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;+&#39;</span>) <span class="ruby-operator">||</span> (<span class="ruby-identifier">op1</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;+&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">op2</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;~&#39;</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">op1</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;~&#39;</span>
+        <span class="ruby-identifier">tilde_sel</span>, <span class="ruby-identifier">plus_sel</span> = <span class="ruby-identifier">sel1</span>, <span class="ruby-identifier">sel2</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">tilde_sel</span>, <span class="ruby-identifier">plus_sel</span> = <span class="ruby-identifier">sel2</span>, <span class="ruby-identifier">sel1</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">tilde_sel</span>.<span class="ruby-identifier">superselector?</span>(<span class="ruby-identifier">plus_sel</span>)
+        <span class="ruby-identifier">res</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">plus_sel</span>, <span class="ruby-string">&#39;+&#39;</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">merged</span> = <span class="ruby-identifier">plus_sel</span>.<span class="ruby-identifier">unify</span>(<span class="ruby-identifier">tilde_sel</span>)
+        <span class="ruby-identifier">res</span>.<span class="ruby-identifier">unshift</span> [
+          [<span class="ruby-identifier">tilde_sel</span>, <span class="ruby-string">&#39;~&#39;</span>, <span class="ruby-identifier">plus_sel</span>, <span class="ruby-string">&#39;+&#39;</span>],
+          ([<span class="ruby-identifier">merged</span>, <span class="ruby-string">&#39;+&#39;</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">merged</span>)
+        ].<span class="ruby-identifier">compact</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">op1</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;&gt;&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-node">%w(~ +)</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">op2</span>)
+      <span class="ruby-identifier">res</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">sel2</span>, <span class="ruby-identifier">op2</span>
+      <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">sel1</span>, <span class="ruby-identifier">op1</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">op2</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;&gt;&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-node">%w(~ +)</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">op1</span>)
+      <span class="ruby-identifier">res</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">sel1</span>, <span class="ruby-identifier">op1</span>
+      <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">sel2</span>, <span class="ruby-identifier">op2</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">op1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">op2</span>
+      <span class="ruby-identifier">merged</span> = <span class="ruby-identifier">sel1</span>.<span class="ruby-identifier">unify</span>(<span class="ruby-identifier">sel2</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">merged</span>
+      <span class="ruby-identifier">res</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">merged</span>, <span class="ruby-identifier">op1</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># Unknown selector combinators can&#39;t be unified</span>
+      <span class="ruby-keyword">return</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">merge_final_ops</span>(<span class="ruby-identifier">seq1</span>, <span class="ruby-identifier">seq2</span>, <span class="ruby-identifier">res</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">op1</span>
+    <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">pop</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">op1</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;&gt;&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">superselector?</span>(<span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">last</span>)
+    <span class="ruby-identifier">res</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">pop</span>, <span class="ruby-identifier">op1</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">merge_final_ops</span>(<span class="ruby-identifier">seq1</span>, <span class="ruby-identifier">seq2</span>, <span class="ruby-identifier">res</span>)
+  <span class="ruby-keyword">else</span> <span class="ruby-comment"># op2</span>
+    <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">pop</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">op2</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;&gt;&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">superselector?</span>(<span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">last</span>)
+    <span class="ruby-identifier">res</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">pop</span>, <span class="ruby-identifier">op2</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">merge_final_ops</span>(<span class="ruby-identifier">seq1</span>, <span class="ruby-identifier">seq2</span>, <span class="ruby-identifier">res</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-merge_initial_ops" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">merge_initial_ops</span><span
+            class="method-args">(seq1, seq2)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Extracts initial selector combinators (`“+”`, `“&gt;”`, `“~”`, and `“n”`)
+from two sequences and merges them together into a single array of selector
+combinators.</p>
+
+<p>@param seq1 [Array&lt;SimpleSequence or String&gt;] @param seq2
+[Array&lt;SimpleSequence or String&gt;] @return [Array&lt;String&gt;, nil]
+If there are no operators in the merged</p>
+
+<pre>sequence, this will be the empty array. If the operators cannot be
+merged, this will be nil.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="merge_initial_ops-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 311</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">merge_initial_ops</span>(<span class="ruby-identifier">seq1</span>, <span class="ruby-identifier">seq2</span>)
+  <span class="ruby-identifier">ops1</span>, <span class="ruby-identifier">ops2</span> = [], []
+  <span class="ruby-identifier">ops1</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">shift</span> <span class="ruby-keyword">while</span> <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+  <span class="ruby-identifier">ops2</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">shift</span> <span class="ruby-keyword">while</span> <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+
+  <span class="ruby-identifier">newline</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">newline</span> <span class="ruby-operator">||=</span> <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-identifier">ops1</span>.<span class="ruby-identifier">shift</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ops1</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-identifier">newline</span> <span class="ruby-operator">||=</span> <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-identifier">ops2</span>.<span class="ruby-identifier">shift</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ops2</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;\n&quot;</span>
+
+  <span class="ruby-comment"># If neither sequence is a subsequence of the other, they cannot be</span>
+  <span class="ruby-comment"># merged successfully</span>
+  <span class="ruby-identifier">lcs</span> = <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">lcs</span>(<span class="ruby-identifier">ops1</span>, <span class="ruby-identifier">ops2</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">lcs</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">ops1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">lcs</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">ops2</span>
+  (<span class="ruby-identifier">newline</span> <span class="ruby-operator">?</span> [<span class="ruby-string">&quot;\n&quot;</span>] <span class="ruby-operator">:</span> []) <span class="ruby-operator">+</span> (<span class="ruby-identifier">ops1</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ops2</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">ops1</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">ops2</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parent_superselector-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parent_superselector?</span><span
+            class="method-args">(seq1, seq2)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Like {#_superselector?}, but compares the selectors in the context of
+parent selectors, as though they shared an implicit base simple selector.
+For example, `B` is not normally a superselector of `B A`, since it
+doesn&#39;t match `A` elements. However, it is a parent superselector,
+since `B X` is a superselector of `B A X`.</p>
+
+<p>@param seq1 [Array&lt;SimpleSequence or String&gt;] @param seq2
+[Array&lt;SimpleSequence or String&gt;] @return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parent_superselector-3F-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 534</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parent_superselector?</span>(<span class="ruby-identifier">seq1</span>, <span class="ruby-identifier">seq2</span>)
+  <span class="ruby-identifier">base</span> = <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Selector</span><span class="ruby-operator">::</span><span class="ruby-constant">SimpleSequence</span>.<span class="ruby-identifier">new</span>([<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Selector</span><span class="ruby-operator">::</span><span class="ruby-constant">Placeholder</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;&lt;temp&gt;&#39;</span>)],
+                                            <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">_superselector?</span>(<span class="ruby-identifier">seq1</span> <span class="ruby-operator">+</span> [<span class="ruby-identifier">base</span>], <span class="ruby-identifier">seq2</span> <span class="ruby-operator">+</span> [<span class="ruby-identifier">base</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-path_has_two_subjects-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">path_has_two_subjects?</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="path_has_two_subjects-3F-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 602</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">path_has_two_subjects?</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">subject</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">path</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sseq_or_op</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sseq_or_op</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">SimpleSequence</span>)
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sseq_or_op</span>.<span class="ruby-identifier">subject?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">subject</span>
+    <span class="ruby-identifier">subject</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-subweave" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">subweave</span><span
+            class="method-args">(seq1, seq2)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This interweaves two lists of selectors, returning all possible orderings
+of them (including using unification) that maintain the relative ordering
+of the input arrays.</p>
+
+<p>For example, given `.foo .bar` and `.baz .bang`, this would return `.foo
+.bar .baz .bang`, `.foo .bar.baz .bang`, `.foo .baz .bar .bang`, `.foo .baz
+.bar.bang`, `.foo .baz .bang .bar`, and so on until `.baz .bang .foo .bar`.</p>
+
+<p>Semantically, for selectors A and B, this returns all selectors `AB_i` such
+that the union over all i of elements matched by `AB_i X` is identical to
+the intersection of all elements matched by `A X` and all elements matched
+by `B X`. Some `AB_i` are elided to reduce the size of the output.</p>
+
+<p>@param seq1 [Array&lt;SimpleSequence or String&gt;] @param seq2
+[Array&lt;SimpleSequence or String&gt;] @return
+[Array&lt;Array&lt;SimpleSequence or String&gt;&gt;]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="subweave-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 258</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">subweave</span>(<span class="ruby-identifier">seq1</span>, <span class="ruby-identifier">seq2</span>)
+  <span class="ruby-keyword">return</span> [<span class="ruby-identifier">seq2</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">return</span> [<span class="ruby-identifier">seq1</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">seq1</span>, <span class="ruby-identifier">seq2</span> = <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">dup</span>, <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">init</span> = <span class="ruby-identifier">merge_initial_ops</span>(<span class="ruby-identifier">seq1</span>, <span class="ruby-identifier">seq2</span>))
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">fin</span> = <span class="ruby-identifier">merge_final_ops</span>(<span class="ruby-identifier">seq1</span>, <span class="ruby-identifier">seq2</span>))
+
+  <span class="ruby-comment"># Make sure there&#39;s only one root selector in the output.</span>
+  <span class="ruby-identifier">root1</span> = <span class="ruby-identifier">has_root?</span>(<span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">first</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-identifier">root2</span> = <span class="ruby-identifier">has_root?</span>(<span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">first</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">root1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">root2</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">root</span> = <span class="ruby-identifier">root1</span>.<span class="ruby-identifier">unify</span>(<span class="ruby-identifier">root2</span>))
+    <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">root</span>
+    <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">root</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">root1</span>
+    <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">root1</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">root2</span>
+    <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">root2</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">seq1</span> = <span class="ruby-identifier">group_selectors</span>(<span class="ruby-identifier">seq1</span>)
+  <span class="ruby-identifier">seq2</span> = <span class="ruby-identifier">group_selectors</span>(<span class="ruby-identifier">seq2</span>)
+  <span class="ruby-identifier">lcs</span> = <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">lcs</span>(<span class="ruby-identifier">seq2</span>, <span class="ruby-identifier">seq1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s1</span>, <span class="ruby-identifier">s2</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-identifier">s1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">s1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">s2</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">s1</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">SimpleSequence</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">s2</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">SimpleSequence</span>)
+    <span class="ruby-keyword">next</span> <span class="ruby-identifier">s2</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">parent_superselector?</span>(<span class="ruby-identifier">s1</span>, <span class="ruby-identifier">s2</span>)
+    <span class="ruby-keyword">next</span> <span class="ruby-identifier">s1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">parent_superselector?</span>(<span class="ruby-identifier">s2</span>, <span class="ruby-identifier">s1</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">diff</span> = [[<span class="ruby-identifier">init</span>]]
+
+  <span class="ruby-keyword">until</span> <span class="ruby-identifier">lcs</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">diff</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">chunks</span>(<span class="ruby-identifier">seq1</span>, <span class="ruby-identifier">seq2</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">parent_superselector?</span>(<span class="ruby-identifier">s</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">lcs</span>.<span class="ruby-identifier">first</span>)} <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">lcs</span>.<span class="ruby-identifier">shift</span>]
+    <span class="ruby-identifier">seq1</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-identifier">seq2</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">diff</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">chunks</span>(<span class="ruby-identifier">seq1</span>, <span class="ruby-identifier">seq2</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">empty?</span>}
+  <span class="ruby-identifier">diff</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">fin</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">sel</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sel</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">sel</span> <span class="ruby-operator">:</span> [<span class="ruby-identifier">sel</span>]}
+  <span class="ruby-identifier">diff</span>.<span class="ruby-identifier">reject!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">empty?</span>}
+
+  <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">paths</span>(<span class="ruby-identifier">diff</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">flatten</span>}.<span class="ruby-identifier">reject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">path_has_two_subjects?</span>(<span class="ruby-identifier">p</span>)}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-trim" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">trim</span><span
+            class="method-args">(seqses)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Removes redundant selectors from between multiple lists of selectors. This
+takes a list of lists of selector sequences; each individual list is
+assumed to have no redundancy within itself. A selector is only removed if
+it&#39;s redundant with a selector in another list.</p>
+
+<p>“Redundant” here means that one selector is a superselector of the other.
+The more specific selector is removed.</p>
+
+<p>@param seqses [Array&lt;Array&lt;Array&lt;SimpleSequence or
+String&gt;&gt;&gt;] @return [Array&lt;Array&lt;SimpleSequence or
+String&gt;&gt;]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="trim-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 551</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">trim</span>(<span class="ruby-identifier">seqses</span>)
+  <span class="ruby-comment"># Avoid truly horrific quadratic behavior. TODO: I think there</span>
+  <span class="ruby-comment"># may be a way to get perfect trimming without going quadratic.</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">seqses</span>.<span class="ruby-identifier">flatten</span>(<span class="ruby-value">1</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">seqses</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span>
+
+  <span class="ruby-comment"># Keep the results in a separate array so we can be sure we aren&#39;t</span>
+  <span class="ruby-comment"># comparing against an already-trimmed selector. This ensures that two</span>
+  <span class="ruby-comment"># identical selectors don&#39;t mutually trim one another.</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">seqses</span>.<span class="ruby-identifier">dup</span>
+
+  <span class="ruby-comment"># This is n^2 on the sequences, but only comparing between</span>
+  <span class="ruby-comment"># separate sequences should limit the quadratic behavior.</span>
+  <span class="ruby-identifier">seqses</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">seqs1</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-identifier">seqs1</span>.<span class="ruby-identifier">reject</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">seq1</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment"># The maximum specificity of the sources that caused [seq1] to be</span>
+      <span class="ruby-comment"># generated. In order for [seq1] to be removed, there must be</span>
+      <span class="ruby-comment"># another selector that&#39;s a superselector of it *and* that has</span>
+      <span class="ruby-comment"># specificity greater or equal to this.</span>
+      <span class="ruby-identifier">max_spec</span> = <span class="ruby-identifier">_sources</span>(<span class="ruby-identifier">seq1</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">seq</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">spec</span> = <span class="ruby-identifier">seq</span>.<span class="ruby-identifier">specificity</span>
+        <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Range</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">spec</span>.<span class="ruby-identifier">max</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">spec</span>
+      <span class="ruby-keyword">end</span>.<span class="ruby-identifier">max</span> <span class="ruby-operator">||</span> <span class="ruby-value">0</span>
+
+      <span class="ruby-identifier">result</span>.<span class="ruby-identifier">any?</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">seqs2</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">seqs1</span>.<span class="ruby-identifier">equal?</span>(<span class="ruby-identifier">seqs2</span>)
+        <span class="ruby-comment"># Second Law of Extend: the specificity of a generated selector</span>
+        <span class="ruby-comment"># should never be less than the specificity of the extending</span>
+        <span class="ruby-comment"># selector.</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-comment"># See https://github.com/nex3/sass/issues/324.</span>
+        <span class="ruby-identifier">seqs2</span>.<span class="ruby-identifier">any?</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">seq2</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">spec2</span> = <span class="ruby-identifier">_specificity</span>(<span class="ruby-identifier">seq2</span>)
+          <span class="ruby-identifier">spec2</span> = <span class="ruby-identifier">spec2</span>.<span class="ruby-identifier">begin</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">spec2</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Range</span>)
+          <span class="ruby-identifier">spec2</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">max_spec</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">_superselector?</span>(<span class="ruby-identifier">seq2</span>, <span class="ruby-identifier">seq1</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">flatten</span>(<span class="ruby-value">1</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-weave" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">weave</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Conceptually, this expands “parenthesized selectors”. That is, if we have
+`.A .B {@extend .C}` and `.D .C {…}`, this conceptually expands into `.D
+.C, .D (.A .B)`, and this function translates `.D (.A .B)` into `.D .A .B,
+.A .D .B`. For thoroughness, `.A.D .B` would also be required, but
+including merged selectors results in exponential output for very little
+gain.</p>
+
+<p>@param path [Array&lt;Array&lt;SimpleSequence or String&gt;&gt;]</p>
+
+<pre>A list of parenthesized selector groups.</pre>
+
+<p>@return [Array&lt;Array&lt;SimpleSequence or String&gt;&gt;] A list of
+fully-expanded selectors.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="weave-source">
+            <pre><span class="ruby-comment"># File lib/sass/selector/sequence.rb, line 222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">weave</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-comment"># This function works by moving through the selector path left-to-right,</span>
+  <span class="ruby-comment"># building all possible prefixes simultaneously.</span>
+  <span class="ruby-identifier">prefixes</span> = [[]]
+
+  <span class="ruby-identifier">path</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">current</span> = <span class="ruby-identifier">current</span>.<span class="ruby-identifier">dup</span>
+    <span class="ruby-identifier">last_current</span> = [<span class="ruby-identifier">current</span>.<span class="ruby-identifier">pop</span>]
+    <span class="ruby-identifier">prefixes</span> = <span class="ruby-identifier">prefixes</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">prefix</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">sub</span> = <span class="ruby-identifier">subweave</span>(<span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">current</span>)
+      <span class="ruby-keyword">next</span> [] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sub</span>
+      <span class="ruby-identifier">sub</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">seqs</span><span class="ruby-operator">|</span> <span class="ruby-identifier">seqs</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">last_current</span>}
+    <span class="ruby-keyword">end</span>.<span class="ruby-identifier">flatten</span>(<span class="ruby-value">1</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">prefixes</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

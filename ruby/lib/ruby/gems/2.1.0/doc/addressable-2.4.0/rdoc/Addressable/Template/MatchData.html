@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Addressable::Template::MatchData - addressable-2.4.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-captures">#captures</a>
+    
+    <li ><a href="#method-i-inspect">#inspect</a>
+    
+    <li ><a href="#method-i-keys">#keys</a>
+    
+    <li ><a href="#method-i-names">#names</a>
+    
+    <li ><a href="#method-i-post_match">#post_match</a>
+    
+    <li ><a href="#method-i-pre_match">#pre_match</a>
+    
+    <li ><a href="#method-i-string">#string</a>
+    
+    <li ><a href="#method-i-to_a">#to_a</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+    <li ><a href="#method-i-values">#values</a>
+    
+    <li ><a href="#method-i-values_at">#values_at</a>
+    
+    <li ><a href="#method-i-variables">#variables</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Addressable::Template::MatchData">
+  <h1 id="class-Addressable::Template::MatchData" class="class">
+    class Addressable::Template::MatchData
+  </h1>
+
+  <section class="description">
+    
+<p>This class represents the data that is extracted when a <a
+href="../Template.html">Template</a> is matched against a <a
+href="../URI.html">URI</a>.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-mapping" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">mapping</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [Hash]</p>
+
+<pre>The mapping that resulted from the match.
+Note that this mapping does not include keys or values for
+variables that appear in the Template, but are not present
+in the URI.</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-template" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">template</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [Addressable::Template]</p>
+
+<pre>The Template used for the match.</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-uri" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">uri</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [Addressable::URI]</p>
+
+<pre>The URI that the Template was matched against.</pre>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(uri, template, mapping)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new <a href="MatchData.html">MatchData</a> object. <a
+href="MatchData.html">MatchData</a> objects should never be instantiated
+directly.</p>
+
+<p>@param [Addressable::URI] uri</p>
+
+<pre>The URI that the template was matched against.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/addressable/template.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">template</span>, <span class="ruby-identifier">mapping</span>)
+  <span class="ruby-ivar">@uri</span> = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">freeze</span>
+  <span class="ruby-ivar">@template</span> = <span class="ruby-identifier">template</span>
+  <span class="ruby-ivar">@mapping</span> = <span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">freeze</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(key, len = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Accesses captured values by name or by index.</p>
+
+<p>@param [String, Symbol, Fixnum] key</p>
+
+<pre>Capture index or name. Note that when accessing by with index
+of 0, the full URI will be returned. The intention is to mimic
+the ::MatchData#[] behavior.</pre>
+
+<p>@param [#to_int, nil] len</p>
+
+<pre>If provided, an array of values will be returend with the given
+parameter used as length.</pre>
+
+<p>@return [Array, String, nil]</p>
+
+<pre>The captured value corresponding to the index or name. If the
+value was not provided or the key is unknown, nil will be
+returned.
+
+If the second parameter is provided, an array of that length will
+be returned instead.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/addressable/template.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">len</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">len</span>
+    <span class="ruby-identifier">to_a</span>[<span class="ruby-identifier">key</span>, <span class="ruby-identifier">len</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-constant">String</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">key</span> <span class="ruby-keyword">or</span> <span class="ruby-constant">Symbol</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">key</span>
+    <span class="ruby-identifier">mapping</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">to_a</span>[<span class="ruby-identifier">key</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-captures" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">captures</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="MatchData.html#method-i-values">values</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-inspect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a <code>String</code> representation of the MatchData&#39;s state.</p>
+
+<p>@return [String] The MatchData&#39;s state, as a <code>String</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File lib/addressable/template.rb, line 211</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspect</span>
+  <span class="ruby-identifier">sprintf</span>(<span class="ruby-node">&quot;#&lt;%s:%#0x RESULT:%s&gt;&quot;</span>,
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">object_id</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">inspect</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-keys" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">keys</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="MatchData.html#method-i-variables">variables</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-names" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">names</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="MatchData.html#method-i-variables">variables</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-post_match" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">post_match</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="MatchData.html#method-i-pre_match">pre_match</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-pre_match" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pre_match</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Dummy method for code expecting a ::MatchData instance</p>
+
+<p>@return [String] An empty string.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pre_match-source">
+            <pre><span class="ruby-comment"># File lib/addressable/template.rb, line 220</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pre_match</span>
+  <span class="ruby-string">&quot;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="MatchData.html#method-i-post_match">post_match</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-string" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">string</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="MatchData.html#method-i-to_s">to_s</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-to_a" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_a</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Array]</p>
+
+<pre>Array with the matched URI as first element followed by the captured
+values.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="to_a-source">
+            <pre><span class="ruby-comment"># File lib/addressable/template.rb, line 182</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_a</span>
+  [<span class="ruby-identifier">to_s</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">values</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [String]</p>
+
+<pre>The matched URI as String.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/addressable/template.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="MatchData.html#method-i-string">string</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-values" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">values</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Array]</p>
+
+<pre>The list of values that were captured by the Template.
+Note that this list will include nils for any variables which
+were in the Template, but did not appear in the URI.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="values-source">
+            <pre><span class="ruby-comment"># File lib/addressable/template.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">values</span>
+  <span class="ruby-ivar">@values</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">variables</span>.<span class="ruby-identifier">inject</span>([]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">accu</span>, <span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">accu</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mapping</span>[<span class="ruby-identifier">key</span>]
+    <span class="ruby-identifier">accu</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="MatchData.html#method-i-captures">captures</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-values_at" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">values_at</span><span
+            class="method-args">(*indexes)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns multiple captured values at once.</p>
+
+<p>@param [String, Symbol, Fixnum] *indexes</p>
+
+<pre>Indices of the captures to be returned</pre>
+
+<p>@return [Array]</p>
+
+<pre>Values corresponding to given indices.</pre>
+
+<p>@see <a href="MatchData.html#method-i-5B-5D">#[]</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="values_at-source">
+            <pre><span class="ruby-comment"># File lib/addressable/template.rb, line 203</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">values_at</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">indexes</span>)
+  <span class="ruby-identifier">indexes</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-keyword">self</span>[<span class="ruby-identifier">i</span>] }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-variables" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">variables</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Array]</p>
+
+<pre>The list of variables that were present in the Template.
+Note that this list will include variables which do not appear
+in the mapping because they were not present in URI.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="variables-source">
+            <pre><span class="ruby-comment"># File lib/addressable/template.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">variables</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">template</span>.<span class="ruby-identifier">variables</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="MatchData.html#method-i-keys">keys</a>, <a href="MatchData.html#method-i-names">names</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

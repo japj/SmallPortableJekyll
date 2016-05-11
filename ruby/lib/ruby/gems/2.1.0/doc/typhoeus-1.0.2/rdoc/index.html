@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>typhoeus-1.0.2 Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <div id="classindex-section" class="nav-section">
+  <h3>Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Faraday.html">Faraday</a>
+  
+    <li><a href="./Faraday/Adapter.html">Faraday::Adapter</a>
+  
+    <li><a href="./Faraday/Adapter/Typhoeus.html">Faraday::Adapter::Typhoeus</a>
+  
+    <li><a href="./Rack/Typhoeus.html">Rack::Typhoeus</a>
+  
+    <li><a href="./Rack/Typhoeus/Middleware.html">Rack::Typhoeus::Middleware</a>
+  
+    <li><a href="./Rack/Typhoeus/Middleware/ParamsDecoder.html">Rack::Typhoeus::Middleware::ParamsDecoder</a>
+  
+    <li><a href="./Rack/Typhoeus/Middleware/ParamsDecoder/Helper.html">Rack::Typhoeus::Middleware::ParamsDecoder::Helper</a>
+  
+    <li><a href="./Rails.html">Rails</a>
+  
+    <li><a href="./Rails/Typhoeus.html">Rails::Typhoeus</a>
+  
+    <li><a href="./Rails/Typhoeus/Railtie.html">Rails::Typhoeus::Railtie</a>
+  
+    <li><a href="./Typhoeus.html">Typhoeus</a>
+  
+    <li><a href="./Typhoeus/Config.html">Typhoeus::Config</a>
+  
+    <li><a href="./Typhoeus/EasyFactory.html">Typhoeus::EasyFactory</a>
+  
+    <li><a href="./Typhoeus/Errors.html">Typhoeus::Errors</a>
+  
+    <li><a href="./Typhoeus/Errors/NoStub.html">Typhoeus::Errors::NoStub</a>
+  
+    <li><a href="./Typhoeus/Errors/TyphoeusError.html">Typhoeus::Errors::TyphoeusError</a>
+  
+    <li><a href="./Typhoeus/Expectation.html">Typhoeus::Expectation</a>
+  
+    <li><a href="./Typhoeus/Hydra.html">Typhoeus::Hydra</a>
+  
+    <li><a href="./Typhoeus/Hydra/Addable.html">Typhoeus::Hydra::Addable</a>
+  
+    <li><a href="./Typhoeus/Hydra/Before.html">Typhoeus::Hydra::Before</a>
+  
+    <li><a href="./Typhoeus/Hydra/BlockConnection.html">Typhoeus::Hydra::BlockConnection</a>
+  
+    <li><a href="./Typhoeus/Hydra/Cacheable.html">Typhoeus::Hydra::Cacheable</a>
+  
+    <li><a href="./Typhoeus/Hydra/Memoizable.html">Typhoeus::Hydra::Memoizable</a>
+  
+    <li><a href="./Typhoeus/Hydra/Queueable.html">Typhoeus::Hydra::Queueable</a>
+  
+    <li><a href="./Typhoeus/Hydra/Runnable.html">Typhoeus::Hydra::Runnable</a>
+  
+    <li><a href="./Typhoeus/Hydra/Stubbable.html">Typhoeus::Hydra::Stubbable</a>
+  
+    <li><a href="./Typhoeus/Pool.html">Typhoeus::Pool</a>
+  
+    <li><a href="./Typhoeus/Request.html">Typhoeus::Request</a>
+  
+    <li><a href="./Typhoeus/Request/Actions.html">Typhoeus::Request::Actions</a>
+  
+    <li><a href="./Typhoeus/Request/Before.html">Typhoeus::Request::Before</a>
+  
+    <li><a href="./Typhoeus/Request/BlockConnection.html">Typhoeus::Request::BlockConnection</a>
+  
+    <li><a href="./Typhoeus/Request/Cacheable.html">Typhoeus::Request::Cacheable</a>
+  
+    <li><a href="./Typhoeus/Request/Callbacks.html">Typhoeus::Request::Callbacks</a>
+  
+    <li><a href="./Typhoeus/Request/Callbacks/Types.html">Typhoeus::Request::Callbacks::Types</a>
+  
+    <li><a href="./Typhoeus/Request/Marshal.html">Typhoeus::Request::Marshal</a>
+  
+    <li><a href="./Typhoeus/Request/Memoizable.html">Typhoeus::Request::Memoizable</a>
+  
+    <li><a href="./Typhoeus/Request/Operations.html">Typhoeus::Request::Operations</a>
+  
+    <li><a href="./Typhoeus/Request/Responseable.html">Typhoeus::Request::Responseable</a>
+  
+    <li><a href="./Typhoeus/Request/Streamable.html">Typhoeus::Request::Streamable</a>
+  
+    <li><a href="./Typhoeus/Request/Stubbable.html">Typhoeus::Request::Stubbable</a>
+  
+    <li><a href="./Typhoeus/Response.html">Typhoeus::Response</a>
+  
+    <li><a href="./Typhoeus/Response/Cacheable.html">Typhoeus::Response::Cacheable</a>
+  
+    <li><a href="./Typhoeus/Response/Header.html">Typhoeus::Response::Header</a>
+  
+    <li><a href="./Typhoeus/Response/Informations.html">Typhoeus::Response::Informations</a>
+  
+    <li><a href="./Typhoeus/Response/Status.html">Typhoeus::Response::Status</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main">
+<p>This is the API documentation for typhoeus-1.0.2 Documentation.
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

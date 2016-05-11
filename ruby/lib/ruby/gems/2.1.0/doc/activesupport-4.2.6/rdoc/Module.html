@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Module - activesupport-4.2.6 Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Module/Concerning.html">Module::Concerning</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-alias_attribute">#alias_attribute</a>
+    
+    <li ><a href="#method-i-alias_method_chain">#alias_method_chain</a>
+    
+    <li ><a href="#method-i-anonymous-3F">#anonymous?</a>
+    
+    <li ><a href="#method-i-attr_internal">#attr_internal</a>
+    
+    <li ><a href="#method-i-attr_internal_accessor">#attr_internal_accessor</a>
+    
+    <li ><a href="#method-i-attr_internal_define">#attr_internal_define</a>
+    
+    <li ><a href="#method-i-attr_internal_ivar_name">#attr_internal_ivar_name</a>
+    
+    <li ><a href="#method-i-attr_internal_reader">#attr_internal_reader</a>
+    
+    <li ><a href="#method-i-attr_internal_writer">#attr_internal_writer</a>
+    
+    <li ><a href="#method-i-cattr_accessor">#cattr_accessor</a>
+    
+    <li ><a href="#method-i-cattr_reader">#cattr_reader</a>
+    
+    <li ><a href="#method-i-cattr_writer">#cattr_writer</a>
+    
+    <li ><a href="#method-i-delegate">#delegate</a>
+    
+    <li ><a href="#method-i-deprecate">#deprecate</a>
+    
+    <li ><a href="#method-i-mattr_accessor">#mattr_accessor</a>
+    
+    <li ><a href="#method-i-mattr_reader">#mattr_reader</a>
+    
+    <li ><a href="#method-i-mattr_writer">#mattr_writer</a>
+    
+    <li ><a href="#method-i-parent">#parent</a>
+    
+    <li ><a href="#method-i-parent_name">#parent_name</a>
+    
+    <li ><a href="#method-i-parents">#parents</a>
+    
+    <li ><a href="#method-i-qualified_const_defined-3F">#qualified_const_defined?</a>
+    
+    <li ><a href="#method-i-qualified_const_get">#qualified_const_get</a>
+    
+    <li ><a href="#method-i-qualified_const_set">#qualified_const_set</a>
+    
+    <li ><a href="#method-i-redefine_method">#redefine_method</a>
+    
+    <li ><a href="#method-i-remove_possible_method">#remove_possible_method</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Module">
+  <h1 id="class-Module" class="class">
+    class Module
+  </h1>
+
+  <section class="description">
+    
+<p>Extends the module object with class/module and instance accessors for
+class/module attributes, just like the native attr* accessors for instance
+attributes.</p>
+
+<p>Extends the API for constants to be able to deal with qualified names.
+Arguments are assumed to be relative to the receiver.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="RUBY_RESERVED_WORDS">RUBY_RESERVED_WORDS
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-c-attr_internal_naming_format" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">attr_internal_naming_format</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-alias_attribute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">alias_attribute</span><span
+            class="method-args">(new_name, old_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Allows you to make aliases for attributes, which includes getter, setter,
+and query methods.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Content</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-comment"># has a title attribute</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Email</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Content</span>
+  <span class="ruby-identifier">alias_attribute</span> :<span class="ruby-identifier">subject</span>, :<span class="ruby-identifier">title</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">e</span> = <span class="ruby-constant">Email</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">1</span>)
+<span class="ruby-identifier">e</span>.<span class="ruby-identifier">title</span>    <span class="ruby-comment"># =&gt; &quot;Superstars&quot;</span>
+<span class="ruby-identifier">e</span>.<span class="ruby-identifier">subject</span>  <span class="ruby-comment"># =&gt; &quot;Superstars&quot;</span>
+<span class="ruby-identifier">e</span>.<span class="ruby-identifier">subject?</span> <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-identifier">e</span>.<span class="ruby-identifier">subject</span> = <span class="ruby-string">&quot;Megastars&quot;</span>
+<span class="ruby-identifier">e</span>.<span class="ruby-identifier">title</span>    <span class="ruby-comment"># =&gt; &quot;Megastars&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="alias_attribute-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/aliasing.rb, line 62</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">alias_attribute</span>(<span class="ruby-identifier">new_name</span>, <span class="ruby-identifier">old_name</span>)
+    <span class="ruby-identifier">module_eval</span> <span class="ruby-string">&quot;      def #{new_name}; self.#{old_name}; end          # def subject; self.title; end
+      def #{new_name}?; self.#{old_name}?; end        # def subject?; self.title?; end
+      def #{new_name}=(v); self.#{old_name} = v; end  # def subject=(v); self.title = v; end
+&quot;</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-alias_method_chain" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">alias_method_chain</span><span
+            class="method-args">(target, feature) { |aliased_target, punctuation| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Encapsulates the common pattern of:</p>
+
+<pre>alias_method :foo_without_feature, :foo
+alias_method :foo, :foo_with_feature</pre>
+
+<p>With this, you simply do:</p>
+
+<pre>alias_method_chain :foo, :feature</pre>
+
+<p>And both aliases are set up for you.</p>
+
+<p>Query and bang methods (foo?, foo!) keep the same punctuation:</p>
+
+<pre>alias_method_chain :foo?, :feature</pre>
+
+<p>is equivalent to</p>
+
+<pre>alias_method :foo_without_feature?, :foo?
+alias_method :foo?, :foo_with_feature?</pre>
+
+<p>so you can safely chain foo, foo?, foo! and/or foo= with the same feature.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="alias_method_chain-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/aliasing.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">alias_method_chain</span>(<span class="ruby-identifier">target</span>, <span class="ruby-identifier">feature</span>)
+  <span class="ruby-comment"># Strip out punctuation on predicates, bang or writer methods since</span>
+  <span class="ruby-comment"># e.g. target?_without_feature is not a valid method name.</span>
+  <span class="ruby-identifier">aliased_target</span>, <span class="ruby-identifier">punctuation</span> = <span class="ruby-identifier">target</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/([?!=])$/</span>, <span class="ruby-string">&#39;&#39;</span>), <span class="ruby-node">$1</span>
+  <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">aliased_target</span>, <span class="ruby-identifier">punctuation</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+
+  <span class="ruby-identifier">with_method</span> = <span class="ruby-node">&quot;#{aliased_target}_with_#{feature}#{punctuation}&quot;</span>
+  <span class="ruby-identifier">without_method</span> = <span class="ruby-node">&quot;#{aliased_target}_without_#{feature}#{punctuation}&quot;</span>
+
+  <span class="ruby-identifier">alias_method</span> <span class="ruby-identifier">without_method</span>, <span class="ruby-identifier">target</span>
+  <span class="ruby-identifier">alias_method</span> <span class="ruby-identifier">target</span>, <span class="ruby-identifier">with_method</span>
+
+  <span class="ruby-keyword">case</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">public_method_defined?</span>(<span class="ruby-identifier">without_method</span>)
+    <span class="ruby-identifier">public</span> <span class="ruby-identifier">target</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">protected_method_defined?</span>(<span class="ruby-identifier">without_method</span>)
+    <span class="ruby-identifier">protected</span> <span class="ruby-identifier">target</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">private_method_defined?</span>(<span class="ruby-identifier">without_method</span>)
+    <span class="ruby-identifier">private</span> <span class="ruby-identifier">target</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-anonymous-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">anonymous?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A module may or may not have a name.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">M</span>; <span class="ruby-keyword">end</span>
+<span class="ruby-constant">M</span>.<span class="ruby-identifier">name</span> <span class="ruby-comment"># =&gt; &quot;M&quot;</span>
+
+<span class="ruby-identifier">m</span> = <span class="ruby-constant">Module</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">m</span>.<span class="ruby-identifier">name</span> <span class="ruby-comment"># =&gt; nil</span>
+</pre>
+
+<p>A module gets a name when it is first assigned to a constant. Either via
+the <code>module</code> or <code>class</code> keyword or by an explicit
+assignment:</p>
+
+<pre class="ruby"><span class="ruby-identifier">m</span> = <span class="ruby-constant">Module</span>.<span class="ruby-identifier">new</span> <span class="ruby-comment"># creates an anonymous module</span>
+<span class="ruby-constant">M</span> = <span class="ruby-identifier">m</span>          <span class="ruby-comment"># =&gt; m gets a name here as a side-effect</span>
+<span class="ruby-identifier">m</span>.<span class="ruby-identifier">name</span>         <span class="ruby-comment"># =&gt; &quot;M&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="anonymous-3F-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/anonymous.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">anonymous?</span>
+  <span class="ruby-identifier">name</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-attr_internal" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">attr_internal</span><span
+            class="method-args">(*attrs)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Module.html#method-i-attr_internal_accessor">attr_internal_accessor</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-attr_internal_accessor" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attr_internal_accessor</span><span
+            class="method-args">(*attrs)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Declares an attribute reader and writer backed by an internally-named
+instance variable.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="attr_internal_accessor-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/attr_internal.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">attr_internal_accessor</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attrs</span>)
+  <span class="ruby-identifier">attr_internal_reader</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attrs</span>)
+  <span class="ruby-identifier">attr_internal_writer</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attrs</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Module.html#method-i-attr_internal">attr_internal</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-attr_internal_reader" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attr_internal_reader</span><span
+            class="method-args">(*attrs)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Declares an attribute reader backed by an internally-named instance
+variable.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="attr_internal_reader-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/attr_internal.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">attr_internal_reader</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attrs</span>)
+  <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">attr_name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">attr_internal_define</span>(<span class="ruby-identifier">attr_name</span>, <span class="ruby-value">:reader</span>)}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-attr_internal_writer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attr_internal_writer</span><span
+            class="method-args">(*attrs)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Declares an attribute writer backed by an internally-named instance
+variable.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="attr_internal_writer-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/attr_internal.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">attr_internal_writer</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attrs</span>)
+  <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">attr_name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">attr_internal_define</span>(<span class="ruby-identifier">attr_name</span>, <span class="ruby-value">:writer</span>)}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cattr_accessor" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">cattr_accessor</span><span
+            class="method-args">(*syms, &blk)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Module.html#method-i-mattr_accessor">mattr_accessor</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-cattr_reader" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">cattr_reader</span><span
+            class="method-args">(*syms)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Module.html#method-i-mattr_reader">mattr_reader</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-cattr_writer" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">cattr_writer</span><span
+            class="method-args">(*syms)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Module.html#method-i-mattr_writer">mattr_writer</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-delegate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delegate</span><span
+            class="method-args">(*methods)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Provides a <code>delegate</code> class method to easily expose contained
+objects&#39; public methods as your own.</p>
+
+<h4 id="method-i-delegate-label-Options">Options<span><a href="#method-i-delegate-label-Options">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<ul><li>
+<p><code>:to</code> - Specifies the target object</p>
+</li><li>
+<p><code>:prefix</code> - Prefixes the new method with the target name or a
+custom prefix</p>
+</li><li>
+<p><code>:allow_nil</code> - if set to true, prevents a
+<code>NoMethodError</code> to be raised</p>
+</li></ul>
+
+<p>The macro receives one or more method names (specified as symbols or
+strings) and the name of the target object via the <code>:to</code> option
+(also a symbol or string).</p>
+
+<p>Delegation is particularly useful with Active Record associations:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Greeter</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">hello</span>
+    <span class="ruby-string">&#39;hello&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">goodbye</span>
+    <span class="ruby-string">&#39;goodbye&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Foo</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">belongs_to</span> :<span class="ruby-identifier">greeter</span>
+  <span class="ruby-identifier">delegate</span> :<span class="ruby-identifier">hello</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">greeter</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Foo</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">hello</span>   <span class="ruby-comment"># =&gt; &quot;hello&quot;</span>
+<span class="ruby-constant">Foo</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">goodbye</span> <span class="ruby-comment"># =&gt; NoMethodError: undefined method `goodbye&#39; for #&lt;Foo:0x1af30c&gt;</span>
+</pre>
+
+<p>Multiple delegates to the same target are allowed:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Foo</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">belongs_to</span> :<span class="ruby-identifier">greeter</span>
+  <span class="ruby-identifier">delegate</span> :<span class="ruby-identifier">hello</span>, :<span class="ruby-identifier">goodbye</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">greeter</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Foo</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">goodbye</span> <span class="ruby-comment"># =&gt; &quot;goodbye&quot;</span>
+</pre>
+
+<p>Methods can be delegated to instance variables, class variables, or
+constants by providing them as a symbols:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Foo</span>
+  <span class="ruby-constant">CONSTANT_ARRAY</span> = [<span class="ruby-value">0</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>]
+  <span class="ruby-identifier">@@class_array</span>  = [<span class="ruby-value">4</span>,<span class="ruby-value">5</span>,<span class="ruby-value">6</span>,<span class="ruby-value">7</span>]
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+    <span class="ruby-ivar">@instance_array</span> = [<span class="ruby-value">8</span>,<span class="ruby-value">9</span>,<span class="ruby-value">10</span>,<span class="ruby-value">11</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">delegate</span> :<span class="ruby-identifier">sum</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> :<span class="ruby-constant">CONSTANT_ARRAY</span>
+  <span class="ruby-identifier">delegate</span> :<span class="ruby-identifier">min</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">@@class_array</span>
+  <span class="ruby-identifier">delegate</span> :<span class="ruby-identifier">max</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> :<span class="ruby-ivar">@instance_array</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Foo</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">sum</span> <span class="ruby-comment"># =&gt; 6</span>
+<span class="ruby-constant">Foo</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">min</span> <span class="ruby-comment"># =&gt; 4</span>
+<span class="ruby-constant">Foo</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">max</span> <span class="ruby-comment"># =&gt; 11</span>
+</pre>
+
+<p>It&#39;s also possible to delegate a method to the class by using
+<code>:class</code>:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Foo</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hello</span>
+    <span class="ruby-string">&quot;world&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">delegate</span> :<span class="ruby-identifier">hello</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> :<span class="ruby-keyword">class</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Foo</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">hello</span> <span class="ruby-comment"># =&gt; &quot;world&quot;</span>
+</pre>
+
+<p>Delegates can optionally be prefixed using the <code>:prefix</code> option.
+If the value is <code>true</code>, the delegate methods are prefixed with
+the name of the object being delegated to.</p>
+
+<pre class="ruby"><span class="ruby-constant">Person</span> = <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>)
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Invoice</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">client</span>)
+  <span class="ruby-identifier">delegate</span> :<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">client</span>, <span class="ruby-identifier">prefix</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">john_doe</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;John Doe&#39;</span>, <span class="ruby-string">&#39;Vimmersvej 13&#39;</span>)
+<span class="ruby-identifier">invoice</span> = <span class="ruby-constant">Invoice</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">john_doe</span>)
+<span class="ruby-identifier">invoice</span>.<span class="ruby-identifier">client_name</span>    <span class="ruby-comment"># =&gt; &quot;John Doe&quot;</span>
+<span class="ruby-identifier">invoice</span>.<span class="ruby-identifier">client_address</span> <span class="ruby-comment"># =&gt; &quot;Vimmersvej 13&quot;</span>
+</pre>
+
+<p>It is also possible to supply a custom prefix.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Invoice</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">client</span>)
+  <span class="ruby-identifier">delegate</span> :<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">address</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">client</span>, <span class="ruby-identifier">prefix</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">customer</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">invoice</span> = <span class="ruby-constant">Invoice</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">john_doe</span>)
+<span class="ruby-identifier">invoice</span>.<span class="ruby-identifier">customer_name</span>    <span class="ruby-comment"># =&gt; &#39;John Doe&#39;</span>
+<span class="ruby-identifier">invoice</span>.<span class="ruby-identifier">customer_address</span> <span class="ruby-comment"># =&gt; &#39;Vimmersvej 13&#39;</span>
+</pre>
+
+<p>If the target is <code>nil</code> and does not respond to the delegated
+method a <code>NoMethodError</code> is raised, as with any other value.
+Sometimes, however, it makes sense to be robust to that situation and that
+is the purpose of the <code>:allow_nil</code> option: If the target is not
+<code>nil</code>, or it is and responds to the method, everything works as
+usual. But if it is <code>nil</code> and does not respond to the delegated
+method, <code>nil</code> is returned.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">has_one</span> :<span class="ruby-identifier">profile</span>
+  <span class="ruby-identifier">delegate</span> :<span class="ruby-identifier">age</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">profile</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">age</span> <span class="ruby-comment"># raises NoMethodError: undefined method `age&#39;</span>
+</pre>
+
+<p>But if not having a profile yet is fine and should not be an error
+condition:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">has_one</span> :<span class="ruby-identifier">profile</span>
+  <span class="ruby-identifier">delegate</span> :<span class="ruby-identifier">age</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">profile</span>, <span class="ruby-identifier">allow_nil</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">age</span> <span class="ruby-comment"># nil</span>
+</pre>
+
+<p>Note that if the target is not <code>nil</code> then the call is attempted
+regardless of the <code>:allow_nil</code> option, and thus an exception is
+still raised if said object does not respond to the method:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Foo</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">bar</span>)
+    <span class="ruby-ivar">@bar</span> = <span class="ruby-identifier">bar</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">delegate</span> :<span class="ruby-identifier">name</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> :<span class="ruby-ivar">@bar</span>, <span class="ruby-identifier">allow_nil</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Foo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Bar&quot;</span>).<span class="ruby-identifier">name</span> <span class="ruby-comment"># raises NoMethodError: undefined method `name&#39;</span>
+</pre>
+
+<p>The target method must be public, otherwise it will raise
+<code>NoMethodError</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delegate-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/delegation.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delegate</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">methods</span>)
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">to</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:to</span>]
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;Delegation needs a target. Supply an options hash with a :to key as the last argument (e.g. delegate :hello, to: :greeter).&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">allow_nil</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-value">:prefix</span>, <span class="ruby-value">:allow_nil</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">prefix</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">to</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^[^a-z_]/</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;Can only automatically set the delegation prefix when delegating to a method.&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">method_prefix</span> =        <span class="ruby-keyword">if</span> <span class="ruby-identifier">prefix</span>
+      <span class="ruby-node">&quot;#{prefix == true ? to : prefix}_&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">file</span>, <span class="ruby-identifier">line</span> = <span class="ruby-identifier">caller</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;:&#39;</span>, <span class="ruby-value">2</span>)
+  <span class="ruby-identifier">line</span> = <span class="ruby-identifier">line</span>.<span class="ruby-identifier">to_i</span>
+
+  <span class="ruby-identifier">to</span> = <span class="ruby-identifier">to</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">to</span> = <span class="ruby-node">&quot;self.#{to}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">RUBY_RESERVED_WORDS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">to</span>)
+
+  <span class="ruby-identifier">methods</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># Attribute writer methods only accept one argument. Makes sure []=</span>
+    <span class="ruby-comment"># methods still accept two arguments.</span>
+    <span class="ruby-identifier">definition</span> = (<span class="ruby-identifier">method</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/[^\]]=$/</span>) <span class="ruby-operator">?</span> <span class="ruby-string">&#39;arg&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;*args, &amp;block&#39;</span>
+
+    <span class="ruby-comment"># The following generated method calls the target exactly once, storing</span>
+    <span class="ruby-comment"># the returned value in a dummy variable.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># Reason is twofold: On one hand doing less calls is in general better.</span>
+    <span class="ruby-comment"># On the other hand it could be that the target has side-effects,</span>
+    <span class="ruby-comment"># whereas conceptually, from the user point of view, the delegator should</span>
+    <span class="ruby-comment"># be doing one call.</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">allow_nil</span>
+      <span class="ruby-identifier">method_def</span> = [
+        <span class="ruby-node">&quot;def #{method_prefix}#{method}(#{definition})&quot;</span>,
+        <span class="ruby-node">&quot;_ = #{to}&quot;</span>,
+        <span class="ruby-node">&quot;if !_.nil? || nil.respond_to?(:#{method})&quot;</span>,
+        <span class="ruby-node">&quot;  _.#{method}(#{definition})&quot;</span>,
+        <span class="ruby-string">&quot;end&quot;</span>,
+      <span class="ruby-string">&quot;end&quot;</span>
+      ].<span class="ruby-identifier">join</span> <span class="ruby-string">&#39;;&#39;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">exception</span> = <span class="ruby-node">%Q(raise DelegationError, &quot;#{self}##{method_prefix}#{method} delegated to #{to}.#{method}, but #{to} is nil: \#{self.inspect}&quot;)</span>
+
+      <span class="ruby-identifier">method_def</span> = [
+        <span class="ruby-node">&quot;def #{method_prefix}#{method}(#{definition})&quot;</span>,
+        <span class="ruby-node">&quot; _ = #{to}&quot;</span>,
+        <span class="ruby-node">&quot;  _.#{method}(#{definition})&quot;</span>,
+        <span class="ruby-string">&quot;rescue NoMethodError =&gt; e&quot;</span>,
+        <span class="ruby-node">&quot;  if _.nil? &amp;&amp; e.name == :#{method}&quot;</span>,
+        <span class="ruby-node">&quot;    #{exception}&quot;</span>,
+        <span class="ruby-string">&quot;  else&quot;</span>,
+        <span class="ruby-string">&quot;    raise&quot;</span>,
+        <span class="ruby-string">&quot;  end&quot;</span>,
+        <span class="ruby-string">&quot;end&quot;</span>
+      ].<span class="ruby-identifier">join</span> <span class="ruby-string">&#39;;&#39;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">module_eval</span>(<span class="ruby-identifier">method_def</span>, <span class="ruby-identifier">file</span>, <span class="ruby-identifier">line</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-deprecate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deprecate</span><span
+            class="method-args">(*method_names)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <pre>deprecate :foo
+deprecate bar: &#39;message&#39;
+deprecate :foo, :bar, baz: &#39;warning!&#39;, qux: &#39;gone!&#39;</pre>
+
+<p>You can also use custom deprecator instance:</p>
+
+<pre>deprecate :foo, deprecator: MyLib::Deprecator.new
+deprecate :foo, bar: &quot;warning!&quot;, deprecator: MyLib::Deprecator.new</pre>
+
+<p>Custom deprecators must respond to
+<code>deprecation_warning(deprecated_method_name, message,
+caller_backtrace)</code> method where you can implement your custom warning
+behavior.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">MyLib</span><span class="ruby-operator">::</span><span class="ruby-constant">Deprecator</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">deprecation_warning</span>(<span class="ruby-identifier">deprecated_method_name</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">caller_backtrace</span> = <span class="ruby-keyword">nil</span>)
+     <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;#{deprecated_method_name} is deprecated and will be removed from MyLibrary | #{message}&quot;</span>
+     <span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">warn</span> <span class="ruby-identifier">message</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="deprecate-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/deprecation.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deprecate</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">method_names</span>)
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Deprecation</span>.<span class="ruby-identifier">deprecate_methods</span>(<span class="ruby-keyword">self</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">method_names</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mattr_accessor" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mattr_accessor</span><span
+            class="method-args">(*syms, &blk)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Defines both class and instance accessors for class attributes.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">HairColors</span>
+  <span class="ruby-identifier">mattr_accessor</span> :<span class="ruby-identifier">hair_colors</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Person</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">HairColors</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">hair_colors</span> = [:<span class="ruby-identifier">brown</span>, :<span class="ruby-identifier">black</span>, :<span class="ruby-identifier">blonde</span>, :<span class="ruby-identifier">red</span>]
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">hair_colors</span>     <span class="ruby-comment"># =&gt; [:brown, :black, :blonde, :red]</span>
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">hair_colors</span> <span class="ruby-comment"># =&gt; [:brown, :black, :blonde, :red]</span>
+</pre>
+
+<p>If a subclass changes the value then that would also change the value for
+parent class. Similarly if parent class changes the value then that would
+change the value of subclasses too.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Male</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Person</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Male</span>.<span class="ruby-identifier">hair_colors</span> <span class="ruby-operator">&lt;&lt;</span> :<span class="ruby-identifier">blue</span>
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">hair_colors</span> <span class="ruby-comment"># =&gt; [:brown, :black, :blonde, :red, :blue]</span>
+</pre>
+
+<p>To opt out of the instance writer method, pass <code>instance_writer:
+false</code>. To opt out of the instance reader method, pass
+<code>instance_reader: false</code>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">HairColors</span>
+  <span class="ruby-identifier">mattr_accessor</span> :<span class="ruby-identifier">hair_colors</span>, <span class="ruby-identifier">instance_writer</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">instance_reader</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Person</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">HairColors</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">hair_colors</span> = [:<span class="ruby-identifier">brown</span>]  <span class="ruby-comment"># =&gt; NoMethodError</span>
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">hair_colors</span>             <span class="ruby-comment"># =&gt; NoMethodError</span>
+</pre>
+
+<p>Or pass <code>instance_accessor: false</code>, to opt out both instance
+methods.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">HairColors</span>
+  <span class="ruby-identifier">mattr_accessor</span> :<span class="ruby-identifier">hair_colors</span>, <span class="ruby-identifier">instance_accessor</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Person</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">HairColors</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">hair_colors</span> = [:<span class="ruby-identifier">brown</span>]  <span class="ruby-comment"># =&gt; NoMethodError</span>
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">hair_colors</span>             <span class="ruby-comment"># =&gt; NoMethodError</span>
+</pre>
+
+<p>Also you can pass a block to set up the attribute with a default value.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">HairColors</span>
+  <span class="ruby-identifier">mattr_accessor</span> :<span class="ruby-identifier">hair_colors</span> <span class="ruby-keyword">do</span>
+    [:<span class="ruby-identifier">brown</span>, :<span class="ruby-identifier">black</span>, :<span class="ruby-identifier">blonde</span>, :<span class="ruby-identifier">red</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Person</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">HairColors</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">class_variable_get</span>(<span class="ruby-string">&quot;@@hair_colors&quot;</span>) <span class="ruby-comment">#=&gt; [:brown, :black, :blonde, :red]</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="mattr_accessor-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/attribute_accessors.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mattr_accessor</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">syms</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span>)
+  <span class="ruby-identifier">mattr_reader</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">syms</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span>)
+  <span class="ruby-identifier">mattr_writer</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">syms</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Module.html#method-i-cattr_accessor">cattr_accessor</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mattr_reader" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mattr_reader</span><span
+            class="method-args">(*syms) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Defines a class attribute and creates a class and instance reader methods.
+The underlying the class variable is set to <code>nil</code>, if it is not
+previously defined.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">HairColors</span>
+  <span class="ruby-identifier">mattr_reader</span> :<span class="ruby-identifier">hair_colors</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">HairColors</span>.<span class="ruby-identifier">hair_colors</span> <span class="ruby-comment"># =&gt; nil</span>
+<span class="ruby-constant">HairColors</span>.<span class="ruby-identifier">class_variable_set</span>(<span class="ruby-string">&quot;@@hair_colors&quot;</span>, [:<span class="ruby-identifier">brown</span>, :<span class="ruby-identifier">black</span>])
+<span class="ruby-constant">HairColors</span>.<span class="ruby-identifier">hair_colors</span> <span class="ruby-comment"># =&gt; [:brown, :black]</span>
+</pre>
+
+<p>The attribute name must be a valid method name in Ruby.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">Foo</span>
+  <span class="ruby-identifier">mattr_reader</span> :<span class="ruby-string">&quot;1_Badname &quot;</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-comment"># =&gt; NameError: invalid attribute name</span>
+</pre>
+
+<p>If you want to opt out the creation on the instance reader method, pass
+<code>instance_reader: false</code> or <code>instance_accessor:
+false</code>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">HairColors</span>
+  <span class="ruby-identifier">mattr_writer</span> :<span class="ruby-identifier">hair_colors</span>, <span class="ruby-identifier">instance_reader</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Person</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">HairColors</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">hair_colors</span> <span class="ruby-comment"># =&gt; NoMethodError</span>
+</pre>
+
+<p>Also, you can pass a block to set up the attribute with a default value.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">HairColors</span>
+  <span class="ruby-identifier">cattr_reader</span> :<span class="ruby-identifier">hair_colors</span> <span class="ruby-keyword">do</span>
+    [:<span class="ruby-identifier">brown</span>, :<span class="ruby-identifier">black</span>, :<span class="ruby-identifier">blonde</span>, :<span class="ruby-identifier">red</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Person</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">HairColors</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">hair_colors</span> <span class="ruby-comment"># =&gt; [:brown, :black, :blonde, :red]</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="mattr_reader-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/attribute_accessors.rb, line 53</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">mattr_reader</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">syms</span>)
+    <span class="ruby-identifier">options</span> = <span class="ruby-identifier">syms</span>.<span class="ruby-identifier">extract_options!</span>
+    <span class="ruby-identifier">syms</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sym</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">NameError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;invalid attribute name: #{sym}&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sym</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^[_A-Za-z]\w*$/</span>
+      <span class="ruby-identifier">class_eval</span>(<span class="ruby-string">&quot;        @@#{sym} = nil unless defined? @@#{sym}
+
+        def self.#{sym}
+          @@#{sym}
+        end
+&quot;</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:instance_reader</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:instance_accessor</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>
+        <span class="ruby-identifier">class_eval</span>(<span class="ruby-string">&quot;          def #{sym}
+            @@#{sym}
+          end
+&quot;</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">class_variable_set</span>(<span class="ruby-node">&quot;@@#{sym}&quot;</span>, <span class="ruby-keyword">yield</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Module.html#method-i-cattr_reader">cattr_reader</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mattr_writer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mattr_writer</span><span
+            class="method-args">(*syms) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Defines a class attribute and creates a class and instance writer methods
+to allow assignment to the attribute.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">HairColors</span>
+  <span class="ruby-identifier">mattr_writer</span> :<span class="ruby-identifier">hair_colors</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Person</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">HairColors</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">HairColors</span>.<span class="ruby-identifier">hair_colors</span> = [:<span class="ruby-identifier">brown</span>, :<span class="ruby-identifier">black</span>]
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">class_variable_get</span>(<span class="ruby-string">&quot;@@hair_colors&quot;</span>) <span class="ruby-comment"># =&gt; [:brown, :black]</span>
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">hair_colors</span> = [:<span class="ruby-identifier">blonde</span>, :<span class="ruby-identifier">red</span>]
+<span class="ruby-constant">HairColors</span>.<span class="ruby-identifier">class_variable_get</span>(<span class="ruby-string">&quot;@@hair_colors&quot;</span>) <span class="ruby-comment"># =&gt; [:blonde, :red]</span>
+</pre>
+
+<p>If you want to opt out the instance writer method, pass
+<code>instance_writer: false</code> or <code>instance_accessor:
+false</code>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">HairColors</span>
+  <span class="ruby-identifier">mattr_writer</span> :<span class="ruby-identifier">hair_colors</span>, <span class="ruby-identifier">instance_writer</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Person</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">HairColors</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">hair_colors</span> = [:<span class="ruby-identifier">blonde</span>, :<span class="ruby-identifier">red</span>] <span class="ruby-comment"># =&gt; NoMethodError</span>
+</pre>
+
+<p>Also, you can pass a block to set up the attribute with a default value.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">HairColors</span>
+  <span class="ruby-identifier">mattr_writer</span> :<span class="ruby-identifier">hair_colors</span> <span class="ruby-keyword">do</span>
+    [:<span class="ruby-identifier">brown</span>, :<span class="ruby-identifier">black</span>, :<span class="ruby-identifier">blonde</span>, :<span class="ruby-identifier">red</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Person</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">HairColors</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">class_variable_get</span>(<span class="ruby-string">&quot;@@hair_colors&quot;</span>) <span class="ruby-comment"># =&gt; [:brown, :black, :blonde, :red]</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="mattr_writer-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/attribute_accessors.rb, line 119</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">mattr_writer</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">syms</span>)
+    <span class="ruby-identifier">options</span> = <span class="ruby-identifier">syms</span>.<span class="ruby-identifier">extract_options!</span>
+    <span class="ruby-identifier">syms</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sym</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">NameError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;invalid attribute name: #{sym}&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sym</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^[_A-Za-z]\w*$/</span>
+      <span class="ruby-identifier">class_eval</span>(<span class="ruby-string">&quot;        @@#{sym} = nil unless defined? @@#{sym}
+
+        def self.#{sym}=(obj)
+          @@#{sym} = obj
+        end
+&quot;</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:instance_writer</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:instance_accessor</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>
+        <span class="ruby-identifier">class_eval</span>(<span class="ruby-string">&quot;          def #{sym}=(obj)
+            @@#{sym} = obj
+          end
+&quot;</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{sym}=&quot;</span>, <span class="ruby-keyword">yield</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Module.html#method-i-cattr_writer">cattr_writer</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parent" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parent</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the module which contains this one according to its name.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">M</span>
+  <span class="ruby-keyword">module</span> <span class="ruby-constant">N</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">X</span> = <span class="ruby-constant">M</span><span class="ruby-operator">::</span><span class="ruby-constant">N</span>
+
+<span class="ruby-constant">M</span><span class="ruby-operator">::</span><span class="ruby-constant">N</span>.<span class="ruby-identifier">parent</span> <span class="ruby-comment"># =&gt; M</span>
+<span class="ruby-constant">X</span>.<span class="ruby-identifier">parent</span>    <span class="ruby-comment"># =&gt; M</span>
+</pre>
+
+<p>The parent of top-level and anonymous modules is <a
+href="Object.html">Object</a>.</p>
+
+<pre class="ruby"><span class="ruby-constant">M</span>.<span class="ruby-identifier">parent</span>          <span class="ruby-comment"># =&gt; Object</span>
+<span class="ruby-constant">Module</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">parent</span> <span class="ruby-comment"># =&gt; Object</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="parent-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/introspection.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parent</span>
+  <span class="ruby-identifier">parent_name</span> <span class="ruby-operator">?</span> <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Inflector</span>.<span class="ruby-identifier">constantize</span>(<span class="ruby-identifier">parent_name</span>) <span class="ruby-operator">:</span> <span class="ruby-constant">Object</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parent_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parent_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the name of the module containing this one.</p>
+
+<pre class="ruby"><span class="ruby-constant">M</span><span class="ruby-operator">::</span><span class="ruby-constant">N</span>.<span class="ruby-identifier">parent_name</span> <span class="ruby-comment"># =&gt; &quot;M&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="parent_name-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/introspection.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parent_name</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span> <span class="ruby-ivar">@parent_name</span>
+    <span class="ruby-ivar">@parent_name</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@parent_name</span> = <span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/::[^:]+\Z/</span> <span class="ruby-operator">?</span> <span class="ruby-node">$`</span>.<span class="ruby-identifier">freeze</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parents" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parents</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns all the parents of this module according to its name, ordered from
+nested outwards. The receiver is not contained within the result.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">M</span>
+  <span class="ruby-keyword">module</span> <span class="ruby-constant">N</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">X</span> = <span class="ruby-constant">M</span><span class="ruby-operator">::</span><span class="ruby-constant">N</span>
+
+<span class="ruby-constant">M</span>.<span class="ruby-identifier">parents</span>    <span class="ruby-comment"># =&gt; [Object]</span>
+<span class="ruby-constant">M</span><span class="ruby-operator">::</span><span class="ruby-constant">N</span>.<span class="ruby-identifier">parents</span> <span class="ruby-comment"># =&gt; [M, Object]</span>
+<span class="ruby-constant">X</span>.<span class="ruby-identifier">parents</span>    <span class="ruby-comment"># =&gt; [M, Object]</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="parents-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/introspection.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parents</span>
+  <span class="ruby-identifier">parents</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">parent_name</span>
+    <span class="ruby-identifier">parts</span> = <span class="ruby-identifier">parent_name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;::&#39;</span>)
+    <span class="ruby-keyword">until</span> <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">parents</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Inflector</span>.<span class="ruby-identifier">constantize</span>(<span class="ruby-identifier">parts</span> <span class="ruby-operator">*</span> <span class="ruby-string">&#39;::&#39;</span>)
+      <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">pop</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">parents</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Object</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">parents</span>.<span class="ruby-identifier">include?</span> <span class="ruby-constant">Object</span>
+  <span class="ruby-identifier">parents</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-qualified_const_defined-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">qualified_const_defined?</span><span
+            class="method-args">(path, search_parents=true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="qualified_const_defined-3F-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/qualified_const.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">qualified_const_defined?</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">search_parents</span>=<span class="ruby-keyword">true</span>)
+  <span class="ruby-constant">QualifiedConstUtils</span>.<span class="ruby-identifier">raise_if_absolute</span>(<span class="ruby-identifier">path</span>)
+
+  <span class="ruby-constant">QualifiedConstUtils</span>.<span class="ruby-identifier">names</span>(<span class="ruby-identifier">path</span>).<span class="ruby-identifier">inject</span>(<span class="ruby-keyword">self</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">mod</span>, <span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mod</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">search_parents</span>)
+    <span class="ruby-identifier">mod</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-qualified_const_get" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">qualified_const_get</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="qualified_const_get-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/qualified_const.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">qualified_const_get</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-constant">QualifiedConstUtils</span>.<span class="ruby-identifier">raise_if_absolute</span>(<span class="ruby-identifier">path</span>)
+
+  <span class="ruby-constant">QualifiedConstUtils</span>.<span class="ruby-identifier">names</span>(<span class="ruby-identifier">path</span>).<span class="ruby-identifier">inject</span>(<span class="ruby-keyword">self</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">mod</span>, <span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">mod</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-qualified_const_set" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">qualified_const_set</span><span
+            class="method-args">(path, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="qualified_const_set-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/qualified_const.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">qualified_const_set</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-constant">QualifiedConstUtils</span>.<span class="ruby-identifier">raise_if_absolute</span>(<span class="ruby-identifier">path</span>)
+
+  <span class="ruby-identifier">const_name</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">demodulize</span>
+  <span class="ruby-identifier">mod_name</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">deconstantize</span>
+  <span class="ruby-identifier">mod</span> = <span class="ruby-identifier">mod_name</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">qualified_const_get</span>(<span class="ruby-identifier">mod_name</span>)
+  <span class="ruby-identifier">mod</span>.<span class="ruby-identifier">const_set</span>(<span class="ruby-identifier">const_name</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-redefine_method" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">redefine_method</span><span
+            class="method-args">(method, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="redefine_method-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/remove_method.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">redefine_method</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">remove_possible_method</span>(<span class="ruby-identifier">method</span>)
+  <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_possible_method" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_possible_method</span><span
+            class="method-args">(method)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remove_possible_method-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/remove_method.rb, line 2</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_possible_method</span>(<span class="ruby-identifier">method</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">method_defined?</span>(<span class="ruby-identifier">method</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">private_method_defined?</span>(<span class="ruby-identifier">method</span>)
+    <span class="ruby-identifier">undef_method</span>(<span class="ruby-identifier">method</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-attr_internal_define" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attr_internal_define</span><span
+            class="method-args">(attr_name, type)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="attr_internal_define-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/attr_internal.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">attr_internal_define</span>(<span class="ruby-identifier">attr_name</span>, <span class="ruby-identifier">type</span>)
+  <span class="ruby-identifier">internal_name</span> = <span class="ruby-identifier">attr_internal_ivar_name</span>(<span class="ruby-identifier">attr_name</span>).<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/\A@/</span>, <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-comment"># class_eval is necessary on 1.9 or else the methods are made private</span>
+  <span class="ruby-identifier">class_eval</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># use native attr_* methods as they are faster on some Ruby implementations</span>
+    <span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;attr_#{type}&quot;</span>, <span class="ruby-identifier">internal_name</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">attr_name</span>, <span class="ruby-identifier">internal_name</span> = <span class="ruby-node">&quot;#{attr_name}=&quot;</span>, <span class="ruby-node">&quot;#{internal_name}=&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:writer</span>
+  <span class="ruby-identifier">alias_method</span> <span class="ruby-identifier">attr_name</span>, <span class="ruby-identifier">internal_name</span>
+  <span class="ruby-identifier">remove_method</span> <span class="ruby-identifier">internal_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-attr_internal_ivar_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">attr_internal_ivar_name</span><span
+            class="method-args">(attr)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="attr_internal_ivar_name-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/module/attr_internal.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">attr_internal_ivar_name</span>(<span class="ruby-identifier">attr</span>)
+  <span class="ruby-constant">Module</span>.<span class="ruby-identifier">attr_internal_naming_format</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">attr</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

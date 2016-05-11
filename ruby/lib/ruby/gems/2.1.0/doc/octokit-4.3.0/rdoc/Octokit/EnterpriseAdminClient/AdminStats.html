@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Octokit::EnterpriseAdminClient::AdminStats - octokit-4.3.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-admin_comments_stats">#admin_comments_stats</a>
+    
+    <li ><a href="#method-i-admin_gists_stats">#admin_gists_stats</a>
+    
+    <li ><a href="#method-i-admin_hooks_stats">#admin_hooks_stats</a>
+    
+    <li ><a href="#method-i-admin_issues_stats">#admin_issues_stats</a>
+    
+    <li ><a href="#method-i-admin_milestones_stats">#admin_milestones_stats</a>
+    
+    <li ><a href="#method-i-admin_organization_stats">#admin_organization_stats</a>
+    
+    <li ><a href="#method-i-admin_pages_stats">#admin_pages_stats</a>
+    
+    <li ><a href="#method-i-admin_pull_requests_stats">#admin_pull_requests_stats</a>
+    
+    <li ><a href="#method-i-admin_repository_stats">#admin_repository_stats</a>
+    
+    <li ><a href="#method-i-admin_stats">#admin_stats</a>
+    
+    <li ><a href="#method-i-admin_users_stats">#admin_users_stats</a>
+    
+    <li ><a href="#method-i-get_admin_stats">#get_admin_stats</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Octokit::EnterpriseAdminClient::AdminStats">
+  <h1 id="module-Octokit::EnterpriseAdminClient::AdminStats" class="module">
+    module Octokit::EnterpriseAdminClient::AdminStats
+  </h1>
+
+  <section class="description">
+    
+<p>Methods for the Enterprise Admin Stats API</p>
+
+<p>@see <a
+href="https://developer.github.com/v3/enterprise/admin_stats">developer.github.com/v3/enterprise/admin_stats</a>/</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-admin_comments_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">admin_comments_stats</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get only comment-related stats</p>
+
+<p>@return [Sawyer::Resource] Only comment-related stats @example Get only
+comment-related stats</p>
+
+<pre>@client.admin_comments_stats</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="admin_comments_stats-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/admin_stats.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">admin_comments_stats</span>
+  <span class="ruby-identifier">get_admin_stats</span> <span class="ruby-string">&quot;comments&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-admin_gists_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">admin_gists_stats</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get only gist-related stats</p>
+
+<p>@return [Sawyer::Resource] Only only gist-related stats @example Get only
+gist-related stats</p>
+
+<pre>@client.admin_gits_stats</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="admin_gists_stats-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/admin_stats.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">admin_gists_stats</span>
+  <span class="ruby-identifier">get_admin_stats</span> <span class="ruby-string">&quot;gists&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-admin_hooks_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">admin_hooks_stats</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get only hooks-related stats</p>
+
+<p>@return [Sawyer::Resource] Only hooks-related stats @example Get only
+hooks-related stats</p>
+
+<pre>@client.admin_hooks_stats</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="admin_hooks_stats-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/admin_stats.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">admin_hooks_stats</span>
+  <span class="ruby-identifier">get_admin_stats</span> <span class="ruby-string">&quot;hooks&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-admin_issues_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">admin_issues_stats</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get only issue-related stats</p>
+
+<p>@return [Sawyer::Resource] Only issue-related stats @example Get only
+issue-related stats</p>
+
+<pre>@client.admin_issues_stats</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="admin_issues_stats-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/admin_stats.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">admin_issues_stats</span>
+  <span class="ruby-identifier">get_admin_stats</span> <span class="ruby-string">&quot;issues&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-admin_milestones_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">admin_milestones_stats</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get only milestone-related stats</p>
+
+<p>@return [Sawyer::Resource] Only milestone-related stats @example Get only
+milestone-related stats</p>
+
+<pre>@client.admin_milestones_stats</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="admin_milestones_stats-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/admin_stats.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">admin_milestones_stats</span>
+  <span class="ruby-identifier">get_admin_stats</span> <span class="ruby-string">&quot;milestones&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-admin_organization_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">admin_organization_stats</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get only organization-related stats</p>
+
+<p>@return [Sawyer::Resource] Only organization-related stats @example Get
+only organization-related stats</p>
+
+<pre>@client.admin_organization_stats</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="admin_organization_stats-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/admin_stats.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">admin_organization_stats</span>
+  <span class="ruby-identifier">get_admin_stats</span> <span class="ruby-string">&quot;orgs&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-admin_pages_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">admin_pages_stats</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get only pages-related stats</p>
+
+<p>@return [Sawyer::Resource] Only pages-related stats @example Get only
+pages-related stats</p>
+
+<pre>@client.admin_pages_stats</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="admin_pages_stats-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/admin_stats.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">admin_pages_stats</span>
+  <span class="ruby-identifier">get_admin_stats</span> <span class="ruby-string">&quot;pages&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-admin_pull_requests_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">admin_pull_requests_stats</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get only pull request-related stats</p>
+
+<p>@return [Sawyer::Resource] Only pull request-related stats @example Get
+only pull request-related stats</p>
+
+<pre>@client.admin_pull_requests_stats</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="admin_pull_requests_stats-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/admin_stats.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">admin_pull_requests_stats</span>
+  <span class="ruby-identifier">get_admin_stats</span> <span class="ruby-string">&quot;pulls&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-admin_repository_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">admin_repository_stats</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get only repository-related stats</p>
+
+<p>@return [Sawyer::Resource] Only repository-related stats @example Get only
+repository-related stats</p>
+
+<pre>@client.admin_repository_stats</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="admin_repository_stats-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/admin_stats.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">admin_repository_stats</span>
+  <span class="ruby-identifier">get_admin_stats</span> <span class="ruby-string">&quot;repos&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-admin_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">admin_stats</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get all available stats</p>
+
+<p>@return [Sawyer::Resource] All available stats @example Get all available
+stats</p>
+
+<pre>@client.admin_stats</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="admin_stats-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/admin_stats.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">admin_stats</span>
+  <span class="ruby-identifier">get_admin_stats</span> <span class="ruby-string">&quot;all&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-admin_users_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">admin_users_stats</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get only user-related stats</p>
+
+<p>@return [Sawyer::Resource] Only user-related stats @example Get only
+user-related stats</p>
+
+<pre>@client.admin_users_stats</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="admin_users_stats-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/admin_stats.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">admin_users_stats</span>
+  <span class="ruby-identifier">get_admin_stats</span> <span class="ruby-string">&quot;users&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-get_admin_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_admin_stats</span><span
+            class="method-args">(metric)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private Get enterprise stats</p>
+
+<p>@param metric [String] The metrics you are looking for @return
+[Sawyer::Resource] Magical unicorn stats</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_admin_stats-source">
+            <pre><span class="ruby-comment"># File lib/octokit/enterprise_admin_client/admin_stats.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_admin_stats</span>(<span class="ruby-identifier">metric</span>)
+  <span class="ruby-identifier">get</span> <span class="ruby-node">&quot;enterprise/stats/#{metric}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

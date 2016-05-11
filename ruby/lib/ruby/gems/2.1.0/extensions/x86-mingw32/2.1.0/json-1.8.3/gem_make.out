@@ -1,0 +1,10 @@
+D:/GitHub/SmallPortableJekyll/ruby/bin/ruby.exe extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+make "DESTDIR=" install
+installing default libraries

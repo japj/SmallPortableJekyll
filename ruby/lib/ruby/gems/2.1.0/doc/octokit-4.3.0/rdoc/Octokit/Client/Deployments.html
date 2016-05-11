@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Octokit::Client::Deployments - octokit-4.3.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-create_deployment">#create_deployment</a>
+    
+    <li ><a href="#method-i-create_deployment_status">#create_deployment_status</a>
+    
+    <li ><a href="#method-i-deployment_statuses">#deployment_statuses</a>
+    
+    <li ><a href="#method-i-deployments">#deployments</a>
+    
+    <li ><a href="#method-i-list_deployment_statuses">#list_deployment_statuses</a>
+    
+    <li ><a href="#method-i-list_deployments">#list_deployments</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Octokit::Client::Deployments">
+  <h1 id="module-Octokit::Client::Deployments" class="module">
+    module Octokit::Client::Deployments
+  </h1>
+
+  <section class="description">
+    
+<p>Methods for the <a href="Deployments.html">Deployments</a> API</p>
+
+<p>@see <a
+href="https://developer.github.com/v3/repos/commits/deployments">developer.github.com/v3/repos/commits/deployments</a>/</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-create_deployment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_deployment</span><span
+            class="method-args">(repo, ref, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a deployment for a ref</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param ref [String] The ref to deploy @option
+options [String] :task Used by the deployment system to allow different
+execution paths. Defaults to “deploy”. @option options [String] :payload <a
+href="Meta.html">Meta</a> info about the deployment @option options
+[Boolean] :auto_merge Optional parameter to merge the default branch into
+the requested deployment branch if necessary. Default: true @option options
+[Array&lt;String&gt;] :required_contexts Optional array of status contexts
+verified against commit status checks. @option options [String]
+:environment Optional name for the target deployment environment (e.g.,
+production, staging, qa). Default: “production” @option options [String]
+:description Optional short description. @return [Sawyer::Resource] A
+deployment @see <a
+href="https://developer.github.com/v3/repos/deployments/#create-a-deployment">developer.github.com/v3/repos/deployments/#create-a-deployment</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_deployment-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/deployments.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_deployment</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:ref</span>] = <span class="ruby-identifier">ref</span>
+  <span class="ruby-identifier">post</span>(<span class="ruby-node">&quot;#{Repository.path repo}/deployments&quot;</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_deployment_status" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_deployment_status</span><span
+            class="method-args">(deployment_url, state, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a deployment status for a Deployment</p>
+
+<p>@param deployment_url [String] A URL for a deployment resource @param state
+[String] The state: pending, success, failure, error @option options
+[String] :target_url The target URL to associate with this status. Default:
+“” @option options [String] :description A short description of the status.
+Maximum length of 140 characters. Default: “” @return [Sawyer::Resource] A
+deployment status @see <a
+href="https://developer.github.com/v3/repos/deployments/#create-a-deployment-status">developer.github.com/v3/repos/deployments/#create-a-deployment-status</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_deployment_status-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/deployments.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_deployment_status</span>(<span class="ruby-identifier">deployment_url</span>, <span class="ruby-identifier">state</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">deployment</span> = <span class="ruby-identifier">get</span>(<span class="ruby-identifier">deployment_url</span>, <span class="ruby-value">:accept</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:accept</span>])
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:state</span>] = <span class="ruby-identifier">state</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>
+  <span class="ruby-identifier">post</span>(<span class="ruby-identifier">deployment</span>.<span class="ruby-identifier">rels</span>[<span class="ruby-value">:statuses</span>].<span class="ruby-identifier">href</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-deployment_statuses" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deployment_statuses</span><span
+            class="method-args">(deployment_url, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List all statuses for a Deployment</p>
+
+<p>@param deployment_url [String] A URL for a deployment resource @return
+[Array&lt;Sawyer::Resource&gt;] A list of deployment statuses @see <a
+href="https://developer.github.com/v3/repos/deployments/#list-deployment-statuses">developer.github.com/v3/repos/deployments/#list-deployment-statuses</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="deployment_statuses-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/deployments.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deployment_statuses</span>(<span class="ruby-identifier">deployment_url</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">deployment</span> = <span class="ruby-identifier">get</span>(<span class="ruby-identifier">deployment_url</span>, <span class="ruby-value">:accept</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:accept</span>])
+  <span class="ruby-identifier">get</span>(<span class="ruby-identifier">deployment</span>.<span class="ruby-identifier">rels</span>[<span class="ruby-value">:statuses</span>].<span class="ruby-identifier">href</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Deployments.html#method-i-list_deployment_statuses">list_deployment_statuses</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-deployments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deployments</span><span
+            class="method-args">(repo, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List all deployments for a repository</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @return [Array&lt;Sawyer::Resource&gt;] A list of
+deployments @see <a
+href="https://developer.github.com/v3/repos/deployments/#list-deployments">developer.github.com/v3/repos/deployments/#list-deployments</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="deployments-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/deployments.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deployments</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span>(<span class="ruby-node">&quot;#{Repository.path repo}/deployments&quot;</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Deployments.html#method-i-list_deployments">list_deployments</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-list_deployment_statuses" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">list_deployment_statuses</span><span
+            class="method-args">(deployment_url, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Deployments.html#method-i-deployment_statuses">deployment_statuses</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-list_deployments" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">list_deployments</span><span
+            class="method-args">(repo, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Deployments.html#method-i-deployments">deployments</a>
+        </div>
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

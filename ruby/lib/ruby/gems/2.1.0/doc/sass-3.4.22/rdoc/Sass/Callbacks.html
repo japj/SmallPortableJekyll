@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Sass::Callbacks - sass-3.4.22 Documentation</title>
+
+<link href="../fonts.css" rel="stylesheet">
+<link href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/search_index.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/searcher.js"></script>
+<script src="../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-extended">::extended</a>
+    
+    <li ><a href="#method-i-define_callback">#define_callback</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Sass::Callbacks">
+  <h1 id="module-Sass::Callbacks" class="module">
+    module Sass::Callbacks
+  </h1>
+
+  <section class="description">
+    
+<p>A lightweight infrastructure for defining and running callbacks. <a
+href="Callbacks.html">Callbacks</a> are defined using {#define_callback} at
+the class level, and called using `run_#{name}` at the instance level.</p>
+
+<p>Clients can add callbacks by calling the generated `on_#{name}` method, and
+passing in a block that&#39;s run when the callback is activated.</p>
+
+<p>@example Define a callback</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Munger</span>
+  <span class="ruby-identifier">extend</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Callbacks</span>
+  <span class="ruby-identifier">define_callback</span> :<span class="ruby-identifier">string_munged</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">munge</span>(<span class="ruby-identifier">str</span>)
+    <span class="ruby-identifier">res</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/[a-z]/</span>, <span class="ruby-string">&#39;\1\1&#39;</span>)
+    <span class="ruby-identifier">run_string_munged</span> <span class="ruby-identifier">str</span>, <span class="ruby-identifier">res</span>
+    <span class="ruby-identifier">res</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>@example Use a callback</p>
+
+<pre class="ruby"><span class="ruby-identifier">m</span> = <span class="ruby-constant">Munger</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">m</span>.<span class="ruby-identifier">on_string_munged</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">str</span>, <span class="ruby-identifier">res</span><span class="ruby-operator">|</span> <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{str} was munged into #{res}!&quot;</span>}
+<span class="ruby-identifier">m</span>.<span class="ruby-identifier">munge</span> <span class="ruby-string">&quot;bar&quot;</span> <span class="ruby-comment">#=&gt; bar was munged into bbaarr!</span>
+</pre>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-extended" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">extended</span><span
+            class="method-args">(base)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Automatically includes {InstanceMethods} when something extends this
+module.</p>
+
+<p>@param base [Module]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="extended-source">
+            <pre><span class="ruby-comment"># File lib/sass/callbacks.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">extended</span>(<span class="ruby-identifier">base</span>)
+  <span class="ruby-identifier">base</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:include</span>, <span class="ruby-constant">InstanceMethods</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-define_callback" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">define_callback</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Define a callback with the given name. This will define an `on_#{name}`
+method that registers a block, and a `run_#{name}` method that runs that
+block (optionall with some arguments).</p>
+
+<p>@param name [Symbol] The name of the callback @return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="define_callback-source">
+            <pre><span class="ruby-comment"># File lib/sass/callbacks.rb, line 51</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">define_callback</span>(<span class="ruby-identifier">name</span>)
+      <span class="ruby-identifier">class_eval</span> <span class="ruby-string">&quot;def on_#{name}(&amp;block)
+  @_sass_callbacks = {} unless defined? @_sass_callbacks
+  (@_sass_callbacks[#{name.inspect}] ||= []) &lt;&lt; block
+end
+
+def run_#{name}(*args)
+  return unless defined? @_sass_callbacks
+  return unless @_sass_callbacks[#{name.inspect}]
+  @_sass_callbacks[#{name.inspect}].each {|c| c[*args]}
+end
+private :run_#{name}
+&quot;</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

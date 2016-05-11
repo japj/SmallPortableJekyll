@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Thread - activesupport-4.2.6 Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-_locals">#_locals</a>
+    
+    <li class="calls-super" ><a href="#method-i-freeze">#freeze</a>
+    
+    <li ><a href="#method-i-thread_variable-3F">#thread_variable?</a>
+    
+    <li ><a href="#method-i-thread_variable_get">#thread_variable_get</a>
+    
+    <li ><a href="#method-i-thread_variable_set">#thread_variable_set</a>
+    
+    <li ><a href="#method-i-thread_variables">#thread_variables</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Thread">
+  <h1 id="class-Thread" class="class">
+    class Thread
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-freeze" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">freeze</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Freezes the thread so that thread local variables cannot be set via <a
+href="Thread.html#method-i-thread_variable_set">#thread_variable_set</a>,
+nor can fiber local variables be set.</p>
+
+<pre class="ruby"><span class="ruby-identifier">me</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
+<span class="ruby-identifier">me</span>.<span class="ruby-identifier">freeze</span>
+<span class="ruby-identifier">me</span>.<span class="ruby-identifier">thread_variable_set</span>(:<span class="ruby-identifier">oliver</span>, <span class="ruby-string">&quot;a&quot;</span>)  <span class="ruby-comment">#=&gt; RuntimeError: can&#39;t modify frozen thread locals</span>
+<span class="ruby-identifier">me</span>[:<span class="ruby-identifier">oliver</span>] = <span class="ruby-string">&quot;a&quot;</span>                     <span class="ruby-comment">#=&gt; RuntimeError: can&#39;t modify frozen thread locals</span>
+</pre>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="freeze-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/thread.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">freeze</span>
+  <span class="ruby-identifier">_locals</span>.<span class="ruby-identifier">freeze</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-thread_variable-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">thread_variable?</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if the given string (or symbol) exists as a
+thread-local variable.</p>
+
+<pre class="ruby"><span class="ruby-identifier">me</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
+<span class="ruby-identifier">me</span>.<span class="ruby-identifier">thread_variable_set</span>(:<span class="ruby-identifier">oliver</span>, <span class="ruby-string">&quot;a&quot;</span>)
+<span class="ruby-identifier">me</span>.<span class="ruby-identifier">thread_variable?</span>(:<span class="ruby-identifier">oliver</span>)    <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-identifier">me</span>.<span class="ruby-identifier">thread_variable?</span>(:<span class="ruby-identifier">stanley</span>)   <span class="ruby-comment"># =&gt; false</span>
+</pre>
+
+<p>Note that these are not fiber local variables. Please see <a
+href="Thread.html#method-i-thread_variable_get">#thread_variable_get</a>
+for more details.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="thread_variable-3F-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/thread.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">thread_variable?</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">_locals</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-thread_variable_get" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">thread_variable_get</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the value of a thread local variable that has been set. Note that
+these are different than fiber local values.</p>
+
+<p><a href="Thread.html">Thread</a> local values are carried along with
+threads, and do not respect fibers. For example:</p>
+
+<pre class="ruby"><span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> {
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_set</span>(<span class="ruby-string">&quot;foo&quot;</span>, <span class="ruby-string">&quot;bar&quot;</span>) <span class="ruby-comment"># set a thread local</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-string">&quot;foo&quot;</span>] = <span class="ruby-string">&quot;bar&quot;</span>                    <span class="ruby-comment"># set a fiber local</span>
+
+  <span class="ruby-constant">Fiber</span>.<span class="ruby-identifier">new</span> {
+    <span class="ruby-constant">Fiber</span>.<span class="ruby-identifier">yield</span> [
+      <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_get</span>(<span class="ruby-string">&quot;foo&quot;</span>), <span class="ruby-comment"># get the thread local</span>
+      <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-string">&quot;foo&quot;</span>],                     <span class="ruby-comment"># get the fiber local</span>
+    ]
+  }.<span class="ruby-identifier">resume</span>
+}.<span class="ruby-identifier">join</span>.<span class="ruby-identifier">value</span> <span class="ruby-comment"># =&gt; [&#39;bar&#39;, nil]</span>
+</pre>
+
+<p>The value <code>&quot;bar&quot;</code> is returned for the thread local,
+where <code>nil</code> is returned for the fiber local. The fiber is
+executed in the same thread, so the thread local values are available.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="thread_variable_get-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/thread.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">thread_variable_get</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">_locals</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-thread_variable_set" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">thread_variable_set</span><span
+            class="method-args">(key, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets a thread local with <code>key</code> to <code>value</code>. Note that
+these are local to threads, and not to fibers. Please see <a
+href="Thread.html#method-i-thread_variable_get">#thread_variable_get</a>
+for more information.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="thread_variable_set-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/thread.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">thread_variable_set</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">_locals</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-thread_variables" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">thread_variables</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of the names of the thread-local variables (as Symbols).</p>
+
+<pre class="ruby"><span class="ruby-identifier">thr</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_set</span>(:<span class="ruby-identifier">cat</span>, <span class="ruby-string">&#39;meow&#39;</span>)
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_set</span>(<span class="ruby-string">&quot;dog&quot;</span>, <span class="ruby-string">&#39;woof&#39;</span>)
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">thr</span>.<span class="ruby-identifier">join</span>               <span class="ruby-comment"># =&gt; #&lt;Thread:0x401b3f10 dead&gt;</span>
+<span class="ruby-identifier">thr</span>.<span class="ruby-identifier">thread_variables</span>   <span class="ruby-comment"># =&gt; [:dog, :cat]</span>
+</pre>
+
+<p>Note that these are not fiber local variables. Please see <a
+href="Thread.html#method-i-thread_variable_get">#thread_variable_get</a>
+for more details.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="thread_variables-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/thread.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">thread_variables</span>
+  <span class="ruby-identifier">_locals</span>.<span class="ruby-identifier">keys</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-_locals" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_locals</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_locals-source">
+            <pre><span class="ruby-comment"># File lib/active_support/core_ext/thread.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_locals</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-ivar">@_locals</span>)
+    <span class="ruby-ivar">@_locals</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">LOCK</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@_locals</span> <span class="ruby-operator">||=</span> {} }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

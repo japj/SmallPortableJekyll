@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Octokit::Client::Statuses - octokit-4.3.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-combined_status">#combined_status</a>
+    
+    <li ><a href="#method-i-create_status">#create_status</a>
+    
+    <li ><a href="#method-i-list_statuses">#list_statuses</a>
+    
+    <li ><a href="#method-i-status">#status</a>
+    
+    <li ><a href="#method-i-statuses">#statuses</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Octokit::Client::Statuses">
+  <h1 id="module-Octokit::Client::Statuses" class="module">
+    module Octokit::Client::Statuses
+  </h1>
+
+  <section class="description">
+    
+<p>Methods for the Commit <a href="Statuses.html">Statuses</a> API</p>
+
+<p>@see <a
+href="https://developer.github.com/v3/repos/statuses">developer.github.com/v3/repos/statuses</a>/</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-combined_status" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">combined_status</span><span
+            class="method-args">(repo, ref, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the combined status for a ref</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] a GitHub repository @param ref  [String] A Sha or Ref to fetch the
+status of @return [Sawyer::Resource] The combined status for the commit
+@see <a
+href="https://developer.github.com/v3/repos/statuses/#get-the-combined-status-for-a-specific-ref">developer.github.com/v3/repos/statuses/#get-the-combined-status-for-a-specific-ref</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="combined_status-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/statuses.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">combined_status</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span> <span class="ruby-node">&quot;#{Repository.path repo}/commits/#{ref}/status&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Statuses.html#method-i-status">status</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_status" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_status</span><span
+            class="method-args">(repo, sha, state, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create status for a commit</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param sha [String] The SHA1 for the commit
+@param state [String] The state: pending, success, failure, error @option
+options [String] :context A context to differentiate this status from
+others @option options [String] :target_url A link to more details about
+this status @option options [String] :description A short human-readable
+description of this status @return [Sawyer::Resource] A status @see <a
+href="https://developer.github.com/v3/repos/statuses/#create-a-status">developer.github.com/v3/repos/statuses/#create-a-status</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_status-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/statuses.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_status</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">sha</span>, <span class="ruby-identifier">state</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-value">:state</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">state</span>)
+  <span class="ruby-identifier">post</span> <span class="ruby-node">&quot;#{Repository.path repo}/statuses/#{sha}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-list_statuses" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">list_statuses</span><span
+            class="method-args">(repo, sha, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Statuses.html#method-i-statuses">statuses</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-status" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">status</span><span
+            class="method-args">(repo, ref, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Statuses.html#method-i-combined_status">combined_status</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-statuses" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">statuses</span><span
+            class="method-args">(repo, sha, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List all statuses for a given commit</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param sha [String] The SHA1 for the commit
+@return [Array&lt;Sawyer::Resource&gt;] A list of statuses @see <a
+href="https://developer.github.com/v3/repos/statuses/#list-statuses-for-a-specific-ref">developer.github.com/v3/repos/statuses/#list-statuses-for-a-specific-ref</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="statuses-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/statuses.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">statuses</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">sha</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span> <span class="ruby-node">&quot;#{Repository.path repo}/statuses/#{sha}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Statuses.html#method-i-list_statuses">list_statuses</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

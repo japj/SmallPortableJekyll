@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Octokit::Client::Stats - octokit-4.3.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-code_frequency_stats">#code_frequency_stats</a>
+    
+    <li ><a href="#method-i-commit_activity_stats">#commit_activity_stats</a>
+    
+    <li ><a href="#method-i-contributor_stats">#contributor_stats</a>
+    
+    <li ><a href="#method-i-contributors_stats">#contributors_stats</a>
+    
+    <li ><a href="#method-i-get_stats">#get_stats</a>
+    
+    <li ><a href="#method-i-participation_stats">#participation_stats</a>
+    
+    <li ><a href="#method-i-punch_card">#punch_card</a>
+    
+    <li ><a href="#method-i-punch_card_stats">#punch_card_stats</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Octokit::Client::Stats">
+  <h1 id="module-Octokit::Client::Stats" class="module">
+    module Octokit::Client::Stats
+  </h1>
+
+  <section class="description">
+    
+<p>Methods for the <a href="../Repository.html">Repository</a> Statistics API</p>
+
+<p>@see <a
+href="https://developer.github.com/v3/repos/statistics">developer.github.com/v3/repos/statistics</a>/</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-code_frequency_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">code_frequency_stats</span><span
+            class="method-args">(repo, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the number of additions and deletions per week</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository @option
+retry_timeout [Number] How long <a href="../../Octokit.html">Octokit</a>
+should keep trying to get stats (in seconds) @option retry_wait [Number]
+How long <a href="../../Octokit.html">Octokit</a> should wait between
+retries. @return [Array&lt;Sawyer::Resource&gt;] Weekly aggregate of the
+number of additions</p>
+
+<pre>and deletions pushed to a repository.</pre>
+
+<p>@see <a
+href="https://developer.github.com/v3/repos/statistics/#get-the-number-of-additions-and-deletions-per-week">developer.github.com/v3/repos/statistics/#get-the-number-of-additions-and-deletions-per-week</a>
+@example Get code frequency stats for octokit</p>
+
+<pre>@client.code_frequency_stats(&#39;octokit/octokit.rb&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="code_frequency_stats-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/stats.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">code_frequency_stats</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get_stats</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-string">&quot;code_frequency&quot;</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-commit_activity_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">commit_activity_stats</span><span
+            class="method-args">(repo, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the last year of commit activity data</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository @option
+retry_timeout [Number] How long <a href="../../Octokit.html">Octokit</a>
+should keep trying to get stats (in seconds) @option retry_wait [Number]
+How long <a href="../../Octokit.html">Octokit</a> should wait between
+retries. @return [Array&lt;Sawyer::Resource&gt;] The last year of commit
+activity grouped by</p>
+
+<pre>week. The days array is a group of commits per day, starting on Sunday.</pre>
+
+<p>@see <a
+href="https://developer.github.com/v3/repos/statistics/#get-the-last-year-of-commit-activity-data">developer.github.com/v3/repos/statistics/#get-the-last-year-of-commit-activity-data</a>
+@example Get commit activity for octokit</p>
+
+<pre>@client.commit_activity_stats(&#39;octokit/octokit.rb&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="commit_activity_stats-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/stats.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">commit_activity_stats</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get_stats</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-string">&quot;commit_activity&quot;</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-contributor_stats" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">contributor_stats</span><span
+            class="method-args">(repo, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Stats.html#method-i-contributors_stats">contributors_stats</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-contributors_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">contributors_stats</span><span
+            class="method-args">(repo, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get contributors list with additions, deletions, and commit counts</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository @option
+retry_timeout [Number] How long <a href="../../Octokit.html">Octokit</a>
+should keep trying to get stats (in seconds) @option retry_wait [Number]
+How long <a href="../../Octokit.html">Octokit</a> should wait between
+retries. @return [Array&lt;Sawyer::Resource&gt;] Array of contributor stats
+@see <a
+href="https://developer.github.com/v3/repos/statistics/#get-contributors-list-with-additions-deletions-and-commit-counts">developer.github.com/v3/repos/statistics/#get-contributors-list-with-additions-deletions-and-commit-counts</a>
+@example Get contributor stats for octokit</p>
+
+<pre>@client.contributors_stats(&#39;octokit/octokit.rb&#39;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="contributors_stats-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/stats.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">contributors_stats</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get_stats</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-string">&quot;contributors&quot;</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Stats.html#method-i-contributor_stats">contributor_stats</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-participation_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">participation_stats</span><span
+            class="method-args">(repo, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the weekly commit count for the repo owner and everyone else</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository @option
+retry_timeout [Number] How long <a href="../../Octokit.html">Octokit</a>
+should keep trying to get stats (in seconds) @option retry_wait [Number]
+How long <a href="../../Octokit.html">Octokit</a> should wait between
+retries. @return [Sawyer::Resource] Total commit counts for the owner and
+total commit</p>
+
+<pre>counts in all. all is everyone combined, including the owner in the last
+52 weeks. If you’d like to get the commit counts for non-owners, you can
+subtract all from owner.</pre>
+
+<p>@see <a
+href="https://developer.github.com/v3/repos/statistics/#get-the-weekly-commit-count-for-the-repository-owner-and-everyone-else">developer.github.com/v3/repos/statistics/#get-the-weekly-commit-count-for-the-repository-owner-and-everyone-else</a>
+@example Get weekly commit counts for octokit</p>
+
+<pre>@client.participation_stats(&quot;octokit/octokit.rb&quot;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="participation_stats-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/stats.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">participation_stats</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get_stats</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-string">&quot;participation&quot;</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-punch_card" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">punch_card</span><span
+            class="method-args">(repo, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Stats.html#method-i-punch_card_stats">punch_card_stats</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-punch_card_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">punch_card_stats</span><span
+            class="method-args">(repo, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the number of commits per hour in each day</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository @option
+retry_timeout [Number] How long <a href="../../Octokit.html">Octokit</a>
+should keep trying to get stats (in seconds) @option retry_wait [Number]
+How long <a href="../../Octokit.html">Octokit</a> should wait between
+retries. @return [Array&lt;Array&gt;] Arrays containing the day number,
+hour number, and</p>
+
+<pre>number of commits</pre>
+
+<p>@see <a
+href="https://developer.github.com/v3/repos/statistics/#get-the-number-of-commits-per-hour-in-each-day">developer.github.com/v3/repos/statistics/#get-the-number-of-commits-per-hour-in-each-day</a>
+@example Get octokit punch card</p>
+
+<pre>@octokit.punch_card_stats</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="punch_card_stats-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/stats.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">punch_card_stats</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get_stats</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-string">&quot;punch_card&quot;</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Stats.html#method-i-punch_card">punch_card</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-get_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_stats</span><span
+            class="method-args">(repo, metric, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private Get stats for a repository</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository @param
+metric [String] The metrics you are looking for @return
+[Array&lt;Sawyer::Resource&gt; or nil] <a href="Stats.html">Stats</a> in
+metric-specific format, or nil if not yet calculated. @see <a
+href="https://developer.github.com/v3/repos/statistics">developer.github.com/v3/repos/statistics</a>/</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_stats-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/stats.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_stats</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">metric</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">retry_timeout</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:retry_timeout</span>)
+    <span class="ruby-identifier">retry_wait</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:retry_wait</span>) <span class="ruby-operator">||</span> <span class="ruby-value">0.5</span>
+    <span class="ruby-identifier">timeout</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">retry_timeout</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">data</span> = <span class="ruby-identifier">get</span>(<span class="ruby-node">&quot;#{Repository.path repo}/stats/#{metric}&quot;</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">data</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">last_response</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-value">200</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">retry_timeout</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">data</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">timeout</span>
+    <span class="ruby-identifier">sleep</span> <span class="ruby-identifier">retry_wait</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">retry_wait</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

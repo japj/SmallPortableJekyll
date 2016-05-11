@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Test::Unit - test-unit-3.1.8 Documentation</title>
+
+<link href="../fonts.css" rel="stylesheet">
+<link href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/search_index.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/searcher.js"></script>
+<script src="../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#module-Test::Unit-label-Test%3A%3AUnit+-+Ruby+Unit+Testing+Framework">Test::Unit - Ruby Unit Testing Framework</a>
+    <li><a href="#module-Test::Unit-label-Introduction">Introduction</a>
+    <li><a href="#module-Test::Unit-label-Notes">Notes</a>
+    <li><a href="#module-Test::Unit-label-Feedback">Feedback</a>
+    <li><a href="#module-Test::Unit-label-Contact+Information">Contact Information</a>
+    <li><a href="#module-Test::Unit-label-Credits">Credits</a>
+    <li><a href="#module-Test::Unit-label-License">License</a>
+    <li><a href="#module-Test::Unit-label-Warranty">Warranty</a>
+    <li><a href="#module-Test::Unit-label-Author">Author</a>
+    <li><a href="#module-Test::Unit-label-Usage">Usage</a>
+    <li><a href="#module-Test::Unit-label-Assertions">Assertions</a>
+    <li><a href="#module-Test::Unit-label-Test+Method+%26+Test+Fixture">Test Method &amp; Test Fixture</a>
+    <li><a href="#module-Test::Unit-label-Test+Runners">Test Runners</a>
+    <li><a href="#module-Test::Unit-label-Test+Suite">Test Suite</a>
+    <li><a href="#module-Test::Unit-label-Configuration+file">Configuration file</a>
+    <li><a href="#module-Test::Unit-label-Questions%3F">Questions?</a>
+  </ul>
+</div>
+
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-at_exit">#at_exit</a>
+    
+    <li ><a href="#method-i-at_start">#at_start</a>
+    
+    <li ><a href="#method-i-run-3D">#run=</a>
+    
+    <li ><a href="#method-i-run-3F">#run?</a>
+    
+    <li ><a href="#method-i-run_at_exit_hooks">#run_at_exit_hooks</a>
+    
+    <li ><a href="#method-i-run_at_start_hooks">#run_at_start_hooks</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Test::Unit">
+  <h1 id="module-Test::Unit" class="module">
+    module Test::Unit
+  </h1>
+
+  <section class="description">
+    
+<h1 id="module-Test::Unit-label-Test%3A%3AUnit+-+Ruby+Unit+Testing+Framework"><a href="Unit.html">Test::Unit</a> - Ruby <a href="Unit.html">Unit</a> Testing Framework<span><a href="#module-Test::Unit-label-Test%3A%3AUnit+-+Ruby+Unit+Testing+Framework">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<h2 id="module-Test::Unit-label-Introduction">Introduction<span><a href="#module-Test::Unit-label-Introduction">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p><a href="Unit.html">Unit</a> testing is making waves all over the place,
+largely due to the fact that it is a core practice of XP. While XP is
+great, unit testing has been around for a long time and has always been a
+good idea. One of the keys to good unit testing, though, is not just
+writing tests, but having tests. What&#39;s the difference? Well, if you
+just <em>write</em> a test and throw it away, you have no guarantee that
+something won&#39;t change later which breaks your code. If, on the other
+hand, you <em>have</em> tests (obviously you have to write them first), and
+run them as often as possible, you slowly build up a wall of things that
+cannot break without you immediately knowing about it. This is when unit
+testing hits its peak usefulness.</p>
+
+<p>Enter <a href="Unit.html">Test::Unit</a>, a framework for unit testing in
+Ruby, helping you to design, debug and evaluate your code by making it easy
+to write and have tests for it.</p>
+
+<h2 id="module-Test::Unit-label-Notes">Notes<span><a href="#module-Test::Unit-label-Notes">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p><a href="Unit.html">Test::Unit</a> has grown out of and superceded
+Lapidary.</p>
+
+<h2 id="module-Test::Unit-label-Feedback">Feedback<span><a href="#module-Test::Unit-label-Feedback">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>I like (and do my best to practice) XP, so I value early releases, user
+feedback, and clean, simple, expressive code. There is always room for
+improvement in everything I do, and <a href="Unit.html">Test::Unit</a> is
+no exception. Please, let me know what you think of <a
+href="Unit.html">Test::Unit</a> as it stands, and what you&#39;d like to
+see expanded/changed/improved/etc. If you find a bug, let me know ASAP; one
+good way to let me know what the bug is is to submit a new test that
+catches it :-) Also, I&#39;d love to hear about any successes you have with
+<a href="Unit.html">Test::Unit</a>, and any documentation you might add
+will be greatly appreciated. My contact info is below.</p>
+
+<h2 id="module-Test::Unit-label-Contact+Information">Contact Information<span><a href="#module-Test::Unit-label-Contact+Information">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>A lot of discussion happens about Ruby in general on the ruby-talk mailing
+list (<a
+href="http://www.ruby-lang.org/en/ml.html">www.ruby-lang.org/en/ml.html</a>),
+and you can ask any questions you might have there. I monitor the list, as
+do many other helpful Rubyists, and you&#39;re sure to get a quick answer.
+Of course, you&#39;re also welcome to email me (Nathaniel Talbott) directly
+at <a href="mailto:testunit@talbott.ws">testunit@talbott.ws</a>, and
+I&#39;ll do my best to help you out.</p>
+
+<h2 id="module-Test::Unit-label-Credits">Credits<span><a href="#module-Test::Unit-label-Credits">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>I&#39;d like to thank…</p>
+
+<p>Matz, for a great language!</p>
+
+<p>Masaki Suketa, for his work on RubyUnit, which filled a vital need in the
+Ruby world for a very long time. I&#39;m also grateful for his help in
+polishing <a href="Unit.html">Test::Unit</a> and getting the RubyUnit
+compatibility layer right. His graciousness in allowing <a
+href="Unit.html">Test::Unit</a> to supercede RubyUnit continues to be a
+challenge to me to be more willing to defer my own rights.</p>
+
+<p>Ken McKinlay, for his interest and work on unit testing, and for his
+willingness to dialog about it. He was also a great help in pointing out
+some of the holes in the RubyUnit compatibility layer.</p>
+
+<p>Dave Thomas, for the original idea that led to the extremely simple
+“require &#39;test/unit&#39;”, plus his code to improve it even more by
+allowing the selection of tests from the command-line. Also, without RDoc,
+the documentation for <a href="Unit.html">Test::Unit</a> would stink a lot
+more than it does now.</p>
+
+<p>Everyone who&#39;s helped out with bug reports, feature ideas,
+encouragement to continue, etc. It&#39;s a real privilege to be a part of
+the Ruby community.</p>
+
+<p>The guys at RoleModel Software, for putting up with me repeating, “But this
+would be so much easier in Ruby!” whenever we&#39;re coding in Java.</p>
+
+<p>My Creator, for giving me life, and giving it more abundantly.</p>
+
+<h2 id="module-Test::Unit-label-License">License<span><a href="#module-Test::Unit-label-License">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p><a href="Unit.html">Test::Unit</a> is copyright © 2000-2003 Nathaniel
+Talbott. It is free software, and is distributed under the Ruby license.
+See the COPYING file.</p>
+
+<p>Exception: lib/test/unit/diff.rb is copyright © 2008-2010 Kouhei Sutou and
+2001-2008 Python Software Foundation. It is free software, and is
+distributed under the Ruby license and/or the PSF license. See the COPYING
+file and PSFL file.</p>
+
+<h2 id="module-Test::Unit-label-Warranty">Warranty<span><a href="#module-Test::Unit-label-Warranty">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>This software is provided “as is” and without any express or implied
+warranties, including, without limitation, the implied warranties of
+merchantibility and fitness for a particular purpose.</p>
+
+<h2 id="module-Test::Unit-label-Author">Author<span><a href="#module-Test::Unit-label-Author">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Nathaniel Talbott. Copyright © 2000-2003, Nathaniel Talbott</p>
+<hr>
+
+<h1 id="module-Test::Unit-label-Usage">Usage<span><a href="#module-Test::Unit-label-Usage">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p>The general idea behind unit testing is that you write a <em>test</em>
+<em>method</em> that makes certain <em>assertions</em> about your code,
+working against a <em>test</em> <em>fixture</em>. A bunch of these
+<em>test</em> <em>methods</em> are bundled up into a <em>test</em>
+<em>suite</em> and can be run any time the developer wants. The results of
+a run are gathered in a <em>test</em> <em>result</em> and displayed to the
+user through some UI. So, lets break this down and see how <a
+href="Unit.html">Test::Unit</a> provides each of these necessary pieces.</p>
+
+<h2 id="module-Test::Unit-label-Assertions"><a href="Unit/Assertions.html">Assertions</a><span><a href="#module-Test::Unit-label-Assertions">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>These are the heart of the framework. Think of an assertion as a statement
+of expected outcome, i.e. “I assert that x should be equal to y”. If, when
+the assertion is executed, it turns out to be correct, nothing happens, and
+life is good. If, on the other hand, your assertion turns out to be false,
+an error is propagated with pertinent information so that you can go back
+and make your assertion succeed, and, once again, life is good. For an
+explanation of the current assertions, see <a
+href="Unit/Assertions.html">Test::Unit::Assertions</a>.</p>
+
+<h2 id="module-Test::Unit-label-Test+Method+%26+Test+Fixture"><a href="../Test.html">Test</a> Method &amp; <a href="../Test.html">Test</a> <a href="Unit/Fixture.html">Fixture</a><span><a href="#module-Test::Unit-label-Test+Method+%26+Test+Fixture">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Obviously, these assertions have to be called within a context that knows
+about them and can do something meaningful with their pass/fail value.
+Also, it&#39;s handy to collect a bunch of related tests, each test
+represented by a method, into a common test class that knows how to run
+them. The tests will be in a separate class from the code they&#39;re
+testing for a couple of reasons. First of all, it allows your code to stay
+uncluttered with test code, making it easier to maintain. Second, it allows
+the tests to be stripped out for deployment, since they&#39;re really there
+for you, the developer, and your users don&#39;t need them. Third, and most
+importantly, it allows you to set up a common test fixture for your tests
+to run against.</p>
+
+<p>What&#39;s a test fixture? Well, tests do not live in a vacuum; rather,
+they&#39;re run against the code they are testing. Often, a collection of
+tests will run against a common set of data, also called a fixture. If
+they&#39;re all bundled into the same test class, they can all share the
+setting up and tearing down of that data, eliminating unnecessary
+duplication and making it much easier to add related tests.</p>
+
+<p><a href="Unit/TestCase.html">Test::Unit::TestCase</a> wraps up a collection
+of test methods together and allows you to easily set up and tear down the
+same test fixture for each test. This is done by overriding setup and/or
+teardown, which will be called before and after each test method that is
+run. The <a href="Unit/TestCase.html">TestCase</a> also knows how to
+collect the results of your assertions into a <a
+href="Unit/TestResult.html">Test::Unit::TestResult</a>, which can then be
+reported back to you… but I&#39;m getting ahead of myself. To write a test,
+follow these steps:</p>
+<ul><li>
+<p>Make sure <a href="Unit.html">Test::Unit</a> is in your library path.</p>
+</li><li>
+<p>require &#39;test/unit&#39; in your test script.</p>
+</li><li>
+<p>Create a class that subclasses <a
+href="Unit/TestCase.html">Test::Unit::TestCase</a>.</p>
+</li><li>
+<p>Add a method that begins with “test” to your class.</p>
+</li><li>
+<p>Make assertions in your test method.</p>
+</li><li>
+<p>Optionally define setup and/or teardown to set up and/or tear down your
+common test fixture.</p>
+</li><li>
+<p>You can now run your test as you would any other Ruby script… try it and
+see!</p>
+</li></ul>
+
+<p>A really simple test might look like this (#setup and teardown are
+commented out to indicate that they are completely optional):</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;test/unit&#39;</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">MyTest</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">TestCase</span>
+  <span class="ruby-comment"># def setup</span>
+  <span class="ruby-comment"># end</span>
+
+  <span class="ruby-comment"># def teardown</span>
+  <span class="ruby-comment"># end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_fail</span>
+    <span class="ruby-identifier">assert</span>(<span class="ruby-keyword">false</span>, <span class="ruby-string">&#39;Assertion was false.&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h2 id="module-Test::Unit-label-Test+Runners"><a href="../Test.html">Test</a> Runners<span><a href="#module-Test::Unit-label-Test+Runners">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>So, now you have this great test class, but you still need a way to run it
+and view any failures that occur during the run. There are some test
+runner; console test runner, GTK+ test runner and so on. The console test
+runner is automatically invoked for you if you require &#39;test/unit&#39;
+and simply run the file. To use another runner simply set default test
+runner ID to Test::Unit::AutoRunner:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;test/unit&#39;</span>
+<span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">AutoRunner</span>.<span class="ruby-identifier">default_runner</span> = <span class="ruby-string">&quot;gtk2&quot;</span>
+</pre>
+
+<h2 id="module-Test::Unit-label-Test+Suite"><a href="../Test.html">Test</a> Suite<span><a href="#module-Test::Unit-label-Test+Suite">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>As more and more unit tests accumulate for a given project, it becomes a
+real drag running them one at a time, and it also introduces the potential
+to overlook a failing test because you forget to run it. Suddenly it
+becomes very handy that the TestRunners can take any object that returns a
+<a href="Unit/TestSuite.html">Test::Unit::TestSuite</a> in response to a
+suite method. The <a href="Unit/TestSuite.html">TestSuite</a> can, in turn,
+contain other TestSuites or individual tests (typically created by a <a
+href="Unit/TestCase.html">TestCase</a>). In other words, you can easily
+wrap up a group of TestCases and TestSuites.</p>
+
+<p><a href="Unit.html">Test::Unit</a> does a little bit more for you, by
+wrapping these up automatically when you require &#39;test/unit&#39;. What
+does this mean? It means you could write the above test case like this
+instead:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;test/unit&#39;</span>
+<span class="ruby-identifier">require</span> <span class="ruby-string">&#39;test_myfirsttests&#39;</span>
+<span class="ruby-identifier">require</span> <span class="ruby-string">&#39;test_moretestsbyme&#39;</span>
+<span class="ruby-identifier">require</span> <span class="ruby-string">&#39;test_anothersetoftests&#39;</span>
+</pre>
+
+<p><a href="Unit.html">Test::Unit</a> is smart enough to find all the test
+cases existing in the ObjectSpace and wrap them up into a suite for you. It
+then runs the dynamic suite using the console TestRunner.</p>
+
+<h2 id="module-Test::Unit-label-Configuration+file">Configuration file<span><a href="#module-Test::Unit-label-Configuration+file">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p><a href="Unit.html">Test::Unit</a> reads &#39;test-unit.yml&#39; in the
+current working directory as Test::Unit&#39;s configuration file. It can
+contain the following configurations:</p>
+<ul><li>
+<p>color scheme definitions</p>
+</li><li>
+<p>test runner to be used</p>
+</li><li>
+<p>test runner options</p>
+</li><li>
+<p>test collector to be used</p>
+</li></ul>
+
+<p>Except color scheme definitions, all of them are specified by command line
+option.</p>
+
+<p>Here are sample color scheme definitions:</p>
+
+<pre>color_schemes:
+  inverted:
+    success:
+      name: red
+      bold: true
+    failure:
+      name: green
+      bold: true
+  other_scheme:
+    ...</pre>
+
+<p>Here are the syntax of color scheme definitions:</p>
+
+<pre>color_schemes:
+  SCHEME_NAME:
+    EVENT_NAME:
+      name: COLOR_NAME
+      intensity: BOOLEAN
+      bold: BOOLEAN
+      italic: BOOLEAN
+      underline: BOOLEAN
+    ...
+  ...</pre>
+<dl class="rdoc-list note-list"><dt>SCHEME_NAME
+<dd>
+<p>the name of the color scheme</p>
+</dd><dt>EVENT_NAME
+<dd>
+<p>one of [success, failure, pending, omission, notification, error]</p>
+</dd><dt>COLOR_NAME
+<dd>
+<p>one of [black, red, green, yellow, blue, magenta, cyan, white]</p>
+</dd><dt>BOOLEAN
+<dd>
+<p>true or false</p>
+</dd></dl>
+
+<p>You can use the above &#39;inverted&#39; color scheme with the following
+configuration:</p>
+
+<pre>runner: console
+console_options:
+  color_scheme: inverted
+color_schemes:
+  inverted:
+    success:
+      name: red
+      bold: true
+    failure:
+      name: green
+      bold: true</pre>
+
+<h2 id="module-Test::Unit-label-Questions%3F">Questions?<span><a href="#module-Test::Unit-label-Questions%3F">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>I&#39;d really like to get feedback from all levels of Ruby practitioners
+about typos, grammatical errors, unclear statements, missing points, etc.,
+in this document (or any other).</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="VERSION">VERSION
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-at_exit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">at_exit</span><span
+            class="method-args">(&hook)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Regsiter a hook that is run after running tests. To register multiple
+hooks, call this method multiple times.</p>
+
+<p>Here is an example test case:</p>
+
+<pre class="ruby"><span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span>.<span class="ruby-identifier">at_exit</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-comment"># ...</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">TestMyClass1</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">TestCase</span>
+  <span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">shutdown</span>
+      <span class="ruby-comment"># ...</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">teardown</span>
+    <span class="ruby-comment"># ...</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_my_class1</span>
+    <span class="ruby-comment"># ...</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_my_class2</span>
+    <span class="ruby-comment"># ...</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">TestMyClass2</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">TestCase</span>
+  <span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">shutdown</span>
+      <span class="ruby-comment"># ...</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">teardown</span>
+    <span class="ruby-comment"># ...</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_my_class1</span>
+    <span class="ruby-comment"># ...</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_my_class2</span>
+    <span class="ruby-comment"># ...</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Here is a call order:</p>
+<ul><li>
+<p>TestMyClass1#test_my_class1</p>
+</li><li>
+<p>TestMyClass1#teardown</p>
+</li><li>
+<p>TestMyClass1#test_my_class2</p>
+</li><li>
+<p>TestMyClass1#teardown</p>
+</li><li>
+<p>TestMyClass1.shutdown</p>
+</li><li>
+<p>TestMyClass2#test_my_class1</p>
+</li><li>
+<p>TestMyClass2#teardown</p>
+</li><li>
+<p>TestMyClass2#test_my_class2</p>
+</li><li>
+<p>TestMyClass2#teardown</p>
+</li><li>
+<p>TestMyClass2.shutdown</p>
+</li><li>
+<p><a href="Unit.html#method-i-at_exit">#at_exit</a></p>
+</li></ul>
+
+<p>@example</p>
+
+<pre>Test::Unit.at_exit do
+  puts &quot;Exit!&quot;
+end</pre>
+
+<p>@yield A block that is run after running tests. @yieldreturn [void] @return
+[void]</p>
+
+<p>@since 2.5.2</p>
+          
+          
+
+          
+          <div class="method-source-code" id="at_exit-source">
+            <pre><span class="ruby-comment"># File lib/test/unit.rb, line 485</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">at_exit</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">hook</span>)
+  <span class="ruby-identifier">@@at_exit_hooks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">hook</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-at_start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">at_start</span><span
+            class="method-args">(&hook)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Regsiter a hook that is run before running tests. To register multiple
+hooks, call this method multiple times.</p>
+
+<p>Here is an example test case:</p>
+
+<pre class="ruby"><span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span>.<span class="ruby-identifier">at_start</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-comment"># ...</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">TestMyClass1</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">TestCase</span>
+  <span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">startup</span>
+      <span class="ruby-comment"># ...</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+    <span class="ruby-comment"># ...</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_my_class1</span>
+    <span class="ruby-comment"># ...</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_my_class2</span>
+    <span class="ruby-comment"># ...</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">TestMyClass2</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">TestCase</span>
+  <span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">startup</span>
+      <span class="ruby-comment"># ...</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+    <span class="ruby-comment"># ...</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_my_class1</span>
+    <span class="ruby-comment"># ...</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_my_class2</span>
+    <span class="ruby-comment"># ...</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Here is a call order:</p>
+<ul><li>
+<p><a href="Unit.html#method-i-at_start">#at_start</a></p>
+</li><li>
+<p>TestMyClass1.startup</p>
+</li><li>
+<p>TestMyClass1#setup</p>
+</li><li>
+<p>TestMyClass1#test_my_class1</p>
+</li><li>
+<p>TestMyClass1#setup</p>
+</li><li>
+<p>TestMyClass1#test_my_class2</p>
+</li><li>
+<p>TestMyClass2#setup</p>
+</li><li>
+<p>TestMyClass2#test_my_class1</p>
+</li><li>
+<p>TestMyClass2#setup</p>
+</li><li>
+<p>TestMyClass2#test_my_class2</p>
+</li></ul>
+
+<p>@example</p>
+
+<pre>Test::Unit.at_start do
+  puts &quot;Start!&quot;
+end</pre>
+
+<p>@yield A block that is run before running tests. @yieldreturn [void]
+@return [void]</p>
+
+<p>@since 2.5.2</p>
+          
+          
+
+          
+          <div class="method-source-code" id="at_start-source">
+            <pre><span class="ruby-comment"># File lib/test/unit.rb, line 400</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">at_start</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">hook</span>)
+  <span class="ruby-identifier">@@at_start_hooks</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">hook</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run=</span><span
+            class="method-args">(have_run)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set true when <a href="Unit.html">Test::Unit</a> has run.  If set to true
+<a href="Unit.html">Test::Unit</a> will not automatically run at exit.</p>
+
+<p>@deprecated Use <a
+href="Unit/AutoRunner.html#method-i-need_auto_run-3D">Test::Unit::AutoRunner#need_auto_run=</a>
+instead.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run-3D-source">
+            <pre><span class="ruby-comment"># File lib/test/unit.rb, line 316</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run=</span>(<span class="ruby-identifier">have_run</span>)
+  <span class="ruby-constant">AutoRunner</span>.<span class="ruby-identifier">need_auto_run</span> = (<span class="ruby-keyword">not</span> <span class="ruby-identifier">have_run</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Already tests have run?</p>
+
+<p>@deprecated Use <a
+href="Unit/AutoRunner.html#method-i-need_auto_run-3F">Test::Unit::AutoRunner#need_auto_run?</a>
+instead.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run-3F-source">
+            <pre><span class="ruby-comment"># File lib/test/unit.rb, line 323</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run?</span>
+  <span class="ruby-keyword">not</span> <span class="ruby-constant">AutoRunner</span>.<span class="ruby-identifier">need_auto_run?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run_at_exit_hooks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run_at_exit_hooks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run_at_exit_hooks-source">
+            <pre><span class="ruby-comment"># File lib/test/unit.rb, line 490</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run_at_exit_hooks</span>
+  <span class="ruby-identifier">@@at_exit_hooks</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hook</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">hook</span>.<span class="ruby-identifier">call</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run_at_start_hooks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run_at_start_hooks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run_at_start_hooks-source">
+            <pre><span class="ruby-comment"># File lib/test/unit.rb, line 405</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run_at_start_hooks</span>
+  <span class="ruby-identifier">@@at_start_hooks</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hook</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">hook</span>.<span class="ruby-identifier">call</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

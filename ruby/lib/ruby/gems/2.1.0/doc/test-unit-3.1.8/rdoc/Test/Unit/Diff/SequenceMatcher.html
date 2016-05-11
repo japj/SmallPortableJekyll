@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Test::Unit::Diff::SequenceMatcher - test-unit-3.1.8 Documentation</title>
+
+<link href="../../../fonts.css" rel="stylesheet">
+<link href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/navigation.js"></script>
+<script src="../../../js/search_index.js"></script>
+<script src="../../../js/search.js"></script>
+<script src="../../../js/searcher.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-adjust_best_info_with_junk_predicate">#adjust_best_info_with_junk_predicate</a>
+    
+    <li ><a href="#method-i-blocks">#blocks</a>
+    
+    <li ><a href="#method-i-compute_blocks">#compute_blocks</a>
+    
+    <li ><a href="#method-i-compute_matches">#compute_matches</a>
+    
+    <li ><a href="#method-i-compute_operations">#compute_operations</a>
+    
+    <li ><a href="#method-i-compute_ratio">#compute_ratio</a>
+    
+    <li ><a href="#method-i-determine_tag">#determine_tag</a>
+    
+    <li ><a href="#method-i-expand_edge_equal_operations-21">#expand_edge_equal_operations!</a>
+    
+    <li ><a href="#method-i-find_best_match_position">#find_best_match_position</a>
+    
+    <li ><a href="#method-i-grouped_operations">#grouped_operations</a>
+    
+    <li ><a href="#method-i-longest_match">#longest_match</a>
+    
+    <li ><a href="#method-i-matches">#matches</a>
+    
+    <li ><a href="#method-i-operations">#operations</a>
+    
+    <li ><a href="#method-i-ratio">#ratio</a>
+    
+    <li ><a href="#method-i-update_to_indexes">#update_to_indexes</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Test::Unit::Diff::SequenceMatcher">
+  <h1 id="class-Test::Unit::Diff::SequenceMatcher" class="class">
+    class Test::Unit::Diff::SequenceMatcher
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(from, to, &junk_predicate)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/diff.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">junk_predicate</span>)
+  <span class="ruby-ivar">@from</span> = <span class="ruby-identifier">from</span>
+  <span class="ruby-ivar">@to</span> = <span class="ruby-identifier">to</span>
+  <span class="ruby-ivar">@junk_predicate</span> = <span class="ruby-identifier">junk_predicate</span>
+  <span class="ruby-identifier">update_to_indexes</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-blocks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blocks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="blocks-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/diff.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blocks</span>
+  <span class="ruby-ivar">@blocks</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">compute_blocks</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-grouped_operations" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">grouped_operations</span><span
+            class="method-args">(context_size=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="grouped_operations-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/diff.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">grouped_operations</span>(<span class="ruby-identifier">context_size</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">context_size</span> <span class="ruby-operator">||=</span> <span class="ruby-value">3</span>
+  <span class="ruby-identifier">_operations</span> = <span class="ruby-identifier">operations</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">_operations</span> = [[<span class="ruby-value">:equal</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>]] <span class="ruby-keyword">if</span> <span class="ruby-identifier">_operations</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">expand_edge_equal_operations!</span>(<span class="ruby-identifier">_operations</span>, <span class="ruby-identifier">context_size</span>)
+
+  <span class="ruby-identifier">group_window</span> = <span class="ruby-identifier">context_size</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span>
+  <span class="ruby-identifier">groups</span> = []
+  <span class="ruby-identifier">group</span> = []
+  <span class="ruby-identifier">_operations</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tag</span>, <span class="ruby-identifier">from_start</span>, <span class="ruby-identifier">from_end</span>, <span class="ruby-identifier">to_start</span>, <span class="ruby-identifier">to_end</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">tag</span> <span class="ruby-operator">==</span> <span class="ruby-value">:equal</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">from_end</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">from_start</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">group_window</span>
+      <span class="ruby-identifier">group</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">tag</span>,
+                <span class="ruby-identifier">from_start</span>,
+                [<span class="ruby-identifier">from_end</span>, <span class="ruby-identifier">from_start</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">context_size</span>].<span class="ruby-identifier">min</span>,
+                <span class="ruby-identifier">to_start</span>,
+                [<span class="ruby-identifier">to_end</span>, <span class="ruby-identifier">to_start</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">context_size</span>].<span class="ruby-identifier">min</span>]
+      <span class="ruby-identifier">groups</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">group</span>
+      <span class="ruby-identifier">group</span> = []
+      <span class="ruby-identifier">from_start</span> = [<span class="ruby-identifier">from_start</span>, <span class="ruby-identifier">from_end</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">context_size</span>].<span class="ruby-identifier">max</span>
+      <span class="ruby-identifier">to_start</span> = [<span class="ruby-identifier">to_start</span>, <span class="ruby-identifier">to_end</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">context_size</span>].<span class="ruby-identifier">max</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">group</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">tag</span>, <span class="ruby-identifier">from_start</span>, <span class="ruby-identifier">from_end</span>, <span class="ruby-identifier">to_start</span>, <span class="ruby-identifier">to_end</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">groups</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">group</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">group</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">groups</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-longest_match" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">longest_match</span><span
+            class="method-args">(from_start, from_end, to_start, to_end)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="longest_match-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/diff.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">longest_match</span>(<span class="ruby-identifier">from_start</span>, <span class="ruby-identifier">from_end</span>, <span class="ruby-identifier">to_start</span>, <span class="ruby-identifier">to_end</span>)
+  <span class="ruby-identifier">best_info</span> = <span class="ruby-identifier">find_best_match_position</span>(<span class="ruby-identifier">from_start</span>, <span class="ruby-identifier">from_end</span>,
+                                       <span class="ruby-identifier">to_start</span>, <span class="ruby-identifier">to_end</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@junks</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">args</span> = [<span class="ruby-identifier">from_start</span>, <span class="ruby-identifier">from_end</span>, <span class="ruby-identifier">to_start</span>, <span class="ruby-identifier">to_end</span>]
+    <span class="ruby-identifier">best_info</span> = <span class="ruby-identifier">adjust_best_info_with_junk_predicate</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">best_info</span>,
+                                                     <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-identifier">best_info</span> = <span class="ruby-identifier">adjust_best_info_with_junk_predicate</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">best_info</span>,
+                                                     <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">best_info</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-operations" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">operations</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="operations-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/diff.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">operations</span>
+  <span class="ruby-ivar">@operations</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">compute_operations</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ratio" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ratio</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ratio-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/diff.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ratio</span>
+  <span class="ruby-ivar">@ratio</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">compute_ratio</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-adjust_best_info_with_junk_predicate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">adjust_best_info_with_junk_predicate</span><span
+            class="method-args">(should_junk, best_info, from_start, from_end, to_start, to_end)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="adjust_best_info_with_junk_predicate-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/diff.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">adjust_best_info_with_junk_predicate</span>(<span class="ruby-identifier">should_junk</span>, <span class="ruby-identifier">best_info</span>,
+                                         <span class="ruby-identifier">from_start</span>, <span class="ruby-identifier">from_end</span>,
+                                         <span class="ruby-identifier">to_start</span>, <span class="ruby-identifier">to_end</span>)
+  <span class="ruby-identifier">best_from</span>, <span class="ruby-identifier">best_to</span>, <span class="ruby-identifier">best_size</span> = <span class="ruby-identifier">best_info</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">best_from</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">from_start</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">best_to</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">to_start</span> <span class="ruby-keyword">and</span>
+      (<span class="ruby-identifier">should_junk</span> <span class="ruby-operator">?</span>
+       <span class="ruby-ivar">@junks</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-ivar">@to</span>[<span class="ruby-identifier">best_to</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>]) <span class="ruby-operator">:</span>
+       <span class="ruby-operator">!</span><span class="ruby-ivar">@junks</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-ivar">@to</span>[<span class="ruby-identifier">best_to</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>])) <span class="ruby-keyword">and</span>
+      <span class="ruby-ivar">@from</span>[<span class="ruby-identifier">best_from</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@to</span>[<span class="ruby-identifier">best_to</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>]
+    <span class="ruby-identifier">best_from</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">best_to</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">best_size</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">best_from</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">best_size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">from_end</span> <span class="ruby-keyword">and</span>
+      <span class="ruby-identifier">best_to</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">best_size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">to_end</span> <span class="ruby-keyword">and</span>
+      (<span class="ruby-identifier">should_junk</span> <span class="ruby-operator">?</span>
+       <span class="ruby-ivar">@junks</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-ivar">@to</span>[<span class="ruby-identifier">best_to</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">best_size</span>]) <span class="ruby-operator">:</span>
+       <span class="ruby-operator">!</span><span class="ruby-ivar">@junks</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-ivar">@to</span>[<span class="ruby-identifier">best_to</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">best_size</span>])) <span class="ruby-keyword">and</span>
+      <span class="ruby-ivar">@from</span>[<span class="ruby-identifier">best_from</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">best_size</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@to</span>[<span class="ruby-identifier">best_to</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">best_size</span>]
+    <span class="ruby-identifier">best_size</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  [<span class="ruby-identifier">best_from</span>, <span class="ruby-identifier">best_to</span>, <span class="ruby-identifier">best_size</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compute_blocks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compute_blocks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compute_blocks-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/diff.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compute_blocks</span>
+  <span class="ruby-identifier">blocks</span> = []
+  <span class="ruby-identifier">current_from_index</span> = <span class="ruby-identifier">current_to_index</span> = <span class="ruby-identifier">current_size</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">matches</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">from_index</span>, <span class="ruby-identifier">to_index</span>, <span class="ruby-identifier">size</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_from_index</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">current_size</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">from_index</span> <span class="ruby-keyword">and</span>
+        <span class="ruby-identifier">current_to_index</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">current_size</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">to_index</span>
+      <span class="ruby-identifier">current_size</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">size</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">current_size</span>.<span class="ruby-identifier">zero?</span>
+        <span class="ruby-identifier">blocks</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">current_from_index</span>, <span class="ruby-identifier">current_to_index</span>, <span class="ruby-identifier">current_size</span>]
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">current_from_index</span> = <span class="ruby-identifier">from_index</span>
+      <span class="ruby-identifier">current_to_index</span> = <span class="ruby-identifier">to_index</span>
+      <span class="ruby-identifier">current_size</span> = <span class="ruby-identifier">size</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">current_size</span>.<span class="ruby-identifier">zero?</span>
+    <span class="ruby-identifier">blocks</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">current_from_index</span>, <span class="ruby-identifier">current_to_index</span>, <span class="ruby-identifier">current_size</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">blocks</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-ivar">@from</span>.<span class="ruby-identifier">size</span>, <span class="ruby-ivar">@to</span>.<span class="ruby-identifier">size</span>, <span class="ruby-value">0</span>]
+  <span class="ruby-identifier">blocks</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compute_matches" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compute_matches</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compute_matches-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/diff.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compute_matches</span>
+  <span class="ruby-identifier">matches</span> = []
+  <span class="ruby-identifier">queue</span> = [[<span class="ruby-value">0</span>, <span class="ruby-ivar">@from</span>.<span class="ruby-identifier">size</span>, <span class="ruby-value">0</span>, <span class="ruby-ivar">@to</span>.<span class="ruby-identifier">size</span>]]
+  <span class="ruby-keyword">until</span> <span class="ruby-identifier">queue</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">from_start</span>, <span class="ruby-identifier">from_end</span>, <span class="ruby-identifier">to_start</span>, <span class="ruby-identifier">to_end</span> = <span class="ruby-identifier">queue</span>.<span class="ruby-identifier">pop</span>
+    <span class="ruby-identifier">match</span> = <span class="ruby-identifier">longest_match</span>(<span class="ruby-identifier">from_start</span>, <span class="ruby-identifier">from_end</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">to_start</span>, <span class="ruby-identifier">to_end</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+    <span class="ruby-identifier">match_from_index</span>, <span class="ruby-identifier">match_to_index</span>, <span class="ruby-identifier">size</span> = <span class="ruby-identifier">match</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">size</span>.<span class="ruby-identifier">zero?</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">from_start</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">match_from_index</span> <span class="ruby-keyword">and</span>
+          <span class="ruby-identifier">to_start</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">match_to_index</span>
+        <span class="ruby-identifier">queue</span>.<span class="ruby-identifier">push</span>([<span class="ruby-identifier">from_start</span>, <span class="ruby-identifier">match_from_index</span>,
+                    <span class="ruby-identifier">to_start</span>, <span class="ruby-identifier">match_to_index</span>])
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">matches</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">match</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">match_from_index</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">from_end</span> <span class="ruby-keyword">and</span>
+          <span class="ruby-identifier">match_to_index</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">to_end</span>
+        <span class="ruby-identifier">queue</span>.<span class="ruby-identifier">push</span>([<span class="ruby-identifier">match_from_index</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">size</span>, <span class="ruby-identifier">from_end</span>,
+                    <span class="ruby-identifier">match_to_index</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">size</span>, <span class="ruby-identifier">to_end</span>])
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">matches</span>.<span class="ruby-identifier">sort_by</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">from_index</span>, <span class="ruby-identifier">_</span>, <span class="ruby-identifier">_</span>)<span class="ruby-operator">|</span>
+    <span class="ruby-identifier">from_index</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compute_operations" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compute_operations</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compute_operations-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/diff.rb, line 198</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compute_operations</span>
+  <span class="ruby-identifier">from_index</span> = <span class="ruby-identifier">to_index</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">operations</span> = []
+  <span class="ruby-identifier">blocks</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">match_from_index</span>, <span class="ruby-identifier">match_to_index</span>, <span class="ruby-identifier">size</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">tag</span> = <span class="ruby-identifier">determine_tag</span>(<span class="ruby-identifier">from_index</span>, <span class="ruby-identifier">to_index</span>,
+                        <span class="ruby-identifier">match_from_index</span>, <span class="ruby-identifier">match_to_index</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">tag</span> <span class="ruby-operator">!=</span> <span class="ruby-value">:equal</span>
+      <span class="ruby-identifier">operations</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">tag</span>,
+                     <span class="ruby-identifier">from_index</span>, <span class="ruby-identifier">match_from_index</span>,
+                     <span class="ruby-identifier">to_index</span>, <span class="ruby-identifier">match_to_index</span>]
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">from_index</span>, <span class="ruby-identifier">to_index</span> = <span class="ruby-identifier">match_from_index</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">size</span>, <span class="ruby-identifier">match_to_index</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">size</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">operations</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-value">:equal</span>,
+                     <span class="ruby-identifier">match_from_index</span>, <span class="ruby-identifier">from_index</span>,
+                     <span class="ruby-identifier">match_to_index</span>, <span class="ruby-identifier">to_index</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">operations</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compute_ratio" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compute_ratio</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compute_ratio-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/diff.rb, line 220</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compute_ratio</span>
+  <span class="ruby-identifier">matches</span> = <span class="ruby-identifier">blocks</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">result</span>, <span class="ruby-identifier">block</span><span class="ruby-operator">|</span> <span class="ruby-identifier">result</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">block</span>[<span class="ruby-value">-1</span>]}
+  <span class="ruby-identifier">length</span> = <span class="ruby-ivar">@from</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@to</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">length</span>.<span class="ruby-identifier">zero?</span>
+    <span class="ruby-value">1.0</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-value">2.0</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">matches</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">length</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-determine_tag" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">determine_tag</span><span
+            class="method-args">(from_index, to_index, match_from_index, match_to_index)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="determine_tag-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/diff.rb, line 230</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">determine_tag</span>(<span class="ruby-identifier">from_index</span>, <span class="ruby-identifier">to_index</span>,
+                  <span class="ruby-identifier">match_from_index</span>, <span class="ruby-identifier">match_to_index</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">from_index</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">match_from_index</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">to_index</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">match_to_index</span>
+    <span class="ruby-value">:replace</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">from_index</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">match_from_index</span>
+    <span class="ruby-value">:delete</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">to_index</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">match_to_index</span>
+    <span class="ruby-value">:insert</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-value">:equal</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-expand_edge_equal_operations-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expand_edge_equal_operations!</span><span
+            class="method-args">(_operations, context_size)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="expand_edge_equal_operations-21-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/diff.rb, line 243</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">expand_edge_equal_operations!</span>(<span class="ruby-identifier">_operations</span>, <span class="ruby-identifier">context_size</span>)
+  <span class="ruby-identifier">tag</span>, <span class="ruby-identifier">from_start</span>, <span class="ruby-identifier">from_end</span>, <span class="ruby-identifier">to_start</span>, <span class="ruby-identifier">to_end</span> = <span class="ruby-identifier">_operations</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">tag</span> <span class="ruby-operator">==</span> <span class="ruby-value">:equal</span>
+    <span class="ruby-identifier">_operations</span>[<span class="ruby-value">0</span>] = [<span class="ruby-identifier">tag</span>,
+                      [<span class="ruby-identifier">from_start</span>, <span class="ruby-identifier">from_end</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">context_size</span>].<span class="ruby-identifier">max</span>,
+                      <span class="ruby-identifier">from_end</span>,
+                      [<span class="ruby-identifier">to_start</span>, <span class="ruby-identifier">to_end</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">context_size</span>].<span class="ruby-identifier">max</span>,
+                      <span class="ruby-identifier">to_end</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">tag</span>, <span class="ruby-identifier">from_start</span>, <span class="ruby-identifier">from_end</span>, <span class="ruby-identifier">to_start</span>, <span class="ruby-identifier">to_end</span> = <span class="ruby-identifier">_operations</span>[<span class="ruby-value">-1</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">tag</span> <span class="ruby-operator">==</span> <span class="ruby-value">:equal</span>
+    <span class="ruby-identifier">_operations</span>[<span class="ruby-value">-1</span>] = [<span class="ruby-identifier">tag</span>,
+                       <span class="ruby-identifier">from_start</span>,
+                       [<span class="ruby-identifier">from_end</span>, <span class="ruby-identifier">from_start</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">context_size</span>].<span class="ruby-identifier">min</span>,
+                       <span class="ruby-identifier">to_start</span>,
+                       [<span class="ruby-identifier">to_end</span>, <span class="ruby-identifier">to_start</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">context_size</span>].<span class="ruby-identifier">min</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_best_match_position" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_best_match_position</span><span
+            class="method-args">(from_start, from_end, to_start, to_end)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_best_match_position-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/diff.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_best_match_position</span>(<span class="ruby-identifier">from_start</span>, <span class="ruby-identifier">from_end</span>, <span class="ruby-identifier">to_start</span>, <span class="ruby-identifier">to_end</span>)
+  <span class="ruby-identifier">best_from</span>, <span class="ruby-identifier">best_to</span>, <span class="ruby-identifier">best_size</span> = <span class="ruby-identifier">from_start</span>, <span class="ruby-identifier">to_start</span>, <span class="ruby-value">0</span>
+  <span class="ruby-identifier">sizes</span> = {}
+  <span class="ruby-identifier">from_start</span>.<span class="ruby-identifier">upto</span>(<span class="ruby-identifier">from_end</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">from_index</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">_sizes</span> = {}
+    (<span class="ruby-ivar">@to_indexes</span>[<span class="ruby-ivar">@from</span>[<span class="ruby-identifier">from_index</span>]] <span class="ruby-operator">||</span> []).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">to_index</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">to_index</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">to_start</span>
+      <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">to_index</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">to_end</span>
+      <span class="ruby-identifier">size</span> = <span class="ruby-identifier">_sizes</span>[<span class="ruby-identifier">to_index</span>] = (<span class="ruby-identifier">sizes</span>[<span class="ruby-identifier">to_index</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>] <span class="ruby-operator">||</span> <span class="ruby-value">0</span>) <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">best_size</span>
+        <span class="ruby-identifier">best_from</span> = <span class="ruby-identifier">from_index</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">best_to</span> = <span class="ruby-identifier">to_index</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">best_size</span> = <span class="ruby-identifier">size</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">sizes</span> = <span class="ruby-identifier">_sizes</span>
+  <span class="ruby-keyword">end</span>
+  [<span class="ruby-identifier">best_from</span>, <span class="ruby-identifier">best_to</span>, <span class="ruby-identifier">best_size</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-matches" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">matches</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="matches-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/diff.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">matches</span>
+  <span class="ruby-ivar">@matches</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">compute_matches</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_to_indexes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_to_indexes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="update_to_indexes-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/diff.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_to_indexes</span>
+  <span class="ruby-ivar">@to_indexes</span> = {}
+  <span class="ruby-ivar">@junks</span> = {}
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@to</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-identifier">each</span> = <span class="ruby-string">&quot; &quot;</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>) <span class="ruby-operator">?</span> <span class="ruby-value">:each_byte</span> <span class="ruby-operator">:</span> <span class="ruby-value">:each_char</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">each</span> = <span class="ruby-value">:each</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@to</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">each</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@to_indexes</span>[<span class="ruby-identifier">item</span>] <span class="ruby-operator">||=</span> []
+    <span class="ruby-ivar">@to_indexes</span>[<span class="ruby-identifier">item</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">i</span>
+    <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@junk_predicate</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@to_indexes</span> = <span class="ruby-ivar">@to_indexes</span>.<span class="ruby-identifier">reject</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">junk</span> = <span class="ruby-ivar">@junk_predicate</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-ivar">@junks</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">junk</span>
+    <span class="ruby-identifier">junk</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

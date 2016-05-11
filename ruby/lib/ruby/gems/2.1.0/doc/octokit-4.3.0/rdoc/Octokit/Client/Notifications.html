@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Octokit::Client::Notifications - octokit-4.3.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-delete_thread_subscription">#delete_thread_subscription</a>
+    
+    <li ><a href="#method-i-mark_notifications_as_read">#mark_notifications_as_read</a>
+    
+    <li ><a href="#method-i-mark_repo_notifications_as_read">#mark_repo_notifications_as_read</a>
+    
+    <li ><a href="#method-i-mark_repository_notifications_as_read">#mark_repository_notifications_as_read</a>
+    
+    <li ><a href="#method-i-mark_thread_as_read">#mark_thread_as_read</a>
+    
+    <li ><a href="#method-i-notifications">#notifications</a>
+    
+    <li ><a href="#method-i-repo_notifications">#repo_notifications</a>
+    
+    <li ><a href="#method-i-repository_notifications">#repository_notifications</a>
+    
+    <li ><a href="#method-i-thread_notifications">#thread_notifications</a>
+    
+    <li ><a href="#method-i-thread_subscription">#thread_subscription</a>
+    
+    <li ><a href="#method-i-update_thread_subscription">#update_thread_subscription</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Octokit::Client::Notifications">
+  <h1 id="module-Octokit::Client::Notifications" class="module">
+    module Octokit::Client::Notifications
+  </h1>
+
+  <section class="description">
+    
+<p>Methods for the <a href="Notifications.html">Notifications</a> API</p>
+
+<p>@see <a
+href="https://developer.github.com/v3/activity/notifications">developer.github.com/v3/activity/notifications</a>/</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-delete_thread_subscription" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_thread_subscription</span><span
+            class="method-args">(thread_id, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete a thread subscription</p>
+
+<p>@param thread_id [Integer] Id of the thread. @return [Boolean] True if
+delete successful, false otherwise. @see <a
+href="https://developer.github.com/v3/activity/notifications/#delete-a-thread-subscription">developer.github.com/v3/activity/notifications/#delete-a-thread-subscription</a>
+@example</p>
+
+<pre>@client.delete_thread_subscription(1)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="delete_thread_subscription-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/notifications.rb, line 166</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_thread_subscription</span>(<span class="ruby-identifier">thread_id</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:delete</span>, <span class="ruby-node">&quot;notifications/threads/#{thread_id}/subscription&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mark_notifications_as_read" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mark_notifications_as_read</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Mark notifications as read</p>
+
+<p>@param options [Hash] Optional parameters @option options [Boolean] :unread
+Changes the unread status of the</p>
+
+<pre>threads.</pre>
+
+<p>@option options [Boolean] :read Inverse of &#39;unread&#39;. @option
+options [String] :last_read_at (&#39;Now&#39;) Describes the last point</p>
+
+<pre>that notifications were checked. Anything updated since this time
+will not be updated. The time should be passed in as UTC in the
+ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Ex. &#39;2012-10-09T23:39:01Z&#39;</pre>
+
+<p>@return [Boolean] True if marked as read, false otherwise @see <a
+href="https://developer.github.com/v3/activity/notifications/#mark-as-read">developer.github.com/v3/activity/notifications/#mark-as-read</a></p>
+
+<p>@example</p>
+
+<pre>@client.mark_notifications_as_read</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="mark_notifications_as_read-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/notifications.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mark_notifications_as_read</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">request</span> <span class="ruby-value">:put</span>, <span class="ruby-string">&quot;notifications&quot;</span>, <span class="ruby-identifier">options</span>
+
+  <span class="ruby-identifier">last_response</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-value">205</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mark_repo_notifications_as_read" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">mark_repo_notifications_as_read</span><span
+            class="method-args">(repo, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Notifications.html#method-i-mark_repository_notifications_as_read">mark_repository_notifications_as_read</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-mark_repository_notifications_as_read" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mark_repository_notifications_as_read</span><span
+            class="method-args">(repo, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Mark notifications from a specific repository as read</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository @param
+options [Hash] Optional parameters @option options [Boolean] :unread
+Changes the unread status of the</p>
+
+<pre>threads.</pre>
+
+<p>@option options [Boolean] :read Inverse of &#39;unread&#39;. @option
+options [String] :last_read_at (&#39;Now&#39;) Describes the last point</p>
+
+<pre>that notifications were checked. Anything updated since this time
+will not be updated. The time should be passed in as UTC in the
+ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Ex. &#39;2012-10-09T23:39:01Z&#39;</pre>
+
+<p>@return [Boolean] True if marked as read, false otherwise @see <a
+href="https://developer.github.com/v3/activity/notifications/#mark-notifications-as-read-in-a-repository">developer.github.com/v3/activity/notifications/#mark-notifications-as-read-in-a-repository</a>
+@example</p>
+
+<pre>@client.mark_notifications_as_read(&quot;octokit/octokit.rb&quot;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="mark_repository_notifications_as_read-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/notifications.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mark_repository_notifications_as_read</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">request</span> <span class="ruby-value">:put</span>, <span class="ruby-node">&quot;#{Repository.path repo}/notifications&quot;</span>, <span class="ruby-identifier">options</span>
+
+  <span class="ruby-identifier">last_response</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-value">205</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Notifications.html#method-i-mark_repo_notifications_as_read">mark_repo_notifications_as_read</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mark_thread_as_read" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mark_thread_as_read</span><span
+            class="method-args">(thread_id, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Mark thread as read</p>
+
+<p>@param thread_id [Integer] Id of the thread to update. @param options
+[Hash] Optional parameters. @option options [Boolean] :unread Changes the
+unread status of the</p>
+
+<pre>threads.</pre>
+
+<p>@option options [Boolean] :read Inverse of &#39;unread&#39;. @return
+[Boolean] True if updated, false otherwise. @see <a
+href="https://developer.github.com/v3/activity/notifications/#mark-a-thread-as-read">developer.github.com/v3/activity/notifications/#mark-a-thread-as-read</a>
+@example</p>
+
+<pre class="ruby"><span class="ruby-ivar">@client</span>.<span class="ruby-identifier">mark_thread_as_read</span>(<span class="ruby-value">1</span>, :<span class="ruby-identifier">read</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="mark_thread_as_read-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/notifications.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mark_thread_as_read</span>(<span class="ruby-identifier">thread_id</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">request</span> <span class="ruby-value">:patch</span>, <span class="ruby-node">&quot;notifications/threads/#{thread_id}&quot;</span>, <span class="ruby-identifier">options</span>
+
+  <span class="ruby-identifier">last_response</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-value">205</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-notifications" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">notifications</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List your notifications</p>
+
+<p>@param options [Hash] Optional parameters @option options [Boolean] :all
+&#39;true&#39; to show notifications marked as</p>
+
+<pre>read.</pre>
+
+<p>@option options [Boolean] :participating &#39;true&#39; to show only</p>
+
+<pre>notifications in which the user is directly participating or
+mentioned.</pre>
+
+<p>@option options [String] :since Time filters out any notifications</p>
+
+<pre>updated before the given time. The time should be passed in as UTC in
+the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Ex. &#39;2012-10-09T23:39:01Z&#39;</pre>
+
+<p>@return [Array&lt;Sawyer::Resource&gt;] Array of notifications. @see <a
+href="https://developer.github.com/v3/activity/notifications/#list-your-notifications">developer.github.com/v3/activity/notifications/#list-your-notifications</a>
+@example Get users notifications</p>
+
+<pre>@client.notifications</pre>
+
+<p>@example Get all notifications since a certain time.</p>
+
+<pre>@client.notifications({all: true, since: &#39;2012-10-09T23:39:01Z&#39;})</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="notifications-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/notifications.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">notifications</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">paginate</span> <span class="ruby-string">&quot;notifications&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-repo_notifications" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">repo_notifications</span><span
+            class="method-args">(repo, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Notifications.html#method-i-repository_notifications">repository_notifications</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-repository_notifications" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">repository_notifications</span><span
+            class="method-args">(repo, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List your notifications in a repository</p>
+
+<p>@param repo [Integer, String, Hash, Repository] A GitHub repository @param
+options [Hash] Optional parameters @option options [Boolean] :all
+&#39;true&#39; to show notifications marked as</p>
+
+<pre>read.</pre>
+
+<p>@option options [Boolean] :participating &#39;true&#39; to show only</p>
+
+<pre>notifications in which the user is directly participating or
+mentioned.</pre>
+
+<p>@option options [String] :since Time filters out any notifications</p>
+
+<pre>updated before the given time. The time should be passed in as UTC in
+the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ. Ex. &#39;2012-10-09T23:39:01Z&#39;</pre>
+
+<p>@return [Array&lt;Sawyer::Resource&gt;] Array of notifications. @see <a
+href="https://developer.github.com/v3/activity/notifications/#list-your-notifications-in-a-repository">developer.github.com/v3/activity/notifications/#list-your-notifications-in-a-repository</a>
+@example Get your notifications for octokit/octokit.rb</p>
+
+<pre>@client.repository_notifications(&#39;octokit/octokit.rb&#39;)</pre>
+
+<p>@example Get your notifications for octokit/octokit.rb since a time.</p>
+
+<pre>@client.repository_notifications({since: &#39;2012-10-09T23:39:01Z&#39;})</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="repository_notifications-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/notifications.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">repository_notifications</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">paginate</span> <span class="ruby-node">&quot;#{Repository.path repo}/notifications&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Notifications.html#method-i-repo_notifications">repo_notifications</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-thread_notifications" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">thread_notifications</span><span
+            class="method-args">(thread_id, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List notifications for a specific thread</p>
+
+<p>@param thread_id [Integer] Id of the thread. @return
+[Array&lt;Sawyer::Resource&gt;] Array of notifications. @see <a
+href="https://developer.github.com/v3/activity/notifications/#view-a-single-thread">developer.github.com/v3/activity/notifications/#view-a-single-thread</a></p>
+
+<p>@example</p>
+
+<pre>@client.notification_thread(1000)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="thread_notifications-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/notifications.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">thread_notifications</span>(<span class="ruby-identifier">thread_id</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span> <span class="ruby-node">&quot;notifications/threads/#{thread_id}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-thread_subscription" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">thread_subscription</span><span
+            class="method-args">(thread_id, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get thread subscription</p>
+
+<p>@param thread_id [Integer] Id of the thread. @return [Sawyer::Resource]
+Subscription. @see <a
+href="https://developer.github.com/v3/activity/notifications/#get-a-thread-subscription">developer.github.com/v3/activity/notifications/#get-a-thread-subscription</a>
+@example</p>
+
+<pre>@client.thread_subscription(1)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="thread_subscription-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/notifications.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">thread_subscription</span>(<span class="ruby-identifier">thread_id</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span> <span class="ruby-node">&quot;notifications/threads/#{thread_id}/subscription&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_thread_subscription" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_thread_subscription</span><span
+            class="method-args">(thread_id, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update thread subscription</p>
+
+<p>This lets you subscribe to a thread, or ignore it. Subscribing to a thread
+is unnecessary if the user is already subscribed to the repository.
+Ignoring a thread will mute all future notifications (until you comment or
+get @mentioned).</p>
+
+<p>@param thread_id [Integer] Id of the thread. @param options @option options
+[Boolean] :subscribed Determines if notifications</p>
+
+<pre>should be received from this repository.</pre>
+
+<p>@option options [Boolean] :ignored Deterimines if all notifications</p>
+
+<pre>should be blocked from this repository.</pre>
+
+<p>@return [Sawyer::Resource] Updated subscription. @see <a
+href="https://developer.github.com/v3/activity/notifications/#set-a-thread-subscription">developer.github.com/v3/activity/notifications/#set-a-thread-subscription</a>
+@example Subscribe to notifications</p>
+
+<pre class="ruby"><span class="ruby-ivar">@client</span>.<span class="ruby-identifier">update_thread_subscription</span>(<span class="ruby-value">1</span>, :<span class="ruby-identifier">subscribed</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+</pre>
+
+<p>@example Ignore notifications from a repo</p>
+
+<pre class="ruby"><span class="ruby-ivar">@client</span>.<span class="ruby-identifier">update_thread_subscription</span>(<span class="ruby-value">1</span>, :<span class="ruby-identifier">ignored</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="update_thread_subscription-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/notifications.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_thread_subscription</span>(<span class="ruby-identifier">thread_id</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">put</span> <span class="ruby-node">&quot;notifications/threads/#{thread_id}/subscription&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

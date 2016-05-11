@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Octokit::Client::Refs - octokit-4.3.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-create_ref">#create_ref</a>
+    
+    <li ><a href="#method-i-create_reference">#create_reference</a>
+    
+    <li ><a href="#method-i-delete_branch">#delete_branch</a>
+    
+    <li ><a href="#method-i-delete_ref">#delete_ref</a>
+    
+    <li ><a href="#method-i-delete_reference">#delete_reference</a>
+    
+    <li ><a href="#method-i-list_references">#list_references</a>
+    
+    <li ><a href="#method-i-list_refs">#list_refs</a>
+    
+    <li ><a href="#method-i-ref">#ref</a>
+    
+    <li ><a href="#method-i-reference">#reference</a>
+    
+    <li ><a href="#method-i-references">#references</a>
+    
+    <li ><a href="#method-i-refs">#refs</a>
+    
+    <li ><a href="#method-i-update_branch">#update_branch</a>
+    
+    <li ><a href="#method-i-update_ref">#update_ref</a>
+    
+    <li ><a href="#method-i-update_reference">#update_reference</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Octokit::Client::Refs">
+  <h1 id="module-Octokit::Client::Refs" class="module">
+    module Octokit::Client::Refs
+  </h1>
+
+  <section class="description">
+    
+<p>Methods for References for Git Data API</p>
+
+<p>@see <a
+href="https://developer.github.com/v3/git/refs">developer.github.com/v3/git/refs</a>/</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-create_ref" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_ref</span><span
+            class="method-args">(repo, ref, sha, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a reference</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param ref [String] The ref, e.g.
+<code>tags/v0.0.3</code> @param sha [String] A SHA, e.g.
+<code>827efc6d56897b048c772eb4087f854f46256132</code> @return
+[Array&lt;Sawyer::Resource&gt;] The list of references, already containing
+the new one @see <a
+href="https://developer.github.com/v3/git/refs/#create-a-reference">developer.github.com/v3/git/refs/#create-a-reference</a>
+@example Create refs/heads/master for octocat/Hello-World with sha
+827efc6d56897b048c772eb4087f854f46256132</p>
+
+<pre>Octokit.create_ref(&quot;octocat/Hello-World&quot;, &quot;heads/master&quot;, &quot;827efc6d56897b048c772eb4087f854f46256132&quot;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="create_ref-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/refs.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_ref</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-identifier">sha</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">ref</span> = <span class="ruby-node">&quot;refs/#{ref}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ref</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r{refs/}</span>
+  <span class="ruby-identifier">parameters</span> = {
+    <span class="ruby-value">:ref</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ref</span>,
+    <span class="ruby-value">:sha</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">sha</span>
+  }
+  <span class="ruby-identifier">post</span> <span class="ruby-node">&quot;#{Repository.path repo}/git/refs&quot;</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">parameters</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Refs.html#method-i-create_reference">create_reference</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_reference" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">create_reference</span><span
+            class="method-args">(repo, ref, sha, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Refs.html#method-i-create_ref">create_ref</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-delete_branch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_branch</span><span
+            class="method-args">(repo, branch, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete a single branch</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param branch [String] The branch, e.g.
+<code>fix-refs</code> @return [Boolean] Success @see <a
+href="https://developer.github.com/v3/git/refs/#delete-a-reference">developer.github.com/v3/git/refs/#delete-a-reference</a>
+@example Delete uritemplate for sigmavirus24/github3.py</p>
+
+<pre>Octokit.delete_branch(&quot;sigmavirus24/github3.py&quot;, &quot;uritemplate&quot;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="delete_branch-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/refs.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_branch</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">branch</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">delete_ref</span> <span class="ruby-identifier">repo</span>, <span class="ruby-node">&quot;heads/#{branch}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_ref" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_ref</span><span
+            class="method-args">(repo, ref, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delete a single reference</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param ref [String] The ref, e.g.
+<code>tags/v0.0.3</code> @return [Boolean] Success @see <a
+href="https://developer.github.com/v3/git/refs/#delete-a-reference">developer.github.com/v3/git/refs/#delete-a-reference</a>
+@example Delete tags/v0.0.3 for sferik/rails_admin</p>
+
+<pre>Octokit.delete_ref(&quot;sferik/rails_admin&quot;,&quot;tags/v0.0.3&quot;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="delete_ref-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/refs.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_ref</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">boolean_from_response</span> <span class="ruby-value">:delete</span>, <span class="ruby-node">&quot;#{Repository.path repo}/git/refs/#{ref}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Refs.html#method-i-delete_reference">delete_reference</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_reference" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_reference</span><span
+            class="method-args">(repo, ref, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Refs.html#method-i-delete_ref">delete_ref</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-list_references" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">list_references</span><span
+            class="method-args">(repo, namespace = nil, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Refs.html#method-i-refs">refs</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-list_refs" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">list_refs</span><span
+            class="method-args">(repo, namespace = nil, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Refs.html#method-i-refs">refs</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-ref" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ref</span><span
+            class="method-args">(repo, ref, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch a given reference</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param ref [String] The ref, e.g.
+<code>tags/v0.0.3</code> @return [Sawyer::Resource] The reference matching
+the given repo and the ref id @see <a
+href="https://developer.github.com/v3/git/refs/#get-a-reference">developer.github.com/v3/git/refs/#get-a-reference</a>
+@example Fetch tags/v0.0.3 for sferik/rails_admin</p>
+
+<pre>Octokit.ref(&quot;sferik/rails_admin&quot;,&quot;tags/v0.0.3&quot;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="ref-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/refs.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ref</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">get</span> <span class="ruby-node">&quot;#{Repository.path repo}/git/refs/#{ref}&quot;</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Refs.html#method-i-reference">reference</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reference" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">reference</span><span
+            class="method-args">(repo, ref, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Refs.html#method-i-ref">ref</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-references" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">references</span><span
+            class="method-args">(repo, namespace = nil, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Refs.html#method-i-refs">refs</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-refs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">refs</span><span
+            class="method-args">(repo, namespace = nil, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List all refs for a given user and repo</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param namespace [String] The ref namespace, e.g.
+<code>tag</code> or <code>heads</code> @return
+[Array&lt;Sawyer::Resource&gt;] A list of references matching the repo and
+the namespace @see <a
+href="https://developer.github.com/v3/git/refs/#get-all-references">developer.github.com/v3/git/refs/#get-all-references</a>
+@example Fetch all refs for sferik/rails_admin</p>
+
+<pre>Octokit.refs(&quot;sferik/rails_admin&quot;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="refs-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/refs.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">refs</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">namespace</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">path</span> = <span class="ruby-node">&quot;#{Repository.path repo}/git/refs&quot;</span>
+  <span class="ruby-identifier">path</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;/#{namespace}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">namespace</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">paginate</span> <span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Refs.html#method-i-list_refs">list_refs</a>, <a href="Refs.html#method-i-references">references</a>, <a href="Refs.html#method-i-list_references">list_references</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_branch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_branch</span><span
+            class="method-args">(repo, branch, sha, force = true, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update a branch</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param branch [String] The ref, e.g.
+<code>feature/new-shiny</code> @param sha [String] A SHA, e.g.
+<code>827efc6d56897b048c772eb4087f854f46256132</code> @param force
+[Boolean] A flag indicating one wants to force the update to make sure the
+update is a fast-forward update. @return [Array&lt;Sawyer::Resource&gt;]
+The list of references updated @see <a
+href="https://developer.github.com/v3/git/refs/#update-a-reference">developer.github.com/v3/git/refs/#update-a-reference</a>
+@example Force update heads/sc/featureA for octocat/Hello-World with sha
+aa218f56b14c9653891f9e74264a383fa43fefbd</p>
+
+<pre>Octokit.update_ref(&quot;octocat/Hello-World&quot;,&quot;sc/featureA&quot;, &quot;aa218f56b14c9653891f9e74264a383fa43fefbd&quot;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="update_branch-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/refs.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_branch</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">branch</span>, <span class="ruby-identifier">sha</span>, <span class="ruby-identifier">force</span> = <span class="ruby-keyword">true</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">update_ref</span> <span class="ruby-identifier">repo</span>, <span class="ruby-node">&quot;heads/#{branch}&quot;</span>, <span class="ruby-identifier">sha</span>, <span class="ruby-identifier">force</span>, <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_ref" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_ref</span><span
+            class="method-args">(repo, ref, sha, force = true, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update a reference</p>
+
+<p>@param repo [Integer, String, <a href="../Repository.html">Repository</a>,
+Hash] A GitHub repository @param ref [String] The ref, e.g.
+<code>tags/v0.0.3</code> @param sha [String] A SHA, e.g.
+<code>827efc6d56897b048c772eb4087f854f46256132</code> @param force
+[Boolean] A flag indicating one wants to force the update to make sure the
+update is a fast-forward update. @return [Array&lt;Sawyer::Resource&gt;]
+The list of references updated @see <a
+href="https://developer.github.com/v3/git/refs/#update-a-reference">developer.github.com/v3/git/refs/#update-a-reference</a>
+@example Force update heads/sc/featureA for octocat/Hello-World with sha
+aa218f56b14c9653891f9e74264a383fa43fefbd</p>
+
+<pre>Octokit.update_ref(&quot;octocat/Hello-World&quot;, &quot;heads/sc/featureA&quot;, &quot;aa218f56b14c9653891f9e74264a383fa43fefbd&quot;)</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="update_ref-source">
+            <pre><span class="ruby-comment"># File lib/octokit/client/refs.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_ref</span>(<span class="ruby-identifier">repo</span>, <span class="ruby-identifier">ref</span>, <span class="ruby-identifier">sha</span>, <span class="ruby-identifier">force</span> = <span class="ruby-keyword">true</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">parameters</span> = {
+    <span class="ruby-value">:sha</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">sha</span>,
+    <span class="ruby-value">:force</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">force</span>
+  }
+  <span class="ruby-identifier">patch</span> <span class="ruby-node">&quot;#{Repository.path repo}/git/refs/#{ref}&quot;</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">parameters</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Refs.html#method-i-update_reference">update_reference</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_reference" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">update_reference</span><span
+            class="method-args">(repo, ref, sha, force = true, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Refs.html#method-i-update_ref">update_ref</a>
+        </div>
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

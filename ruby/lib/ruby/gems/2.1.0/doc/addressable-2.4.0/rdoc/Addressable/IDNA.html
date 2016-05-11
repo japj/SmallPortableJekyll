@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Addressable::IDNA - addressable-2.4.0 Documentation</title>
+
+<link href="../fonts.css" rel="stylesheet">
+<link href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/search_index.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/searcher.js"></script>
+<script src="../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-lookup_unicode_combining_class">::lookup_unicode_combining_class</a>
+    
+    <li ><a href="#method-c-lookup_unicode_compatibility">::lookup_unicode_compatibility</a>
+    
+    <li ><a href="#method-c-lookup_unicode_composition">::lookup_unicode_composition</a>
+    
+    <li ><a href="#method-c-lookup_unicode_lowercase">::lookup_unicode_lowercase</a>
+    
+    <li ><a href="#method-c-punycode_adapt">::punycode_adapt</a>
+    
+    <li ><a href="#method-c-punycode_basic-3F">::punycode_basic?</a>
+    
+    <li ><a href="#method-c-punycode_decode">::punycode_decode</a>
+    
+    <li ><a href="#method-c-punycode_decode_digit">::punycode_decode_digit</a>
+    
+    <li ><a href="#method-c-punycode_delimiter-3F">::punycode_delimiter?</a>
+    
+    <li ><a href="#method-c-punycode_encode">::punycode_encode</a>
+    
+    <li ><a href="#method-c-punycode_encode_digit">::punycode_encode_digit</a>
+    
+    <li ><a href="#method-c-to_ascii">::to_ascii</a>
+    
+    <li ><a href="#method-c-to_unicode">::to_unicode</a>
+    
+    <li ><a href="#method-c-unicode_compose">::unicode_compose</a>
+    
+    <li ><a href="#method-c-unicode_compose_pair">::unicode_compose_pair</a>
+    
+    <li ><a href="#method-c-unicode_decompose">::unicode_decompose</a>
+    
+    <li ><a href="#method-c-unicode_decompose_hangul">::unicode_decompose_hangul</a>
+    
+    <li ><a href="#method-c-unicode_downcase">::unicode_downcase</a>
+    
+    <li ><a href="#method-c-unicode_normalize_kc">::unicode_normalize_kc</a>
+    
+    <li ><a href="#method-c-unicode_sort_canonical">::unicode_sort_canonical</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Addressable::IDNA">
+  <h1 id="module-Addressable::IDNA" class="module">
+    module Addressable::IDNA
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ACE_MAX_LENGTH">ACE_MAX_LENGTH
+        
+        <dd>
+        
+      
+        <dt id="ACE_PREFIX">ACE_PREFIX
+        
+        <dd>
+        
+      
+        <dt id="COMPOSITION_TABLE">COMPOSITION_TABLE
+        
+        <dd>
+        
+      
+        <dt id="HANGUL_LBASE">HANGUL_LBASE
+        
+        <dd>
+        
+      
+        <dt id="HANGUL_LCOUNT">HANGUL_LCOUNT
+        
+        <dd>
+        
+      
+        <dt id="HANGUL_NCOUNT">HANGUL_NCOUNT
+        
+        <dd>
+        
+      
+        <dt id="HANGUL_SBASE">HANGUL_SBASE
+        
+        <dd>
+        
+      
+        <dt id="HANGUL_SCOUNT">HANGUL_SCOUNT
+        
+        <dd>
+        
+      
+        <dt id="HANGUL_TBASE">HANGUL_TBASE
+        
+        <dd>
+        
+      
+        <dt id="HANGUL_TCOUNT">HANGUL_TCOUNT
+        
+        <dd>
+        
+      
+        <dt id="HANGUL_VBASE">HANGUL_VBASE
+        
+        <dd>
+        
+      
+        <dt id="HANGUL_VCOUNT">HANGUL_VCOUNT
+        
+        <dd>
+        
+      
+        <dt id="PUNYCODE_BASE">PUNYCODE_BASE
+        
+        <dd>
+        
+      
+        <dt id="PUNYCODE_DAMP">PUNYCODE_DAMP
+        
+        <dd>
+        
+      
+        <dt id="PUNYCODE_DELIMITER">PUNYCODE_DELIMITER
+        
+        <dd>
+        
+      
+        <dt id="PUNYCODE_INITIAL_BIAS">PUNYCODE_INITIAL_BIAS
+        
+        <dd>
+        
+      
+        <dt id="PUNYCODE_INITIAL_N">PUNYCODE_INITIAL_N
+        
+        <dd>
+        
+      
+        <dt id="PUNYCODE_MAXINT">PUNYCODE_MAXINT
+        
+        <dd>
+        
+      
+        <dt id="PUNYCODE_PRINT_ASCII">PUNYCODE_PRINT_ASCII
+        
+        <dd>
+        
+      
+        <dt id="PUNYCODE_SKEW">PUNYCODE_SKEW
+        
+        <dd>
+        
+      
+        <dt id="PUNYCODE_TMAX">PUNYCODE_TMAX
+        
+        <dd>
+        
+      
+        <dt id="PUNYCODE_TMIN">PUNYCODE_TMIN
+        
+        <dd>
+        
+      
+        <dt id="UNICODE_DATA">UNICODE_DATA
+        
+        <dd><p>This is a sparse Unicode table.  Codepoints without entries are assumed to
+have the value: [0, 0, nil, nil, nil, nil, nil]</p>
+        
+      
+        <dt id="UNICODE_DATA_CANONICAL">UNICODE_DATA_CANONICAL
+        
+        <dd>
+        
+      
+        <dt id="UNICODE_DATA_COMBINING_CLASS">UNICODE_DATA_COMBINING_CLASS
+        
+        <dd>
+        
+      
+        <dt id="UNICODE_DATA_COMPATIBILITY">UNICODE_DATA_COMPATIBILITY
+        
+        <dd>
+        
+      
+        <dt id="UNICODE_DATA_EXCLUSION">UNICODE_DATA_EXCLUSION
+        
+        <dd>
+        
+      
+        <dt id="UNICODE_DATA_LOWERCASE">UNICODE_DATA_LOWERCASE
+        
+        <dd>
+        
+      
+        <dt id="UNICODE_DATA_TITLECASE">UNICODE_DATA_TITLECASE
+        
+        <dd>
+        
+      
+        <dt id="UNICODE_DATA_UPPERCASE">UNICODE_DATA_UPPERCASE
+        
+        <dd>
+        
+      
+        <dt id="UNICODE_MAX_LENGTH">UNICODE_MAX_LENGTH
+        
+        <dd>
+        
+      
+        <dt id="UNICODE_TABLE">UNICODE_TABLE
+        
+        <dd><p>This module is loosely based on idn_actionmailer by Mick Staugaard, the
+unicode library by Yoshida Masato, and the punycode implementation by
+Kazuhiro Nishiyama.  Most of the code was copied verbatim, but some
+reformatting was done, and some translation from C was done.</p>
+
+<p>Without their code to work from as a base, we&#39;d all still be relying on
+the presence of libidn.  Which nobody ever seems to have installed.</p>
+
+<p>Original sources: <a
+href="http://github.com/staugaard/idn_actionmailer">github.com/staugaard/idn_actionmailer</a>
+<a
+href="http://www.yoshidam.net/Ruby.html#unicode">www.yoshidam.net/Ruby.html#unicode</a>
+<a
+href="http://rubyforge.org/frs/?group_id=2550">rubyforge.org/frs/?group_id=2550</a></p>
+        
+      
+        <dt id="UTF8_REGEX">UTF8_REGEX
+        
+        <dd>
+        
+      
+        <dt id="UTF8_REGEX_MULTIBYTE">UTF8_REGEX_MULTIBYTE
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-lookup_unicode_combining_class" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lookup_unicode_combining_class</span><span
+            class="method-args">(codepoint)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="lookup_unicode_combining_class-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/pure.rb, line 276</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">lookup_unicode_combining_class</span>(<span class="ruby-identifier">codepoint</span>)
+  <span class="ruby-identifier">codepoint_data</span> = <span class="ruby-constant">UNICODE_DATA</span>[<span class="ruby-identifier">codepoint</span>]
+  (<span class="ruby-identifier">codepoint_data</span> <span class="ruby-operator">?</span>
+    (<span class="ruby-identifier">codepoint_data</span>[<span class="ruby-constant">UNICODE_DATA_COMBINING_CLASS</span>] <span class="ruby-operator">||</span> <span class="ruby-value">0</span>) <span class="ruby-operator">:</span>
+    <span class="ruby-value">0</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-lookup_unicode_compatibility" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lookup_unicode_compatibility</span><span
+            class="method-args">(codepoint)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="lookup_unicode_compatibility-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/pure.rb, line 284</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">lookup_unicode_compatibility</span>(<span class="ruby-identifier">codepoint</span>)
+  <span class="ruby-identifier">codepoint_data</span> = <span class="ruby-constant">UNICODE_DATA</span>[<span class="ruby-identifier">codepoint</span>]
+  (<span class="ruby-identifier">codepoint_data</span> <span class="ruby-operator">?</span>
+    <span class="ruby-identifier">codepoint_data</span>[<span class="ruby-constant">UNICODE_DATA_COMPATIBILITY</span>] <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-lookup_unicode_composition" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lookup_unicode_composition</span><span
+            class="method-args">(unpacked)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="lookup_unicode_composition-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/pure.rb, line 299</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">lookup_unicode_composition</span>(<span class="ruby-identifier">unpacked</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">COMPOSITION_TABLE</span>[<span class="ruby-identifier">unpacked</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-lookup_unicode_lowercase" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lookup_unicode_lowercase</span><span
+            class="method-args">(codepoint)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="lookup_unicode_lowercase-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/pure.rb, line 291</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">lookup_unicode_lowercase</span>(<span class="ruby-identifier">codepoint</span>)
+  <span class="ruby-identifier">codepoint_data</span> = <span class="ruby-constant">UNICODE_DATA</span>[<span class="ruby-identifier">codepoint</span>]
+  (<span class="ruby-identifier">codepoint_data</span> <span class="ruby-operator">?</span>
+    (<span class="ruby-identifier">codepoint_data</span>[<span class="ruby-constant">UNICODE_DATA_LOWERCASE</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">codepoint</span>) <span class="ruby-operator">:</span>
+    <span class="ruby-identifier">codepoint</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-punycode_adapt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">punycode_adapt</span><span
+            class="method-args">(delta, numpoints, firsttime)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Bias adaptation method</p>
+          
+          
+
+          
+          <div class="method-source-code" id="punycode_adapt-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/pure.rb, line 654</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">punycode_adapt</span>(<span class="ruby-identifier">delta</span>, <span class="ruby-identifier">numpoints</span>, <span class="ruby-identifier">firsttime</span>)
+  <span class="ruby-identifier">delta</span> = <span class="ruby-identifier">firsttime</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">delta</span> <span class="ruby-operator">/</span> <span class="ruby-constant">PUNYCODE_DAMP</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">delta</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">1</span>
+  <span class="ruby-comment"># delta &gt;&gt; 1 is a faster way of doing delta / 2</span>
+  <span class="ruby-identifier">delta</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">delta</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">numpoints</span>
+  <span class="ruby-identifier">difference</span> = <span class="ruby-constant">PUNYCODE_BASE</span> <span class="ruby-operator">-</span> <span class="ruby-constant">PUNYCODE_TMIN</span>
+
+  <span class="ruby-identifier">k</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">delta</span> <span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">difference</span> <span class="ruby-operator">*</span> <span class="ruby-constant">PUNYCODE_TMAX</span>) <span class="ruby-operator">/</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">delta</span> <span class="ruby-operator">/=</span> <span class="ruby-identifier">difference</span>
+    <span class="ruby-identifier">k</span> <span class="ruby-operator">+=</span> <span class="ruby-constant">PUNYCODE_BASE</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">k</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">difference</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>) <span class="ruby-operator">*</span> <span class="ruby-identifier">delta</span> <span class="ruby-operator">/</span> (<span class="ruby-identifier">delta</span> <span class="ruby-operator">+</span> <span class="ruby-constant">PUNYCODE_SKEW</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-punycode_basic-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">punycode_basic?</span><span
+            class="method-args">(codepoint)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="punycode_basic-3F-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/pure.rb, line 622</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">punycode_basic?</span>(<span class="ruby-identifier">codepoint</span>)
+  <span class="ruby-identifier">codepoint</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0x80</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-punycode_decode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">punycode_decode</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="punycode_decode-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/native.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">punycode_decode</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-constant">IDN</span><span class="ruby-operator">::</span><span class="ruby-constant">Punycode</span>.<span class="ruby-identifier">decode</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-punycode_decode_digit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">punycode_decode_digit</span><span
+            class="method-args">(codepoint)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the numeric value of a basic codepoint (for use in representing
+integers) in the range 0 to base - 1, or <a
+href="IDNA.html#PUNYCODE_BASE">PUNYCODE_BASE</a> if codepoint does not
+represent a value.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="punycode_decode_digit-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/pure.rb, line 640</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">punycode_decode_digit</span>(<span class="ruby-identifier">codepoint</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">codepoint</span> <span class="ruby-operator">-</span> <span class="ruby-value">48</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">10</span>
+    <span class="ruby-identifier">codepoint</span> <span class="ruby-operator">-</span> <span class="ruby-value">22</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">codepoint</span> <span class="ruby-operator">-</span> <span class="ruby-value">65</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">26</span>
+    <span class="ruby-identifier">codepoint</span> <span class="ruby-operator">-</span> <span class="ruby-value">65</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">codepoint</span> <span class="ruby-operator">-</span> <span class="ruby-value">97</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">26</span>
+    <span class="ruby-identifier">codepoint</span> <span class="ruby-operator">-</span> <span class="ruby-value">97</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">PUNYCODE_BASE</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-punycode_delimiter-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">punycode_delimiter?</span><span
+            class="method-args">(codepoint)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="punycode_delimiter-3F-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/pure.rb, line 627</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">punycode_delimiter?</span>(<span class="ruby-identifier">codepoint</span>)
+  <span class="ruby-identifier">codepoint</span> <span class="ruby-operator">==</span> <span class="ruby-constant">PUNYCODE_DELIMITER</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-punycode_encode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">punycode_encode</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="punycode_encode-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/native.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">punycode_encode</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-constant">IDN</span><span class="ruby-operator">::</span><span class="ruby-constant">Punycode</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-punycode_encode_digit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">punycode_encode_digit</span><span
+            class="method-args">(d)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="punycode_encode_digit-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/pure.rb, line 632</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">punycode_encode_digit</span>(<span class="ruby-identifier">d</span>)
+  <span class="ruby-identifier">d</span> <span class="ruby-operator">+</span> <span class="ruby-value">22</span> <span class="ruby-operator">+</span> <span class="ruby-value">75</span> <span class="ruby-operator">*</span> ((<span class="ruby-identifier">d</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">26</span>) <span class="ruby-operator">?</span> <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-to_ascii" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_ascii</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_ascii-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/native.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_ascii</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;.&#39;</span>, <span class="ruby-value">-1</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">segment</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">segment</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-constant">IDN</span><span class="ruby-operator">::</span><span class="ruby-constant">Idna</span>.<span class="ruby-identifier">toASCII</span>(<span class="ruby-identifier">segment</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;.&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-to_unicode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_unicode</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_unicode-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/native.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_unicode</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;.&#39;</span>, <span class="ruby-value">-1</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">segment</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">segment</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-constant">IDN</span><span class="ruby-operator">::</span><span class="ruby-constant">Idna</span>.<span class="ruby-identifier">toUnicode</span>(<span class="ruby-identifier">segment</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;.&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-unicode_compose" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unicode_compose</span><span
+            class="method-args">(unpacked)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unicode_compose-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/pure.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">unicode_compose</span>(<span class="ruby-identifier">unpacked</span>)
+  <span class="ruby-identifier">unpacked_result</span> = []
+  <span class="ruby-identifier">length</span> = <span class="ruby-identifier">unpacked</span>.<span class="ruby-identifier">length</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">unpacked</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">starter</span> = <span class="ruby-identifier">unpacked</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-identifier">starter_cc</span> = <span class="ruby-identifier">lookup_unicode_combining_class</span>(<span class="ruby-identifier">starter</span>)
+  <span class="ruby-identifier">starter_cc</span> = <span class="ruby-value">256</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">starter_cc</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> <span class="ruby-value">1</span><span class="ruby-operator">...</span><span class="ruby-identifier">length</span>
+    <span class="ruby-identifier">ch</span> = <span class="ruby-identifier">unpacked</span>[<span class="ruby-identifier">i</span>]
+    <span class="ruby-identifier">cc</span> = <span class="ruby-identifier">lookup_unicode_combining_class</span>(<span class="ruby-identifier">ch</span>)
+
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">starter_cc</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span>
+        (<span class="ruby-identifier">composite</span> = <span class="ruby-identifier">unicode_compose_pair</span>(<span class="ruby-identifier">starter</span>, <span class="ruby-identifier">ch</span>)) <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>)
+      <span class="ruby-identifier">starter</span> = <span class="ruby-identifier">composite</span>
+      <span class="ruby-identifier">startercc</span> = <span class="ruby-identifier">lookup_unicode_combining_class</span>(<span class="ruby-identifier">composite</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">unpacked_result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">starter</span>
+      <span class="ruby-identifier">starter</span> = <span class="ruby-identifier">ch</span>
+      <span class="ruby-identifier">startercc</span> = <span class="ruby-identifier">cc</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">unpacked_result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">starter</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">unpacked_result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-unicode_compose_pair" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unicode_compose_pair</span><span
+            class="method-args">(ch_one, ch_two)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unicode_compose_pair-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/pure.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">unicode_compose_pair</span>(<span class="ruby-identifier">ch_one</span>, <span class="ruby-identifier">ch_two</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ch_one</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">HANGUL_LBASE</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">ch_one</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">HANGUL_LBASE</span> <span class="ruby-operator">+</span> <span class="ruby-constant">HANGUL_LCOUNT</span> <span class="ruby-operator">&amp;&amp;</span>
+      <span class="ruby-identifier">ch_two</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">HANGUL_VBASE</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">ch_two</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">HANGUL_VBASE</span> <span class="ruby-operator">+</span> <span class="ruby-constant">HANGUL_VCOUNT</span>
+    <span class="ruby-comment"># Hangul L + V</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">HANGUL_SBASE</span> <span class="ruby-operator">+</span> (
+      (<span class="ruby-identifier">ch_one</span> <span class="ruby-operator">-</span> <span class="ruby-constant">HANGUL_LBASE</span>) <span class="ruby-operator">*</span> <span class="ruby-constant">HANGUL_VCOUNT</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">ch_two</span> <span class="ruby-operator">-</span> <span class="ruby-constant">HANGUL_VBASE</span>)
+    ) <span class="ruby-operator">*</span> <span class="ruby-constant">HANGUL_TCOUNT</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ch_one</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">HANGUL_SBASE</span> <span class="ruby-operator">&amp;&amp;</span>
+      <span class="ruby-identifier">ch_one</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">HANGUL_SBASE</span> <span class="ruby-operator">+</span> <span class="ruby-constant">HANGUL_SCOUNT</span> <span class="ruby-operator">&amp;&amp;</span>
+      (<span class="ruby-identifier">ch_one</span> <span class="ruby-operator">-</span> <span class="ruby-constant">HANGUL_SBASE</span>) <span class="ruby-operator">%</span> <span class="ruby-constant">HANGUL_TCOUNT</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span>
+      <span class="ruby-identifier">ch_two</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">HANGUL_TBASE</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">ch_two</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">HANGUL_TBASE</span> <span class="ruby-operator">+</span> <span class="ruby-constant">HANGUL_TCOUNT</span>
+       <span class="ruby-comment"># Hangul LV + T</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">ch_one</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">ch_two</span> <span class="ruby-operator">-</span> <span class="ruby-constant">HANGUL_TBASE</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">p</span> = []
+  <span class="ruby-identifier">ucs4_to_utf8</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ch</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">ch</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">128</span>
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ch</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ch</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">2048</span>
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">6</span> <span class="ruby-operator">|</span> <span class="ruby-value">192</span>)
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">63</span> <span class="ruby-operator">|</span> <span class="ruby-value">128</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ch</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0x10000</span>
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">12</span> <span class="ruby-operator">|</span> <span class="ruby-value">224</span>)
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">6</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">63</span> <span class="ruby-operator">|</span> <span class="ruby-value">128</span>)
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">63</span> <span class="ruby-operator">|</span> <span class="ruby-value">128</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ch</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0x200000</span>
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">18</span> <span class="ruby-operator">|</span> <span class="ruby-value">240</span>)
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">12</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">63</span> <span class="ruby-operator">|</span> <span class="ruby-value">128</span>)
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">6</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">63</span> <span class="ruby-operator">|</span> <span class="ruby-value">128</span>)
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">63</span> <span class="ruby-operator">|</span> <span class="ruby-value">128</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ch</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0x4000000</span>
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">24</span> <span class="ruby-operator">|</span> <span class="ruby-value">248</span>)
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">18</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">63</span> <span class="ruby-operator">|</span> <span class="ruby-value">128</span>)
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">12</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">63</span> <span class="ruby-operator">|</span> <span class="ruby-value">128</span>)
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">6</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">63</span> <span class="ruby-operator">|</span> <span class="ruby-value">128</span>)
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">63</span> <span class="ruby-operator">|</span> <span class="ruby-value">128</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ch</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0x80000000</span>
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">30</span> <span class="ruby-operator">|</span> <span class="ruby-value">252</span>)
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">24</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">63</span> <span class="ruby-operator">|</span> <span class="ruby-value">128</span>)
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">18</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">63</span> <span class="ruby-operator">|</span> <span class="ruby-value">128</span>)
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">12</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">63</span> <span class="ruby-operator">|</span> <span class="ruby-value">128</span>)
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">6</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">63</span> <span class="ruby-operator">|</span> <span class="ruby-value">128</span>)
+      <span class="ruby-identifier">p</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">ch</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">63</span> <span class="ruby-operator">|</span> <span class="ruby-value">128</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">ucs4_to_utf8</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">ch_one</span>)
+  <span class="ruby-identifier">ucs4_to_utf8</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">ch_two</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">lookup_unicode_composition</span>(<span class="ruby-identifier">p</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-unicode_decompose" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unicode_decompose</span><span
+            class="method-args">(unpacked)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unicode_decompose-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/pure.rb, line 238</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">unicode_decompose</span>(<span class="ruby-identifier">unpacked</span>)
+  <span class="ruby-identifier">unpacked_result</span> = []
+  <span class="ruby-keyword">for</span> <span class="ruby-identifier">cp</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">unpacked</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">cp</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">HANGUL_SBASE</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">cp</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">HANGUL_SBASE</span> <span class="ruby-operator">+</span> <span class="ruby-constant">HANGUL_SCOUNT</span>
+      <span class="ruby-identifier">l</span>, <span class="ruby-identifier">v</span>, <span class="ruby-identifier">t</span> = <span class="ruby-identifier">unicode_decompose_hangul</span>(<span class="ruby-identifier">cp</span>)
+      <span class="ruby-identifier">unpacked_result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">l</span>
+      <span class="ruby-identifier">unpacked_result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">v</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">v</span>
+      <span class="ruby-identifier">unpacked_result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">t</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">t</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">dc</span> = <span class="ruby-identifier">lookup_unicode_compatibility</span>(<span class="ruby-identifier">cp</span>)
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">dc</span>
+        <span class="ruby-identifier">unpacked_result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">cp</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">unpacked_result</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">unicode_decompose</span>(<span class="ruby-identifier">dc</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;U*&quot;</span>)))
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">unpacked_result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-unicode_decompose_hangul" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unicode_decompose_hangul</span><span
+            class="method-args">(codepoint)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unicode_decompose_hangul-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/pure.rb, line 259</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">unicode_decompose_hangul</span>(<span class="ruby-identifier">codepoint</span>)
+  <span class="ruby-identifier">sindex</span> = <span class="ruby-identifier">codepoint</span> <span class="ruby-operator">-</span> <span class="ruby-constant">HANGUL_SBASE</span>;
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">sindex</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">sindex</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">HANGUL_SCOUNT</span>
+    <span class="ruby-identifier">l</span> = <span class="ruby-identifier">codepoint</span>
+    <span class="ruby-identifier">v</span> = <span class="ruby-identifier">t</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">l</span>, <span class="ruby-identifier">v</span>, <span class="ruby-identifier">t</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">l</span> = <span class="ruby-constant">HANGUL_LBASE</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">sindex</span> <span class="ruby-operator">/</span> <span class="ruby-constant">HANGUL_NCOUNT</span>
+  <span class="ruby-identifier">v</span> = <span class="ruby-constant">HANGUL_VBASE</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">sindex</span> <span class="ruby-operator">%</span> <span class="ruby-constant">HANGUL_NCOUNT</span>) <span class="ruby-operator">/</span> <span class="ruby-constant">HANGUL_TCOUNT</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">HANGUL_TBASE</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">sindex</span> <span class="ruby-operator">%</span> <span class="ruby-constant">HANGUL_TCOUNT</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">t</span> <span class="ruby-operator">==</span> <span class="ruby-constant">HANGUL_TBASE</span>
+    <span class="ruby-identifier">t</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">l</span>, <span class="ruby-identifier">v</span>, <span class="ruby-identifier">t</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-unicode_downcase" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unicode_downcase</span><span
+            class="method-args">(input)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Unicode aware downcase method.</p>
+
+<p>@api private @param [String] input</p>
+
+<pre>The input string.</pre>
+
+<p>@return [String] The downcased result.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="unicode_downcase-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/pure.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">unicode_downcase</span>(<span class="ruby-identifier">input</span>)
+  <span class="ruby-identifier">input</span> = <span class="ruby-identifier">input</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">input</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+  <span class="ruby-identifier">unpacked</span> = <span class="ruby-identifier">input</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;U*&quot;</span>)
+  <span class="ruby-identifier">unpacked</span>.<span class="ruby-identifier">map!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">codepoint</span><span class="ruby-operator">|</span> <span class="ruby-identifier">lookup_unicode_lowercase</span>(<span class="ruby-identifier">codepoint</span>) }
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">unpacked</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-string">&quot;U*&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-unicode_normalize_kc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unicode_normalize_kc</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unicode_normalize_kc-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/native.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">unicode_normalize_kc</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-constant">IDN</span><span class="ruby-operator">::</span><span class="ruby-constant">Stringprep</span>.<span class="ruby-identifier">nfkc_normalize</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-unicode_sort_canonical" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unicode_sort_canonical</span><span
+            class="method-args">(unpacked)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unicode_sort_canonical-source">
+            <pre><span class="ruby-comment"># File lib/addressable/idna/pure.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">unicode_sort_canonical</span>(<span class="ruby-identifier">unpacked</span>)
+  <span class="ruby-identifier">unpacked</span> = <span class="ruby-identifier">unpacked</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">i</span> = <span class="ruby-value">1</span>
+  <span class="ruby-identifier">length</span> = <span class="ruby-identifier">unpacked</span>.<span class="ruby-identifier">length</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">unpacked</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">2</span>
+
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">length</span>
+    <span class="ruby-identifier">last</span> = <span class="ruby-identifier">unpacked</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>]
+    <span class="ruby-identifier">ch</span> = <span class="ruby-identifier">unpacked</span>[<span class="ruby-identifier">i</span>]
+    <span class="ruby-identifier">last_cc</span> = <span class="ruby-identifier">lookup_unicode_combining_class</span>(<span class="ruby-identifier">last</span>)
+    <span class="ruby-identifier">cc</span> = <span class="ruby-identifier">lookup_unicode_combining_class</span>(<span class="ruby-identifier">ch</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">cc</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">last_cc</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">last_cc</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">cc</span>
+      <span class="ruby-identifier">unpacked</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-identifier">last</span>
+      <span class="ruby-identifier">unpacked</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>] = <span class="ruby-identifier">ch</span>
+      <span class="ruby-identifier">i</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">unpacked</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

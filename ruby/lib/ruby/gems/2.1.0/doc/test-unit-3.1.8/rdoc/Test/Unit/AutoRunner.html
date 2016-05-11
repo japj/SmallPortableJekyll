@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Test::Unit::AutoRunner - test-unit-3.1.8 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add_location_filter">#add_location_filter</a>
+    
+    <li ><a href="#method-i-add_test_path">#add_test_path</a>
+    
+    <li ><a href="#method-i-change_work_directory">#change_work_directory</a>
+    
+    <li ><a href="#method-i-collector">#collector</a>
+    
+    <li ><a href="#method-i-default_collector">#default_collector</a>
+    
+    <li ><a href="#method-i-default_runner">#default_runner</a>
+    
+    <li ><a href="#method-i-default_runner-3D">#default_runner=</a>
+    
+    <li ><a href="#method-i-global_config_file">#global_config_file</a>
+    
+    <li ><a href="#method-i-keyword_display">#keyword_display</a>
+    
+    <li ><a href="#method-i-load_config">#load_config</a>
+    
+    <li ><a href="#method-i-load_global_config">#load_global_config</a>
+    
+    <li ><a href="#method-i-match_test_case_name">#match_test_case_name</a>
+    
+    <li ><a href="#method-i-need_auto_run-3D">#need_auto_run=</a>
+    
+    <li ><a href="#method-i-need_auto_run-3F">#need_auto_run?</a>
+    
+    <li ><a href="#method-i-options">#options</a>
+    
+    <li ><a href="#method-i-prepare">#prepare</a>
+    
+    <li ><a href="#method-i-process_args">#process_args</a>
+    
+    <li ><a href="#method-i-register_collector">#register_collector</a>
+    
+    <li ><a href="#method-i-register_color_scheme">#register_color_scheme</a>
+    
+    <li ><a href="#method-i-register_runner">#register_runner</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-runner">#runner</a>
+    
+    <li ><a href="#method-i-setup_option">#setup_option</a>
+    
+    <li ><a href="#method-i-standalone-3F">#standalone?</a>
+    
+    <li ><a href="#method-i-stop_on_failure-3F">#stop_on_failure?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Test::Unit::AutoRunner">
+  <h1 id="class-Test::Unit::AutoRunner" class="class">
+    class Test::Unit::AutoRunner
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ADDITIONAL_OPTIONS">ADDITIONAL_OPTIONS
+        
+        <dd>
+        
+      
+        <dt id="COLLECTORS">COLLECTORS
+        
+        <dd>
+        
+      
+        <dt id="PREPARE_HOOKS">PREPARE_HOOKS
+        
+        <dd>
+        
+      
+        <dt id="RUNNERS">RUNNERS
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-base" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">base</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-collector" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">collector</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-color_scheme" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">color_scheme</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-default_test_paths" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">default_test_paths</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-exclude" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">exclude</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-filters" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">filters</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-listeners" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">listeners</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-pattern" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">pattern</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-runner" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">runner</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-runner_options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">runner_options</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-stop_on_failuere" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">stop_on_failuere</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-suite" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">suite</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-to_run" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">to_run</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-workdir" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">workdir</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(standalone) { |self| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">standalone</span>)
+  <span class="ruby-ivar">@standalone</span> = <span class="ruby-identifier">standalone</span>
+  <span class="ruby-ivar">@runner</span> = <span class="ruby-identifier">default_runner</span>
+  <span class="ruby-ivar">@collector</span> = <span class="ruby-identifier">default_collector</span>
+  <span class="ruby-ivar">@filters</span> = []
+  <span class="ruby-ivar">@to_run</span> = []
+  <span class="ruby-ivar">@default_test_paths</span> = []
+  <span class="ruby-ivar">@color_scheme</span> = <span class="ruby-constant">ColorScheme</span>.<span class="ruby-identifier">default</span>
+  <span class="ruby-ivar">@runner_options</span> = {}
+  <span class="ruby-ivar">@default_arguments</span> = []
+  <span class="ruby-ivar">@workdir</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@listeners</span> = []
+  <span class="ruby-ivar">@stop_on_failure</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">config_file</span> = <span class="ruby-string">&quot;test-unit.yml&quot;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">config_file</span>)
+    <span class="ruby-identifier">load_config</span>(<span class="ruby-identifier">config_file</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">load_global_config</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">yield</span>(<span class="ruby-keyword">self</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-collector" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">collector</span><span
+            class="method-args">(id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="collector-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">collector</span>(<span class="ruby-identifier">id</span>)
+  <span class="ruby-constant">COLLECTORS</span>[<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_runner" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_runner</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_runner-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_runner</span>
+  <span class="ruby-identifier">runner</span>(<span class="ruby-identifier">@@default_runner</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_runner-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_runner=</span><span
+            class="method-args">(id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_runner-3D-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_runner=</span>(<span class="ruby-identifier">id</span>)
+  <span class="ruby-identifier">@@default_runner</span> = <span class="ruby-identifier">id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-keyword_display" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">keyword_display</span><span
+            class="method-args">(keywords)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="keyword_display-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 406</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">keyword_display</span>(<span class="ruby-identifier">keywords</span>)
+  <span class="ruby-identifier">keywords</span> = <span class="ruby-identifier">keywords</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">keyword</span>, <span class="ruby-identifier">_</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">sort</span>
+
+  <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">keywords</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">keyword</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">keyword</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">keywords</span>[<span class="ruby-identifier">i</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>][<span class="ruby-value">0</span>]) <span class="ruby-keyword">or</span>
+        ((<span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">keywords</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>) <span class="ruby-keyword">and</span> (<span class="ruby-identifier">keyword</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">keywords</span>[<span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>][<span class="ruby-value">0</span>]))
+      <span class="ruby-identifier">n</span> = <span class="ruby-value">2</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">n</span> = <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">keyword</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-node">/^(.{#{n}})([A-Za-z]+)(?=\w*$)/</span>, <span class="ruby-string">&#39;\1[\2]&#39;</span>)
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;, &quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load_config" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_config</span><span
+            class="method-args">(file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_config-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 442</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_config</span>(<span class="ruby-identifier">file</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;yaml&quot;</span>
+  <span class="ruby-identifier">config</span> = <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">file</span>))
+  <span class="ruby-identifier">runner_name</span> = <span class="ruby-identifier">config</span>[<span class="ruby-string">&quot;runner&quot;</span>]
+  <span class="ruby-ivar">@runner</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">runner</span>(<span class="ruby-identifier">runner_name</span>) <span class="ruby-operator">||</span> <span class="ruby-ivar">@runner</span>
+  <span class="ruby-ivar">@collector</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">collector</span>(<span class="ruby-identifier">config</span>[<span class="ruby-string">&quot;collector&quot;</span>]) <span class="ruby-operator">||</span> <span class="ruby-ivar">@collector</span>
+  (<span class="ruby-identifier">config</span>[<span class="ruby-string">&quot;color_schemes&quot;</span>] <span class="ruby-operator">||</span> {}).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">ColorScheme</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">options</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">runner_options</span> = {}
+  (<span class="ruby-identifier">config</span>[<span class="ruby-node">&quot;#{runner_name}_options&quot;</span>] <span class="ruby-operator">||</span> {}).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">key</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-constant">ColorScheme</span>[<span class="ruby-identifier">value</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> <span class="ruby-value">:color_scheme</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> <span class="ruby-value">:arguments</span>
+      <span class="ruby-ivar">@default_arguments</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">split</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">runner_options</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@runner_options</span> = <span class="ruby-ivar">@runner_options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">runner_options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-need_auto_run-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">need_auto_run=</span><span
+            class="method-args">(need)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="need_auto_run-3D-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">need_auto_run=</span>(<span class="ruby-identifier">need</span>)
+  <span class="ruby-identifier">@@need_auto_run</span> = <span class="ruby-identifier">need</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-need_auto_run-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">need_auto_run?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="need_auto_run-3F-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">need_auto_run?</span>
+  <span class="ruby-identifier">@@need_auto_run</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="options-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-ivar">@options</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">banner</span> = <span class="ruby-string">&quot;Test::Unit automatic runner.&quot;</span>
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">banner</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;\nUsage: #{$0} [options] [-- untouched arguments]&quot;</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-r&quot;</span>, <span class="ruby-string">&quot;--runner=RUNNER&quot;</span>, <span class="ruby-constant">RUNNERS</span>,
+         <span class="ruby-string">&quot;Use the given RUNNER.&quot;</span>,
+         <span class="ruby-string">&quot;(&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">keyword_display</span>(<span class="ruby-constant">RUNNERS</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;)&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@runner</span> = <span class="ruby-identifier">r</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--collector=COLLECTOR&quot;</span>, <span class="ruby-constant">COLLECTORS</span>,
+         <span class="ruby-string">&quot;Use the given COLLECTOR.&quot;</span>,
+         <span class="ruby-string">&quot;(&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">keyword_display</span>(<span class="ruby-constant">COLLECTORS</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;)&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">collector</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@collector</span> = <span class="ruby-identifier">collector</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@standalone</span>)
+      <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-b&quot;</span>, <span class="ruby-string">&quot;--basedir=DIR&quot;</span>, <span class="ruby-string">&quot;Base directory of test suites.&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@base</span> = <span class="ruby-identifier">b</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-w&quot;</span>, <span class="ruby-string">&quot;--workdir=DIR&quot;</span>, <span class="ruby-string">&quot;Working directory to run tests.&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">w</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@workdir</span> = <span class="ruby-identifier">w</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--default-test-path=PATH&quot;</span>,
+           <span class="ruby-string">&quot;Add PATH to the default test paths.&quot;</span>,
+           <span class="ruby-string">&quot;The PATH is used when user doesn&#39;t specify any test path.&quot;</span>,
+           <span class="ruby-string">&quot;You can specify this option multiple times.&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@default_test_paths</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">path</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-a&quot;</span>, <span class="ruby-string">&quot;--add=TORUN&quot;</span>, <span class="ruby-constant">Array</span>,
+           <span class="ruby-string">&quot;Add TORUN to the list of things to run;&quot;</span>,
+           <span class="ruby-string">&quot;can be a file or a directory.&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">paths</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">paths</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">add_test_path</span>(<span class="ruby-identifier">path</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-ivar">@pattern</span> = []
+      <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-p&quot;</span>, <span class="ruby-string">&quot;--pattern=PATTERN&quot;</span>, <span class="ruby-constant">Regexp</span>,
+           <span class="ruby-string">&quot;Match files to collect against PATTERN.&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@pattern</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-ivar">@exclude</span> = []
+      <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-x&quot;</span>, <span class="ruby-string">&quot;--exclude=PATTERN&quot;</span>, <span class="ruby-constant">Regexp</span>,
+           <span class="ruby-string">&quot;Ignore files to collect against PATTERN.&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@exclude</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-n&quot;</span>, <span class="ruby-string">&quot;--name=NAME&quot;</span>, <span class="ruby-constant">String</span>,
+         <span class="ruby-string">&quot;Runs tests matching NAME.&quot;</span>,
+         <span class="ruby-string">&quot;Use &#39;/PATTERN/&#39; for NAME to use regular expression.&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">name</span> = (<span class="ruby-regexp">%r{\A/(.*)/\Z}</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">$1</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">name</span>)
+      <span class="ruby-ivar">@filters</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">test</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">test</span>.<span class="ruby-identifier">method_name</span>
+        <span class="ruby-identifier">test_name_without_class_name</span> = <span class="ruby-identifier">test</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\(.+?\)\z/</span>, <span class="ruby-string">&quot;&quot;</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">test_name_without_class_name</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">test</span>.<span class="ruby-identifier">method_name</span>
+          <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">test_name_without_class_name</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">false</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--ignore-name=NAME&quot;</span>, <span class="ruby-constant">String</span>,
+         <span class="ruby-string">&quot;Ignores tests matching NAME.&quot;</span>,
+         <span class="ruby-string">&quot;Use &#39;/PATTERN/&#39; for NAME to use regular expression.&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">n</span> = (<span class="ruby-regexp">%r{\A/(.*)/\Z}</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">$1</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">n</span>)
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">n</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">Regexp</span>
+        <span class="ruby-ivar">@filters</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">proc</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">method_name</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">false</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>}
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@filters</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">proc</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">method_name</span>}
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-t&quot;</span>, <span class="ruby-string">&quot;--testcase=TESTCASE&quot;</span>, <span class="ruby-constant">String</span>,
+         <span class="ruby-string">&quot;Runs tests in TestCases matching TESTCASE.&quot;</span>,
+         <span class="ruby-string">&quot;Use &#39;/PATTERN/&#39; for TESTCASE to use regular expression.&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">n</span> = (<span class="ruby-regexp">%r{\A/(.*)/\Z}</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">$1</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">n</span>)
+      <span class="ruby-ivar">@filters</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">test</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">match_test_case_name</span>(<span class="ruby-identifier">test</span>, <span class="ruby-identifier">n</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--ignore-testcase=TESTCASE&quot;</span>, <span class="ruby-constant">String</span>,
+         <span class="ruby-string">&quot;Ignores tests in TestCases matching TESTCASE.&quot;</span>,
+         <span class="ruby-string">&quot;Use &#39;/PATTERN/&#39; for TESTCASE to use regular expression.&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">n</span> = (<span class="ruby-regexp">%r{\A/(.*)/\Z}</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">$1</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">n</span>)
+      <span class="ruby-ivar">@filters</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">test</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">not</span> <span class="ruby-identifier">match_test_case_name</span>(<span class="ruby-identifier">test</span>, <span class="ruby-identifier">n</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--location=LOCATION&quot;</span>, <span class="ruby-constant">String</span>,
+         <span class="ruby-string">&quot;Runs tests that defined in LOCATION.&quot;</span>,
+         <span class="ruby-string">&quot;LOCATION is one of PATH:LINE, PATH or LINE&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">location</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-regexp">/\A\d+\z/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">location</span>
+        <span class="ruby-identifier">path</span> = <span class="ruby-keyword">nil</span>
+        <span class="ruby-identifier">line</span> = <span class="ruby-identifier">location</span>.<span class="ruby-identifier">to_i</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">path</span>, <span class="ruby-identifier">line</span>, = <span class="ruby-identifier">location</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/:(\d+)/</span>, <span class="ruby-value">2</span>)
+        <span class="ruby-identifier">line</span> = <span class="ruby-identifier">line</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">add_location_filter</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">line</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--attribute=EXPRESSION&quot;</span>, <span class="ruby-constant">String</span>,
+         <span class="ruby-string">&quot;Runs tests that matches EXPRESSION.&quot;</span>,
+         <span class="ruby-string">&quot;EXPRESSION is evaluated as Ruby&#39;s expression.&quot;</span>,
+         <span class="ruby-string">&quot;Test attribute name can be used with no receiver in EXPRESSION.&quot;</span>,
+         <span class="ruby-string">&quot;EXPRESSION examples:&quot;</span>,
+         <span class="ruby-string">&quot;  !slow&quot;</span>,
+         <span class="ruby-string">&quot;  tag == &#39;important&#39; and !slow&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">expression</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@filters</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">test</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">matcher</span> = <span class="ruby-constant">AttributeMatcher</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">test</span>)
+        <span class="ruby-identifier">matcher</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-identifier">expression</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">priority_filter</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">test</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@filters</span> <span class="ruby-operator">==</span> [<span class="ruby-identifier">priority_filter</span>]
+        <span class="ruby-constant">Priority</span><span class="ruby-operator">::</span><span class="ruby-constant">Checker</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">test</span>).<span class="ruby-identifier">need_to_run?</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">nil</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--[no-]priority-mode&quot;</span>,
+         <span class="ruby-string">&quot;Runs some tests based on their priority.&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">priority_mode</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">priority_mode</span>
+        <span class="ruby-constant">Priority</span>.<span class="ruby-identifier">enable</span>
+        <span class="ruby-ivar">@filters</span> <span class="ruby-operator">|=</span> [<span class="ruby-identifier">priority_filter</span>]
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-constant">Priority</span>.<span class="ruby-identifier">disable</span>
+        <span class="ruby-ivar">@filters</span> <span class="ruby-operator">-=</span> [<span class="ruby-identifier">priority_filter</span>]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--default-priority=PRIORITY&quot;</span>,
+         <span class="ruby-constant">Priority</span>.<span class="ruby-identifier">available_values</span>,
+         <span class="ruby-string">&quot;Uses PRIORITY as default priority&quot;</span>,
+         <span class="ruby-node">&quot;(#{keyword_display(Priority.available_values)})&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">priority</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">Priority</span>.<span class="ruby-identifier">default</span> = <span class="ruby-identifier">priority</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-I&quot;</span>, <span class="ruby-node">&quot;--load-path=DIR[#{File::PATH_SEPARATOR}DIR...]&quot;</span>,
+         <span class="ruby-string">&quot;Appends directory list to $LOAD_PATH.&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">dirs</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">dirs</span>.<span class="ruby-identifier">split</span>(<span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">PATH_SEPARATOR</span>))
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">color_schemes</span> = <span class="ruby-constant">ColorScheme</span>.<span class="ruby-identifier">all</span>
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--color-scheme=SCHEME&quot;</span>, <span class="ruby-identifier">color_schemes</span>,
+         <span class="ruby-string">&quot;Use SCHEME as color scheme.&quot;</span>,
+         <span class="ruby-node">&quot;(#{keyword_display(color_schemes)})&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">scheme</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@color_scheme</span> = <span class="ruby-identifier">scheme</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--config=FILE&quot;</span>,
+         <span class="ruby-string">&quot;Use YAML fomat FILE content as configuration file.&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">load_config</span>(<span class="ruby-identifier">file</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--order=ORDER&quot;</span>, <span class="ruby-constant">TestCase</span><span class="ruby-operator">::</span><span class="ruby-constant">AVAILABLE_ORDERS</span>,
+         <span class="ruby-string">&quot;Run tests in a test case in ORDER order.&quot;</span>,
+         <span class="ruby-node">&quot;(#{keyword_display(TestCase::AVAILABLE_ORDERS)})&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">order</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">TestCase</span>.<span class="ruby-identifier">test_order</span> = <span class="ruby-identifier">order</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">assertion_message_class</span> = <span class="ruby-constant">Test</span><span class="ruby-operator">::</span><span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">Assertions</span><span class="ruby-operator">::</span><span class="ruby-constant">AssertionMessage</span>
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--max-diff-target-string-size=SIZE&quot;</span>, <span class="ruby-constant">Integer</span>,
+         <span class="ruby-string">&quot;Shows diff if both expected result string size and &quot;</span> <span class="ruby-operator">+</span>
+         <span class="ruby-string">&quot;actual result string size are &quot;</span> <span class="ruby-operator">+</span>
+         <span class="ruby-string">&quot;less than or equal SIZE in bytes.&quot;</span>,
+         <span class="ruby-node">&quot;(#{assertion_message_class.max_diff_target_string_size})&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">size</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">assertion_message_class</span>.<span class="ruby-identifier">max_diff_target_string_size</span> = <span class="ruby-identifier">size</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--[no-]stop-on-failure&quot;</span>,
+         <span class="ruby-string">&quot;Stops immediately on the first non success test&quot;</span>,
+         <span class="ruby-node">&quot;(#{@stop_on_failure})&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">boolean</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@stop_on_failure</span> = <span class="ruby-identifier">boolean</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-constant">ADDITIONAL_OPTIONS</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">option_builder</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">option_builder</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">o</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--&quot;</span>,
+         <span class="ruby-string">&quot;Stop processing options so that the&quot;</span>,
+         <span class="ruby-string">&quot;remaining options will be passed to the&quot;</span>,
+         <span class="ruby-string">&quot;test.&quot;</span>){<span class="ruby-identifier">o</span>.<span class="ruby-identifier">terminate</span>}
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-h&quot;</span>, <span class="ruby-string">&quot;--help&quot;</span>, <span class="ruby-string">&quot;Display this help.&quot;</span>){<span class="ruby-identifier">puts</span> <span class="ruby-identifier">o</span>; <span class="ruby-identifier">exit</span>}
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on_tail</span>
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on_tail</span>(<span class="ruby-string">&quot;Deprecated options:&quot;</span>)
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on_tail</span>(<span class="ruby-string">&quot;--console&quot;</span>, <span class="ruby-string">&quot;Console runner (use --runner).&quot;</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">warn</span>(<span class="ruby-string">&quot;Deprecated option (--console).&quot;</span>)
+      <span class="ruby-ivar">@runner</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">runner</span>(<span class="ruby-value">:console</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">RUNNERS</span>[<span class="ruby-value">:fox</span>]
+      <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on_tail</span>(<span class="ruby-string">&quot;--fox&quot;</span>, <span class="ruby-string">&quot;Fox runner (use --runner).&quot;</span>) <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">warn</span>(<span class="ruby-string">&quot;Deprecated option (--fox).&quot;</span>)
+        <span class="ruby-ivar">@runner</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">runner</span>(<span class="ruby-value">:fox</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on_tail</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prepare" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prepare</span><span
+            class="method-args">(hook=Proc.new)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="prepare-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">prepare</span>(<span class="ruby-identifier">hook</span>=<span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>)
+  <span class="ruby-constant">PREPARE_HOOKS</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">hook</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-process_args" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_args</span><span
+            class="method-args">(args=ARGV)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_args-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_args</span>(<span class="ruby-identifier">args</span>=<span class="ruby-constant">ARGV</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">args</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-operator">*</span><span class="ruby-ivar">@default_arguments</span>)
+    <span class="ruby-identifier">options</span>.<span class="ruby-identifier">order!</span>(<span class="ruby-identifier">args</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span> <span class="ruby-identifier">add_test_path</span>(<span class="ruby-identifier">arg</span>)}
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">OptionParser</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">options</span>
+    <span class="ruby-identifier">exit</span>(<span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">not</span> <span class="ruby-ivar">@to_run</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-register_collector" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">register_collector</span><span
+            class="method-args">(id, collector_builder=Proc.new)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="register_collector-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">register_collector</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">collector_builder</span>=<span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>)
+  <span class="ruby-constant">COLLECTORS</span>[<span class="ruby-identifier">id</span>] = <span class="ruby-identifier">collector_builder</span>
+  <span class="ruby-constant">COLLECTORS</span>[<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">collector_builder</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-register_color_scheme" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">register_color_scheme</span><span
+            class="method-args">(id, scheme)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="register_color_scheme-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">register_color_scheme</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">scheme</span>)
+  <span class="ruby-constant">ColorScheme</span>[<span class="ruby-identifier">id</span>] = <span class="ruby-identifier">scheme</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-register_runner" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">register_runner</span><span
+            class="method-args">(id, runner_builder=Proc.new)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="register_runner-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">register_runner</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">runner_builder</span>=<span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>)
+  <span class="ruby-constant">RUNNERS</span>[<span class="ruby-identifier">id</span>] = <span class="ruby-identifier">runner_builder</span>
+  <span class="ruby-constant">RUNNERS</span>[<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">runner_builder</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(force_standalone=false, default_dir=nil, argv=ARGV, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>(<span class="ruby-identifier">force_standalone</span>=<span class="ruby-keyword">false</span>, <span class="ruby-identifier">default_dir</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">argv</span>=<span class="ruby-constant">ARGV</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">r</span> = <span class="ruby-identifier">new</span>(<span class="ruby-identifier">force_standalone</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">standalone?</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">base</span> = <span class="ruby-identifier">default_dir</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">prepare</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">process_args</span>(<span class="ruby-identifier">argv</span>)
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">run</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-runner" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">runner</span><span
+            class="method-args">(id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="runner-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">runner</span>(<span class="ruby-identifier">id</span>)
+  <span class="ruby-constant">RUNNERS</span>[<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_option" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_option</span><span
+            class="method-args">(option_builder=Proc.new)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_option-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_option</span>(<span class="ruby-identifier">option_builder</span>=<span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>)
+  <span class="ruby-constant">ADDITIONAL_OPTIONS</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">option_builder</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-standalone-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">standalone?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="standalone-3F-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">standalone?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span>(<span class="ruby-string">&quot;-e&quot;</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">$0</span>)
+  <span class="ruby-constant">ObjectSpace</span>.<span class="ruby-identifier">each_object</span>(<span class="ruby-constant">Class</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">klass</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span>(<span class="ruby-identifier">klass</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">TestCase</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stop_on_failure-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stop_on_failure?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="stop_on_failure-3F-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stop_on_failure?</span>
+  <span class="ruby-ivar">@stop_on_failure</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_location_filter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_location_filter</span><span
+            class="method-args">(path, line)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_location_filter-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 515</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_location_filter</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">line</span>)
+  <span class="ruby-ivar">@filters</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">test</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">test</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">test_defined?</span>(<span class="ruby-value">:path</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">path</span>,
+                             <span class="ruby-value">:line</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">line</span>,
+                             <span class="ruby-value">:method_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">test</span>.<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_test_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_test_path</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_test_path-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 506</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_test_path</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-regexp">/:(\d+)\z/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">path</span>
+    <span class="ruby-identifier">line</span> = <span class="ruby-node">$1</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-identifier">path</span> = <span class="ruby-identifier">$PREMATCH</span>
+    <span class="ruby-identifier">add_location_filter</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">line</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@to_run</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-change_work_directory" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">change_work_directory</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="change_work_directory-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 490</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">change_work_directory</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@workdir</span>
+    <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-ivar">@workdir</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_collector" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_collector</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_collector-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 475</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_collector</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">collector</span>(<span class="ruby-ivar">@standalone</span> <span class="ruby-operator">?</span> <span class="ruby-value">:load</span> <span class="ruby-operator">:</span> <span class="ruby-value">:descendant</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-global_config_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">global_config_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="global_config_file-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 479</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">global_config_file</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;~/.test-unit.yml&quot;</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load_global_config" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_global_config</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_global_config-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 485</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_global_config</span>
+  <span class="ruby-identifier">file</span> = <span class="ruby-identifier">global_config_file</span>
+  <span class="ruby-identifier">load_config</span>(<span class="ruby-identifier">file</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">file</span> <span class="ruby-keyword">and</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">file</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-match_test_case_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">match_test_case_name</span><span
+            class="method-args">(test, pattern)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="match_test_case_name-source">
+            <pre><span class="ruby-comment"># File lib/test/unit/autorunner.rb, line 498</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">match_test_case_name</span>(<span class="ruby-identifier">test</span>, <span class="ruby-identifier">pattern</span>)
+  <span class="ruby-identifier">test</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">ancestors</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">test_class</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">test_class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">TestCase</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">pattern</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">test_class</span>.<span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>activesupport-4.2.6 Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <div id="classindex-section" class="nav-section">
+  <h3>Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ActiveSupport.html">ActiveSupport</a>
+  
+    <li><a href="./ActiveSupport/Autoload.html">ActiveSupport::Autoload</a>
+  
+    <li><a href="./ActiveSupport/BacktraceCleaner.html">ActiveSupport::BacktraceCleaner</a>
+  
+    <li><a href="./ActiveSupport/Benchmarkable.html">ActiveSupport::Benchmarkable</a>
+  
+    <li><a href="./ActiveSupport/Cache.html">ActiveSupport::Cache</a>
+  
+    <li><a href="./ActiveSupport/Cache/Entry.html">ActiveSupport::Cache::Entry</a>
+  
+    <li><a href="./ActiveSupport/Cache/FileStore.html">ActiveSupport::Cache::FileStore</a>
+  
+    <li><a href="./ActiveSupport/Cache/MemCacheStore.html">ActiveSupport::Cache::MemCacheStore</a>
+  
+    <li><a href="./ActiveSupport/Cache/MemCacheStore/LocalCacheWithRaw.html">ActiveSupport::Cache::MemCacheStore::LocalCacheWithRaw</a>
+  
+    <li><a href="./ActiveSupport/Cache/MemoryStore.html">ActiveSupport::Cache::MemoryStore</a>
+  
+    <li><a href="./ActiveSupport/Cache/NullStore.html">ActiveSupport::Cache::NullStore</a>
+  
+    <li><a href="./ActiveSupport/Cache/Store.html">ActiveSupport::Cache::Store</a>
+  
+    <li><a href="./ActiveSupport/Cache/Strategy.html">ActiveSupport::Cache::Strategy</a>
+  
+    <li><a href="./ActiveSupport/Cache/Strategy/LocalCache.html">ActiveSupport::Cache::Strategy::LocalCache</a>
+  
+    <li><a href="./ActiveSupport/Cache/Strategy/LocalCache/LocalCacheRegistry.html">ActiveSupport::Cache::Strategy::LocalCache::LocalCacheRegistry</a>
+  
+    <li><a href="./ActiveSupport/Cache/Strategy/LocalCache/LocalStore.html">ActiveSupport::Cache::Strategy::LocalCache::LocalStore</a>
+  
+    <li><a href="./ActiveSupport/Cache/Strategy/LocalCache/Middleware.html">ActiveSupport::Cache::Strategy::LocalCache::Middleware</a>
+  
+    <li><a href="./ActiveSupport/CachingKeyGenerator.html">ActiveSupport::CachingKeyGenerator</a>
+  
+    <li><a href="./ActiveSupport/Callbacks.html">ActiveSupport::Callbacks</a>
+  
+    <li><a href="./ActiveSupport/Callbacks/Callback.html">ActiveSupport::Callbacks::Callback</a>
+  
+    <li><a href="./ActiveSupport/Callbacks/CallbackChain.html">ActiveSupport::Callbacks::CallbackChain</a>
+  
+    <li><a href="./ActiveSupport/Callbacks/CallbackSequence.html">ActiveSupport::Callbacks::CallbackSequence</a>
+  
+    <li><a href="./ActiveSupport/Callbacks/ClassMethods.html">ActiveSupport::Callbacks::ClassMethods</a>
+  
+    <li><a href="./ActiveSupport/Callbacks/Conditionals.html">ActiveSupport::Callbacks::Conditionals</a>
+  
+    <li><a href="./ActiveSupport/Callbacks/Conditionals/Value.html">ActiveSupport::Callbacks::Conditionals::Value</a>
+  
+    <li><a href="./ActiveSupport/Callbacks/Filters/After.html">ActiveSupport::Callbacks::Filters::After</a>
+  
+    <li><a href="./ActiveSupport/Callbacks/Filters/Around.html">ActiveSupport::Callbacks::Filters::Around</a>
+  
+    <li><a href="./ActiveSupport/Callbacks/Filters/Before.html">ActiveSupport::Callbacks::Filters::Before</a>
+  
+    <li><a href="./ActiveSupport/Callbacks/Filters/End.html">ActiveSupport::Callbacks::Filters::End</a>
+  
+    <li><a href="./ActiveSupport/Concern.html">ActiveSupport::Concern</a>
+  
+    <li><a href="./ActiveSupport/Concern/MultipleIncludedBlocks.html">ActiveSupport::Concern::MultipleIncludedBlocks</a>
+  
+    <li><a href="./ActiveSupport/Concurrency.html">ActiveSupport::Concurrency</a>
+  
+    <li><a href="./ActiveSupport/Concurrency/Latch.html">ActiveSupport::Concurrency::Latch</a>
+  
+    <li><a href="./ActiveSupport/Configurable.html">ActiveSupport::Configurable</a>
+  
+    <li><a href="./ActiveSupport/Configurable/ClassMethods.html">ActiveSupport::Configurable::ClassMethods</a>
+  
+    <li><a href="./ActiveSupport/Configurable/Configuration.html">ActiveSupport::Configurable::Configuration</a>
+  
+    <li><a href="./ActiveSupport/Dependencies.html">ActiveSupport::Dependencies</a>
+  
+    <li><a href="./ActiveSupport/Dependencies/Blamable.html">ActiveSupport::Dependencies::Blamable</a>
+  
+    <li><a href="./ActiveSupport/Dependencies/ClassCache.html">ActiveSupport::Dependencies::ClassCache</a>
+  
+    <li><a href="./ActiveSupport/Dependencies/Loadable.html">ActiveSupport::Dependencies::Loadable</a>
+  
+    <li><a href="./ActiveSupport/Dependencies/ModuleConstMissing.html">ActiveSupport::Dependencies::ModuleConstMissing</a>
+  
+    <li><a href="./ActiveSupport/Dependencies/WatchStack.html">ActiveSupport::Dependencies::WatchStack</a>
+  
+    <li><a href="./ActiveSupport/Deprecation.html">ActiveSupport::Deprecation</a>
+  
+    <li><a href="./ActiveSupport/Deprecation/Behavior.html">ActiveSupport::Deprecation::Behavior</a>
+  
+    <li><a href="./ActiveSupport/Deprecation/DeprecatedConstantProxy.html">ActiveSupport::Deprecation::DeprecatedConstantProxy</a>
+  
+    <li><a href="./ActiveSupport/Deprecation/DeprecatedInstanceVariableProxy.html">ActiveSupport::Deprecation::DeprecatedInstanceVariableProxy</a>
+  
+    <li><a href="./ActiveSupport/Deprecation/DeprecatedObjectProxy.html">ActiveSupport::Deprecation::DeprecatedObjectProxy</a>
+  
+    <li><a href="./ActiveSupport/Deprecation/DeprecationProxy.html">ActiveSupport::Deprecation::DeprecationProxy</a>
+  
+    <li><a href="./ActiveSupport/Deprecation/InstanceDelegator.html">ActiveSupport::Deprecation::InstanceDelegator</a>
+  
+    <li><a href="./ActiveSupport/Deprecation/InstanceDelegator/ClassMethods.html">ActiveSupport::Deprecation::InstanceDelegator::ClassMethods</a>
+  
+    <li><a href="./ActiveSupport/Deprecation/MethodWrapper.html">ActiveSupport::Deprecation::MethodWrapper</a>
+  
+    <li><a href="./ActiveSupport/Deprecation/Reporting.html">ActiveSupport::Deprecation::Reporting</a>
+  
+    <li><a href="./ActiveSupport/DeprecationException.html">ActiveSupport::DeprecationException</a>
+  
+    <li><a href="./ActiveSupport/DescendantsTracker.html">ActiveSupport::DescendantsTracker</a>
+  
+    <li><a href="./ActiveSupport/Duration.html">ActiveSupport::Duration</a>
+  
+    <li><a href="./ActiveSupport/FileUpdateChecker.html">ActiveSupport::FileUpdateChecker</a>
+  
+    <li><a href="./ActiveSupport/Gzip.html">ActiveSupport::Gzip</a>
+  
+    <li><a href="./ActiveSupport/Gzip/Stream.html">ActiveSupport::Gzip::Stream</a>
+  
+    <li><a href="./ActiveSupport/HashWithIndifferentAccess.html">ActiveSupport::HashWithIndifferentAccess</a>
+  
+    <li><a href="./ActiveSupport/HashWithIndifferentAccess.html">ActiveSupport::HashWithIndifferentAccess</a>
+  
+    <li><a href="./ActiveSupport/Inflector.html">ActiveSupport::Inflector</a>
+  
+    <li><a href="./ActiveSupport/Inflector/Inflections.html">ActiveSupport::Inflector::Inflections</a>
+  
+    <li><a href="./ActiveSupport/InheritableOptions.html">ActiveSupport::InheritableOptions</a>
+  
+    <li><a href="./ActiveSupport/JSON/Encoding.html">ActiveSupport::JSON::Encoding</a>
+  
+    <li><a href="./ActiveSupport/JSON/Encoding/JSONGemEncoder.html">ActiveSupport::JSON::Encoding::JSONGemEncoder</a>
+  
+    <li><a href="./ActiveSupport/JSON/Encoding/JSONGemEncoder/EscapedString.html">ActiveSupport::JSON::Encoding::JSONGemEncoder::EscapedString</a>
+  
+    <li><a href="./ActiveSupport/KeyGenerator.html">ActiveSupport::KeyGenerator</a>
+  
+    <li><a href="./ActiveSupport/LegacyKeyGenerator.html">ActiveSupport::LegacyKeyGenerator</a>
+  
+    <li><a href="./ActiveSupport/LogSubscriber.html">ActiveSupport::LogSubscriber</a>
+  
+    <li><a href="./ActiveSupport/LogSubscriber/TestHelper.html">ActiveSupport::LogSubscriber::TestHelper</a>
+  
+    <li><a href="./ActiveSupport/LogSubscriber/TestHelper/MockLogger.html">ActiveSupport::LogSubscriber::TestHelper::MockLogger</a>
+  
+    <li><a href="./ActiveSupport/Logger/SimpleFormatter.html">ActiveSupport::Logger::SimpleFormatter</a>
+  
+    <li><a href="./ActiveSupport/MessageEncryptor.html">ActiveSupport::MessageEncryptor</a>
+  
+    <li><a href="./ActiveSupport/MessageEncryptor/InvalidMessage.html">ActiveSupport::MessageEncryptor::InvalidMessage</a>
+  
+    <li><a href="./ActiveSupport/MessageEncryptor/NullSerializer.html">ActiveSupport::MessageEncryptor::NullSerializer</a>
+  
+    <li><a href="./ActiveSupport/MessageVerifier.html">ActiveSupport::MessageVerifier</a>
+  
+    <li><a href="./ActiveSupport/MessageVerifier/InvalidSignature.html">ActiveSupport::MessageVerifier::InvalidSignature</a>
+  
+    <li><a href="./ActiveSupport/Multibyte.html">ActiveSupport::Multibyte</a>
+  
+    <li><a href="./ActiveSupport/Multibyte/Chars.html">ActiveSupport::Multibyte::Chars</a>
+  
+    <li><a href="./ActiveSupport/Multibyte/Unicode.html">ActiveSupport::Multibyte::Unicode</a>
+  
+    <li><a href="./ActiveSupport/Multibyte/Unicode/Codepoint.html">ActiveSupport::Multibyte::Unicode::Codepoint</a>
+  
+    <li><a href="./ActiveSupport/Multibyte/Unicode/UnicodeDatabase.html">ActiveSupport::Multibyte::Unicode::UnicodeDatabase</a>
+  
+    <li><a href="./ActiveSupport/Notifications.html">ActiveSupport::Notifications</a>
+  
+    <li><a href="./ActiveSupport/Notifications/Event.html">ActiveSupport::Notifications::Event</a>
+  
+    <li><a href="./ActiveSupport/Notifications/Fanout.html">ActiveSupport::Notifications::Fanout</a>
+  
+    <li><a href="./ActiveSupport/Notifications/Fanout/Subscribers.html">ActiveSupport::Notifications::Fanout::Subscribers</a>
+  
+    <li><a href="./ActiveSupport/Notifications/Fanout/Subscribers/AllMessages.html">ActiveSupport::Notifications::Fanout::Subscribers::AllMessages</a>
+  
+    <li><a href="./ActiveSupport/Notifications/Fanout/Subscribers/Evented.html">ActiveSupport::Notifications::Fanout::Subscribers::Evented</a>
+  
+    <li><a href="./ActiveSupport/Notifications/Fanout/Subscribers/Timed.html">ActiveSupport::Notifications::Fanout::Subscribers::Timed</a>
+  
+    <li><a href="./ActiveSupport/Notifications/InstrumentationRegistry.html">ActiveSupport::Notifications::InstrumentationRegistry</a>
+  
+    <li><a href="./ActiveSupport/Notifications/Instrumenter.html">ActiveSupport::Notifications::Instrumenter</a>
+  
+    <li><a href="./ActiveSupport/NumberHelper.html">ActiveSupport::NumberHelper</a>
+  
+    <li><a href="./ActiveSupport/NumberHelper/NumberConverter.html">ActiveSupport::NumberHelper::NumberConverter</a>
+  
+    <li><a href="./ActiveSupport/NumberHelper/NumberToCurrencyConverter.html">ActiveSupport::NumberHelper::NumberToCurrencyConverter</a>
+  
+    <li><a href="./ActiveSupport/NumberHelper/NumberToDelimitedConverter.html">ActiveSupport::NumberHelper::NumberToDelimitedConverter</a>
+  
+    <li><a href="./ActiveSupport/NumberHelper/NumberToHumanConverter.html">ActiveSupport::NumberHelper::NumberToHumanConverter</a>
+  
+    <li><a href="./ActiveSupport/NumberHelper/NumberToHumanSizeConverter.html">ActiveSupport::NumberHelper::NumberToHumanSizeConverter</a>
+  
+    <li><a href="./ActiveSupport/NumberHelper/NumberToPercentageConverter.html">ActiveSupport::NumberHelper::NumberToPercentageConverter</a>
+  
+    <li><a href="./ActiveSupport/NumberHelper/NumberToPhoneConverter.html">ActiveSupport::NumberHelper::NumberToPhoneConverter</a>
+  
+    <li><a href="./ActiveSupport/NumberHelper/NumberToRoundedConverter.html">ActiveSupport::NumberHelper::NumberToRoundedConverter</a>
+  
+    <li><a href="./ActiveSupport/OptionMerger.html">ActiveSupport::OptionMerger</a>
+  
+    <li><a href="./ActiveSupport/OrderedHash.html">ActiveSupport::OrderedHash</a>
+  
+    <li><a href="./ActiveSupport/OrderedOptions.html">ActiveSupport::OrderedOptions</a>
+  
+    <li><a href="./ActiveSupport/PerThreadRegistry.html">ActiveSupport::PerThreadRegistry</a>
+  
+    <li><a href="./ActiveSupport/ProxyObject.html">ActiveSupport::ProxyObject</a>
+  
+    <li><a href="./ActiveSupport/Railtie.html">ActiveSupport::Railtie</a>
+  
+    <li><a href="./ActiveSupport/Rescuable.html">ActiveSupport::Rescuable</a>
+  
+    <li><a href="./ActiveSupport/Rescuable/ClassMethods.html">ActiveSupport::Rescuable::ClassMethods</a>
+  
+    <li><a href="./ActiveSupport/SafeBuffer.html">ActiveSupport::SafeBuffer</a>
+  
+    <li><a href="./ActiveSupport/SafeBuffer/SafeConcatError.html">ActiveSupport::SafeBuffer::SafeConcatError</a>
+  
+    <li><a href="./ActiveSupport/SecurityUtils.html">ActiveSupport::SecurityUtils</a>
+  
+    <li><a href="./ActiveSupport/StringInquirer.html">ActiveSupport::StringInquirer</a>
+  
+    <li><a href="./ActiveSupport/Subscriber.html">ActiveSupport::Subscriber</a>
+  
+    <li><a href="./ActiveSupport/SubscriberQueueRegistry.html">ActiveSupport::SubscriberQueueRegistry</a>
+  
+    <li><a href="./ActiveSupport/TaggedLogging.html">ActiveSupport::TaggedLogging</a>
+  
+    <li><a href="./ActiveSupport/TaggedLogging/Formatter.html">ActiveSupport::TaggedLogging::Formatter</a>
+  
+    <li><a href="./ActiveSupport/TestCase.html">ActiveSupport::TestCase</a>
+  
+    <li><a href="./ActiveSupport/Testing.html">ActiveSupport::Testing</a>
+  
+    <li><a href="./ActiveSupport/Testing/Assertions.html">ActiveSupport::Testing::Assertions</a>
+  
+    <li><a href="./ActiveSupport/Testing/ConstantLookup.html">ActiveSupport::Testing::ConstantLookup</a>
+  
+    <li><a href="./ActiveSupport/Testing/ConstantLookup/ClassMethods.html">ActiveSupport::Testing::ConstantLookup::ClassMethods</a>
+  
+    <li><a href="./ActiveSupport/Testing/Declarative.html">ActiveSupport::Testing::Declarative</a>
+  
+    <li><a href="./ActiveSupport/Testing/Deprecation.html">ActiveSupport::Testing::Deprecation</a>
+  
+    <li><a href="./ActiveSupport/Testing/Isolation.html">ActiveSupport::Testing::Isolation</a>
+  
+    <li><a href="./ActiveSupport/Testing/Isolation/Forking.html">ActiveSupport::Testing::Isolation::Forking</a>
+  
+    <li><a href="./ActiveSupport/Testing/Isolation/Subprocess.html">ActiveSupport::Testing::Isolation::Subprocess</a>
+  
+    <li><a href="./ActiveSupport/Testing/SetupAndTeardown.html">ActiveSupport::Testing::SetupAndTeardown</a>
+  
+    <li><a href="./ActiveSupport/Testing/SetupAndTeardown/ClassMethods.html">ActiveSupport::Testing::SetupAndTeardown::ClassMethods</a>
+  
+    <li><a href="./ActiveSupport/Testing/SimpleStubs.html">ActiveSupport::Testing::SimpleStubs</a>
+  
+    <li><a href="./ActiveSupport/Testing/TaggedLogging.html">ActiveSupport::Testing::TaggedLogging</a>
+  
+    <li><a href="./ActiveSupport/Testing/TimeHelpers.html">ActiveSupport::Testing::TimeHelpers</a>
+  
+    <li><a href="./ActiveSupport/TimeWithZone.html">ActiveSupport::TimeWithZone</a>
+  
+    <li><a href="./ActiveSupport/TimeZone.html">ActiveSupport::TimeZone</a>
+  
+    <li><a href="./ActiveSupport/VERSION.html">ActiveSupport::VERSION</a>
+  
+    <li><a href="./ActiveSupport/XMLConverter/DisallowedType.html">ActiveSupport::XMLConverter::DisallowedType</a>
+  
+    <li><a href="./ActiveSupport/XmlMini.html">ActiveSupport::XmlMini</a>
+  
+    <li><a href="./ActiveSupport/XmlMini/FileLike.html">ActiveSupport::XmlMini::FileLike</a>
+  
+    <li><a href="./ActiveSupport/XmlMini_JDOM.html">ActiveSupport::XmlMini_JDOM</a>
+  
+    <li><a href="./ActiveSupport/XmlMini_LibXML.html">ActiveSupport::XmlMini_LibXML</a>
+  
+    <li><a href="./ActiveSupport/XmlMini_LibXMLSAX.html">ActiveSupport::XmlMini_LibXMLSAX</a>
+  
+    <li><a href="./ActiveSupport/XmlMini_LibXMLSAX/HashBuilder.html">ActiveSupport::XmlMini_LibXMLSAX::HashBuilder</a>
+  
+    <li><a href="./ActiveSupport/XmlMini_Nokogiri.html">ActiveSupport::XmlMini_Nokogiri</a>
+  
+    <li><a href="./ActiveSupport/XmlMini_Nokogiri/Conversions.html">ActiveSupport::XmlMini_Nokogiri::Conversions</a>
+  
+    <li><a href="./ActiveSupport/XmlMini_Nokogiri/Conversions/Document.html">ActiveSupport::XmlMini_Nokogiri::Conversions::Document</a>
+  
+    <li><a href="./ActiveSupport/XmlMini_Nokogiri/Conversions/Node.html">ActiveSupport::XmlMini_Nokogiri::Conversions::Node</a>
+  
+    <li><a href="./ActiveSupport/XmlMini_NokogiriSAX.html">ActiveSupport::XmlMini_NokogiriSAX</a>
+  
+    <li><a href="./ActiveSupport/XmlMini_NokogiriSAX/HashBuilder.html">ActiveSupport::XmlMini_NokogiriSAX::HashBuilder</a>
+  
+    <li><a href="./ActiveSupport/XmlMini_REXML.html">ActiveSupport::XmlMini_REXML</a>
+  
+    <li><a href="./Array.html">Array</a>
+  
+    <li><a href="./Benchmark.html">Benchmark</a>
+  
+    <li><a href="./BigDecimal.html">BigDecimal</a>
+  
+    <li><a href="./Class.html">Class</a>
+  
+    <li><a href="./Date.html">Date</a>
+  
+    <li><a href="./DateAndTime.html">DateAndTime</a>
+  
+    <li><a href="./DateAndTime/Calculations.html">DateAndTime::Calculations</a>
+  
+    <li><a href="./DateAndTime/Zones.html">DateAndTime::Zones</a>
+  
+    <li><a href="./DateTime.html">DateTime</a>
+  
+    <li><a href="./Digest/UUID.html">Digest::UUID</a>
+  
+    <li><a href="./Enumerable.html">Enumerable</a>
+  
+    <li><a href="./FalseClass.html">FalseClass</a>
+  
+    <li><a href="./File.html">File</a>
+  
+    <li><a href="./Float.html">Float</a>
+  
+    <li><a href="./Hash.html">Hash</a>
+  
+    <li><a href="./I18n/Railtie.html">I18n::Railtie</a>
+  
+    <li><a href="./Integer.html">Integer</a>
+  
+    <li><a href="./Kernel.html">Kernel</a>
+  
+    <li><a href="./LibXML.html">LibXML</a>
+  
+    <li><a href="./LibXML/Conversions.html">LibXML::Conversions</a>
+  
+    <li><a href="./LibXML/Conversions/Document.html">LibXML::Conversions::Document</a>
+  
+    <li><a href="./LibXML/Conversions/Node.html">LibXML::Conversions::Node</a>
+  
+    <li><a href="./LoadError.html">LoadError</a>
+  
+    <li><a href="./LoggerSilence.html">LoggerSilence</a>
+  
+    <li><a href="./Marshal.html">Marshal</a>
+  
+    <li><a href="./Method.html">Method</a>
+  
+    <li><a href="./MissingSourceFile.html">MissingSourceFile</a>
+  
+    <li><a href="./Module.html">Module</a>
+  
+    <li><a href="./Module/Concerning.html">Module::Concerning</a>
+  
+    <li><a href="./Module/DelegationError.html">Module::DelegationError</a>
+  
+    <li><a href="./NameError.html">NameError</a>
+  
+    <li><a href="./NilClass.html">NilClass</a>
+  
+    <li><a href="./Numeric.html">Numeric</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./Process/Status.html">Process::Status</a>
+  
+    <li><a href="./QualifiedConstUtils.html">QualifiedConstUtils</a>
+  
+    <li><a href="./Range.html">Range</a>
+  
+    <li><a href="./Regexp.html">Regexp</a>
+  
+    <li><a href="./Struct.html">Struct</a>
+  
+    <li><a href="./Symbol.html">Symbol</a>
+  
+    <li><a href="./Thread.html">Thread</a>
+  
+    <li><a href="./TrueClass.html">TrueClass</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main">
+<p>This is the API documentation for activesupport-4.2.6 Documentation.
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
